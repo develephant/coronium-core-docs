@@ -60,3 +60,43 @@ local plugin = require("plugins.<plugin-name>")
 ```
 
 Note: _Plugins cannot access the `core` namespace._
+
+# Projects
+
+A project tree:
+
+```
+project-dir/
+  config.lua
+  main.lua
+```
+
+## config.lua
+
+Contains the project key, which must be passed from the client.
+
+_config.lua_
+
+```lua
+{
+  key = '1234'
+}
+```
+
+
+## main.lua
+
+Contains the api actions that are called by the client. This file has access to the `core` namespace and must extend the `core.api` object.
+
+_main.lua_
+
+```lua
+local api = core.api()
+
+function api.test(input)
+  return input
+end 
+
+return api
+```
+
