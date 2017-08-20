@@ -17,7 +17,7 @@ On the next screen, first select a __Ubuntu 16.04__ droplet distribution.
 
 ![step2](../imgs/step02.png) 
 
-Select your preferred droplet size. A __512MB/1 CPU__ droplet is a good starting point. You can always increase the size later.
+Select the droplet size. A __1 GB/1 CPU__ droplet is recommended as a minimum. If you're only testing, you can use a 512 MB droplet and increase the size later.
 
 ![step3](../imgs/step03.png)
 
@@ -30,19 +30,19 @@ Select your SSH profile to attach to the droplet.
 ![step5](../imgs/step05.png)
 
 !!! caution
-    There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing __Coronium SkyTable__, though I wouldn't recommend it. You can learn more about generating SSH keys for [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) here: [Creating SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets).
+    There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing __Coronium Core__, though I wouldn't recommend it. You can learn more about generating SSH keys for [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) here: [Creating SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets).
 
 Now give your droplet a hostname.
 
 ![step6](../imgs/step06.png)
 
-_Be sure to replace __skytable.develephant.com__ with your own hostname._
+_Be sure to replace __coronium.develephant.com__ with your own hostname._
 
 And finally, click the __Create__ button to spin up the droplet.
 
 ![step7](../imgs/step07.png)
 
-### Install SkyTable
+### Install Coronium Core
 
 Once your droplet is done spinning up, note the ip address.
 
@@ -63,7 +63,7 @@ Once you are connected to the droplet, copy and paste the following line into th
 
 `curl -LO https://s3.amazonaws.com/coronium-skytable/up.sh && sudo bash ./up.sh`
 
-Once the installation is complete, __Coronium SkyTable__ is ready for action. Log out of the server by typing __exit__ on the command line.
+Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
 
 !!! tip "Upgrade to HTTPS"
-    Now is a good time to secure your SkyTable server using HTTPS. See the __[HTTPS/SSL](/ssl)__ section of the documentation.
+    Now is a good time to secure your Coronium Core server using HTTPS. See the __[HTTPS/SSL](/ssl)__ section of the documentation.

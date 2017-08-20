@@ -1,4 +1,4 @@
-__Coronium SkyTable__ is eligible for the EC2 free tier using Amazon Web Services.
+__Coronium Core__ server is eligible for the EC2 free tier using Amazon Web Services.
 
 !!! warning "Prerequisites"
     This guide assumes that you have an active AWS account, and are familiar with managing EC2 instances.
@@ -22,7 +22,7 @@ Click the __Add Rule__ button on the __Configure Security Group__ screen, and ad
 
 Adjust any additional settings, and then __Launch__ the AMI.
 
-### Install SkyTable
+### Install Coronium Core
 
 Once your instance is in a __running__ state, note the __IPv4 Public IP__ address.
 
@@ -41,7 +41,7 @@ Once you are connected to the droplet, copy and paste the following line into th
 
 `curl -LO https://s3.amazonaws.com/coronium-skytable/ami.sh && sudo bash ./ami.sh`
 
-Once the installation is complete, __Coronium SkyTable__ is ready for action. Log out of the server by typing __exit__ on the command line.
+Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
 
 !!! tip "Upgrade to HTTPS"
-    Now is a good time to secure your SkyTable server using HTTPS. See the __[HTTPS/SSL](/ssl)__ section of the documentation.
+    Now is a good time to secure your Coronium Core server using HTTPS. See the __[HTTPS/SSL](/ssl)__ section of the documentation.

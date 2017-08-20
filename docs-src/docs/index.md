@@ -2,7 +2,7 @@
 
 # Coronium Core
 
-___A performant and secure user scoped table datastore and client for use with [Corona](https://coronalabs.com).___
+___Extend your [Corona](https://coronalabs.com) business and game applications into the cloud.___
 
 Available for installation as a __[DigitalOcean](install/digitalocean)__ droplet or __[Amamzon EC2](install/ec2)__ instance.
 

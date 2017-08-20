@@ -3,20 +3,20 @@
 !!! note "Screencast"
     View the secure install instructions in a screencast format by [clicking here](https://youtu.be/8WyWMkVLQWw).
 
-Secure your __SkyTable__ server by utilizing the free SSL certificate service __[Let's Encrypt](https://letsencrypt.org/)__.
+Secure your __Coronium Core__ server by utilizing the free SSL certificate service __[Let's Encrypt](https://letsencrypt.org/)__.
 
 !!! warning
-    Setting up a secure SkyTable server is not a trivial process, so be sure to read through _all_ of the steps before starting, and then follow them carefully.
+    Setting up a secure Coronium Core server is not a trivial process, so be sure to read through _all_ of the steps before starting, and then follow them carefully.
 
 To be issued a secure certificate, you must have a fully qualified domain name, and the proper DNS set up to serve the domain.
 
 A fully qualified domain name is basically a registered domain name. Where you decide to purchase a domain is up to you. __[GoDaddy](https://www.godaddy.com/)__ is a popular choice. 
 
-Once you have your domain name, you will need to "point" it to your SkyTable server. Most domain registars provide a means of setting up DNS.
+Once you have your domain name, you will need to "point" it to your Coronium Core server. Most domain registars provide a means of setting up DNS.
 
-You will want to set up a 3rd level domain for your SkyTable server. This looks something like:
+You will want to set up a 3rd level domain for your Coronium Core server. This looks something like:
 
-__skytable.<mydomain\>.com__
+coronium.<mydomain\>.com__
 
 ### Amazon
 
@@ -51,8 +51,8 @@ _Instructions for setting nameservers on GoDaddy can be found [here](https://www
 
 4\. On the next screen, do the following:
 
- - Enter the hostname (only the domain prefix) of your SkyTable server. (1)
- - From the __WILL DIRECT TO__ field, select your SkyTable droplet. (2)
+ - Enter the hostname (only the domain prefix) of your Coronium Core server. (1)
+ - From the __WILL DIRECT TO__ field, select your Coronium Core droplet. (2)
 
 ![ssl-step4](imgs/ssl-step04.png)
 
@@ -69,37 +69,37 @@ You can check the progress using a site like [whatsmydns](https://www.whatsmydns
 !!! Danger
     ___Do not continue with this guide until you have an active domain name for your SkyTable server that you can reach through your web browser.___
 
-To move your SkyTable server over to HTTPS, perform the following steps:
+To move your Coronium Core server over to HTTPS, perform the following steps:
 
-1\. Log into your SkyTable droplet using the __root__ user:
+1\. Log into your Coronium Core droplet using the __root__ user:
 
 ```sh
-ssh root@<your-skytable-domain>
+ssh root@<your-coronium-domain>
 ```
 
 _Note: The root user is __ubuntu__ if hosting on Amazon._
 
-If you have not changed the password yet, the default is __coroniumadmin__. You may be prompted for your password at various times during this process.
+If you have not changed the password yet, the default is __cloudadmin__. You may be prompted for your password at various times during this process.
 
-2\. Copy and paste the following on the command line to run the SkyTable SSL updater:
+2\. Copy and paste the following on the command line to run the Coronium Core SSL updater:
 
 !!! warning
     At this point make sure you're ready to move over to HTTPS. The following process will permanently modify your configuration settings.
 
-`curl -LO https://s3.amazonaws.com/coronium-skytable/ssl.sh && sudo bash ./ssl.sh`
+`curl -LO https://s3.amazonaws.com/coronium-core/ssl.sh && sudo bash ./ssl.sh`
 
 The script will install the needed components, and update the configuration files. 
 
 You will then be propted for the _hostname_, a _fully qualified domain name_, and a valid _email_. These items are required to request a certificate from Let's Encrypt.
 
-As stated earlier, you should have created a 3rd level domain, for example: __skytable.<domain\>.com__. Using the example, when entering the requested information, it might look like:
+As stated earlier, you should have created a 3rd level domain, for example: __coronium.<domain\>.com__. Using the example, when entering the requested information, it might look like:
 
 !!! note
     Make sure to hit the _delete_ key a few times before entering values. If the update returns a confirmation instantly, then a space in the data is the most likely reason. If this happens, start again at step 2 above.
 
-_Enter a hostname:_ __skytable__
+_Enter a hostname:_ __coronium__
 
-_Enter a FQDN:_ __skytable.<domain\>.com__
+_Enter a FQDN:_ __coronium.<domain\>.com__
 
 _Enter an email:_ __you@your-email.com__
 
@@ -108,7 +108,7 @@ Be sure to replace the information with your own answers.
 !!! warning
     Make sure to triple check your information. If not, then you might not be issued a certificate.
 
-After receiving your secure certificate, the script will exit and your SkyTable server will be accesible using __https__. 
+After receiving your secure certificate, the script will exit and your Coronium Core server will be accesible using __https__. 
 
 !!! tip
     It's generally a good idea to reboot the server instance by entering __sudo reboot -h__ on the command line. Wait a minute, and then check to make sure the server is running again.
@@ -116,11 +116,7 @@ After receiving your secure certificate, the script will exit and your SkyTable 
 Be sure to update the __host__ in the client configuration (in the Corona project):
 
 ```lua
-skytable:init({
-  user = "<user-email>",
-  password = "<user-password>",
-  base = "app1",
-  host = "https://<skytable-host>:7173",
-  key = "<server-key>"
+core:init({
+  server = "https://<coronium-core-host>"
 })
 ```
