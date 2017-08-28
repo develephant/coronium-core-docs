@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-install/digitalocean/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-install/ec2/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-install/postinstall/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-setup/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-guide/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/overview/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/api/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/db/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/geoip/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/json/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/mysql/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/network/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server-api/utils/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client-setup/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client-guide/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client-api/api/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client-api/core/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client-api/files/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/example/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/ssl/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/about/</loc>
+     <lastmod>2017-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+</urlset>

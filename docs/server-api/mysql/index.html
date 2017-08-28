@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>MySQL - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "server-api/mysql.md";
+    var mkdocs_page_url = "/server-api/mysql/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">MySQL</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#query">query</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#string">string</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#databag-usage">Databag Usage</a></li>
+                
+                    <li><a class="toctree-l4" href="#databag">databag</a></li>
+                
+                    <li><a class="toctree-l4" href="#select">select</a></li>
+                
+                    <li><a class="toctree-l4" href="#insert">insert</a></li>
+                
+                    <li><a class="toctree-l4" href="#update">update</a></li>
+                
+                    <li><a class="toctree-l4" href="#delete">delete</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cleanbag">cleanbag</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network/">Network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../ssl/">HTTPS / SSL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Server API &raquo;</li>
+        
+      
+    
+    <li>MySQL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<p>Your Coronium Core server contains a local <strong>MySQL</strong> database. It's also possible to connect to a remote <strong>MySQL</strong> database as well.</p>
+<hr />
+<h2 id="query">query</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span> <span class="n">connection_tbl</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>connection_tbl</td>
+<td>The connection table for the database (see below).</td>
+<td><em>nil</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>query_str</td>
+<td>The MySQL query to send to the database.</td>
+<td><em>nil</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>The Connection Table</strong></p>
+<p>You need to provide a database connection table to select the working database. The table uses the following keys:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>The database to work with.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>user</td>
+<td>The database user.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>password</td>
+<td>The user password</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>host</td>
+<td>The database host, can be used for external connections.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>port</td>
+<td>The database port number.</td>
+<td><em>Number</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">client_id</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;clients&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM orders WHERE id=%d&quot;</span><span class="p">,</span> <span class="n">client_id</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">conn_tbl</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">--error is in the result</span>
+<span class="kr">end</span>
+
+<span class="c1">-- `result` is a table array of records.</span>
+</pre></div>
+
+
+<hr />
+<h1 id="string">string</h1>
+<p>Return a <strong>MySQL</strong> safe string.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">string</span><span class="p">(</span> <span class="n">unwashed_string</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Requried</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unwashed_string</td>
+<td>The string to make SQL "safe".</td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">safe_str</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="s2">&quot;Some possibly unsafe string.&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h1 id="databag-usage">Databag Usage</h1>
+<p>A <strong>databag</strong> wraps common MySQL actions into a module format.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you prefer the query style shown above, feel free to use it instead. They both produce similar results.</p>
+</div>
+<hr />
+<h2 id="databag">databag</h2>
+<p>A prebuilt data object for basic <strong>MySQL</strong> handling.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">connection_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>A new databag instance.</p>
+<p><strong>Parameters</strong></p>
+<p>See <strong>The Connection Table</strong> section above.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="select">select</h2>
+<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="nb">select</span><span class="p">(</span> <span class="n">select_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method requires a table with the following keys (not all keys required):</p>
+<p><strong>Select Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tableName</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>columns</td>
+<td>Specific columns to select as strings.</td>
+<td><em>Table array</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>Any additional WHERE clause to apply.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>orderby</td>
+<td>The sorting attributes. See <strong>Orderby Table</strong>.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limit the amount of the return to this number.</td>
+<td><em>Number</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>Do not select duplicate column values.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Orderby Table Keys</strong></p>
+<p>The <strong>orderby</strong> key in the <strong>Select Table</strong> is a table array filled with table objects containing the following keys:</p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>colName</td>
+<td>Name of a column to sort on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>direction</td>
+<td>Which direction to sort the column</td>
+<td><strong>core.ASC</strong> or <strong>core.DESC</strong></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Select and return all records from &#39;scores&#39;.</span>
+<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span><span class="n">conn_tbl</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="nb">select</span><span class="p">({</span>
+  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Records are Lua tables in a table array.</span>
+<span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">record</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="kr">do</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">player</span><span class="o">..</span><span class="s1">&#39; scored &#39;</span><span class="o">..</span><span class="n">record</span><span class="p">.</span><span class="n">score</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">result</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Select and return refined query.</span>
+<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">errCode</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="nb">select</span><span class="p">({</span>
+  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+  <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">},</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="s1">&#39;score &gt; 10&#39;</span><span class="p">,</span>
+  <span class="n">limit</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
+  <span class="n">orderby</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">DESCENDING</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span> <span class="n">err</span><span class="p">,</span> <span class="n">errCode</span> <span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">result</span>
+</pre></div>
+
+
+<hr />
+<h2 id="insert">insert</h2>
+<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">insert_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>insert_tbl</td>
+<td>The insert table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Insert Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tableName</td>
+<td>The MySQL table name to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>columns</td>
+<td>An array of column names as strings.</td>
+<td><em>Table array</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>values</td>
+<td>An array of values for each specified column.</td>
+<td><em>Table array (mixed)</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The amount of columns must match the amount of values for this action to be successful.</p>
+</div>
+<p><strong>Returns</strong></p>
+<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">insert</span><span class="p">({</span>
+  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+  <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;player&#39;</span><span class="p">},</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;Sandy&#39;</span><span class="p">}</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">result</span>
+</pre></div>
+
+
+<hr />
+<h2 id="update">update</h2>
+<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">update</span><span class="p">(</span> <span class="n">update_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update_tbl</td>
+<td>The update table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Update Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tableName</td>
+<td>The name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>values</td>
+<td>Table of name = val pairs.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>Where the colums should be updated.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">databag</span><span class="p">:</span><span class="n">update</span><span class="p">({</span>
+  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">230</span>
+  <span class="p">},</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="s1">&#39;player=&#39;</span><span class="o">..</span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">string</span><span class="p">(</span><span class="n">player</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">result</span>
+</pre></div>
+
+
+<hr />
+<h2 id="delete">delete</h2>
+<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span> <span class="n">delete_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delete_tbl</td>
+<td>The delete table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Delete Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tableName</td>
+<td>The name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>A WHERE clause to limit deletions to.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>force</td>
+<td>Disables safety check for mising where clause.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Though optional, you should <em>always</em> include a where key query when removing records. Without it, you could possibly delete <em>all</em> of the tables records.</p>
+</div>
+<p><strong>Returns</strong></p>
+<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
+<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">databag</span><span class="p">:</span><span class="n">delete</span><span class="p">({</span>
+  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="s1">&#39;score &lt; 10&#39;</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">result</span>
+</pre></div>
+
+
+<hr />
+<h1 id="cleanbag">cleanbag</h1>
+<p>Clears all internal databag query variables <em>except</em> the connection table. The databag is still usable.</p>
+<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">cleanbag</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You generally don't need to call this method. It's called automatically before any new actions take place.</p>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../network/" class="btn btn-neutral float-right" title="Network">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../json/" class="btn btn-neutral" title="JSON"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../json/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../network/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

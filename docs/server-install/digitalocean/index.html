@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>DigitalOcean - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DigitalOcean";
+    var mkdocs_page_input_path = "server-install/digitalocean.md";
+    var mkdocs_page_url = "/server-install/digitalocean/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">DigitalOcean</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#create-a-droplet">Create A Droplet</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#install-coronium-core">Install Coronium Core</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/mysql/">MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/network/">Network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-api/utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../ssl/">HTTPS / SSL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Server Install &raquo;</li>
+        
+      
+    
+    <li>DigitalOcean</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><strong>Coronium Core</strong> runs best on a <strong><a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> Ubuntu 16.04</strong> droplet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>If you're new to <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> please consider signing up with <strong><a href="https://m.do.co/c/cddeeddbbdb8">this link</a></strong>. Not only will you receive a $10 credit (2 free months), but it also helps support the continued development, and testing of <strong>Coronium SkyTable</strong>.</p>
+</div>
+<h3 id="create-a-droplet">Create A Droplet</h3>
+<p>Once you log into your <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> account, click the <strong>Create</strong> button and select <strong>Droplets</strong> from the menu.</p>
+<p><img alt="step1" src="../../imgs/step01.png" /></p>
+<p>On the next screen, first select a <strong>Ubuntu 16.04</strong> droplet distribution.</p>
+<p><img alt="step2" src="../../imgs/step02.png" /> </p>
+<p>Select the droplet size. A <strong>1 GB/1 CPU</strong> droplet is recommended as a minimum. If you're only testing, you can use a 512 MB droplet and increase the size later.</p>
+<p><img alt="step3" src="../../imgs/step03.png" /></p>
+<p>Next, select a region for the droplet. Consider choosing a location closest to your most active user base.</p>
+<p><img alt="step4" src="../../imgs/step04.png" /></p>
+<p>Select your SSH profile to attach to the droplet.</p>
+<p><img alt="step5" src="../../imgs/step05.png" /></p>
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing <strong>Coronium Core</strong>, though I wouldn't recommend it. You can learn more about generating SSH keys for <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> here: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets">Creating SSH Keys</a>.</p>
+</div>
+<p>Now give your droplet a hostname.</p>
+<p><img alt="step6" src="../../imgs/step06.png" /></p>
+<p><em>Be sure to replace <strong>coronium.develephant.com</strong> with your own hostname.</em></p>
+<p>And finally, click the <strong>Create</strong> button to spin up the droplet.</p>
+<p><img alt="step7" src="../../imgs/step07.png" /></p>
+<h3 id="install-coronium-core">Install Coronium Core</h3>
+<p>Once your droplet is done spinning up, note the ip address.</p>
+<p><img alt="step8" src="../../imgs/step08.png" /></p>
+<p>Using a terminal/shell of your choice, SSH into the droplet.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can use the built in shells on both OSX and Linux. For Windows, check out <strong><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a></strong>.</p>
+</div>
+<div class="codehilite"><pre><span></span>ssh root@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<p><em>Replace <strong>&lt;your-instance-ip></strong> with the address that was assigned to your droplet.</em></p>
+<p>Once you are connected to the droplet, copy and paste the following line into the terminal:</p>
+<p><code>curl -LO https://s3.amazonaws.com/coronium-core/up.sh &amp;&amp; sudo bash ./up.sh</code></p>
+<p>Once the installation is complete, <strong>Coronium Core</strong> is ready for action. Log out of the server by typing <strong>exit</strong> on the command line.</p>
+<div class="admonition tip">
+<p class="admonition-title">Upgrade to HTTPS</p>
+<p>Now is a good time to secure your Coronium Core server using HTTPS. See the <strong><a href="../../ssl">HTTPS/SSL</a></strong> section of the documentation.</p>
+</div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../ec2/" class="btn btn-neutral float-right" title="Amazon EC2">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../ec2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

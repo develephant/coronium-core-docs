@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>HTTPS / SSL - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "HTTPS / SSL";
+    var mkdocs_page_input_path = "ssl.md";
+    var mkdocs_page_url = "/ssl/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-install/digitalocean/">DigitalOcean</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-install/ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-install/postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/mysql/">MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/network/">Network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../server-api/utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../client-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../client-api/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../client-api/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">HTTPS / SSL</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#amazon">Amazon</a></li>
+                
+                    <li><a class="toctree-l4" href="#digitalocean">DigitalOcean</a></li>
+                
+                    <li><a class="toctree-l4" href="#lets-encrypt">Let's Encrypt</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>HTTPS / SSL</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<div class="admonition note">
+<p class="admonition-title">Screencast</p>
+<p>View the secure install instructions in a screencast format by <a href="https://youtu.be/8WyWMkVLQWw">clicking here</a>.</p>
+</div>
+<p>Secure your <strong>Coronium Core</strong> server by utilizing the free SSL certificate service <strong><a href="https://letsencrypt.org/">Let's Encrypt</a></strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Setting up a secure Coronium Core server is not a trivial process, so be sure to read through <em>all</em> of the steps before starting, and then follow them carefully.</p>
+</div>
+<p>To be issued a secure certificate, you must have a fully qualified domain name, and the proper DNS set up to serve the domain.</p>
+<p>A fully qualified domain name is basically a registered domain name. Where you decide to purchase a domain is up to you. <strong><a href="https://www.godaddy.com/">GoDaddy</a></strong> is a popular choice. </p>
+<p>Once you have your domain name, you will need to "point" it to your Coronium Core server. Most domain registars provide a means of setting up DNS.</p>
+<p>You will want to set up a 3rd level domain for your Coronium Core server. This looks something like:</p>
+<p>coronium.&lt;mydomain>.com__</p>
+<h3 id="amazon">Amazon</h3>
+<p>When you first install SkyTable, make sure to add port 443 to your security group settings. You can then use the <a href="https://console.aws.amazon.com/route53/home">Route 53</a> service for your DNS. There are ample guides to assist you. </p>
+<p>Once set up, proceed to the <a href="#lets-encrypt">Let's Encrypt</a> section below.</p>
+<h3 id="digitalocean">DigitalOcean</h3>
+<p>You will need to point your domain to the DigitalOcean nameservers. The process for this varies by domain registar, but in all cases, you will need the DigitalOcean nameserver addresses, which are:</p>
+<ul>
+<li>ns1.digitalocean.com</li>
+<li>ns2.digitalocean.com</li>
+<li>ns3.digitalocean.com</li>
+</ul>
+<p><em>Instructions for setting nameservers on GoDaddy can be found <a href="https://www.godaddy.com/help/set-custom-nameservers-for-domains-registered-with-godaddy-12317">here</a>.</em></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p><strong>Spin up a SkyTable droplet as outlined in the <a href="../install/digitalocean">DigitalOcean Installation</a> section before continuing.</strong></p>
+</div>
+<p>1. In the DigitalOcean control panel, click the <strong>Networking</strong> link at the top:</p>
+<p><img alt="ssl-step1" src="../imgs/ssl-step01.png" /></p>
+<p>2. Enter your new domain name, without any prefix:</p>
+<p><img alt="ssl-step2" src="../imgs/ssl-step02.png" /></p>
+<p>3. Click the <strong>Add Domain</strong> button:</p>
+<p><img alt="ssl-step3" src="../imgs/ssl-step03.png" /></p>
+<p>4. On the next screen, do the following:</p>
+<ul>
+<li>Enter the hostname (only the domain prefix) of your Coronium Core server. (1)</li>
+<li>From the <strong>WILL DIRECT TO</strong> field, select your Coronium Core droplet. (2)</li>
+</ul>
+<p><img alt="ssl-step4" src="../imgs/ssl-step04.png" /></p>
+<p>5. Click the <strong>Create Record</strong> button on the right:</p>
+<p><img alt="ssl-step5" src="../imgs/ssl-step05.png" /></p>
+<p>At this point your DNS is set up, but generally needs to propagate. This can take anywhere from 5 minutes to a number of hours (though usually within 15 minutes). </p>
+<p>You can check the progress using a site like <a href="https://www.whatsmydns.net/#A/">whatsmydns</a>. Enter the full domain, including the prefix, to test.</p>
+<h2 id="lets-encrypt">Let's Encrypt</h2>
+<div class="admonition danger">
+<p class="admonition-title">Danger</p>
+<p><strong><em>Do not continue with this guide until you have an active domain name for your SkyTable server that you can reach through your web browser.</em></strong></p>
+</div>
+<p>To move your Coronium Core server over to HTTPS, perform the following steps:</p>
+<p>1. Log into your Coronium Core droplet using the <strong>root</strong> user:</p>
+<div class="codehilite"><pre><span></span>ssh root@&lt;your-coronium-domain&gt;
+</pre></div>
+
+
+<p><em>Note: The root user is <strong>ubuntu</strong> if hosting on Amazon.</em></p>
+<p>If you have not changed the password yet, the default is <strong>cloudadmin</strong>. You may be prompted for your password at various times during this process.</p>
+<p>2. Copy and paste the following on the command line to run the Coronium Core SSL updater:</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>At this point make sure you're ready to move over to HTTPS. The following process will permanently modify your configuration settings.</p>
+</div>
+<p><code>curl -LO https://s3.amazonaws.com/coronium-core/ssl.sh &amp;&amp; sudo bash ./ssl.sh</code></p>
+<p>The script will install the needed components, and update the configuration files. </p>
+<p>You will then be propted for the <em>hostname</em>, a <em>fully qualified domain name</em>, and a valid <em>email</em>. These items are required to request a certificate from Let's Encrypt.</p>
+<p>As stated earlier, you should have created a 3rd level domain, for example: <strong>coronium.&lt;domain>.com</strong>. Using the example, when entering the requested information, it might look like:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Make sure to hit the <em>delete</em> key a few times before entering values. If the update returns a confirmation instantly, then a space in the data is the most likely reason. If this happens, start again at step 2 above.</p>
+</div>
+<p><em>Enter a hostname:</em> <strong>coronium</strong></p>
+<p><em>Enter a FQDN:</em> <strong>coronium.&lt;domain>.com</strong></p>
+<p><em>Enter an email:</em> <strong>you@your-email.com</strong></p>
+<p>Be sure to replace the information with your own answers.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Make sure to triple check your information. If not, then you might not be issued a certificate.</p>
+</div>
+<p>After receiving your secure certificate, the script will exit and your Coronium Core server will be accesible using <strong>https</strong>. </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>It's generally a good idea to reboot the server instance by entering <strong>sudo reboot -h</strong> on the command line. Wait a minute, and then check to make sure the server is running again.</p>
+</div>
+<p>Be sure to update the <strong>host</strong> in the client configuration (in the Corona project):</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">:</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://&lt;coronium-core-host&gt;&quot;</span>
+<span class="p">})</span>
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/" class="btn btn-neutral float-right" title="About">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../example/" class="btn btn-neutral" title="Examples"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../example/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../js/theme.js"></script>
+
+</body>
+</html>

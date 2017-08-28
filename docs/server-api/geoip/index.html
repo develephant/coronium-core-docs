@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>GeoIP - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "GeoIP";
+    var mkdocs_page_input_path = "server-api/geoip.md";
+    var mkdocs_page_url = "/server-api/geoip/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">GeoIP</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#countrycode">countryCode</a></li>
+                
+                    <li><a class="toctree-l4" href="#countrycode3">countryCode3</a></li>
+                
+                    <li><a class="toctree-l4" href="#countryname">countryName</a></li>
+                
+                    <li><a class="toctree-l4" href="#city">city</a></li>
+                
+                    <li><a class="toctree-l4" href="#postalcode">postalCode</a></li>
+                
+                    <li><a class="toctree-l4" href="#citycontinentcode">cityContinentCode</a></li>
+                
+                    <li><a class="toctree-l4" href="#region">region</a></li>
+                
+                    <li><a class="toctree-l4" href="#regionname">regionName</a></li>
+                
+                    <li><a class="toctree-l4" href="#latitude">latitude</a></li>
+                
+                    <li><a class="toctree-l4" href="#longitude">longitude</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mysql/">MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network/">Network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../ssl/">HTTPS / SSL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Server API &raquo;</li>
+        
+      
+    
+    <li>GeoIP</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<p>The following methods use the <strong><a href="http://dev.maxmind.com/geoip/legacy/geolite/#Downloads">GeoIP</a></strong> databases. All data is based on incoming IP, which may or may not be proxied.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The following methods can only be used within a <strong>core.api</strong> method.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following methods may return nothing depending on the database IP matching.</p>
+</div>
+<hr />
+<h2 id="countrycode">countryCode</h2>
+<p>Two-letter country code, for example, “RU”, “US”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">country_code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">countryCode</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="countrycode3">countryCode3</h2>
+<p>Three-letter country code, for example, “RUS”, “USA”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">country_code3</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">countryCode3</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="countryname">countryName</h2>
+<p>Country name, for example, “Russian Federation”, “United States”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">country_name</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">countryName</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="city">city</h2>
+<p>City name, for example, “Moscow”, “Washington”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">city</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">city</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="postalcode">postalCode</h2>
+<p>Postal code.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">postal_code</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">postalCode</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="citycontinentcode">cityContinentCode</h2>
+<p>Two-letter continent code, for example, “EU”, “NA”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">city_continent_code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">cityContinentCode</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="region">region</h2>
+<p>Two-symbol country region code (region, territory, state, province, etc.), for example, “48”, “DC”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">region</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">region</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="regionname">regionName</h2>
+<p>Country region name (region, territory, state, province, etc.), for example, “Moscow City”, “District of Columbia”.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">region_name</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">regionName</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="latitude">latitude</h2>
+<p>Latitude.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">latitude</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">latitude</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="longitude">longitude</h2>
+<p>Longitude.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">longitude</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">geoip</span><span class="p">.</span><span class="n">longitude</span><span class="p">()</span>
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../json/" class="btn btn-neutral float-right" title="JSON">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../db/" class="btn btn-neutral" title="DB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../db/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../json/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

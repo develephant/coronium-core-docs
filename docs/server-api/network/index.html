@@ -1,0 +1,789 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Network - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Network";
+    var mkdocs_page_input_path = "server-api/network.md";
+    var mkdocs_page_url = "/server-api/network/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../overview/">Overview</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../db/">DB</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mysql/">MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Network</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#new">new</a></li>
+                
+                    <li><a class="toctree-l4" href="#host">host</a></li>
+                
+                    <li><a class="toctree-l4" href="#port">port</a></li>
+                
+                    <li><a class="toctree-l4" href="#path">path</a></li>
+                
+                    <li><a class="toctree-l4" href="#header">header</a></li>
+                
+                    <li><a class="toctree-l4" href="#headers">headers</a></li>
+                
+                    <li><a class="toctree-l4" href="#method">method</a></li>
+                
+                    <li><a class="toctree-l4" href="#timeout">timeout</a></li>
+                
+                    <li><a class="toctree-l4" href="#ssl_verify">ssl_verify</a></li>
+                
+                    <li><a class="toctree-l4" href="#body">body</a></li>
+                
+                    <li><a class="toctree-l4" href="#result">result</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client API</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-api/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../ssl/">HTTPS / SSL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Server API &raquo;</li>
+        
+      
+    
+    <li>Network</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<p>Make external HTTP network requests and retrieve the results.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;google.com&#39;</span><span class="p">)</span> <span class="c1">--host only, no path</span>
+<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/end/point&#39;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="n">JSON</span> <span class="n">CONTENT</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
+  <span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="c1">-- add more headers</span>
+<span class="p">})</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All of the network methods, except for <strong>new</strong> and <strong>request</strong> are getters and setters.</p>
+</div>
+<p><strong>Using getters and setters</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- To get a value, omit any arguments</span>
+<span class="kd">local</span> <span class="n">host</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">()</span>
+
+<span class="c1">-- To set a an option</span>
+<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">)</span>
+
+<span class="c1">-- Chain options</span>
+<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">):</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="new">new</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="p">[</span><span class="n">host</span><span class="p">][,</span> <span class="n">port</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>host</td>
+<td>The hostname to connect to.</td>
+<td><em>String</em></td>
+<td>'127.0.0.1'</td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>port</td>
+<td>The port number to connect with.</td>
+<td><em>Number</em></td>
+<td>80</td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>The host and port can be set with the network instance methods as well.</em></p>
+<p><strong>Returns</strong></p>
+<p>A new request connection object.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;123.123.123.123&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="host">host</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span> <span class="n">hostname</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>hostname</td>
+<td>The hostname to connect to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The hostname if no value is passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">hostname</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">(</span><span class="s1">&#39;13.13.13.13&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="port">port</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span> <span class="n">port</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port</td>
+<td>The port to connect to.</td>
+<td><em>Number</em></td>
+<td>80</td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The port if no value is passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">port</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="path">path</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span> <span class="n">path</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>The path to connect to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The path if no value is passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/echo/test&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="header">header</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The header name</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>value</td>
+<td>The header value.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The header value if only the name key is passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">)</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="headers">headers</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">(</span> <span class="n">headers</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>headers</td>
+<td>A table of request headers.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>All headers if no arguments are passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
+  <span class="s1">&#39;Content-Type&#39;</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Host&#39;</span> <span class="o">=</span> <span class="s1">&#39;12.12.12.12.&#39;</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The <strong>headers</strong> method will clear <em>all</em> existing header assigments.</p>
+</div>
+<hr />
+<h2 id="method">method</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>A HTTP method. Can use method constants (see below).</td>
+<td><em>core.POST</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The HTTP method name if no arguments are passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">GET</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Method Constants</strong></p>
+<table>
+<thead>
+<tr>
+<th>Constant</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>core.POST</td>
+<td>POST request method</td>
+</tr>
+<tr>
+<td>core.GET</td>
+<td>GET request method</td>
+</tr>
+<tr>
+<td>core.DELETE</td>
+<td>DELETE request method</td>
+</tr>
+<tr>
+<td>core.UPDATE</td>
+<td>UPDATE request method</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="timeout">timeout</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>timeout</td>
+<td>Timeout in <strong>milliseconds</strong>.</td>
+<td><em>Number</em></td>
+<td>500</td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The timeout setting if no arguments are passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="ssl_verify">ssl_verify</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span> <span class="n">verify_flag</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>verify_flag</td>
+<td>Enable or disable SSL verification.</td>
+<td><em>Boolean</em></td>
+<td>false</td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The ssl_verify value, if no arguments are passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ssl_verify</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="body">body</h2>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span> <span class="n">body_data</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body_data</td>
+<td>Set or retrieve the request body.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>The body data value, if no arguments are passed.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body_data</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">()</span>
+
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="s2">&quot;Here is some body data&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="result">result</h2>
+<p>Compiles the options and makes the network request. Must be the last method called on a network request object.</p>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>The <strong>result</strong> if successful, otherwise <strong>nil</strong> and <strong>error</strong> message.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../utils/" class="btn btn-neutral float-right" title="Utils">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../mysql/" class="btn btn-neutral" title="MySQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../mysql/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../utils/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>
