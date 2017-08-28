@@ -1,4 +1,6 @@
-After the Coronium Core installation runs, it is wise to reboot the server instance, so that you can free up any memory that may have been used during the installation process.
+# Reboot
+
+After the __Coronium Core__ installation runs, it is wise to reboot the server instance, so that you can free up any memory that may have been used during the installation process.
 
 On the command line, enter:
 

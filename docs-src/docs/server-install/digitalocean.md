@@ -1,11 +1,7 @@
-__Coronium SkyTable__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8) Ubuntu 16.04__ droplet.
+__Coronium Core__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8) Ubuntu 16.04__ droplet.
 
 !!! tip
     If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit (2 free months), but it also helps support the continued development, and testing of __Coronium SkyTable__.
-
-!!! note "Screencast"
-    View the installation instructions in a screencast format by [clicking here](https://www.youtube.com/watch?v=8Lx0ko2s6fY).
-
 
 ### Create A Droplet
 
@@ -61,7 +57,7 @@ _Replace __<your-instance-ip\>__ with the address that was assigned to your drop
 
 Once you are connected to the droplet, copy and paste the following line into the terminal:
 
-`curl -LO https://s3.amazonaws.com/coronium-skytable/up.sh && sudo bash ./up.sh`
+`curl -LO https://s3.amazonaws.com/coronium-core/up.sh && sudo bash ./up.sh`
 
 Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
 

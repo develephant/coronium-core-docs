@@ -1,4 +1,4 @@
-# GeoIP
+# Overview
 
 The following methods use the __[GeoIP](http://dev.maxmind.com/geoip/legacy/geolite/#Downloads)__ databases. All data is based on incoming IP, which may or may not be proxied.
 

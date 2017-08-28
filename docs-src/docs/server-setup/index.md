@@ -39,25 +39,19 @@ ssh coronium@<your-instance-ip>
 
 2\. Enter your password. If you have not updated the password yet, the default is __cloudadmin__.
 
-3\. Navigate to the __sbin__ directory:
+3\. Run the database setup tool:
 
 ```
-cd /usr/local/coronium/sbin
+sudo coronium-dbsetup
 ```
 
-4\. Run the database setup tool:
+4\. Carefully follow the prompts to set up the passwords for both MySQL and MongoDB.
 
-```
-sudo ./coronium-dbsetup
-```
-
-5\. Carefully follow the prompts to set up the passwords for both MySQL and MongoDB.
-
-6\. When you are finished, close the shell connection with:
+5\. When you are finished, close the shell connection:
 
 ```
 exit
 ```
 
-!!! note
-    You can use the passwords you set to access your databases externally.
+!!! tip
+    Use the passwords you set to access your databases externally.

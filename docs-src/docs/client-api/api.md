@@ -1,6 +1,9 @@
 # Overview
 
-Used to call server-side api methods.
+Used to call your server-side project api methods.
+
+!!! important
+    You must set the project using the __[core.useProject](core/#useproject)__ method before using the __api__ method.
 
 ## api
 
@@ -8,7 +11,7 @@ Used to call server-side api methods.
 core.api.<api-method>( data_tbl, listener )
 ```
 
-__Parameters:__
+__Parameters__
 
 |Name|Description|Required|
 |----|-----------|--------|
@@ -18,7 +21,7 @@ __Parameters:__
 !!! note
     If you're api method does not require any data, then pass an empty table ( {} ) to the __data_tbl__ parameter.
 
-__API Listener:__
+__API Listener__
 
 ```lua
 local function apiListener( evt )
@@ -31,9 +34,9 @@ end
 ```
 
 !!! tip "Server-Side"
-    Click __[here]()__ to learn how to set up the matching server-side api method.
+    Click __[here](server-api/api)__ to learn how to set up the matching server-side api method.
 
-__Example:__
+__Example__
 
 ```lua
 local function apiListener( evt )

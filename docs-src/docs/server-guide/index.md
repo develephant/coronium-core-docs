@@ -9,18 +9,21 @@ ssh coronium@<your-instance-ip>
 !!! tip
     To quickly monitor the main server log file, enter `cclog` on the command line.
 
-Log files can be found in the __/usr/local/coronium/logs__ directory.
+Log files can be found in the __/usr/local/coronium/logs__ directory. Possible log files include _nginx.log_ and _mongo.log_.
 
 To watch a log file in real-time:
 
 ```
-tail -f ~/logs/<log-name>.log
+tail -f /usr/local/coronium/logs/<log-name>.log
 ```
 
 Press __control-x__ to stop watching the log file.
 
 !!! note
     The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.
+
+!!! tip
+    To view all logs consolidated into one file (including the mysql.log) type __cc logs__.
 
 ---
 
