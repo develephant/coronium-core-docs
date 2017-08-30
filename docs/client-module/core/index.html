@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>API - Coronium Core</title>
+  <title>Core - Coronium Core</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "API";
-    var mkdocs_page_input_path = "client-api/api.md";
-    var mkdocs_page_url = "/client-api/api/";
+    var mkdocs_page_name = "Core";
+    var mkdocs_page_input_path = "client-module/core.md";
+    var mkdocs_page_url = "/client-module/core/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -98,61 +98,61 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Server API</span></li>
+    <li><span>Server Modules</span></li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/overview/">Overview</a>
+        <a class="" href="../../server-modules/api/">API</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/api/">API</a>
+        <a class="" href="../../server-modules/data/">Data</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/db/">DB</a>
+        <a class="" href="../../server-modules/geoip/">GeoIP</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/geoip/">GeoIP</a>
+        <a class="" href="../../server-modules/json/">JSON</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/json/">JSON</a>
+        <a class="" href="../../server-modules/mongo/">Mongo</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/mysql/">MySQL</a>
+        <a class="" href="../../server-modules/mysql/">MySQL</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/network/">Network</a>
+        <a class="" href="../../server-modules/network/">Network</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/utils/">Utils</a>
+        <a class="" href="../../server-modules/utils/">Utils</a>
         
     </li>
 
@@ -176,28 +176,30 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Client API</span></li>
+    <li><span>Client Module</span></li>
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">API</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#overview">Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#api">api</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../core/">Core</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Core</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#init">init</a></li>
+                
+                    <li><a class="toctree-l4" href="#useproject">useProject</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -255,11 +257,11 @@
     
       
         
-          <li>Client API &raquo;</li>
+          <li>Client Module &raquo;</li>
         
       
     
-    <li>API</li>
+    <li>Core</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -270,13 +272,50 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>Used to call your server-side project api methods.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You must set the project using the <strong><a href="../core/#useproject">core.useProject</a></strong> method before using the <strong>api</strong> method.</p>
-</div>
-<h2 id="api">api</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">api</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">data_tbl</span><span class="p">,</span> <span class="n">listener</span> <span class="p">)</span>
+<p>Set up the client side plugin.</p>
+<h2 id="init">init</h2>
+<p>Initalize the client.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">(</span> <span class="n">config_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Config Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td>Your Coronium Core server endpoint.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>debug</td>
+<td>Show message output in the console.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
+  <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<hr />
+<h2 id="useproject">useProject</h2>
+<p>Select the server-side project to issue commands against.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">key</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -286,52 +325,27 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>data_tbl</td>
-<td>A data table to pass to the api method.</td>
+<td>name</td>
+<td>The project name on the server instance.</td>
+<td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>listener</td>
-<td>The api listener callback function.</td>
+<td>key</td>
+<td>The key as set in the project config.</td>
+<td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you're api method does not require any data, then pass an empty table ( {} ) to the <strong>data_tbl</strong> parameter.</p>
-</div>
-<p><strong>API Listener</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="o">&lt;</span><span class="n">some</span><span class="o">-</span><span class="n">key</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-</pre></div>
-
-
-<div class="admonition tip">
-<p class="admonition-title">Server-Side</p>
-<p>Click <strong><a href="../server-api/api">here</a></strong> to learn how to set up the matching server-side api method.</p>
-</div>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">message</span><span class="p">)</span> <span class="c1">-- Hello</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-
-<span class="c1">-- Assuming you have an &quot;echo&quot; server-side method</span>
-<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">echo</span><span class="p">({</span><span class="n">message</span><span class="o">=</span><span class="s2">&quot;Hello&quot;</span><span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">setProject</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
 </pre></div>
               
             </div>
@@ -340,10 +354,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../core/" class="btn btn-neutral float-right" title="Core">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../files/" class="btn btn-neutral float-right" title="Files">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../../client-guide/" class="btn btn-neutral" title="Client Guide"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api/" class="btn btn-neutral" title="API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -371,10 +385,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../../client-guide/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../core/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../files/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

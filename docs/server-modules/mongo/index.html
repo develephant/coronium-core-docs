@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Mongo - Coronium Core</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/highlight.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Mongo";
+    var mkdocs_page_input_path = "server-modules/mongo.md";
+    var mkdocs_page_url = "/server-modules/mongo/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js"></script>
+  <script src="../../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Coronium Core</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../..">Introduction</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Install</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/ec2/">Amazon EC2</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/postinstall/">Post Install</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-setup/">Server Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-guide/">Server Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Server Modules</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../data/">Data</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../json/">JSON</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Mongo</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#database">Database</a></li>
+                
+                    <li><a class="toctree-l4" href="#new">new</a></li>
+                
+                    <li><a class="toctree-l4" href="#use">use</a></li>
+                
+                    <li><a class="toctree-l4" href="#close">close</a></li>
+                
+                    <li><a class="toctree-l4" href="#collection">collection</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#collections">Collections</a></li>
+                
+                    <li><a class="toctree-l4" href="#insertone">insertOne</a></li>
+                
+                    <li><a class="toctree-l4" href="#insert">insert</a></li>
+                
+                    <li><a class="toctree-l4" href="#findone">findOne</a></li>
+                
+                    <li><a class="toctree-l4" href="#find">find</a></li>
+                
+                    <li><a class="toctree-l4" href="#findandmodify">findAndModify</a></li>
+                
+                    <li><a class="toctree-l4" href="#update">update</a></li>
+                
+                    <li><a class="toctree-l4" href="#save">save</a></li>
+                
+                    <li><a class="toctree-l4" href="#remove">remove</a></li>
+                
+                    <li><a class="toctree-l4" href="#drop">drop</a></li>
+                
+                    <li><a class="toctree-l4" href="#rename">rename</a></li>
+                
+                    <li><a class="toctree-l4" href="#getindexes">getIndexes</a></li>
+                
+                    <li><a class="toctree-l4" href="#createindex">createIndex</a></li>
+                
+                    <li><a class="toctree-l4" href="#dropindex">dropIndex</a></li>
+                
+                    <li><a class="toctree-l4" href="#aggregate">aggregate</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#cursor">Cursor</a></li>
+                
+                    <li><a class="toctree-l4" href="#all">all</a></li>
+                
+                    <li><a class="toctree-l4" href="#sort">sort</a></li>
+                
+                    <li><a class="toctree-l4" href="#skip">skip</a></li>
+                
+                    <li><a class="toctree-l4" href="#limit">limit</a></li>
+                
+                    <li><a class="toctree-l4" href="#count">count</a></li>
+                
+                    <li><a class="toctree-l4" href="#rewind">rewind</a></li>
+                
+                    <li><a class="toctree-l4" href="#next">next</a></li>
+                
+                    <li><a class="toctree-l4" href="#distinct">distinct</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
+                
+                    <li><a class="toctree-l4" href="#operators">Operators</a></li>
+                
+                    <li><a class="toctree-l4" href="#arrays">Arrays</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#resources">Resources</a></li>
+                
+            
+            </ul>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../mysql/">MySQL</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../network/">Network</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../utils/">Utils</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-setup/">Client Setup</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-guide/">Client Guide</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <ul class="subnav">
+    <li><span>Client Module</span></li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/api/">API</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/files/">Files</a>
+        
+    </li>
+
+        
+    </ul>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../example/">Examples</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../ssl/">HTTPS / SSL</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../../about/">About</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Coronium Core</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Server Modules &raquo;</li>
+        
+      
+    
+    <li>Mongo</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="overview">Overview</h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the <strong><a href="../server-api/mysql/">MySQL</a></strong> module.</p>
+</div>
+<h1 id="database">Database</h1>
+<h2 id="new">new</h2>
+<p>Connect to a database and return a database object. If the database does not exist, it will be created.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to connect to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="s2">&quot;app&quot;</span> <span class="p">)</span> 
+</pre></div>
+
+
+<hr />
+<h2 id="use">use</h2>
+<p>Change the current working database. If the database does not exist, it will be created.</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to connect to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="s2">&quot;app2&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="close">close</h2>
+<p>Close the database connection.</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To keep memory usage down, you should always close the database connection when finished.</p>
+</div>
+<hr />
+<h2 id="collection">collection</h2>
+<p>Select and return a collection to operate on. If the collection does not exist, it will be created.</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>The collection name to use.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">coll</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="s2">&quot;users&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h1 id="collections">Collections</h1>
+<p>The following methods operate on collections. See <strong><a href="#collection">db:collection</a></strong> above to gain access to a collection object.</p>
+<h2 id="insertone">insertOne</h2>
+<p>Insert a single document into the collection. Returns the newly created <strong>id</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>doc</td>
+<td>A data table with the document data.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jimmy&quot;</span><span class="p">,</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blue&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="insert">insert</h2>
+<p>Insert multiple documents into a collection. Returns array of <strong>ids</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>docs</td>
+<td>A table array of data tables with the document data.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">docs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">24</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jeff&quot;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">36</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">ids</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="findone">findOne</h2>
+<p>Find and return the first document that matches the query or id. Returns the <strong>doc</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queryOrId</td>
+<td>A table based query, or a string based id.</td>
+<td><em>Table</em> or <em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Limit the fields returned from the document. Returns all fields by default.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p><em>By query</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><em>By id</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="s2">&quot;59a583516362392a28000001&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><em>Limit fields</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- return only the &#39;name&#39; field</span>
+<span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="kc">true</span><span class="p">}</span> <span class="p">)</span>
+
+<span class="c1">-- return all except the &#39;name&#39; field</span>
+<span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="kc">false</span><span class="p">}</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
+</ul>
+<hr />
+<h2 id="find">find</h2>
+<p>Find multiple documents based on query. Returns a new <strong><a href="#cursor">cursor</a></strong> object.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queryOrId</td>
+<td>A table based query, or a string based id.</td>
+<td><em>Table</em> or <em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Limit the fields returned from the document. Returns all fields by default.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- find documents where name equals &quot;Jimmy&quot;</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jimmy&quot;</span> <span class="p">})</span>
+
+<span class="c1">-- find documents where age greater than 20</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$gt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">}</span> <span class="p">})</span>
+
+<span class="c1">-- find documents where age greater than 20, and name is &quot;Tina&quot;</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$gt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">},</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span> <span class="p">})</span>
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>This method returns a <strong>cursor</strong> object which is chainable. For example, to return all documents found by the query in one call: <code>local docs = coll:find( query ):all()</code></p>
+</div>
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#cursor">Cursor</a></li>
+<li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+<hr />
+<h2 id="findandmodify">findAndModify</h2>
+<p>Finds the first document that matches the query and updates it in place based on the <strong>options</strong>. Returns old doc (unless <strong>new</strong> option is set), or <strong>nil</strong>, and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findAndModify</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queryOrId</td>
+<td>A table based query, or a string based id.</td>
+<td><em>Table</em> or <em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>options</td>
+<td>Options for the modification (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Options Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update</td>
+<td>Description</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>new</td>
+<td>Description</td>
+<td><em>Bool</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Description</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>fields</td>
+<td>Description</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">col</span><span class="p">:</span><span class="n">findAndModify</span><span class="p">(</span><span class="n">query_or_id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="update">update</h2>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">updateDoc</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queryOrId</td>
+<td>A table based query, or a string based id.</td>
+<td><em>Table</em> or <em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>updateDoc</td>
+<td>Options for the modification (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>flags</td>
+<td>Flags for the update (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Flags Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>upsert</td>
+<td>Description</td>
+<td><em>Bool</em></td>
+<td>Required</td>
+</tr>
+<tr>
+<td>multi</td>
+<td>Description</td>
+<td><em>Bool</em></td>
+<td>Required</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p><em>Replace entire document</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jim&quot;</span><span class="p">},</span> <span class="p">{</span>
+  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> 
+  <span class="n">age</span><span class="o">=</span><span class="mi">45</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Update and add fields</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">45</span><span class="p">},</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">43</span><span class="p">,</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Using id</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;59a583516362392a28000001&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Update multiple</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">active</span> <span class="o">=</span> <span class="kc">false</span><span class="p">},</span> 
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span> 
+  <span class="p">{</span> <span class="n">multi</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p><em>Add field to documents if missing</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span> <span class="n">active</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$exists&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}},</span> 
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span> 
+  <span class="p">{</span> <span class="n">multi</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
+
+
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
+<li><a href="#resources">Resources</a></li>
+</ul>
+<hr />
+<h2 id="save">save</h2>
+<p>Updates a document based on the contained id. If no id is present, creates a new document.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is the same as setting <strong>upsert=true</strong> when using the <strong>update</strong> method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="remove">remove</h2>
+<p>Remove a document or documents based on the query.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">isSingle</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>queryOrId</td>
+<td>A table based query, or a string based id.</td>
+<td><em>Table</em> or <em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>isSingle</td>
+<td>Remove only the first returned document when the query matches multiple documents.</td>
+<td><em>Bool</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">query_id</span><span class="p">,</span> <span class="n">is_single</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="drop">drop</h2>
+<p>Remove a collection and all the containing documents. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">drop</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">drop</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="rename">rename</h2>
+<p>Rename a collection. Returns newly named collection, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="n">drop</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>new_name</td>
+<td>The preferred name for the collection.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>drop</td>
+<td>Clear all documents before renaming. Default: false</td>
+<td><em>Bool</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">new_col</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">col</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="n">drop</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Moving to another database</strong></p>
+<p>To rename and move the collection to another database, pass the full namespace to the <strong>new_name</strong> parameter:</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- namespace &lt;db&gt;.&lt;collection&gt;</span>
+<span class="n">col</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;otherdb.newname&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="getindexes">getIndexes</h2>
+<p>The current collection indexes. Returns a <strong>table</strong> array with index objects, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">getIndexes</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Index Object Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>The index key info.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>name</td>
+<td>The index name.</td>
+<td><em>String</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">indexes</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">getIndexes</span><span class="p">()</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">indexes</span> <span class="kr">do</span>
+  <span class="kd">local</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="c1">--index key info</span>
+  <span class="kr">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">opt</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">key</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+  <span class="kr">end</span>
+  <span class="c1">--index name</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<hr />
+<h2 id="createindex">createIndex</h2>
+<p>Create index(es) for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">createIndex</span><span class="p">(</span><span class="n">index_arr</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index_arr</td>
+<td>A table array of index objects.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<p><em>Simple index</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Compound index</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Create multiple indexes</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><strong>Index names</strong></p>
+<p>By default Mongo will generate the index name based on the fields passed. To set an index name manually, pass a <strong>name</strong> key in the object.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;age_asc&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<hr />
+<h2 id="dropindex">dropIndex</h2>
+<p>Drop indexes for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">dropIndex</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>index_name</td>
+<td>The index name to drop.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">dropIndex</span><span class="p">(</span> <span class="s2">&quot;age_asc&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#getindexes">getIndexes</a></li>
+</ul>
+<hr />
+<h2 id="aggregate">aggregate</h2>
+<div class="codehilite"><pre><span></span>
+</pre></div>
+
+
+<hr />
+<h1 id="cursor">Cursor</h1>
+<p>A cursor object contains a group of documents returned from the <strong><a href="#find">find</a></strong> method. After setting the needed cursor methods, use the <strong><a href="#all">all</a></strong> or <strong><a href="#next">next</a></strong> cursor method to retrieve the documents. For example, using <strong>all</strong>:</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- return first 10 docs from the find request</span>
+<span class="kd">local</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Cursor object methods are chainable.</p>
+</div>
+<h2 id="all">all</h2>
+<p>Return document(s) based on the previous cursor options. Returns a <strong>table</strong> array of documents, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Always call this method last (or in a chain), to retrieve the documents from the cursor.</p>
+</div>
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">docs</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="sort">sort</h2>
+<p>Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">sort</span><span class="p">(</span> <span class="n">sort_tbl</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sort_tbl</td>
+<td>A table with field based sorting options.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">--sort by age, ascending</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">sort</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">ASC</span> <span class="p">})</span>
+
+<span class="c1">--sort by age descending and name ascending</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">sort</span><span class="p">({</span><span class="n">age</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">DESC</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">ASC</span> <span class="p">})</span>
+</pre></div>
+
+
+<hr />
+<h2 id="skip">skip</h2>
+<p>Skip a specific amount of documents in the cursor results. Returns the cursor.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">skip</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num</td>
+<td>The amount of records to skip.</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">--skip the first 20 documents</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">skip</span><span class="p">(</span> <span class="mi">20</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="limit">limit</h2>
+<p>Limit the amount of documents returned based on the current cursor options. Returns the cursor.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>num</td>
+<td>The records limit amount.</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">--return the first 10 documents</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="count">count</h2>
+<p>Return the current document amount based on the current cursor options. Returns a <strong>number</strong>.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="rewind">rewind</h2>
+<p>Set the cursor pointer back to the begining of the document results. Returns the cursor.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">rewind</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">rewind</span><span class="p">()</span>
+</pre></div>
+
+
+<hr />
+<h2 id="next">next</h2>
+<p>Interate over the cursor results. On each call, returns a document, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="nb">next</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
+  <span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="nb">next</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">doc</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span> <span class="kr">break</span> <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#all">all</a></li>
+<li><a href="#rewind">rewind</a></li>
+</ul>
+<hr />
+<h2 id="distinct">distinct</h2>
+<p>Pull distinct key values from the cursor results. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">distinct</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>The field key to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">distinct</span><span class="p">(</span> <span class="s2">&quot;age&quot;</span> <span class="p">)</span>
+<span class="c1">-- &#39;res&#39; is a table array</span>
+</pre></div>
+
+
+<hr />
+<h1 id="mongodb-to-lua">MongoDB to Lua</h1>
+<p>MongoDB used JSON objects. When viewing the documentation on the MongoDB website, you must convert the JSON information to Lua. What follows are some tips to do that.</p>
+<h2 id="operators">Operators</h2>
+<p>MongoDB uses special operators that are prefixed with a dollar sign ( $ ). These operators keys must be set using an array style syntax when providing them using Lua.</p>
+<table>
+<thead>
+<tr>
+<th>MongoDB Key</th>
+<th>Lua Key</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$inc</td>
+<td>["$inc"]</td>
+</tr>
+<tr>
+<td>$set</td>
+<td>["$set"]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jimmy&quot;</span><span class="p">},</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h2 id="arrays">Arrays</h2>
+<p>Arrays are rendered as indexed tables.</p>
+<table>
+<thead>
+<tr>
+<th>MongoDB Array</th>
+<th>Lua Array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>["red", 23, true]</td>
+<td>{"red", 23, true}</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">({</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span><span class="p">,</span>
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h1 id="resources">Resources</h1>
+<ul>
+<li><a href="https://docs.mongodb.com/v3.0/reference/method/db.collection.find/#examples">Find Examples</a></li>
+<li><a href="https://docs.mongodb.com/v3.0/reference/operator/query/">Query Operators</a></li>
+<li><a href="https://docs.mongodb.com/v3.0/reference/operator/update/">Update Operators</a></li>
+<li><a href="https://docs.mongodb.com/v3.0/reference/sql-comparison/">SQL to MongoDB Mapping Chart</a></li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../mysql/" class="btn btn-neutral float-right" title="MySQL">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../json/" class="btn btn-neutral" title="JSON"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+      <p>&copy;2017 C. Byerley - develephant.com</p>
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+    
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../json/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script src="../../js/theme.js"></script>
+
+</body>
+</html>

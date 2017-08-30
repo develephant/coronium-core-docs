@@ -81,257 +81,422 @@
             "title": "System Services"
         },
         {
-            "location": "/server-api/overview/",
-            "text": "",
-            "title": "Overview"
-        },
-        {
-            "location": "/server-api/api/",
+            "location": "/server-modules/api/",
             "text": "Used to build your application api.\n\n\nlocal\n \napi\n \n=\n \ncore\n.\napi\n()\n\n\n\nfunction\n \napi\n.\necho\n(\n \ninput\n \n)\n\n  \nreturn\n \ninput\n\n\nend\n\n\n\nreturn\n \napi",
             "title": "API"
         },
         {
-            "location": "/server-api/db/",
-            "text": "Overview\n\n\nThe \nDB\n module provides simple access to a document style (schema-less) datastore.\n\n\n\n\nNote\n\n\nWhile the \nDB\n module uses Mongo, it is a simple abstraction layer providing basic functionality. It is not a full Mongo client. For complex query needs it is recommended that you use the \nMySQL\n module.",
-            "title": "DB"
+            "location": "/server-modules/data/",
+            "text": "",
+            "title": "Data"
         },
         {
-            "location": "/server-api/db/#overview",
-            "text": "The  DB  module provides simple access to a document style (schema-less) datastore.   Note  While the  DB  module uses Mongo, it is a simple abstraction layer providing basic functionality. It is not a full Mongo client. For complex query needs it is recommended that you use the  MySQL  module.",
-            "title": "Overview"
-        },
-        {
-            "location": "/server-api/geoip/",
+            "location": "/server-modules/geoip/",
             "text": "Overview\n\n\nThe following methods use the \nGeoIP\n databases. All data is based on incoming IP, which may or may not be proxied.\n\n\n\n\nWarning\n\n\nThe following methods can only be used within a \ncore.api\n method.\n\n\n\n\n\n\nNote\n\n\nThe following methods may return nothing depending on the database IP matching.\n\n\n\n\n\n\ncountryCode\n\n\nTwo-letter country code, for example, \u201cRU\u201d, \u201cUS\u201d.\n\n\nExample\n\n\nlocal\n \ncountry_code\n \n=\n \ncore\n.\ngeoip\n.\ncountryCode\n()\n\n\n\n\n\n\n\n\ncountryCode3\n\n\nThree-letter country code, for example, \u201cRUS\u201d, \u201cUSA\u201d.\n\n\nExample\n\n\nlocal\n \ncountry_code3\n \n=\n \ncore\n.\ngeoip\n.\ncountryCode3\n()\n\n\n\n\n\n\n\n\ncountryName\n\n\nCountry name, for example, \u201cRussian Federation\u201d, \u201cUnited States\u201d.\n\n\nExample\n\n\nlocal\n \ncountry_name\n \n=\n \ncore\n.\ngeoip\n.\ncountryName\n()\n\n\n\n\n\n\n\n\ncity\n\n\nCity name, for example, \u201cMoscow\u201d, \u201cWashington\u201d.\n\n\nExample\n\n\nlocal\n \ncity\n \n=\n \ncore\n.\ngeoip\n.\ncity\n()\n\n\n\n\n\n\n\n\npostalCode\n\n\nPostal code.\n\n\nExample\n\n\nlocal\n \npostal_code\n \n=\n \ncloud\n.\ngeoip\n.\npostalCode\n()\n\n\n\n\n\n\n\n\ncityContinentCode\n\n\nTwo-letter continent code, for example, \u201cEU\u201d, \u201cNA\u201d.\n\n\nExample\n\n\nlocal\n \ncity_continent_code\n \n=\n \ncore\n.\ngeoip\n.\ncityContinentCode\n()\n\n\n\n\n\n\n\n\nregion\n\n\nTwo-symbol country region code (region, territory, state, province, etc.), for example, \u201c48\u201d, \u201cDC\u201d.\n\n\nExample\n\n\nlocal\n \nregion\n \n=\n \ncore\n.\ngeoip\n.\nregion\n()\n\n\n\n\n\n\n\n\nregionName\n\n\nCountry region name (region, territory, state, province, etc.), for example, \u201cMoscow City\u201d, \u201cDistrict of Columbia\u201d.\n\n\nExample\n\n\nlocal\n \nregion_name\n \n=\n \ncore\n.\ngeoip\n.\nregionName\n()\n\n\n\n\n\n\n\n\nlatitude\n\n\nLatitude.\n\n\nExample\n\n\nlocal\n \nlatitude\n \n=\n \ncore\n.\ngeoip\n.\nlatitude\n()\n\n\n\n\n\n\n\n\nlongitude\n\n\nLongitude.\n\n\nExample\n\n\nlocal\n \nlongitude\n \n=\n \ncore\n.\ngeoip\n.\nlongitude\n()",
             "title": "GeoIP"
         },
         {
-            "location": "/server-api/geoip/#overview",
+            "location": "/server-modules/geoip/#overview",
             "text": "The following methods use the  GeoIP  databases. All data is based on incoming IP, which may or may not be proxied.   Warning  The following methods can only be used within a  core.api  method.    Note  The following methods may return nothing depending on the database IP matching.",
             "title": "Overview"
         },
         {
-            "location": "/server-api/geoip/#countrycode",
+            "location": "/server-modules/geoip/#countrycode",
             "text": "Two-letter country code, for example, \u201cRU\u201d, \u201cUS\u201d.  Example  local   country_code   =   core . geoip . countryCode ()",
             "title": "countryCode"
         },
         {
-            "location": "/server-api/geoip/#countrycode3",
+            "location": "/server-modules/geoip/#countrycode3",
             "text": "Three-letter country code, for example, \u201cRUS\u201d, \u201cUSA\u201d.  Example  local   country_code3   =   core . geoip . countryCode3 ()",
             "title": "countryCode3"
         },
         {
-            "location": "/server-api/geoip/#countryname",
+            "location": "/server-modules/geoip/#countryname",
             "text": "Country name, for example, \u201cRussian Federation\u201d, \u201cUnited States\u201d.  Example  local   country_name   =   core . geoip . countryName ()",
             "title": "countryName"
         },
         {
-            "location": "/server-api/geoip/#city",
+            "location": "/server-modules/geoip/#city",
             "text": "City name, for example, \u201cMoscow\u201d, \u201cWashington\u201d.  Example  local   city   =   core . geoip . city ()",
             "title": "city"
         },
         {
-            "location": "/server-api/geoip/#postalcode",
+            "location": "/server-modules/geoip/#postalcode",
             "text": "Postal code.  Example  local   postal_code   =   cloud . geoip . postalCode ()",
             "title": "postalCode"
         },
         {
-            "location": "/server-api/geoip/#citycontinentcode",
+            "location": "/server-modules/geoip/#citycontinentcode",
             "text": "Two-letter continent code, for example, \u201cEU\u201d, \u201cNA\u201d.  Example  local   city_continent_code   =   core . geoip . cityContinentCode ()",
             "title": "cityContinentCode"
         },
         {
-            "location": "/server-api/geoip/#region",
+            "location": "/server-modules/geoip/#region",
             "text": "Two-symbol country region code (region, territory, state, province, etc.), for example, \u201c48\u201d, \u201cDC\u201d.  Example  local   region   =   core . geoip . region ()",
             "title": "region"
         },
         {
-            "location": "/server-api/geoip/#regionname",
+            "location": "/server-modules/geoip/#regionname",
             "text": "Country region name (region, territory, state, province, etc.), for example, \u201cMoscow City\u201d, \u201cDistrict of Columbia\u201d.  Example  local   region_name   =   core . geoip . regionName ()",
             "title": "regionName"
         },
         {
-            "location": "/server-api/geoip/#latitude",
+            "location": "/server-modules/geoip/#latitude",
             "text": "Latitude.  Example  local   latitude   =   core . geoip . latitude ()",
             "title": "latitude"
         },
         {
-            "location": "/server-api/geoip/#longitude",
+            "location": "/server-modules/geoip/#longitude",
             "text": "Longitude.  Example  local   longitude   =   core . geoip . longitude ()",
             "title": "longitude"
         },
         {
-            "location": "/server-api/json/",
+            "location": "/server-modules/json/",
             "text": "encode\n\n\nlocal\n \njson_str\n \n=\n \ncore\n.\njson\n.\nencode\n(\n \ntbl\n \n)\n\n\n\n\n\n\n\n\ndecode\n\n\nlocal\n \ntbl\n \n=\n \ncore\n.\njson\n.\ndecode\n(\n \njson_str\n \n)",
             "title": "JSON"
         },
         {
-            "location": "/server-api/json/#encode",
+            "location": "/server-modules/json/#encode",
             "text": "local   json_str   =   core . json . encode (   tbl   )",
             "title": "encode"
         },
         {
-            "location": "/server-api/json/#decode",
+            "location": "/server-modules/json/#decode",
             "text": "local   tbl   =   core . json . decode (   json_str   )",
             "title": "decode"
         },
         {
-            "location": "/server-api/mysql/",
+            "location": "/server-modules/mongo/",
+            "text": "Overview\n\n\n\n\nNote\n\n\nThe Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the \nMySQL\n module.\n\n\n\n\nDatabase\n\n\nnew\n\n\nConnect to a database and return a database object. If the database does not exist, it will be created.\n\n\ncore\n.\ndb\n.\nnew\n(\n \ndb_name\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndb_name\n\n\nThe database to connect to.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ndb\n,\n \nerr\n \n=\n \ncore\n.\ndb\n.\nnew\n(\n \n\"app\"\n \n)\n \n\n\n\n\n\n\n\nuse\n\n\nChange the current working database. If the database does not exist, it will be created.\n\n\ndb\n:\nuse\n(\n \ndb_name\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndb_name\n\n\nThe database to connect to.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\ndb\n:\nuse\n(\n \n\"app2\"\n \n)\n\n\n\n\n\n\n\n\nclose\n\n\nClose the database connection.\n\n\ndb\n:\nclose\n()\n\n\n\n\n\n\n\n\nNote\n\n\nTo keep memory usage down, you should always close the database connection when finished.\n\n\n\n\n\n\ncollection\n\n\nSelect and return a collection to operate on. If the collection does not exist, it will be created.\n\n\ndb\n:\ncollection\n(\n \nname\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nname\n\n\nThe collection name to use.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nlocal\n \ncoll\n \n=\n \ndb\n:\ncollection\n(\n \n\"users\"\n \n)\n\n\n\n\n\n\n\n\nCollections\n\n\nThe following methods operate on collections. See \ndb:collection\n above to gain access to a collection object.\n\n\ninsertOne\n\n\nInsert a single document into the collection. Returns the newly created \nid\n, or \nnil\n and an error.\n\n\ncollection\n:\ninsertOne\n(\ndoc\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndoc\n\n\nA data table with the document data.\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ndoc\n \n=\n \n{\n\n  \nname\n \n=\n \n\"Jimmy\"\n,\n\n  \nage\n \n=\n \n20\n,\n\n  \nactive\n \n=\n \ntrue\n,\n\n  \ncolors\n \n=\n \n{\n\n    \n\"red\"\n,\n\n    \n\"green\"\n,\n\n    \n\"blue\"\n\n  \n}\n\n\n}\n\n\n\nlocal\n \nid\n,\n \nerr\n \n=\n \ncoll\n:\ninsertOne\n(\ndoc\n)\n\n\n\n\n\n\n\n\ninsert\n\n\nInsert multiple documents into a collection. Returns array of \nids\n, or \nnil\n and an error.\n\n\ncollection\n:\ninsert\n(\n \ndocs\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndocs\n\n\nA table array of data tables with the document data.\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ndocs\n \n=\n \n{\n\n  \n{\n\n    \nname\n \n=\n \n\"Tina\"\n,\n\n    \nage\n \n=\n \n24\n\n  \n},\n\n  \n{\n\n    \nname\n \n=\n \n\"Jeff\"\n,\n\n    \nage\n \n=\n \n36\n\n  \n}\n\n\n}\n\n\n\nlocal\n \nids\n,\n \nerr\n \n=\n \ncoll\n:\ninsert\n(\n \ndocs\n \n)\n\n\n\n\n\n\n\n\nfindOne\n\n\nFind and return the first document that matches the query or id. Returns the \ndoc\n, or \nnil\n and an error.\n\n\ncollection\n:\nfindOne\n(\nqueryOrId\n,\n \nfields\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nqueryOrId\n\n\nA table based query, or a string based id.\n\n\nTable\n or \nString\n\n\nY\n\n\n\n\n\n\nfields\n\n\nLimit the fields returned from the document. Returns all fields by default.\n\n\nTable\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\nBy query\n\n\nlocal\n \ndoc\n,\n \nerr\n \n=\n \ncoll\n:\nfindOne\n(\n \n{\nname\n=\n\"Jeff\"\n,\n \nage\n=\n36\n}\n \n)\n\n\n\n\n\n\nBy id\n\n\nlocal\n \ndoc\n,\n \nerr\n \n=\n \ncoll\n:\nfindOne\n(\n \n\"59a583516362392a28000001\"\n \n)\n\n\n\n\n\n\nLimit fields\n\n\n-- return only the 'name' field\n\n\nlocal\n \ndoc\n,\n \nerr\n \n=\n \ncoll\n:\nfindOne\n(\n \n{\nname\n=\n\"Jeff\"\n,\n \nage\n=\n36\n},\n \n{\nname\n=\ntrue\n}\n \n)\n\n\n\n-- return all except the 'name' field\n\n\nlocal\n \ndoc\n,\n \nerr\n \n=\n \ncoll\n:\nfindOne\n(\n \n{\nname\n=\n\"Jeff\"\n,\n \nage\n=\n36\n},\n \n{\nname\n=\nfalse\n}\n \n)\n\n\n\n\n\n\nSee also\n\n\n\n\nMongoDB to Lua\n\n\n\n\n\n\nfind\n\n\nFind multiple documents based on query. Returns a new \ncursor\n object.\n\n\ncollection\n:\nfind\n(\nquery\n,\n \nfields\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nqueryOrId\n\n\nA table based query, or a string based id.\n\n\nTable\n or \nString\n\n\nY\n\n\n\n\n\n\nfields\n\n\nLimit the fields returned from the document. Returns all fields by default.\n\n\nTable\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\n-- find documents where name equals \"Jimmy\"\n\n\nlocal\n \ncursor\n \n=\n \ncoll\n:\nfind\n({\n \nname\n \n=\n \n\"Jimmy\"\n \n})\n\n\n\n-- find documents where age greater than 20\n\n\nlocal\n \ncursor\n \n=\n \ncoll\n:\nfind\n({\n \nage\n \n=\n \n{[\n\"$gt\"\n]\n \n=\n \n20\n}\n \n})\n\n\n\n-- find documents where age greater than 20, and name is \"Tina\"\n\n\nlocal\n \ncursor\n \n=\n \ncoll\n:\nfind\n({\n \nage\n \n=\n \n{[\n\"$gt\"\n]\n \n=\n \n20\n},\n \nname\n \n=\n \n\"Tina\"\n \n})\n\n\n\n\n\n\n\n\nTip\n\n\nThis method returns a \ncursor\n object which is chainable. For example, to return all documents found by the query in one call: \nlocal docs = coll:find( query ):all()\n\n\n\n\nSee also\n\n\n\n\nCursor\n\n\nMongoDB to Lua\n\n\nResources\n\n\n\n\n\n\nfindAndModify\n\n\nFinds the first document that matches the query and updates it in place based on the \noptions\n. Returns old doc (unless \nnew\n option is set), or \nnil\n, and an error.\n\n\ncollection\n:\nfindAndModify\n(\nqueryOrId\n,\n \noptions\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nqueryOrId\n\n\nA table based query, or a string based id.\n\n\nTable\n or \nString\n\n\nY\n\n\n\n\n\n\noptions\n\n\nOptions for the modification (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nOptions Keys\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nupdate\n\n\nDescription\n\n\nTable\n\n\nY\n\n\n\n\n\n\nnew\n\n\nDescription\n\n\nBool\n\n\nN\n\n\n\n\n\n\nsort\n\n\nDescription\n\n\nTable\n\n\nN\n\n\n\n\n\n\nfields\n\n\nDescription\n\n\nTable\n\n\nN\n\n\n\n\n\n\n\n\nlocal\n \ndoc\n,\n \nerr\n \n=\n \ncol\n:\nfindAndModify\n(\nquery_or_id\n,\n \nopts\n)\n\n\n\n\n\n\n\n\nupdate\n\n\ncollection\n:\nupdate\n(\nqueryOrId\n,\n \nupdateDoc\n,\n \nflags\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nqueryOrId\n\n\nA table based query, or a string based id.\n\n\nTable\n or \nString\n\n\nY\n\n\n\n\n\n\nupdateDoc\n\n\nOptions for the modification (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\nflags\n\n\nFlags for the update (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nFlags Keys\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nupsert\n\n\nDescription\n\n\nBool\n\n\nRequired\n\n\n\n\n\n\nmulti\n\n\nDescription\n\n\nBool\n\n\nRequired\n\n\n\n\n\n\n\n\nExample\n\n\nReplace entire document\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncollection\n:\nupdate\n({\nname\n=\n\"Jim\"\n},\n \n{\n\n  \nname\n=\n\"John\"\n,\n \n  \nage\n=\n45\n\n\n})\n\n\n\n\n\n\nUpdate and add fields\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncollection\n:\nupdate\n({\nname\n=\n\"John\"\n,\n \nage\n=\n45\n},\n \n{\n\n  \n[\n\"$set\"\n]\n \n=\n \n{\n \nage\n \n=\n \n43\n,\n \nactive\n \n=\n \ntrue\n \n}\n\n\n})\n\n\n\n\n\n\nUsing id\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncollection\n:\nupdate\n(\n\"59a583516362392a28000001\"\n,\n \n{\n\n  \n[\n\"$set\"\n]\n \n=\n \n{\n \nactive\n \n=\n \nfalse\n \n}\n\n\n})\n\n\n\n\n\n\nUpdate multiple\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncollection\n:\nupdate\n({\nactive\n \n=\n \nfalse\n},\n \n  \n{\n \n[\n\"$set\"\n]\n \n=\n \n{\n \nactive\n \n=\n \ntrue\n \n}\n \n},\n \n  \n{\n \nmulti\n \n=\n \ntrue\n \n}\n\n\n)\n\n\n\n\n\n\nAdd field to documents if missing\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncollection\n:\nupdate\n({\n \nactive\n \n=\n \n{[\n\"$exists\"\n]\n \n=\n \nfalse\n \n}},\n \n  \n{\n \n[\n\"$set\"\n]\n \n=\n \n{\n \nactive\n \n=\n \ntrue\n \n}\n \n},\n \n  \n{\n \nmulti\n \n=\n \ntrue\n \n}\n\n\n)\n\n\n\n\n\n\nSee also\n\n\n\n\nMongoDB to Lua\n\n\nResources\n\n\n\n\n\n\nsave\n\n\nUpdates a document based on the contained id. If no id is present, creates a new document.\n\n\ncollection\n:\nsave\n(\ndoc\n)\n\n\n\n\n\n\n\n\nNote\n\n\nThis method is the same as setting \nupsert=true\n when using the \nupdate\n method.\n\n\n\n\nlocal\n \nid\n \n=\n \ncoll\n:\nsave\n(\ndoc\n)\n\n\n\n\n\n\n\n\nremove\n\n\nRemove a document or documents based on the query.\n\n\ncollection\n:\nremove\n(\nqueryOrId\n,\n \nisSingle\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nqueryOrId\n\n\nA table based query, or a string based id.\n\n\nTable\n or \nString\n\n\nY\n\n\n\n\n\n\nisSingle\n\n\nRemove only the first returned document when the query matches multiple documents.\n\n\nBool\n\n\nN\n\n\n\n\n\n\n\n\nlocal\n \nnum\n,\n \nerr\n \n=\n \ncoll\n:\nremove\n(\nquery_id\n,\n \nis_single\n)\n\n\n\n\n\n\n\n\ndrop\n\n\nRemove a collection and all the containing documents. Returns \ntrue\n, or \nnil\n and an error.\n\n\ncollection\n:\ndrop\n()\n\n\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nExample\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ndrop\n()\n\n\n\n\n\n\n\n\nrename\n\n\nRename a collection. Returns newly named collection, or \nnil\n and an error.\n\n\ncollection\n:\nrename\n(\nnew_name\n,\n \ndrop\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nnew_name\n\n\nThe preferred name for the collection.\n\n\nString\n\n\nY\n\n\n\n\n\n\ndrop\n\n\nClear all documents before renaming. Default: false\n\n\nBool\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nnew_col\n,\n \nerr\n \n=\n \ncol\n:\nrename\n(\nnew_name\n,\n \ndrop\n)\n\n\n\n\n\n\nMoving to another database\n\n\nTo rename and move the collection to another database, pass the full namespace to the \nnew_name\n parameter:\n\n\n-- namespace <db>.<collection>\n\n\ncol\n:\nrename\n(\n\"otherdb.newname\"\n)\n\n\n\n\n\n\n\n\ngetIndexes\n\n\nThe current collection indexes. Returns a \ntable\n array with index objects, or \nnil\n and an error.\n\n\ncollection\n:\ngetIndexes\n()\n\n\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nIndex Object Keys\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\n\n\n\n\n\n\n\n\nkey\n\n\nThe index key info.\n\n\nTable\n\n\n\n\n\n\nname\n\n\nThe index name.\n\n\nString\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nindexes\n,\n \nerr\n \n=\n \ncoll\n:\ngetIndexes\n()\n\n\n\nfor\n \ni\n=\n1\n,\n \n#\nindexes\n \ndo\n\n  \nlocal\n \nindex\n \n=\n \nindexes\n[\ni\n]\n\n  \n--index key info\n\n  \nfor\n \nfield\n,\n \nopt\n \nin\n \npairs\n(\nindex\n.\nkey\n)\n \ndo\n\n    \nprint\n(\nfield\n,\n \nopt\n)\n\n  \nend\n\n  \n--index name\n\n  \nprint\n(\nindex\n.\nname\n)\n\n\nend\n\n\n\n\n\n\n\n\ncreateIndex\n\n\nCreate index(es) for a collection. Returns \ntrue\n, or \nnil\n and an error.\n\n\ncollection\n:\ncreateIndex\n(\nindex_arr\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nindex_arr\n\n\nA table array of index objects.\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nSimple index\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ncreateIndex\n({\n\n  \n{\n \nkey\n \n=\n \n{\n \nage\n \n=\n \n1\n \n}\n \n}\n\n\n})\n\n\n\n\n\n\nCompound index\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ncreateIndex\n({\n\n  \n{\n \nkey\n \n=\n \n{\n \nage\n \n=\n \n1\n,\n \nname\n \n=\n \n-\n1\n \n}\n \n}\n\n\n})\n\n\n\n\n\n\nCreate multiple indexes\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ncreateIndex\n({\n\n  \n{\n \nkey\n \n=\n \n{\n \nname\n \n=\n \n1\n \n}\n \n},\n\n  \n{\n \nkey\n \n=\n \n{\n \nage\n \n=\n \n-\n1\n,\n \nscore\n \n=\n \n1\n \n}\n \n}\n\n\n})\n\n\n\n\n\n\nIndex names\n\n\nBy default Mongo will generate the index name based on the fields passed. To set an index name manually, pass a \nname\n key in the object.\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ncreateIndex\n({\n\n  \n{\n \nkey\n \n=\n \n{\n \nage\n \n=\n \n1\n \n},\n \nname\n \n=\n \n\"age_asc\"\n \n}\n\n\n})\n\n\n\n\n\n\n\n\ndropIndex\n\n\nDrop indexes for a collection. Returns \ntrue\n, or \nnil\n and an error.\n\n\ncollection\n:\ndropIndex\n(\n \nname\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nindex_name\n\n\nThe index name to drop.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncoll\n:\ndropIndex\n(\n \n\"age_asc\"\n \n)\n\n\n\n\n\n\nSee also\n\n\n\n\ngetIndexes\n\n\n\n\n\n\naggregate\n\n\n\n\n\n\n\n\n\n\nCursor\n\n\nA cursor object contains a group of documents returned from the \nfind\n method. After setting the needed cursor methods, use the \nall\n or \nnext\n cursor method to retrieve the documents. For example, using \nall\n:\n\n\n-- return first 10 docs from the find request\n\n\nlocal\n \ndocs\n \n=\n \ncursor\n:\nlimit\n(\n10\n):\nall\n()\n\n\n\n\n\n\n\n\nTip\n\n\nCursor object methods are chainable.\n\n\n\n\nall\n\n\nReturn document(s) based on the previous cursor options. Returns a \ntable\n array of documents, or \nnil\n and an error.\n\n\ncursor\n:\nall\n()\n\n\n\n\n\n\n\n\nTip\n\n\nAlways call this method last (or in a chain), to retrieve the documents from the cursor.\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nExample\n\n\nlocal\n \ndocs\n,\n \nerr\n \n=\n \ncur\n:\nall\n()\n\n\n\n\n\n\n\n\nsort\n\n\nSort the documents currently held in the cursor based on the sorting table. Returns the cursor.\n\n\ncursor\n:\nsort\n(\n \nsort_tbl\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nsort_tbl\n\n\nA table with field based sorting options.\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\n--sort by age, ascending\n\n\nlocal\n \ncur\n \n=\n \ncur\n:\nsort\n({\n \nage\n \n=\n \ncore\n.\nASC\n \n})\n\n\n\n--sort by age descending and name ascending\n\n\nlocal\n \ncur\n \n=\n \ncur\n:\nsort\n({\nage\n \n=\n \ncore\n.\nDESC\n,\n \nname\n \n=\n \ncore\n.\nASC\n \n})\n\n\n\n\n\n\n\n\nskip\n\n\nSkip a specific amount of documents in the cursor results. Returns the cursor.\n\n\ncursor\n:\nskip\n(\nnum\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nnum\n\n\nThe amount of records to skip.\n\n\nNumber\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\n--skip the first 20 documents\n\n\nlocal\n \ncur\n \n=\n \ncur\n:\nskip\n(\n \n20\n \n)\n\n\n\n\n\n\n\n\nlimit\n\n\nLimit the amount of documents returned based on the current cursor options. Returns the cursor.\n\n\ncursor\n:\nlimit\n(\nnum\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nnum\n\n\nThe records limit amount.\n\n\nNumber\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\n--return the first 10 documents\n\n\nlocal\n \ncur\n \n=\n \ncur\n:\nlimit\n(\n \n10\n \n)\n\n\n\n\n\n\n\n\ncount\n\n\nReturn the current document amount based on the current cursor options. Returns a \nnumber\n.\n\n\ncursor\n:\ncount\n()\n\n\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nExample\n\n\nlocal\n \ncnt\n \n=\n \ncur\n:\ncount\n()\n\n\n\n\n\n\n\n\nrewind\n\n\nSet the cursor pointer back to the begining of the document results. Returns the cursor.\n\n\ncursor\n:\nrewind\n()\n\n\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nExample\n\n\nlocal\n \ncur\n \n=\n \ncur\n:\nrewind\n()\n\n\n\n\n\n\n\n\nnext\n\n\nInterate over the cursor results. On each call, returns a document, or \nnil\n and an error.\n\n\ncursor\n:\nnext\n()\n\n\n\n\n\n\nParameters\n\n\nThis method has no parameters.\n\n\nExample\n\n\nwhile\n \ntrue\n \ndo\n\n  \nlocal\n \ndoc\n \n=\n \ncur\n:\nnext\n()\n\n  \nif\n \ndoc\n \n==\n \nnil\n \nthen\n \nbreak\n \nend\n\n\nend\n\n\n\n\n\n\nSee also\n\n\n\n\nall\n\n\nrewind\n\n\n\n\n\n\ndistinct\n\n\nPull distinct key values from the cursor results. Returns a \ntable\n array, or \nnil\n and an error.\n\n\ncursor\n:\ndistinct\n(\nkey\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nkey\n\n\nThe field key to operate on.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nres\n,\n \nerr\n \n=\n \ncur\n:\ndistinct\n(\n \n\"age\"\n \n)\n\n\n-- 'res' is a table array\n\n\n\n\n\n\n\n\nMongoDB to Lua\n\n\nMongoDB used JSON objects. When viewing the documentation on the MongoDB website, you must convert the JSON information to Lua. What follows are some tips to do that.\n\n\nOperators\n\n\nMongoDB uses special operators that are prefixed with a dollar sign ( $ ). These operators keys must be set using an array style syntax when providing them using Lua.\n\n\n\n\n\n\n\n\nMongoDB Key\n\n\nLua Key\n\n\n\n\n\n\n\n\n\n\n$inc\n\n\n[\"$inc\"]\n\n\n\n\n\n\n$set\n\n\n[\"$set\"]\n\n\n\n\n\n\n\n\nExample\n\n\ncoll\n:\nupdate\n({\nname\n=\n\"Jimmy\"\n},\n \n{\n\n  \n[\n\"$set\"\n]\n \n=\n \n{\n\n    \nage\n \n=\n \n23\n\n  \n}\n\n\n})\n\n\n\n\n\n\nArrays\n\n\nArrays are rendered as indexed tables.\n\n\n\n\n\n\n\n\nMongoDB Array\n\n\nLua Array\n\n\n\n\n\n\n\n\n\n\n[\"red\", 23, true]\n\n\n{\"red\", 23, true}\n\n\n\n\n\n\n\n\nExample\n\n\ncoll\n:\ninsert\n({\n\n  \nname\n \n=\n \n\"Tina\"\n,\n\n  \ncolors\n \n=\n \n{\n\"red\"\n,\n\"green\"\n,\n\"blue\"\n}\n\n\n})\n\n\n\n\n\n\nResources\n\n\n\n\nFind Examples\n\n\nQuery Operators\n\n\nUpdate Operators\n\n\nSQL to MongoDB Mapping Chart",
+            "title": "Mongo"
+        },
+        {
+            "location": "/server-modules/mongo/#overview",
+            "text": "Note  The Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the  MySQL  module.",
+            "title": "Overview"
+        },
+        {
+            "location": "/server-modules/mongo/#database",
+            "text": "",
+            "title": "Database"
+        },
+        {
+            "location": "/server-modules/mongo/#new",
+            "text": "Connect to a database and return a database object. If the database does not exist, it will be created.  core . db . new (   db_name   )   Parameters     Name  Description  Type  Required      db_name  The database to connect to.  String  Y     Example  local   db ,   err   =   core . db . new (   \"app\"   )",
+            "title": "new"
+        },
+        {
+            "location": "/server-modules/mongo/#use",
+            "text": "Change the current working database. If the database does not exist, it will be created.  db : use (   db_name   )   Parameters     Name  Description  Type  Required      db_name  The database to connect to.  String  Y     Example  db : use (   \"app2\"   )",
+            "title": "use"
+        },
+        {
+            "location": "/server-modules/mongo/#close",
+            "text": "Close the database connection.  db : close ()    Note  To keep memory usage down, you should always close the database connection when finished.",
+            "title": "close"
+        },
+        {
+            "location": "/server-modules/mongo/#collection",
+            "text": "Select and return a collection to operate on. If the collection does not exist, it will be created.  db : collection (   name   )   Parameters     Name  Description  Type  Required      name  The collection name to use.  String  Y     local   coll   =   db : collection (   \"users\"   )",
+            "title": "collection"
+        },
+        {
+            "location": "/server-modules/mongo/#collections",
+            "text": "The following methods operate on collections. See  db:collection  above to gain access to a collection object.",
+            "title": "Collections"
+        },
+        {
+            "location": "/server-modules/mongo/#insertone",
+            "text": "Insert a single document into the collection. Returns the newly created  id , or  nil  and an error.  collection : insertOne ( doc )   Parameters     Name  Description  Type  Required      doc  A data table with the document data.  Table  Y     Example  local   doc   =   { \n   name   =   \"Jimmy\" , \n   age   =   20 , \n   active   =   true , \n   colors   =   { \n     \"red\" , \n     \"green\" , \n     \"blue\" \n   }  }  local   id ,   err   =   coll : insertOne ( doc )",
+            "title": "insertOne"
+        },
+        {
+            "location": "/server-modules/mongo/#insert",
+            "text": "Insert multiple documents into a collection. Returns array of  ids , or  nil  and an error.  collection : insert (   docs   )   Parameters     Name  Description  Type  Required      docs  A table array of data tables with the document data.  Table  Y     Example  local   docs   =   { \n   { \n     name   =   \"Tina\" , \n     age   =   24 \n   }, \n   { \n     name   =   \"Jeff\" , \n     age   =   36 \n   }  }  local   ids ,   err   =   coll : insert (   docs   )",
+            "title": "insert"
+        },
+        {
+            "location": "/server-modules/mongo/#findone",
+            "text": "Find and return the first document that matches the query or id. Returns the  doc , or  nil  and an error.  collection : findOne ( queryOrId ,   fields )   Parameters     Name  Description  Type  Required      queryOrId  A table based query, or a string based id.  Table  or  String  Y    fields  Limit the fields returned from the document. Returns all fields by default.  Table  N     Example  By query  local   doc ,   err   =   coll : findOne (   { name = \"Jeff\" ,   age = 36 }   )   By id  local   doc ,   err   =   coll : findOne (   \"59a583516362392a28000001\"   )   Limit fields  -- return only the 'name' field  local   doc ,   err   =   coll : findOne (   { name = \"Jeff\" ,   age = 36 },   { name = true }   )  -- return all except the 'name' field  local   doc ,   err   =   coll : findOne (   { name = \"Jeff\" ,   age = 36 },   { name = false }   )   See also   MongoDB to Lua",
+            "title": "findOne"
+        },
+        {
+            "location": "/server-modules/mongo/#find",
+            "text": "Find multiple documents based on query. Returns a new  cursor  object.  collection : find ( query ,   fields )   Parameters     Name  Description  Type  Required      queryOrId  A table based query, or a string based id.  Table  or  String  Y    fields  Limit the fields returned from the document. Returns all fields by default.  Table  N     Example  -- find documents where name equals \"Jimmy\"  local   cursor   =   coll : find ({   name   =   \"Jimmy\"   })  -- find documents where age greater than 20  local   cursor   =   coll : find ({   age   =   {[ \"$gt\" ]   =   20 }   })  -- find documents where age greater than 20, and name is \"Tina\"  local   cursor   =   coll : find ({   age   =   {[ \"$gt\" ]   =   20 },   name   =   \"Tina\"   })    Tip  This method returns a  cursor  object which is chainable. For example, to return all documents found by the query in one call:  local docs = coll:find( query ):all()   See also   Cursor  MongoDB to Lua  Resources",
+            "title": "find"
+        },
+        {
+            "location": "/server-modules/mongo/#findandmodify",
+            "text": "Finds the first document that matches the query and updates it in place based on the  options . Returns old doc (unless  new  option is set), or  nil , and an error.  collection : findAndModify ( queryOrId ,   options )   Parameters     Name  Description  Type  Required      queryOrId  A table based query, or a string based id.  Table  or  String  Y    options  Options for the modification (see below).  Table  Y     Options Keys     Name  Description  Type  Required      update  Description  Table  Y    new  Description  Bool  N    sort  Description  Table  N    fields  Description  Table  N     local   doc ,   err   =   col : findAndModify ( query_or_id ,   opts )",
+            "title": "findAndModify"
+        },
+        {
+            "location": "/server-modules/mongo/#update",
+            "text": "collection : update ( queryOrId ,   updateDoc ,   flags )   Parameters     Name  Description  Type  Required      queryOrId  A table based query, or a string based id.  Table  or  String  Y    updateDoc  Options for the modification (see below).  Table  Y    flags  Flags for the update (see below).  Table  Y     Flags Keys     Name  Description  Type  Required      upsert  Description  Bool  Required    multi  Description  Bool  Required     Example  Replace entire document  local   num ,   err   =   collection : update ({ name = \"Jim\" },   { \n   name = \"John\" ,  \n   age = 45  })   Update and add fields  local   num ,   err   =   collection : update ({ name = \"John\" ,   age = 45 },   { \n   [ \"$set\" ]   =   {   age   =   43 ,   active   =   true   }  })   Using id  local   num ,   err   =   collection : update ( \"59a583516362392a28000001\" ,   { \n   [ \"$set\" ]   =   {   active   =   false   }  })   Update multiple  local   num ,   err   =   collection : update ({ active   =   false },  \n   {   [ \"$set\" ]   =   {   active   =   true   }   },  \n   {   multi   =   true   }  )   Add field to documents if missing  local   num ,   err   =   collection : update ({   active   =   {[ \"$exists\" ]   =   false   }},  \n   {   [ \"$set\" ]   =   {   active   =   true   }   },  \n   {   multi   =   true   }  )   See also   MongoDB to Lua  Resources",
+            "title": "update"
+        },
+        {
+            "location": "/server-modules/mongo/#save",
+            "text": "Updates a document based on the contained id. If no id is present, creates a new document.  collection : save ( doc )    Note  This method is the same as setting  upsert=true  when using the  update  method.   local   id   =   coll : save ( doc )",
+            "title": "save"
+        },
+        {
+            "location": "/server-modules/mongo/#remove",
+            "text": "Remove a document or documents based on the query.  collection : remove ( queryOrId ,   isSingle )   Parameters     Name  Description  Type  Required      queryOrId  A table based query, or a string based id.  Table  or  String  Y    isSingle  Remove only the first returned document when the query matches multiple documents.  Bool  N     local   num ,   err   =   coll : remove ( query_id ,   is_single )",
+            "title": "remove"
+        },
+        {
+            "location": "/server-modules/mongo/#drop",
+            "text": "Remove a collection and all the containing documents. Returns  true , or  nil  and an error.  collection : drop ()   Parameters  This method has no parameters.  Example  local   res ,   err   =   coll : drop ()",
+            "title": "drop"
+        },
+        {
+            "location": "/server-modules/mongo/#rename",
+            "text": "Rename a collection. Returns newly named collection, or  nil  and an error.  collection : rename ( new_name ,   drop )   Parameters     Name  Description  Type  Required      new_name  The preferred name for the collection.  String  Y    drop  Clear all documents before renaming. Default: false  Bool  N     Example  local   new_col ,   err   =   col : rename ( new_name ,   drop )   Moving to another database  To rename and move the collection to another database, pass the full namespace to the  new_name  parameter:  -- namespace <db>.<collection>  col : rename ( \"otherdb.newname\" )",
+            "title": "rename"
+        },
+        {
+            "location": "/server-modules/mongo/#getindexes",
+            "text": "The current collection indexes. Returns a  table  array with index objects, or  nil  and an error.  collection : getIndexes ()   Parameters  This method has no parameters.  Index Object Keys     Name  Description  Type      key  The index key info.  Table    name  The index name.  String     Example  local   indexes ,   err   =   coll : getIndexes ()  for   i = 1 ,   # indexes   do \n   local   index   =   indexes [ i ] \n   --index key info \n   for   field ,   opt   in   pairs ( index . key )   do \n     print ( field ,   opt ) \n   end \n   --index name \n   print ( index . name )  end",
+            "title": "getIndexes"
+        },
+        {
+            "location": "/server-modules/mongo/#createindex",
+            "text": "Create index(es) for a collection. Returns  true , or  nil  and an error.  collection : createIndex ( index_arr )   Parameters     Name  Description  Type  Required      index_arr  A table array of index objects.  Table  Y     Example  Simple index  local   res ,   err   =   coll : createIndex ({ \n   {   key   =   {   age   =   1   }   }  })   Compound index  local   res ,   err   =   coll : createIndex ({ \n   {   key   =   {   age   =   1 ,   name   =   - 1   }   }  })   Create multiple indexes  local   res ,   err   =   coll : createIndex ({ \n   {   key   =   {   name   =   1   }   }, \n   {   key   =   {   age   =   - 1 ,   score   =   1   }   }  })   Index names  By default Mongo will generate the index name based on the fields passed. To set an index name manually, pass a  name  key in the object.  local   res ,   err   =   coll : createIndex ({ \n   {   key   =   {   age   =   1   },   name   =   \"age_asc\"   }  })",
+            "title": "createIndex"
+        },
+        {
+            "location": "/server-modules/mongo/#dropindex",
+            "text": "Drop indexes for a collection. Returns  true , or  nil  and an error.  collection : dropIndex (   name   )   Parameters     Name  Description  Type  Required      index_name  The index name to drop.  String  Y     Example  local   res ,   err   =   coll : dropIndex (   \"age_asc\"   )   See also   getIndexes",
+            "title": "dropIndex"
+        },
+        {
+            "location": "/server-modules/mongo/#aggregate",
+            "text": "",
+            "title": "aggregate"
+        },
+        {
+            "location": "/server-modules/mongo/#cursor",
+            "text": "A cursor object contains a group of documents returned from the  find  method. After setting the needed cursor methods, use the  all  or  next  cursor method to retrieve the documents. For example, using  all :  -- return first 10 docs from the find request  local   docs   =   cursor : limit ( 10 ): all ()    Tip  Cursor object methods are chainable.",
+            "title": "Cursor"
+        },
+        {
+            "location": "/server-modules/mongo/#all",
+            "text": "Return document(s) based on the previous cursor options. Returns a  table  array of documents, or  nil  and an error.  cursor : all ()    Tip  Always call this method last (or in a chain), to retrieve the documents from the cursor.   Parameters  This method has no parameters.  Example  local   docs ,   err   =   cur : all ()",
+            "title": "all"
+        },
+        {
+            "location": "/server-modules/mongo/#sort",
+            "text": "Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.  cursor : sort (   sort_tbl   )   Parameters     Name  Description  Type  Required      sort_tbl  A table with field based sorting options.  Table  Y     Example  --sort by age, ascending  local   cur   =   cur : sort ({   age   =   core . ASC   })  --sort by age descending and name ascending  local   cur   =   cur : sort ({ age   =   core . DESC ,   name   =   core . ASC   })",
+            "title": "sort"
+        },
+        {
+            "location": "/server-modules/mongo/#skip",
+            "text": "Skip a specific amount of documents in the cursor results. Returns the cursor.  cursor : skip ( num )   Parameters     Name  Description  Type  Required      num  The amount of records to skip.  Number  Y     Example  --skip the first 20 documents  local   cur   =   cur : skip (   20   )",
+            "title": "skip"
+        },
+        {
+            "location": "/server-modules/mongo/#limit",
+            "text": "Limit the amount of documents returned based on the current cursor options. Returns the cursor.  cursor : limit ( num )   Parameters     Name  Description  Type  Required      num  The records limit amount.  Number  Y     Example  --return the first 10 documents  local   cur   =   cur : limit (   10   )",
+            "title": "limit"
+        },
+        {
+            "location": "/server-modules/mongo/#count",
+            "text": "Return the current document amount based on the current cursor options. Returns a  number .  cursor : count ()   Parameters  This method has no parameters.  Example  local   cnt   =   cur : count ()",
+            "title": "count"
+        },
+        {
+            "location": "/server-modules/mongo/#rewind",
+            "text": "Set the cursor pointer back to the begining of the document results. Returns the cursor.  cursor : rewind ()   Parameters  This method has no parameters.  Example  local   cur   =   cur : rewind ()",
+            "title": "rewind"
+        },
+        {
+            "location": "/server-modules/mongo/#next",
+            "text": "Interate over the cursor results. On each call, returns a document, or  nil  and an error.  cursor : next ()   Parameters  This method has no parameters.  Example  while   true   do \n   local   doc   =   cur : next () \n   if   doc   ==   nil   then   break   end  end   See also   all  rewind",
+            "title": "next"
+        },
+        {
+            "location": "/server-modules/mongo/#distinct",
+            "text": "Pull distinct key values from the cursor results. Returns a  table  array, or  nil  and an error.  cursor : distinct ( key )   Parameters     Name  Description  Type  Required      key  The field key to operate on.  String  Y     Example  local   res ,   err   =   cur : distinct (   \"age\"   )  -- 'res' is a table array",
+            "title": "distinct"
+        },
+        {
+            "location": "/server-modules/mongo/#mongodb-to-lua",
+            "text": "MongoDB used JSON objects. When viewing the documentation on the MongoDB website, you must convert the JSON information to Lua. What follows are some tips to do that.",
+            "title": "MongoDB to Lua"
+        },
+        {
+            "location": "/server-modules/mongo/#operators",
+            "text": "MongoDB uses special operators that are prefixed with a dollar sign ( $ ). These operators keys must be set using an array style syntax when providing them using Lua.     MongoDB Key  Lua Key      $inc  [\"$inc\"]    $set  [\"$set\"]     Example  coll : update ({ name = \"Jimmy\" },   { \n   [ \"$set\" ]   =   { \n     age   =   23 \n   }  })",
+            "title": "Operators"
+        },
+        {
+            "location": "/server-modules/mongo/#arrays",
+            "text": "Arrays are rendered as indexed tables.     MongoDB Array  Lua Array      [\"red\", 23, true]  {\"red\", 23, true}     Example  coll : insert ({ \n   name   =   \"Tina\" , \n   colors   =   { \"red\" , \"green\" , \"blue\" }  })",
+            "title": "Arrays"
+        },
+        {
+            "location": "/server-modules/mongo/#resources",
+            "text": "Find Examples  Query Operators  Update Operators  SQL to MongoDB Mapping Chart",
+            "title": "Resources"
+        },
+        {
+            "location": "/server-modules/mysql/",
             "text": "Overview\n\n\nYour Coronium Core server contains a local \nMySQL\n database. It's also possible to connect to a remote \nMySQL\n database as well.\n\n\n\n\nquery\n\n\ncore\n.\nmysql\n.\nquery\n(\n \nconnection_tbl\n,\n \nquery_str\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nconnection_tbl\n\n\nThe connection table for the database (see below).\n\n\nnil\n\n\nY\n\n\n\n\n\n\nquery_str\n\n\nThe MySQL query to send to the database.\n\n\nnil\n\n\nY\n\n\n\n\n\n\n\n\nThe Connection Table\n\n\nYou need to provide a database connection table to select the working database. The table uses the following keys:\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndatabase\n\n\nThe database to work with.\n\n\nString\n\n\nY\n\n\n\n\n\n\nuser\n\n\nThe database user.\n\n\nString\n\n\nN\n\n\n\n\n\n\npassword\n\n\nThe user password\n\n\nString\n\n\nN\n\n\n\n\n\n\nhost\n\n\nThe database host, can be used for external connections.\n\n\nString\n\n\nN\n\n\n\n\n\n\nport\n\n\nThe database port number.\n\n\nNumber\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nclient_id\n \n=\n \n100\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"clients\"\n \n}\n\n\nlocal\n \nquery\n \n=\n \ncloud\n.\nsf\n(\n\"SELECT * FROM orders WHERE id=%d\"\n,\n \nclient_id\n)\n\n\nlocal\n \nok\n,\n \nresult\n \n=\n \ncloud\n.\nmysql\n.\nquery\n(\nconn_tbl\n,\n \nquery\n)\n\n\nif\n \nnot\n \nok\n \nthen\n\n  \ncore\n.\nlog\n(\nresult\n)\n \n--error is in the result\n\n\nend\n\n\n\n-- `result` is a table array of records.\n\n\n\n\n\n\n\n\nstring\n\n\nReturn a \nMySQL\n safe string.\n\n\ncore\n.\nmysql\n.\nstring\n(\n \nunwashed_string\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\nunwashed_string\n\n\nThe string to make SQL \"safe\".\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nsafe_str\n \n=\n \ncore\n.\nmysql\n.\nstring\n(\n\"Some possibly unsafe string.\"\n)\n\n\n\n\n\n\n\n\nDatabag Usage\n\n\nA \ndatabag\n wraps common MySQL actions into a module format.\n\n\n\n\nNote\n\n\nIf you prefer the query style shown above, feel free to use it instead. They both produce similar results.\n\n\n\n\n\n\ndatabag\n\n\nA prebuilt data object for basic \nMySQL\n handling.\n\n\ncore\n.\nmysql\n.\ndatabag\n(\n \nconnection_tbl\n \n)\n\n\n\n\n\n\nReturns\n\n\nA new databag instance.\n\n\nParameters\n\n\nSee \nThe Connection Table\n section above.\n\n\nExample\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndatabag\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\n \nconn_tbl\n \n)\n\n\n\n\n\n\n\n\nselect\n\n\ndatabag\n:\nselect\n(\n \nselect_tbl\n \n)\n\n\n\n\n\n\nParameters\n\n\nThis method requires a table with the following keys (not all keys required):\n\n\nSelect Table Keys\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ntableName\n\n\nName of the table to operate on.\n\n\nString\n\n\nY\n\n\n\n\n\n\ncolumns\n\n\nSpecific columns to select as strings.\n\n\nTable array\n\n\nN\n\n\n\n\n\n\nwhere\n\n\nAny additional WHERE clause to apply.\n\n\nString\n\n\nN\n\n\n\n\n\n\norderby\n\n\nThe sorting attributes. See \nOrderby Table\n.\n\n\nTable\n\n\nN\n\n\n\n\n\n\nlimit\n\n\nLimit the amount of the return to this number.\n\n\nNumber\n\n\nN\n\n\n\n\n\n\ndistinct\n\n\nDo not select duplicate column values.\n\n\nBoolean\n\n\nN\n\n\n\n\n\n\n\n\nOrderby Table Keys\n\n\nThe \norderby\n key in the \nSelect Table\n is a table array filled with table objects containing the following keys:\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ncolName\n\n\nName of a column to sort on.\n\n\nString\n\n\nY\n\n\n\n\n\n\ndirection\n\n\nWhich direction to sort the column\n\n\ncore.ASC\n or \ncore.DESC\n\n\nN\n\n\n\n\n\n\n\n\nReturns\n\n\nA \nresult\n or \nnil\n, \nerror\n, and possible \nerrorCode\n.\n\n\nExample\n\n\n-- Select and return all records from 'scores'.\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndb\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\nconn_tbl\n)\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \ndb\n:\nselect\n({\n\n  \ntableName\n \n=\n \n'scores'\n\n\n})\n\n\n\nif\n \nnot\n \nresult\n \nthen\n\n  \nreturn\n \ncore\n.\nerror\n(\nerr\n)\n\n\nend\n\n\n\n-- Records are Lua tables in a table array.\n\n\nfor\n \n_\n,\n \nrecord\n \nin\n \nipairs\n(\nresult\n)\n \ndo\n\n  \ncore\n.\nlog\n(\nrecord\n.\nplayer\n..\n' scored '\n..\nrecord\n.\nscore\n)\n\n\nend\n\n\n\nreturn\n \nresult\n\n\n\n\n\n\nExample\n\n\n-- Select and return refined query.\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndb\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\n \nconn_tbl\n \n)\n\n\n\nlocal\n \nresult\n,\n \nerr\n,\n \nerrCode\n \n=\n \ndb\n:\nselect\n({\n\n  \ntableName\n \n=\n \n'scores'\n,\n\n  \ncolumns\n \n=\n \n{\n'score'\n},\n\n  \nwhere\n \n=\n \n'score > 10'\n,\n\n  \nlimit\n \n=\n \n10\n,\n\n  \norderby\n \n=\n \n{\n\n    \nscore\n \n=\n \ncore\n.\nDESCENDING\n\n  \n}\n\n\n})\n\n\n\nif\n \nnot\n \nresult\n \nthen\n\n  \nreturn\n \ncore\n.\nerror\n(\n \nerr\n,\n \nerrCode\n \n)\n\n\nend\n\n\n\nreturn\n \nresult\n\n\n\n\n\n\n\n\ninsert\n\n\ndatabag\n:\ninsert\n(\n \ninsert_tbl\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ninsert_tbl\n\n\nThe insert table options (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nInsert Table Keys\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ntableName\n\n\nThe MySQL table name to operate on.\n\n\nString\n\n\nY\n\n\n\n\n\n\ncolumns\n\n\nAn array of column names as strings.\n\n\nTable array\n\n\nY\n\n\n\n\n\n\nvalues\n\n\nAn array of values for each specified column.\n\n\nTable array (mixed)\n\n\nY\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThe amount of columns must match the amount of values for this action to be successful.\n\n\n\n\nReturns\n\n\nA \nresult\n or \nnil\n, \nerror\n, and possible \nerrorCode\n.\n\n\nExample\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndb\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\n \nconn_tbl\n \n)\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \ndb\n:\ninsert\n({\n\n  \ntableName\n \n=\n \n'scores'\n,\n\n  \ncolumns\n \n=\n \n{\n'score'\n,\n \n'player'\n},\n\n  \nvalues\n \n=\n \n{\n200\n,\n \n'Sandy'\n}\n\n\n})\n\n\n\nif\n \nnot\n \nresult\n \nthen\n\n  \nreturn\n \ncore\n.\nerror\n(\nerr\n)\n\n\nend\n\n\n\nreturn\n \nresult\n\n\n\n\n\n\n\n\nupdate\n\n\ndatabag\n:\nupdate\n(\n \nupdate_tbl\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nupdate_tbl\n\n\nThe update table options (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nUpdate Table Keys\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ntableName\n\n\nThe name of the table to operate on.\n\n\nString\n\n\nY\n\n\n\n\n\n\nvalues\n\n\nTable of name = val pairs.\n\n\nTable\n\n\nY\n\n\n\n\n\n\nwhere\n\n\nWhere the colums should be updated.\n\n\nString\n\n\nN\n\n\n\n\n\n\n\n\nReturns\n\n\nA \nresult\n or \nnil\n, \nerror\n, and possible \nerrorCode\n.\n\n\nExample\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndatabag\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\n \nconn_tbl\n \n)\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \ndatabag\n:\nupdate\n({\n\n  \ntableName\n \n=\n \n'scores'\n,\n\n  \nvalues\n \n=\n \n{\n\n    \nscore\n \n=\n \n230\n\n  \n},\n\n  \nwhere\n \n=\n \n'player='\n..\ncore\n.\nmysql\n.\nstring\n(\nplayer\n)\n\n\n})\n\n\n\nif\n \nnot\n \nresult\n \nthen\n\n  \nreturn\n \ncore\n.\nerror\n(\nerr\n)\n\n\nend\n\n\n\nreturn\n \nresult\n\n\n\n\n\n\n\n\ndelete\n\n\ndatabag\n:\ndelete\n(\n \ndelete_tbl\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndelete_tbl\n\n\nThe delete table options (see below).\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nDelete Table Keys\n\n\n\n\n\n\n\n\nKey\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ntableName\n\n\nThe name of the table to operate on.\n\n\nString\n\n\nY\n\n\n\n\n\n\nwhere\n\n\nA WHERE clause to limit deletions to.\n\n\nString\n\n\nN\n\n\n\n\n\n\nforce\n\n\nDisables safety check for mising where clause.\n\n\nBoolean\n\n\nN\n\n\n\n\n\n\n\n\n\n\nWarning\n\n\nThough optional, you should \nalways\n include a where key query when removing records. Without it, you could possibly delete \nall\n of the tables records.\n\n\n\n\nReturns\n\n\nA \nresult\n or \nnil\n, \nerror\n, and possible \nerrorCode\n.\n\n\nExample\n\n\nlocal\n \nconn_tbl\n \n=\n \n{\n \ndatabase\n \n=\n \n\"leaderboard\"\n \n}\n\n\nlocal\n \ndatabag\n \n=\n \ncore\n.\nmysql\n.\ndatabag\n(\n \nconn_tbl\n \n)\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \ndatabag\n:\ndelete\n({\n\n  \ntableName\n \n=\n \n'scores'\n,\n\n  \nwhere\n \n=\n \n'score < 10'\n\n\n})\n\n\n\nif\n \nnot\n \nresult\n \nthen\n\n  \nreturn\n \ncore\n.\nerror\n(\nerr\n)\n\n\nend\n\n\n\nreturn\n \nresult\n\n\n\n\n\n\n\n\ncleanbag\n\n\nClears all internal databag query variables \nexcept\n the connection table. The databag is still usable.\n\n\ndatabag\n:\ncleanbag\n()\n\n\n\n\n\n\n\n\nNote\n\n\nYou generally don't need to call this method. It's called automatically before any new actions take place.",
             "title": "MySQL"
         },
         {
-            "location": "/server-api/mysql/#overview",
+            "location": "/server-modules/mysql/#overview",
             "text": "Your Coronium Core server contains a local  MySQL  database. It's also possible to connect to a remote  MySQL  database as well.",
             "title": "Overview"
         },
         {
-            "location": "/server-api/mysql/#query",
+            "location": "/server-modules/mysql/#query",
             "text": "core . mysql . query (   connection_tbl ,   query_str   )   Parameters     Name  Description  Default  Required      connection_tbl  The connection table for the database (see below).  nil  Y    query_str  The MySQL query to send to the database.  nil  Y     The Connection Table  You need to provide a database connection table to select the working database. The table uses the following keys:     Key  Description  Type  Required      database  The database to work with.  String  Y    user  The database user.  String  N    password  The user password  String  N    host  The database host, can be used for external connections.  String  N    port  The database port number.  Number  N     Example  local   client_id   =   100  local   conn_tbl   =   {   database   =   \"clients\"   }  local   query   =   cloud . sf ( \"SELECT * FROM orders WHERE id=%d\" ,   client_id )  local   ok ,   result   =   cloud . mysql . query ( conn_tbl ,   query )  if   not   ok   then \n   core . log ( result )   --error is in the result  end  -- `result` is a table array of records.",
             "title": "query"
         },
         {
-            "location": "/server-api/mysql/#string",
+            "location": "/server-modules/mysql/#string",
             "text": "Return a  MySQL  safe string.  core . mysql . string (   unwashed_string   )   Parameters     Name  Description  Requried      unwashed_string  The string to make SQL \"safe\".  Y     Example  local   safe_str   =   core . mysql . string ( \"Some possibly unsafe string.\" )",
             "title": "string"
         },
         {
-            "location": "/server-api/mysql/#databag-usage",
+            "location": "/server-modules/mysql/#databag-usage",
             "text": "A  databag  wraps common MySQL actions into a module format.   Note  If you prefer the query style shown above, feel free to use it instead. They both produce similar results.",
             "title": "Databag Usage"
         },
         {
-            "location": "/server-api/mysql/#databag",
+            "location": "/server-modules/mysql/#databag",
             "text": "A prebuilt data object for basic  MySQL  handling.  core . mysql . databag (   connection_tbl   )   Returns  A new databag instance.  Parameters  See  The Connection Table  section above.  Example  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   databag   =   core . mysql . databag (   conn_tbl   )",
             "title": "databag"
         },
         {
-            "location": "/server-api/mysql/#select",
+            "location": "/server-modules/mysql/#select",
             "text": "databag : select (   select_tbl   )   Parameters  This method requires a table with the following keys (not all keys required):  Select Table Keys     Key  Description  Type  Required      tableName  Name of the table to operate on.  String  Y    columns  Specific columns to select as strings.  Table array  N    where  Any additional WHERE clause to apply.  String  N    orderby  The sorting attributes. See  Orderby Table .  Table  N    limit  Limit the amount of the return to this number.  Number  N    distinct  Do not select duplicate column values.  Boolean  N     Orderby Table Keys  The  orderby  key in the  Select Table  is a table array filled with table objects containing the following keys:     Key  Description  Type  Required      colName  Name of a column to sort on.  String  Y    direction  Which direction to sort the column  core.ASC  or  core.DESC  N     Returns  A  result  or  nil ,  error , and possible  errorCode .  Example  -- Select and return all records from 'scores'.  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   db   =   core . mysql . databag ( conn_tbl )  local   result ,   err   =   db : select ({ \n   tableName   =   'scores'  })  if   not   result   then \n   return   core . error ( err )  end  -- Records are Lua tables in a table array.  for   _ ,   record   in   ipairs ( result )   do \n   core . log ( record . player .. ' scored ' .. record . score )  end  return   result   Example  -- Select and return refined query.  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   db   =   core . mysql . databag (   conn_tbl   )  local   result ,   err ,   errCode   =   db : select ({ \n   tableName   =   'scores' , \n   columns   =   { 'score' }, \n   where   =   'score > 10' , \n   limit   =   10 , \n   orderby   =   { \n     score   =   core . DESCENDING \n   }  })  if   not   result   then \n   return   core . error (   err ,   errCode   )  end  return   result",
             "title": "select"
         },
         {
-            "location": "/server-api/mysql/#insert",
+            "location": "/server-modules/mysql/#insert",
             "text": "databag : insert (   insert_tbl   )   Parameters     Key  Description  Type  Required      insert_tbl  The insert table options (see below).  Table  Y     Insert Table Keys     Key  Description  Type  Required      tableName  The MySQL table name to operate on.  String  Y    columns  An array of column names as strings.  Table array  Y    values  An array of values for each specified column.  Table array (mixed)  Y      Warning  The amount of columns must match the amount of values for this action to be successful.   Returns  A  result  or  nil ,  error , and possible  errorCode .  Example  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   db   =   core . mysql . databag (   conn_tbl   )  local   result ,   err   =   db : insert ({ \n   tableName   =   'scores' , \n   columns   =   { 'score' ,   'player' }, \n   values   =   { 200 ,   'Sandy' }  })  if   not   result   then \n   return   core . error ( err )  end  return   result",
             "title": "insert"
         },
         {
-            "location": "/server-api/mysql/#update",
+            "location": "/server-modules/mysql/#update",
             "text": "databag : update (   update_tbl   )   Parameters     Key  Description  Type  Required      update_tbl  The update table options (see below).  Table  Y     Update Table Keys     Key  Description  Type  Required      tableName  The name of the table to operate on.  String  Y    values  Table of name = val pairs.  Table  Y    where  Where the colums should be updated.  String  N     Returns  A  result  or  nil ,  error , and possible  errorCode .  Example  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   databag   =   core . mysql . databag (   conn_tbl   )  local   result ,   err   =   databag : update ({ \n   tableName   =   'scores' , \n   values   =   { \n     score   =   230 \n   }, \n   where   =   'player=' .. core . mysql . string ( player )  })  if   not   result   then \n   return   core . error ( err )  end  return   result",
             "title": "update"
         },
         {
-            "location": "/server-api/mysql/#delete",
+            "location": "/server-modules/mysql/#delete",
             "text": "databag : delete (   delete_tbl   )   Parameters     Key  Description  Type  Required      delete_tbl  The delete table options (see below).  Table  Y     Delete Table Keys     Key  Description  Type  Required      tableName  The name of the table to operate on.  String  Y    where  A WHERE clause to limit deletions to.  String  N    force  Disables safety check for mising where clause.  Boolean  N      Warning  Though optional, you should  always  include a where key query when removing records. Without it, you could possibly delete  all  of the tables records.   Returns  A  result  or  nil ,  error , and possible  errorCode .  Example  local   conn_tbl   =   {   database   =   \"leaderboard\"   }  local   databag   =   core . mysql . databag (   conn_tbl   )  local   result ,   err   =   databag : delete ({ \n   tableName   =   'scores' , \n   where   =   'score < 10'  })  if   not   result   then \n   return   core . error ( err )  end  return   result",
             "title": "delete"
         },
         {
-            "location": "/server-api/mysql/#cleanbag",
+            "location": "/server-modules/mysql/#cleanbag",
             "text": "Clears all internal databag query variables  except  the connection table. The databag is still usable.  databag : cleanbag ()    Note  You generally don't need to call this method. It's called automatically before any new actions take place.",
             "title": "cleanbag"
         },
         {
-            "location": "/server-api/network/",
+            "location": "/server-modules/network/",
             "text": "Overview\n\n\nMake external HTTP network requests and retrieve the results.\n\n\nExample\n\n\nlocal\n \nrequest\n \n=\n \ncloud\n.\nnetwork\n.\nnew\n(\n'google.com'\n)\n \n--host only, no path\n\n\nrequest\n:\npath\n(\n'/end/point'\n)\n\n\nrequest\n:\nmethod\n(\ncloud\n.\nPOST\n)\n\n\nrequest\n:\nbody\n(\n<\nJSON\n \nCONTENT\n>\n)\n\n\nrequest\n:\nheaders\n({\n\n  \n[\n'Content-Type'\n]\n \n=\n \n'application/json'\n,\n\n  \n-- add more headers\n\n\n})\n\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \nrequest\n:\nresult\n()\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nAll of the network methods, except for \nnew\n and \nrequest\n are getters and setters.\n\n\n\n\nUsing getters and setters\n\n\n-- To get a value, omit any arguments\n\n\nlocal\n \nhost\n \n=\n \nrequest\n:\nhost\n()\n\n\n\n-- To set a an option\n\n\nrequest\n:\nhost\n(\n'12.12.12.12'\n)\n\n\n\n-- Chain options\n\n\nrequest\n:\nhost\n(\n'12.12.12.12'\n):\nport\n(\n8080\n)\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \nrequest\n:\nresult\n()\n\n\n\n\n\n\n\n\nnew\n\n\ncore\n.\nnetwork\n.\nnew\n(\n \n[\nhost\n][,\n \nport\n]\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nhost\n\n\nThe hostname to connect to.\n\n\nString\n\n\n'127.0.0.1'\n\n\nN\n\n\n\n\n\n\nport\n\n\nThe port number to connect with.\n\n\nNumber\n\n\n80\n\n\nN\n\n\n\n\n\n\n\n\nThe host and port can be set with the network instance methods as well.\n\n\nReturns\n\n\nA new request connection object.\n\n\nExample\n\n\nlocal\n \nrequest\n \n=\n \ncore\n.\nnetwork\n.\nnew\n(\n'123.123.123.123'\n,\n \n8080\n)\n\n\n\n\n\n\n\n\nhost\n\n\nrequest\n:\nhost\n(\n \nhostname\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nhostname\n\n\nThe hostname to connect to.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe hostname if no value is passed.\n\n\nExample\n\n\nlocal\n \nhostname\n \n=\n \nrequest\n:\nhostname\n()\n\n\n\n--set\n\n\nrequest\n:\nhostname\n(\n'13.13.13.13'\n)\n\n\n\n\n\n\n\n\nport\n\n\nrequest\n:\nport\n(\n \nport\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nport\n\n\nThe port to connect to.\n\n\nNumber\n\n\n80\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe port if no value is passed.\n\n\nExample\n\n\nlocal\n \nport\n \n=\n \nrequest\n:\nport\n()\n\n\n\n--set\n\n\nrequest\n:\nport\n(\n8080\n)\n\n\n\n\n\n\n\n\npath\n\n\nrequest\n:\npath\n(\n \npath\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\npath\n\n\nThe path to connect to.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe path if no value is passed.\n\n\nExample\n\n\nlocal\n \npath\n \n=\n \nrequest\n:\npath\n()\n\n\n\n--set\n\n\nrequest\n:\npath\n(\n'/echo/test'\n)\n\n\n\n\n\n\n\n\nheader\n\n\nrequest\n:\nheader\n(\n \nname\n,\n \nvalue\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nname\n\n\nThe header name\n\n\nString\n\n\nY\n\n\n\n\n\n\nvalue\n\n\nThe header value.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe header value if only the name key is passed.\n\n\nExample\n\n\nlocal\n \nheader\n \n=\n \nrequest\n:\nheader\n(\n'Content-Type'\n)\n\n\n\n--set\n\n\nrequest\n:\nheader\n(\n'Content-Type'\n,\n'application/json'\n)\n\n\n\n\n\n\n\n\nheaders\n\n\nrequest\n:\nheaders\n(\n \nheaders\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nheaders\n\n\nA table of request headers.\n\n\nTable\n\n\nN\n\n\n\n\n\n\n\n\nReturns\n\n\nAll headers if no arguments are passed.\n\n\nExample\n\n\nlocal\n \nheader\n \n=\n \nrequest\n:\nheaders\n()\n\n\n\n--set\n\n\nrequest\n:\nheaders\n({\n\n  \n'Content-Type'\n \n=\n \n'application/json'\n,\n\n  \n'Host'\n \n=\n \n'12.12.12.12.'\n\n\n})\n\n\n\n\n\n\n\n\nWarning\n\n\nThe \nheaders\n method will clear \nall\n existing header assigments.\n\n\n\n\n\n\nmethod\n\n\nrequest\n:\nmethod\n(\n \nmethod\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nmethod\n\n\nA HTTP method. Can use method constants (see below).\n\n\ncore.POST\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe HTTP method name if no arguments are passed.\n\n\nExample\n\n\nlocal\n \nmethod\n \n=\n \nrequest\n:\nmethod\n()\n\n\n\n--set\n\n\nrequest\n:\nmethod\n(\ncloud\n.\nGET\n)\n\n\n\n\n\n\nMethod Constants\n\n\n\n\n\n\n\n\nConstant\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\ncore.POST\n\n\nPOST request method\n\n\n\n\n\n\ncore.GET\n\n\nGET request method\n\n\n\n\n\n\ncore.DELETE\n\n\nDELETE request method\n\n\n\n\n\n\ncore.UPDATE\n\n\nUPDATE request method\n\n\n\n\n\n\n\n\n\n\ntimeout\n\n\nrequest\n:\ntimeout\n(\n \ntimeout\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ntimeout\n\n\nTimeout in \nmilliseconds\n.\n\n\nNumber\n\n\n500\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nThe timeout setting if no arguments are passed.\n\n\nExample\n\n\nlocal\n \ntimeout\n \n=\n \nrequest\n:\ntimeout\n()\n\n\n\n--set\n\n\nrequest\n:\ntimeout\n(\n30\n)\n\n\n\n\n\n\n\n\nssl_verify\n\n\nrequest\n:\nssl_verify\n(\n \nverify_flag\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nDefault\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nverify_flag\n\n\nEnable or disable SSL verification.\n\n\nBoolean\n\n\nfalse\n\n\nN\n\n\n\n\n\n\n\n\nReturns\n\n\nThe ssl_verify value, if no arguments are passed.\n\n\nExample\n\n\nlocal\n \nssl_verify\n \n=\n \nrequest\n:\nssl_verify\n()\n\n\n\n--set\n\n\nrequest\n:\nssl_verify\n(\ntrue\n)\n\n\n\n\n\n\n\n\nbody\n\n\nrequest\n:\nbody\n(\n \nbody_data\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nbody_data\n\n\nSet or retrieve the request body.\n\n\nString\n\n\nN\n\n\n\n\n\n\n\n\nReturns\n\n\nThe body data value, if no arguments are passed.\n\n\nExample\n\n\nlocal\n \nbody_data\n \n=\n \nrequest\n:\nbody\n()\n\n\n\n--set\n\n\nrequest\n:\nbody\n(\n\"Here is some body data\"\n)\n\n\n\n\n\n\n\n\nresult\n\n\nCompiles the options and makes the network request. Must be the last method called on a network request object.\n\n\nrequest\n:\nresult\n()\n\n\n\n\n\n\nReturns\n\n\nThe \nresult\n if successful, otherwise \nnil\n and \nerror\n message.\n\n\nExample\n\n\nlocal\n \nresult\n,\n \nerr\n \n=\n \nrequest\n:\nresult\n()",
             "title": "Network"
         },
         {
-            "location": "/server-api/network/#overview",
+            "location": "/server-modules/network/#overview",
             "text": "Make external HTTP network requests and retrieve the results.  Example  local   request   =   cloud . network . new ( 'google.com' )   --host only, no path  request : path ( '/end/point' )  request : method ( cloud . POST )  request : body ( < JSON   CONTENT > )  request : headers ({ \n   [ 'Content-Type' ]   =   'application/json' , \n   -- add more headers  })  local   result ,   err   =   request : result ()     Note  All of the network methods, except for  new  and  request  are getters and setters.   Using getters and setters  -- To get a value, omit any arguments  local   host   =   request : host ()  -- To set a an option  request : host ( '12.12.12.12' )  -- Chain options  request : host ( '12.12.12.12' ): port ( 8080 )  local   result ,   err   =   request : result ()",
             "title": "Overview"
         },
         {
-            "location": "/server-api/network/#new",
+            "location": "/server-modules/network/#new",
             "text": "core . network . new (   [ host ][,   port ]   )   Parameters     Name  Description  Type  Default  Required      host  The hostname to connect to.  String  '127.0.0.1'  N    port  The port number to connect with.  Number  80  N     The host and port can be set with the network instance methods as well.  Returns  A new request connection object.  Example  local   request   =   core . network . new ( '123.123.123.123' ,   8080 )",
             "title": "new"
         },
         {
-            "location": "/server-api/network/#host",
+            "location": "/server-modules/network/#host",
             "text": "request : host (   hostname   )   Parameters     Name  Description  Type  Required      hostname  The hostname to connect to.  String  Y     Returns  The hostname if no value is passed.  Example  local   hostname   =   request : hostname ()  --set  request : hostname ( '13.13.13.13' )",
             "title": "host"
         },
         {
-            "location": "/server-api/network/#port",
+            "location": "/server-modules/network/#port",
             "text": "request : port (   port   )   Parameters     Name  Description  Type  Default  Required      port  The port to connect to.  Number  80  Y     Returns  The port if no value is passed.  Example  local   port   =   request : port ()  --set  request : port ( 8080 )",
             "title": "port"
         },
         {
-            "location": "/server-api/network/#path",
+            "location": "/server-modules/network/#path",
             "text": "request : path (   path   )   Parameters     Name  Description  Type  Required      path  The path to connect to.  String  Y     Returns  The path if no value is passed.  Example  local   path   =   request : path ()  --set  request : path ( '/echo/test' )",
             "title": "path"
         },
         {
-            "location": "/server-api/network/#header",
+            "location": "/server-modules/network/#header",
             "text": "request : header (   name ,   value   )   Parameters     Name  Description  Type  Required      name  The header name  String  Y    value  The header value.  String  Y     Returns  The header value if only the name key is passed.  Example  local   header   =   request : header ( 'Content-Type' )  --set  request : header ( 'Content-Type' , 'application/json' )",
             "title": "header"
         },
         {
-            "location": "/server-api/network/#headers",
+            "location": "/server-modules/network/#headers",
             "text": "request : headers (   headers   )   Parameters     Name  Description  Type  Required      headers  A table of request headers.  Table  N     Returns  All headers if no arguments are passed.  Example  local   header   =   request : headers ()  --set  request : headers ({ \n   'Content-Type'   =   'application/json' , \n   'Host'   =   '12.12.12.12.'  })    Warning  The  headers  method will clear  all  existing header assigments.",
             "title": "headers"
         },
         {
-            "location": "/server-api/network/#method",
+            "location": "/server-modules/network/#method",
             "text": "request : method (   method   )   Parameters     Name  Description  Default  Required      method  A HTTP method. Can use method constants (see below).  core.POST  Y     Returns  The HTTP method name if no arguments are passed.  Example  local   method   =   request : method ()  --set  request : method ( cloud . GET )   Method Constants     Constant  Description      core.POST  POST request method    core.GET  GET request method    core.DELETE  DELETE request method    core.UPDATE  UPDATE request method",
             "title": "method"
         },
         {
-            "location": "/server-api/network/#timeout",
+            "location": "/server-modules/network/#timeout",
             "text": "request : timeout (   timeout   )   Parameters     Name  Description  Type  Default  Required      timeout  Timeout in  milliseconds .  Number  500  Y     Returns  The timeout setting if no arguments are passed.  Example  local   timeout   =   request : timeout ()  --set  request : timeout ( 30 )",
             "title": "timeout"
         },
         {
-            "location": "/server-api/network/#ssl_verify",
+            "location": "/server-modules/network/#ssl_verify",
             "text": "request : ssl_verify (   verify_flag   )   Parameters     Name  Description  Type  Default  Required      verify_flag  Enable or disable SSL verification.  Boolean  false  N     Returns  The ssl_verify value, if no arguments are passed.  Example  local   ssl_verify   =   request : ssl_verify ()  --set  request : ssl_verify ( true )",
             "title": "ssl_verify"
         },
         {
-            "location": "/server-api/network/#body",
+            "location": "/server-modules/network/#body",
             "text": "request : body (   body_data   )   Parameters     Name  Description  Type  Required      body_data  Set or retrieve the request body.  String  N     Returns  The body data value, if no arguments are passed.  Example  local   body_data   =   request : body ()  --set  request : body ( \"Here is some body data\" )",
             "title": "body"
         },
         {
-            "location": "/server-api/network/#result",
+            "location": "/server-modules/network/#result",
             "text": "Compiles the options and makes the network request. Must be the last method called on a network request object.  request : result ()   Returns  The  result  if successful, otherwise  nil  and  error  message.  Example  local   result ,   err   =   request : result ()",
             "title": "result"
         },
         {
-            "location": "/server-api/utils/",
+            "location": "/server-modules/utils/",
             "text": "Overview\n\n\nHere you can find various helpers available in the root \ncore\n namespace.\n\n\n\n\nlog\n\n\nPrints a string message to the \n/usr/local/coronium/logs/coronium.log\n file.\n\n\ncore\n.\nlog\n(\n \nmessage\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\nmessage\n\n\nThe message string to log.\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\ncore\n.\nlog\n(\n'something to log'\n)\n\n\n\n\n\n\n\n\nsf (string format)\n\n\nFormat a string based on token replacment. This method shares the same attributes as the Lua string.format method.\n\n\ncore\n.\nsf\n(\n \nstr_template\n,\n \nvalues\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\nstr_template\n\n\nThe string containing replacment tokens.\n\n\nY\n\n\n\n\n\n\nvalues\n\n\nA list of values for token replacment.\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \nusername\n \n=\n \n\"Dave\"\n\n\nlocal\n \nformatted_str\n \n=\n \ncore\n.\nsf\n(\n\"Hello, %s!\"\n,\n \nusername\n)\n\n\n\n-- formatted_str = \"Hello, Dave!\"\n\n\n\n\n\n\nNotes\n\n\nSome common token types:\n\n\n\n\n\n\n\n\nToken\n\n\nDescription\n\n\n\n\n\n\n\n\n\n\n%s\n\n\nUsed as a string replacment, any other type will error.\n\n\n\n\n\n\n%d\n\n\nUsed as a number replacment, any other type will error.\n\n\n\n\n\n\n\n\nYou can mix tokens, as well as have multiples:\n\n\nlocal\n \nstr\n \n=\n \ncore\n.\nsf\n(\n\"Ordered %d %s with %s.\"\n,\n \n2\n,\n \n'burgers'\n,\n \n'cheese'\n)\n\n\n-- `str` contains \"Ordered 2 burgers with cheese.\"\n\n\n\n\n\n\n\n\nTip\n\n\nThe \nsf\n method is useful for creating SQL queries, as well as other type-safe replacments.\n\n\n\n\n\n\ntrim\n\n\nRemoves empty space from the start and end of a string, if any.\n\n\ncore\n.\ntrim\n(\n \nstring\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\nstring\n\n\nThe string to trim.\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ntrimmed_str\n \n=\n \ncore\n.\ntrim\n(\n\"  I could use a trim  \"\n)\n\n\n\n-- trimmed_str = \"I could use a trim\"\n\n\n\n\n\n\n\n\nsplit\n\n\nConverts a delimited string into a Lua table array.\n\n\ncore\n.\nsplit\n(\n \nstring\n[,\n \ndelimiter\n \n]\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nDefault\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\nstring\n\n\nThe delimited string to split.\n\n\nNone\n\n\nY\n\n\n\n\n\n\ndelimiter\n\n\nThe delimiter to split the string with.\n\n\nComma\n ( , )\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ntbl_array\n \n=\n \ncore\n.\nsplit\n(\n\"Red,Green,Blue\"\n)\n\n\n\n-- `tbl_array` contains {\"Red\",\"Green\",\"Blue\"}\n\n\n\n\n\n\nUsing a custom delimiter:\n\n\nlocal\n \ntbl_array\n \n=\n \ncore\n.\nsplit\n(\n\"User:2001:Storage\"\n,\n \n\":\"\n)\n\n\n\n-- `tbl_array` contains {\"User\",\"2001\",\"Storage\"}\n\n\n\n\n\n\n\n\nuuid\n\n\nGenerates a universally unique id.\n\n\nExample\n\n\nlocal\n \nuuid\n \n=\n \ncore\n.\nuuid\n()\n\n\n\n-- `uuid` will contain something like \"1f0af2fa-8b06-4605-bace-e13a85aa36d5\"\n\n\n\n\n\n\n\n\ntblmerge\n\n\nMerge a series of tables, with optional default inputs. Last value wins.\n\n\ncore\n.\ntblmerge\n(\n \ndefault_vals\n,\n \ntbl_obj_1\n[,\n \ntbl_obj_2\n[,\n \n...]]\n \n)\n\n\n\n\n\n\n\n\nNote\n\n\nThis method only works on the root table keys.\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequried\n\n\n\n\n\n\n\n\n\n\ndefault_vals\n\n\nA keyed table of default values. These values can be overridden.\n\n\nTable\n\n\nY\n\n\n\n\n\n\ntbl_obj_N\n\n\nA keyed table of values. Will override any existing default_vals. You can add as many additional tables as needed.\n\n\nTable\n\n\nY\n\n\n\n\n\n\n\n\nReturns\n\n\nMerged table.\n\n\nUsage\n\n\n--some \"defaults\"\n\n\nlocal\n \ndefaults\n \n=\n\n\n{\n\n  \ncolor\n \n=\n \n\"blue\"\n,\n\n  \npoints\n \n=\n \n0\n\n\n}\n\n\n\n--a \"user config\"\n\n\nlocal\n \nuser_config\n \n=\n\n\n{\n\n  \ncolor\n \n=\n \n\"red\"\n\n\n}\n\n\n\n--some other meta\n\n\nlocal\n \nmeta\n \n=\n\n\n{\n\n  \nlast_score\n \n=\n \n200\n,\n\n  \nfav_avatar\n \n=\n \n\"orange\"\n,\n\n  \npoints\n \n=\n \n10\n\n\n}\n\n\n\n--merge tables\n\n\nlocal\n \nmerged_tbl\n \n=\n \ncore\n.\ntblmerge\n(\n \ndefaults\n,\n \nuser_config\n,\n \nmeta\n \n)\n\n\n\n\n\n\nThe merged table result:\n\n\n{\n\n  \ncolor\n \n=\n \n\"red\"\n,\n\n  \npoints\n \n=\n \n10\n,\n\n  \nlast_score\n \n=\n \n200\n,\n\n  \nfav_avatar\n \n=\n \n\"orange\"\n\n\n}",
             "title": "Utils"
         },
         {
-            "location": "/server-api/utils/#overview",
+            "location": "/server-modules/utils/#overview",
             "text": "Here you can find various helpers available in the root  core  namespace.",
             "title": "Overview"
         },
         {
-            "location": "/server-api/utils/#log",
+            "location": "/server-modules/utils/#log",
             "text": "Prints a string message to the  /usr/local/coronium/logs/coronium.log  file.  core . log (   message   )   Parameters     Name  Description  Requried      message  The message string to log.  Y     Example  core . log ( 'something to log' )",
             "title": "log"
         },
         {
-            "location": "/server-api/utils/#sf-string-format",
+            "location": "/server-modules/utils/#sf-string-format",
             "text": "Format a string based on token replacment. This method shares the same attributes as the Lua string.format method.  core . sf (   str_template ,   values   )   Parameters     Name  Description  Requried      str_template  The string containing replacment tokens.  Y    values  A list of values for token replacment.  Y     Example  local   username   =   \"Dave\"  local   formatted_str   =   core . sf ( \"Hello, %s!\" ,   username )  -- formatted_str = \"Hello, Dave!\"   Notes  Some common token types:     Token  Description      %s  Used as a string replacment, any other type will error.    %d  Used as a number replacment, any other type will error.     You can mix tokens, as well as have multiples:  local   str   =   core . sf ( \"Ordered %d %s with %s.\" ,   2 ,   'burgers' ,   'cheese' )  -- `str` contains \"Ordered 2 burgers with cheese.\"    Tip  The  sf  method is useful for creating SQL queries, as well as other type-safe replacments.",
             "title": "sf (string format)"
         },
         {
-            "location": "/server-api/utils/#trim",
+            "location": "/server-modules/utils/#trim",
             "text": "Removes empty space from the start and end of a string, if any.  core . trim (   string   )   Parameters     Name  Description  Requried      string  The string to trim.  Y     Example  local   trimmed_str   =   core . trim ( \"  I could use a trim  \" )  -- trimmed_str = \"I could use a trim\"",
             "title": "trim"
         },
         {
-            "location": "/server-api/utils/#split",
+            "location": "/server-modules/utils/#split",
             "text": "Converts a delimited string into a Lua table array.  core . split (   string [,   delimiter   ]   )   Parameters     Name  Description  Default  Requried      string  The delimited string to split.  None  Y    delimiter  The delimiter to split the string with.  Comma  ( , )  N     Example  local   tbl_array   =   core . split ( \"Red,Green,Blue\" )  -- `tbl_array` contains {\"Red\",\"Green\",\"Blue\"}   Using a custom delimiter:  local   tbl_array   =   core . split ( \"User:2001:Storage\" ,   \":\" )  -- `tbl_array` contains {\"User\",\"2001\",\"Storage\"}",
             "title": "split"
         },
         {
-            "location": "/server-api/utils/#uuid",
+            "location": "/server-modules/utils/#uuid",
             "text": "Generates a universally unique id.  Example  local   uuid   =   core . uuid ()  -- `uuid` will contain something like \"1f0af2fa-8b06-4605-bace-e13a85aa36d5\"",
             "title": "uuid"
         },
         {
-            "location": "/server-api/utils/#tblmerge",
+            "location": "/server-modules/utils/#tblmerge",
             "text": "Merge a series of tables, with optional default inputs. Last value wins.  core . tblmerge (   default_vals ,   tbl_obj_1 [,   tbl_obj_2 [,   ...]]   )    Note  This method only works on the root table keys.   Parameters     Name  Description  Type  Requried      default_vals  A keyed table of default values. These values can be overridden.  Table  Y    tbl_obj_N  A keyed table of values. Will override any existing default_vals. You can add as many additional tables as needed.  Table  Y     Returns  Merged table.  Usage  --some \"defaults\"  local   defaults   =  { \n   color   =   \"blue\" , \n   points   =   0  }  --a \"user config\"  local   user_config   =  { \n   color   =   \"red\"  }  --some other meta  local   meta   =  { \n   last_score   =   200 , \n   fav_avatar   =   \"orange\" , \n   points   =   10  }  --merge tables  local   merged_tbl   =   core . tblmerge (   defaults ,   user_config ,   meta   )   The merged table result:  { \n   color   =   \"red\" , \n   points   =   10 , \n   last_score   =   200 , \n   fav_avatar   =   \"orange\"  }",
             "title": "tblmerge"
         },
@@ -361,62 +526,62 @@
             "title": "Overview"
         },
         {
-            "location": "/client-api/api/",
+            "location": "/client-module/api/",
             "text": "Overview\n\n\nUsed to call your server-side project api methods.\n\n\n\n\nImportant\n\n\nYou must set the project using the \ncore.useProject\n method before using the \napi\n method.\n\n\n\n\napi\n\n\ncore\n.\napi\n.\n<\napi\n-\nmethod\n>\n(\n \ndata_tbl\n,\n \nlistener\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\ndata_tbl\n\n\nA data table to pass to the api method.\n\n\nY\n\n\n\n\n\n\nlistener\n\n\nThe api listener callback function.\n\n\nY\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nIf you're api method does not require any data, then pass an empty table ( {} ) to the \ndata_tbl\n parameter.\n\n\n\n\nAPI Listener\n\n\nlocal\n \nfunction\n \napiListener\n(\n \nevt\n \n)\n\n  \nif\n \nevt\n.\nerror\n \nthen\n\n    \nprint\n(\n \nevt\n.\nerror\n \n)\n\n  \nelse\n\n    \nprint\n(\nevt\n.\nresult\n.\n<\nsome\n-\nkey\n>\n)\n\n  \nend\n\n\nend\n\n\n\n\n\n\n\n\nServer-Side\n\n\nClick \nhere\n to learn how to set up the matching server-side api method.\n\n\n\n\nExample\n\n\nlocal\n \nfunction\n \napiListener\n(\n \nevt\n \n)\n\n  \nif\n \nevt\n.\nerror\n \nthen\n\n    \nprint\n(\nevt\n.\nerror\n)\n\n  \nelse\n\n    \nprint\n(\nevt\n.\nresult\n.\nmessage\n)\n \n-- Hello\n\n  \nend\n\n\nend\n\n\n\n-- Assuming you have an \"echo\" server-side method\n\n\ncore\n.\napi\n.\necho\n({\nmessage\n=\n\"Hello\"\n},\n \napiListener\n)",
             "title": "API"
         },
         {
-            "location": "/client-api/api/#overview",
+            "location": "/client-module/api/#overview",
             "text": "Used to call your server-side project api methods.   Important  You must set the project using the  core.useProject  method before using the  api  method.",
             "title": "Overview"
         },
         {
-            "location": "/client-api/api/#api",
+            "location": "/client-module/api/#api",
             "text": "core . api . < api - method > (   data_tbl ,   listener   )   Parameters     Name  Description  Required      data_tbl  A data table to pass to the api method.  Y    listener  The api listener callback function.  Y      Note  If you're api method does not require any data, then pass an empty table ( {} ) to the  data_tbl  parameter.   API Listener  local   function   apiListener (   evt   ) \n   if   evt . error   then \n     print (   evt . error   ) \n   else \n     print ( evt . result . < some - key > ) \n   end  end    Server-Side  Click  here  to learn how to set up the matching server-side api method.   Example  local   function   apiListener (   evt   ) \n   if   evt . error   then \n     print ( evt . error ) \n   else \n     print ( evt . result . message )   -- Hello \n   end  end  -- Assuming you have an \"echo\" server-side method  core . api . echo ({ message = \"Hello\" },   apiListener )",
             "title": "api"
         },
         {
-            "location": "/client-api/core/",
+            "location": "/client-module/core/",
             "text": "Overview\n\n\nSet up the client side plugin.\n\n\ninit\n\n\nInitalize the client.\n\n\ncore\n.\ninit\n(\n \nconfig_tbl\n \n)\n\n\n\n\n\n\nConfig Table Keys\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nserver\n\n\nYour Coronium Core server endpoint.\n\n\nString\n\n\nY\n\n\n\n\n\n\ndebug\n\n\nShow message output in the console.\n\n\nBoolean\n\n\nN\n\n\n\n\n\n\n\n\nExample\n\n\ncore\n.\ninit\n({\n\n  \nserver\n \n=\n \n\"http://<coronium-host-address>\"\n,\n\n  \ndebug\n \n=\n \ntrue\n\n\n})\n\n\n\n\n\n\n\n\nuseProject\n\n\nSelect the server-side project to issue commands against.\n\n\ncore\n.\nuseProject\n(\n \nname\n,\n \nkey\n \n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nname\n\n\nThe project name on the server instance.\n\n\nString\n\n\nY\n\n\n\n\n\n\nkey\n\n\nThe key as set in the project config.\n\n\nString\n\n\nY\n\n\n\n\n\n\n\n\nExample\n\n\ncore\n.\nsetProject\n(\n\"default\"\n,\n \n\"1234\"\n)",
             "title": "Core"
         },
         {
-            "location": "/client-api/core/#overview",
+            "location": "/client-module/core/#overview",
             "text": "Set up the client side plugin.",
             "title": "Overview"
         },
         {
-            "location": "/client-api/core/#init",
+            "location": "/client-module/core/#init",
             "text": "Initalize the client.  core . init (   config_tbl   )   Config Table Keys     Name  Description  Type  Required      server  Your Coronium Core server endpoint.  String  Y    debug  Show message output in the console.  Boolean  N     Example  core . init ({ \n   server   =   \"http://<coronium-host-address>\" , \n   debug   =   true  })",
             "title": "init"
         },
         {
-            "location": "/client-api/core/#useproject",
+            "location": "/client-module/core/#useproject",
             "text": "Select the server-side project to issue commands against.  core . useProject (   name ,   key   )   Parameters     Name  Description  Type  Required      name  The project name on the server instance.  String  Y    key  The key as set in the project config.  String  Y     Example  core . setProject ( \"default\" ,   \"1234\" )",
             "title": "useProject"
         },
         {
-            "location": "/client-api/files/",
+            "location": "/client-module/files/",
             "text": "Overview\n\n\nUpload and download files to and from the server.\n\n\n\n\nupload\n\n\nUpload a file to the server.\n\n\ncore\n.\nfiles\n.\nupload\n(\nsrcFilePath\n,\n \nbaseDir\n,\n \ndestFilePath\n,\n \nlistener\n)\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nsrcFilePath\n\n\nLocal source file path with extension.\n\n\nString\n\n\nY\n\n\n\n\n\n\nbaseDir\n\n\nA Corona directory constant.\n\n\nConst\n\n\nY\n\n\n\n\n\n\ndestFilePath\n\n\nRemote destination path with extension.\n\n\nString\n\n\nY\n\n\n\n\n\n\nlistener\n\n\nThe upload listener callback function.\n\n\nFunction\n\n\nY\n\n\n\n\n\n\n\n\nUpload Listener\n\n\nlocal\n \nfunction\n \nuploadListener\n(\n \nevt\n \n)\n\n  \nif\n \nevt\n.\nerror\n \nthen\n\n    \nprint\n(\n \nevt\n.\nerror\n \n)\n\n  \nelse\n\n    \nif\n \nnot\n \nevt\n.\nresult\n.\ndone\n \nthen\n\n      \nprint\n(\n \nevt\n.\nprogress\n \n)\n\n    \nelse\n\n      \nprint\n(\n\"file upload complete\"\n)\n\n      \nprint\n(\n\"filePath: \"\n,\n \nevt\n.\nresult\n.\npath\n)\n\n      \nprint\n(\n\"fileName: \"\n,\n \nevt\n.\nresult\n.\nfile\n)\n\n    \nend\n\n  \nend\n\n\nend\n\n\n\n\n\n\nExample\n\n\n\n\ndownload\n\n\nDownload files from the server.\n\n\ncore\n.\nfiles\n.\ndownload\n(\nsrcFilePath\n,\n \ndestFilePath\n,\n \nbaseDir\n,\n \nlistener\n[,\n \ntransform\n])\n\n\n\n\n\n\nParameters\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nRequired\n\n\n\n\n\n\n\n\n\n\nsrcFilePath\n\n\nRemote source file path with extension.\n\n\nString\n\n\nY\n\n\n\n\n\n\ndestFilePath\n\n\nLocal destination path with extension.\n\n\nString\n\n\nY\n\n\n\n\n\n\nbaseDir\n\n\nA Corona system directory constant.\n\n\nConst\n\n\nY\n\n\n\n\n\n\nlistener\n\n\nThe download listener callback function.\n\n\nFunction\n\n\nY\n\n\n\n\n\n\ntransform\n\n\nOptional parameters for image transform (See below).\n\n\nTable\n\n\nN\n\n\n\n\n\n\n\n\nDownload Listener\n\n\nlocal\n \nfunction\n \ndownloadListener\n(\n \nevt\n \n)\n\n  \nif\n \nevt\n.\nerror\n \nthen\n\n    \nprint\n(\n \nevt\n.\nerror\n \n)\n\n  \nelse\n\n    \nif\n \nnot\n \nevt\n.\nresult\n.\ndone\n \nthen\n\n      \nprint\n(\n \nevt\n.\nprogress\n \n)\n\n    \nelse\n\n      \nprint\n(\n\"file download complete\"\n)\n\n    \nend\n\n  \nend\n\n\nend\n\n\n\n\n\n\nExample\n\n\nImage Transforms\n\n\nDownload an image with transformations.\n\n\n\n\nNote\n\n\nTransforms only work with \nPNG\n, \nJPG\n, and \nGIF\n file types.\n\n\n\n\nTransform Keys\n\n\n\n\n\n\n\n\nName\n\n\nDescription\n\n\nType\n\n\nDefault\n\n\n\n\n\n\n\n\n\n\nwidth\n\n\nProportionally resize image based on width.\n\n\nNumber\n\n\nnil\n\n\n\n\n\n\nheight\n\n\nProportionally resize image based on height.\n\n\nNumber\n\n\nnil\n\n\n\n\n\n\nsharpen\n\n\nIncreases sharpness of the final image (0-100).\n\n\nNumber\n\n\n0\n\n\n\n\n\n\n\n\nExample\n\n\nlocal\n \ntransform\n \n=\n \n{\n\n  \nwidth\n \n=\n \n100\n,\n\n  \nheight\n \n=\n \n100\n,\n\n  \nsharpen\n \n=\n \n50\n\n\n}",
             "title": "Files"
         },
         {
-            "location": "/client-api/files/#overview",
+            "location": "/client-module/files/#overview",
             "text": "Upload and download files to and from the server.",
             "title": "Overview"
         },
         {
-            "location": "/client-api/files/#upload",
+            "location": "/client-module/files/#upload",
             "text": "Upload a file to the server.  core . files . upload ( srcFilePath ,   baseDir ,   destFilePath ,   listener )   Parameters     Name  Description  Type  Required      srcFilePath  Local source file path with extension.  String  Y    baseDir  A Corona directory constant.  Const  Y    destFilePath  Remote destination path with extension.  String  Y    listener  The upload listener callback function.  Function  Y     Upload Listener  local   function   uploadListener (   evt   ) \n   if   evt . error   then \n     print (   evt . error   ) \n   else \n     if   not   evt . result . done   then \n       print (   evt . progress   ) \n     else \n       print ( \"file upload complete\" ) \n       print ( \"filePath: \" ,   evt . result . path ) \n       print ( \"fileName: \" ,   evt . result . file ) \n     end \n   end  end   Example",
             "title": "upload"
         },
         {
-            "location": "/client-api/files/#download",
+            "location": "/client-module/files/#download",
             "text": "Download files from the server.  core . files . download ( srcFilePath ,   destFilePath ,   baseDir ,   listener [,   transform ])   Parameters     Name  Description  Type  Required      srcFilePath  Remote source file path with extension.  String  Y    destFilePath  Local destination path with extension.  String  Y    baseDir  A Corona system directory constant.  Const  Y    listener  The download listener callback function.  Function  Y    transform  Optional parameters for image transform (See below).  Table  N     Download Listener  local   function   downloadListener (   evt   ) \n   if   evt . error   then \n     print (   evt . error   ) \n   else \n     if   not   evt . result . done   then \n       print (   evt . progress   ) \n     else \n       print ( \"file download complete\" ) \n     end \n   end  end   Example",
             "title": "download"
         },
         {
-            "location": "/client-api/files/#image-transforms",
+            "location": "/client-module/files/#image-transforms",
             "text": "Download an image with transformations.   Note  Transforms only work with  PNG ,  JPG , and  GIF  file types.   Transform Keys     Name  Description  Type  Default      width  Proportionally resize image based on width.  Number  nil    height  Proportionally resize image based on height.  Number  nil    sharpen  Increases sharpness of the final image (0-100).  Number  0     Example  local   transform   =   { \n   width   =   100 , \n   height   =   100 , \n   sharpen   =   50  }",
             "title": "Image Transforms"
         },

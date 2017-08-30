@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Core - Coronium Core</title>
+  <title>JSON - Coronium Core</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Core";
-    var mkdocs_page_input_path = "client-api/core.md";
-    var mkdocs_page_url = "/client-api/core/";
+    var mkdocs_page_name = "JSON";
+    var mkdocs_page_input_path = "server-modules/json.md";
+    var mkdocs_page_url = "/server-modules/json/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -98,61 +98,71 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Server API</span></li>
+    <li><span>Server Modules</span></li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/overview/">Overview</a>
+        <a class="" href="../api/">API</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/api/">API</a>
+        <a class="" href="../data/">Data</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/db/">DB</a>
+        <a class="" href="../geoip/">GeoIP</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 current">
+        <a class="current" href="./">JSON</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#encode">encode</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#decode">decode</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/geoip/">GeoIP</a>
+        <a class="" href="../mongo/">Mongo</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/json/">JSON</a>
+        <a class="" href="../mysql/">MySQL</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/mysql/">MySQL</a>
+        <a class="" href="../network/">Network</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../server-api/network/">Network</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../../server-api/utils/">Utils</a>
+        <a class="" href="../utils/">Utils</a>
         
     </li>
 
@@ -176,37 +186,26 @@
           
             <li>
     <ul class="subnav">
-    <li><span>Client API</span></li>
+    <li><span>Client Module</span></li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../api/">API</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Core</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#overview">Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#init">init</a></li>
-                
-                    <li><a class="toctree-l4" href="#useproject">useProject</a></li>
-                
-            
-            </ul>
+        <a class="" href="../../client-module/api/">API</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../files/">Files</a>
+        <a class="" href="../../client-module/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/files/">Files</a>
         
     </li>
 
@@ -257,11 +256,11 @@
     
       
         
-          <li>Client API &raquo;</li>
+          <li>Server Modules &raquo;</li>
         
       
     
-    <li>Core</li>
+    <li>JSON</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -271,81 +270,14 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="overview">Overview</h1>
-<p>Set up the client side plugin.</p>
-<h2 id="init">init</h2>
-<p>Initalize the client.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">(</span> <span class="n">config_tbl</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Config Table Keys</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>server</td>
-<td>Your Coronium Core server endpoint.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>debug</td>
-<td>Show message output in the console.</td>
-<td><em>Boolean</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
-  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
-  <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span>
-<span class="p">})</span>
+                <h1 id="encode">encode</h1>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">json_str</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span> <span class="n">tbl</span> <span class="p">)</span>
 </pre></div>
 
 
 <hr />
-<h2 id="useproject">useProject</h2>
-<p>Select the server-side project to issue commands against.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">key</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>The project name on the server instance.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>key</td>
-<td>The key as set in the project config.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">setProject</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+<h1 id="decode">decode</h1>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">tbl</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span> <span class="n">json_str</span> <span class="p">)</span>
 </pre></div>
               
             </div>
@@ -354,10 +286,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../files/" class="btn btn-neutral float-right" title="Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../mongo/" class="btn btn-neutral float-right" title="Mongo">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../api/" class="btn btn-neutral" title="API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../geoip/" class="btn btn-neutral" title="GeoIP"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -385,10 +317,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../geoip/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../files/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../mongo/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
