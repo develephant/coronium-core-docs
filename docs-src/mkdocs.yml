@@ -10,9 +10,10 @@ pages:
   - 'Server API':
     - 'Overview': 'server-api/overview.md'
     - 'API': 'server-api/api.md' 
-    - 'DB': 'server-api/db.md'
+    - 'Data': 'server-api/data.md'
     - 'GeoIP': 'server-api/geoip.md'
     - 'JSON': 'server-api/json.md'
+    - 'Mongo': 'server-api/mongo.md'
     - 'MySQL': 'server-api/mysql.md'
     - 'Network': 'server-api/network.md'
     - 'Utils': 'server-api/utils.md'

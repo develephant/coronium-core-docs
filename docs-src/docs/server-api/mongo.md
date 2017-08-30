@@ -1,9 +1,7 @@
 # Overview
 
-The __DB__ module provides simple access to a document style (schema-less) datastore.
-
 !!! note
-    While the __DB__ module uses Mongo, it is a simple abstraction layer providing basic functionality. It is not a full Mongo client. For complex query needs it is recommended that you use the __[MySQL](server-api/mysql/)__ module.
+    The Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the __[MySQL](server-api/mysql/)__ module.
 
 # Database
 
@@ -381,41 +379,29 @@ local num, err = coll:remove(query_id, is_single)
 
 ---
 
-## create
+## drop
 
-Create a new collection. Returns a new empty collection, or __nil__ and an error.
+Remove a collection and all the containing documents. Returns __true__, or __nil__ and an error.
 
 ```lua
-collection:create(name) 
+collection:drop()
 ```
 
 __Parameters__
 
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|name|The preferred name of the collection.|_String_|__Y__|
+This method has no parameters.
 
 __Example__
 
 ```lua
-local new_col, err = col:create(name) 
-```
-
----
-
-## drop
-
-Remove a collection and all the containing documents.
-
-```lua
-local res, err = collection:drop()
+local res, err = coll:drop()
 ```
 
 ---
 
 ## rename
 
-Rename/copy a collection. Returns new collection, or __nil__ and an error.
+Rename a collection. Returns newly named collection, or __nil__ and an error.
 
 ```lua
 collection:rename(new_name, drop)
@@ -426,7 +412,7 @@ __Parameters__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |new_name|The preferred name for the collection.|_String_|__Y__|
-|drop|Remove the previously named collection|_Bool_|__N__|
+|drop|Clear all documents before renaming. Default: false|_Bool_|__N__|
 
 __Example__
 
@@ -434,49 +420,130 @@ __Example__
 local new_col, err = col:rename(new_name, drop)
 ```
 
----
+__Moving to another database__
 
-## ensureIndex
-
-Create indexes for a collection.
+To rename and move the collection to another database, pass the full namespace to the __new_name__ parameter:
 
 ```lua
-collection:ensureIndex( fields )
+-- namespace <db>.<collection>
+col:rename("otherdb.newname")
+```
+
+---
+
+## getIndexes
+
+The current collection indexes. Returns a __table__ array with index objects, or __nil__ and an error.
+
+```lua
+collection:getIndexes()
+```
+
+__Parameters__
+
+This method has no parameters.
+
+__Index Object Keys__
+
+|Name|Description|Type|
+|----|-----------|----|
+|key|The index key info.|_Table_|
+|name|The index name.|_String_|
+
+__Example__
+
+```lua
+local indexes, err = coll:getIndexes()
+
+for i=1, #indexes do
+  local index = indexes[i]
+  --index key info
+  for field, opt in pairs(index.key) do
+    print(field, opt)
+  end
+  --index name
+  print(index.name)
+end
+```
+
+---
+
+## createIndex
+
+Create index(es) for a collection. Returns __true__, or __nil__ and an error.
+
+```lua
+collection:createIndex(index_arr)
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|fields|A table array of field names.|_Table_|__Y__|
+|index_arr|A table array of index objects.|_Table_|__Y__|
 
 __Example__
 
+_Simple index_
+
 ```lua
-coll:ensureIndex({ "name", "age" })
+local res, err = coll:createIndex({
+  { key = { age = 1 } }
+})
+```
+
+_Compound index_
+
+```lua
+local res, err = coll:createIndex({
+  { key = { age = 1, name = -1 } }
+})
+```
+
+_Create multiple indexes_
+
+```lua
+local res, err = coll:createIndex({
+  { key = { name = 1 } },
+  { key = { age = -1, score = 1 } }
+})
+```
+
+__Index names__
+
+By default Mongo will generate the index name based on the fields passed. To set an index name manually, pass a __name__ key in the object.
+
+```lua
+local res, err = coll:createIndex({
+  { key = { age = 1 }, name = "age_asc" }
+})
 ```
 
 ---
 
 ## dropIndex
 
-Drop indexes for a collection.
+Drop indexes for a collection. Returns __true__, or __nil__ and an error.
 
 ```lua
-collection:dropIndex( fields )
+collection:dropIndex( name )
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|fields|A table array of field names.|_Table_|__Y__|
+|index_name|The index name to drop.|_String_|__Y__|
 
 __Example__
 
 ```lua
-coll:dropIndex({ "name", "age" })
+local res, err = coll:dropIndex( "age_asc" )
 ```
+
+__See also__
+
+- [getIndexes](#getindexes)
 
 ---
 
@@ -490,7 +557,7 @@ coll:dropIndex({ "name", "age" })
 
 # Cursor
 
-A cursor object contains a group of documents returned from the __[find](#find)__ method. After setting the needed cursor methods, use the __[all](#all)__ cursor method to retrieve the documents. For example:
+A cursor object contains a group of documents returned from the __[find](#find)__ method. After setting the needed cursor methods, use the __[all](#all)__ or __[next](#next)__ cursor method to retrieve the documents. For example, using __all__:
 
 ```lua
 -- return first 10 docs from the find request
@@ -502,6 +569,21 @@ local docs = cursor:limit(10):all()
 
 ## all
 
+Return document(s) based on the previous cursor options. Returns a __table__ array of documents, or __nil__ and an error.
+
+```lua
+cursor:all()
+```
+
+!!! tip
+    Always call this method last (or in a chain), to retrieve the documents from the cursor.
+
+__Parameters__
+
+This method has no parameters.
+
+__Example__
+
 ```lua
 local docs, err = cur:all()
 ```
@@ -510,29 +592,89 @@ local docs, err = cur:all()
 
 ## sort
 
+Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.
+
 ```lua
-local cur = cur:sort(sort_tbl)
+cursor:sort( sort_tbl )
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|sort_tbl|A table with field based sorting options.|_Table_|__Y__|
+
+__Example__
+
+```lua
+--sort by age, ascending
+local cur = cur:sort({ age = core.ASC })
+
+--sort by age descending and name ascending
+local cur = cur:sort({age = core.DESC, name = core.ASC })
 ```
 
 ---
 
 ## skip
 
+Skip a specific amount of documents in the cursor results. Returns the cursor.
+
 ```lua
-local cur = cur:skip(num)
+cursor:skip(num)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|num|The amount of records to skip.|_Number_|__Y__|
+
+__Example__
+
+```lua
+--skip the first 20 documents
+local cur = cur:skip( 20 )
 ```
 
 ---
 
 ## limit
 
+Limit the amount of documents returned based on the current cursor options. Returns the cursor.
+
 ```lua
-local cur = cur:limit(num)
+cursor:limit(num)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|num|The records limit amount.|_Number_|__Y__|
+
+__Example__
+
+```lua
+--return the first 10 documents
+local cur = cur:limit( 10 )
 ```
 
 ---
 
 ## count
+
+Return the current document amount based on the current cursor options. Returns a __number__.
+
+```lua
+cursor:count()
+```
+
+__Parameters__
+
+This method has no parameters.
+
+__Example__
 
 ```lua
 local cnt = cur:count()
@@ -542,6 +684,18 @@ local cnt = cur:count()
 
 ## rewind
 
+Set the cursor pointer back to the begining of the document results. Returns the cursor.
+
+```lua
+cursor:rewind()
+```
+
+__Parameters__
+
+This method has no parameters.
+
+__Example__
+
 ```lua
 local cur = cur:rewind()
 ```
@@ -550,20 +704,51 @@ local cur = cur:rewind()
 
 ## next
 
+Interate over the cursor results. On each call, returns a document, or __nil__ and an error.
+
 ```lua
-local doc, err = cur:next()
+cursor:next()
 ```
 
----
+__Parameters__
 
-## explain
+This method has no parameters.
+
+__Example__
+
+```lua
+while true do
+  local doc = cur:next()
+  if doc == nil then break end
+end
+```
+
+__See also__
+
+- [all](#all)
+- [rewind](#rewind)
 
 ---
 
 ## distinct
 
+Pull distinct key values from the cursor results. Returns a __table__ array, or __nil__ and an error.
+
 ```lua
-local doc, err = cur:distinct(key)
+cursor:distinct(key)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|key|The field key to operate on.|_String_|__Y__|
+
+__Example__
+
+```lua
+local res, err = cur:distinct( "age" )
+-- 'res' is a table array
 ```
 
 ---
