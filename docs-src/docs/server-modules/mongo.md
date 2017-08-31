@@ -117,6 +117,10 @@ local doc = {
 local id, err = coll:insertOne(doc)
 ```
 
+__See also__
+
+- [save](#save)
+
 ---
 
 ## insert
@@ -345,18 +349,30 @@ __See also__
 
 ## save
 
-Updates a document based on the contained id. If no id is present, creates a new document.
+Updates a document based on the contained id. If no id is present, creates a new document. Returns the document id, or __nil__ and an error. 
 
 ```lua
 collection:save(doc)
 ```
 
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|doc|A data table with the document data.|_Table_|__Y__|
+
+__Example__
+
+```lua
+local id, err = coll:save(doc)
+```
+
 !!! note
     This method is the same as setting __upsert=true__ when using the __update__ method.
 
-```lua
-local id = coll:save(doc)
-```
+__See also__
+
+- [insertOne](#insertone)
 
 ---
 
