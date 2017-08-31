@@ -121,7 +121,7 @@ local id, err = coll:insertOne(doc)
 
 ## insert
 
-Insert multiple documents into a collection. Returns array of __ids__, or __nil__ and an error.
+Insert multiple documents into a collection. Returns array of __ids__ and __number__ inserted, or __nil__ and an error.
 
 ```lua
 collection:insert( docs )
@@ -148,7 +148,7 @@ local docs = {
   }
 }
 
-local ids, err = coll:insert( docs )
+local ids, errOrNum = coll:insert( docs )
 ```
 
 ---
@@ -270,6 +270,8 @@ local doc, err = col:findAndModify(query_or_id, opts)
 
 ## update
 
+Update a record. Returns __number__ updated, or __nil__ and an error.
+
 ```lua
 collection:update(queryOrId, updateDoc, flags)
 ```
@@ -279,7 +281,7 @@ __Parameters__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |queryOrId|A table based query, or a string based id.|_Table_ or _String_|__Y__|
-|updateDoc|Options for the modification (see below).|_Table_|__Y__|
+|updateDoc|Options for the modification (see examples).|_Table_|__Y__|
 |flags|Flags for the update (see below).|_Table_|__Y__|
 
 __Flags Keys__
@@ -360,7 +362,7 @@ local id = coll:save(doc)
 
 ## remove
 
-Remove a document or documents based on the query.
+Remove a document or documents based on the query. Returns __number__ of records removed, or __nil__ and an error.
 
 ```lua
 collection:remove(queryOrId, isSingle)
