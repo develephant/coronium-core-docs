@@ -575,7 +575,7 @@ __See also__
 
 ## aggregate
 
-Performs aggregation operation based on the pipeline commands. By default returns a cursor, or __nil__ and an error (see options).
+Performs aggregation operation based on the pipeline commands. By default returns a cursor, or __nil__ and an error.
 
 ```lua
 collection:aggregate(pipeline)
