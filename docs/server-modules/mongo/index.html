@@ -148,10 +148,12 @@
                 
                     <li><a class="toctree-l4" href="#collection">collection</a></li>
                 
+                    <li><a class="toctree-l4" href="#listcollections">listCollections</a></li>
+                
             
                 <li class="toctree-l3"><a href="#collections">Collections</a></li>
                 
-                    <li><a class="toctree-l4" href="#insertone">insertOne</a></li>
+                    <li><a class="toctree-l4" href="#save">save</a></li>
                 
                     <li><a class="toctree-l4" href="#insert">insert</a></li>
                 
@@ -162,8 +164,6 @@
                     <li><a class="toctree-l4" href="#findandmodify">findAndModify</a></li>
                 
                     <li><a class="toctree-l4" href="#update">update</a></li>
-                
-                    <li><a class="toctree-l4" href="#save">save</a></li>
                 
                     <li><a class="toctree-l4" href="#remove">remove</a></li>
                 
@@ -401,7 +401,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="s2">&quot;app2&quot;</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="s2">&quot;app2&quot;</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -442,16 +442,35 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">coll</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="s2">&quot;users&quot;</span> <span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="listcollections">listCollections</h2>
+<p>Retreive a list of collections. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">list</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
+
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">list</span> <span class="kr">do</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">-- collection name</span>
+<span class="kr">end</span>
 </pre></div>
 
 
 <hr />
 <h1 id="collections">Collections</h1>
 <p>The following methods operate on collections. See <strong><a href="#collection">db:collection</a></strong> above to gain access to a collection object.</p>
-<h2 id="insertone">insertOne</h2>
-<p>Insert a single document into the collection. Returns the newly created <strong>id</strong>, or <strong>nil</strong> and an error.</p>
-<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<h2 id="save">save</h2>
+<p>Inserts or updates a single document. If no id field is present, creates a new document, otherwise updates the document. Returns the document id, or <strong>nil</strong> and an error. </p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 </pre></div>
 
 
@@ -475,6 +494,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
+<p><em>Insert a new document</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jimmy&quot;</span><span class="p">,</span>
   <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
@@ -486,13 +506,26 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insertOne</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
 </pre></div>
 
 
+<p><em>Update an existing document</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">)</span>
+
+<span class="n">doc</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nancy&quot;</span>
+
+<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method is the same as setting <strong>upsert=true</strong> when using the <strong>update</strong> method.</p>
+</div>
 <hr />
 <h2 id="insert">insert</h2>
-<p>Insert multiple documents into a collection. Returns array of <strong>ids</strong>, or <strong>nil</strong> and an error.</p>
+<p>Insert multiple documents into a collection. Returns array of <strong>ids</strong> and <strong>number</strong> inserted, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
 </pre></div>
 
@@ -528,7 +561,7 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">local</span> <span class="n">ids</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
+<span class="kd">local</span> <span class="n">ids</span><span class="p">,</span> <span class="n">errOrNum</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -717,6 +750,7 @@
 
 <hr />
 <h2 id="update">update</h2>
+<p>Update a record. Returns <strong>number</strong> updated, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">updateDoc</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
 </pre></div>
 
@@ -740,7 +774,7 @@
 </tr>
 <tr>
 <td>updateDoc</td>
-<td>Options for the modification (see below).</td>
+<td>Options for the modification (see examples).</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -822,23 +856,8 @@
 <li><a href="#resources">Resources</a></li>
 </ul>
 <hr />
-<h2 id="save">save</h2>
-<p>Updates a document based on the contained id. If no id is present, creates a new document.</p>
-<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method is the same as setting <strong>upsert=true</strong> when using the <strong>update</strong> method.</p>
-</div>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
 <h2 id="remove">remove</h2>
-<p>Remove a document or documents based on the query.</p>
+<p>Remove a document or documents based on the query. Returns <strong>number</strong> of records removed, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">isSingle</span><span class="p">)</span>
 </pre></div>
 
@@ -1070,10 +1089,55 @@
 </ul>
 <hr />
 <h2 id="aggregate">aggregate</h2>
-<div class="codehilite"><pre><span></span>
+<p>Performs aggregation operation based on the pipeline commands. By default returns a cursor, or <strong>nil</strong> and an error (see options).</p>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
 </pre></div>
 
 
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pipeline</td>
+<td>The aggregation pipeline commands.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cur</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">aggregate</span><span class="p">({</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$toUpper&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$name&quot;</span> <span class="p">},</span> <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$sort&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Output aggregation results to a collection instead of a cursor</em></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>$out</strong> key must be the last step in the pipeline. Creates and returns a new collection.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">coll</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">aggregate</span><span class="p">({</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$toUpper&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$name&quot;</span> <span class="p">},</span> <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$sort&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$out&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;uppernames&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><strong>See also</strong></p>
+<ul>
+<li><a href="#resources">Resources</a></li>
+</ul>
 <hr />
 <h1 id="cursor">Cursor</h1>
 <p>A cursor object contains a group of documents returned from the <strong><a href="#find">find</a></strong> method. After setting the needed cursor methods, use the <strong><a href="#all">all</a></strong> or <strong><a href="#next">next</a></strong> cursor method to retrieve the documents. For example, using <strong>all</strong>:</p>
@@ -1316,6 +1380,7 @@
 </pre></div>
 
 
+<hr />
 <h2 id="arrays">Arrays</h2>
 <p>Arrays are rendered as indexed tables.</p>
 <table>
@@ -1340,11 +1405,52 @@
 </pre></div>
 
 
+<h3 id="append-values-to-an-array">Append values to an array</h3>
+<p><em>Append a single value</em></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$push&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Append multiple values</em></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$push&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$each&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;brown&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<h3 id="remove-array-values">Remove array values</h3>
+<p><em>Remove first element</em></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$pop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Remove last element</em></p>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$pop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<hr />
 <h1 id="resources">Resources</h1>
 <ul>
 <li><a href="https://docs.mongodb.com/v3.0/reference/method/db.collection.find/#examples">Find Examples</a></li>
 <li><a href="https://docs.mongodb.com/v3.0/reference/operator/query/">Query Operators</a></li>
 <li><a href="https://docs.mongodb.com/v3.0/reference/operator/update/">Update Operators</a></li>
+<li><a href="https://docs.mongodb.com/v3.0/reference/operator/update-array/">Array Update Operators</a></li>
+<li><a href="https://docs.mongodb.com/v3.0/reference/operator/aggregation/">Aggregation Operators</a></li>
 <li><a href="https://docs.mongodb.com/v3.0/reference/sql-comparison/">SQL to MongoDB Mapping Chart</a></li>
 </ul>
               

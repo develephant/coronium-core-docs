@@ -44,7 +44,7 @@ __Parameters__
 __Example__
 
 ```lua
-db:use( "app2" )
+local db = db:use( "app2" )
 ```
 
 ---
@@ -76,8 +76,34 @@ __Parameters__
 |----|-----------|----|--------|
 |name|The collection name to use.|_String_|__Y__|
 
+__Example__
+
 ```lua
 local coll = db:collection( "users" )
+```
+
+---
+
+## listCollections
+
+Retreive a list of collections. Returns a __table__ array, or __nil__ and an error.
+
+```lua
+db:listCollections()
+```
+
+__Parameters__
+
+This method has no parameters.
+
+__Example__
+
+```lua
+local list, err = db:listCollections()
+
+for i=1, #list do
+  print(list[i]) -- collection name
+end
 ```
 
 ---
@@ -86,12 +112,12 @@ local coll = db:collection( "users" )
 
 The following methods operate on collections. See __[db:collection](#collection)__ above to gain access to a collection object.
 
-## insertOne
+## save
 
-Insert a single document into the collection. Returns the newly created __id__, or __nil__ and an error.
+Inserts or updates a single document. If no id field is present, creates a new document, otherwise updates the document. Returns the document id, or __nil__ and an error. 
 
 ```lua
-collection:insertOne(doc)
+collection:save(doc)
 ```
 
 __Parameters__
@@ -101,6 +127,8 @@ __Parameters__
 |doc|A data table with the document data.|_Table_|__Y__|
 
 __Example__
+
+_Insert a new document_
 
 ```lua
 local doc = {
@@ -114,12 +142,21 @@ local doc = {
   }
 }
 
-local id, err = coll:insertOne(doc)
+local id, err = coll:save(doc)
 ```
 
-__See also__
+_Update an existing document_
 
-- [save](#save)
+```lua
+local doc = coll:findOne(<queryOrId>)
+
+doc.name = "Nancy"
+
+local id, err = coll:save(doc)
+```
+
+!!! note
+    This method is the same as setting __upsert=true__ when using the __update__ method.
 
 ---
 
@@ -347,35 +384,6 @@ __See also__
 
 ---
 
-## save
-
-Updates a document based on the contained id. If no id is present, creates a new document. Returns the document id, or __nil__ and an error. 
-
-```lua
-collection:save(doc)
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|doc|A data table with the document data.|_Table_|__Y__|
-
-__Example__
-
-```lua
-local id, err = coll:save(doc)
-```
-
-!!! note
-    This method is the same as setting __upsert=true__ when using the __update__ method.
-
-__See also__
-
-- [insertOne](#insertone)
-
----
-
 ## remove
 
 Remove a document or documents based on the query. Returns __number__ of records removed, or __nil__ and an error.
@@ -567,9 +575,43 @@ __See also__
 
 ## aggregate
 
-```lua
+Performs aggregation operation based on the pipeline commands. By default returns a cursor, or __nil__ and an error (see options).
 
+```lua
+collection:aggregate(pipeline)
 ```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|pipeline|The aggregation pipeline commands.|_Table_|__Y__|
+
+__Example__
+
+```lua
+local cur, err = users:aggregate({
+  { ["$project"] = { name = { ["$toUpper"] = "$name" }, _id = 0 } },
+  { ["$sort"] = { name = 1 } }
+})
+```
+
+_Output aggregation results to a collection instead of a cursor_
+
+!!! note
+    The __$out__ key must be the last step in the pipeline. Creates and returns a new collection.
+
+```lua
+local coll, err = users:aggregate({
+  { ["$project"] = { name = { ["$toUpper"] = "$name" }, _id = 0 } },
+  { ["$sort"] = { name = 1 } },
+  { ["$out"] = "uppernames" }
+})
+```
+
+__See also__
+
+- [Resources](#resources)
 
 ---
 
@@ -794,6 +836,8 @@ coll:update({name="Jimmy"}, {
 })
 ```
 
+---
+
 ## Arrays
 
 Arrays are rendered as indexed tables.
@@ -811,9 +855,57 @@ coll:insert({
 })
 ```
 
+### Append values to an array
+
+_Append a single value_
+
+```lua
+coll:update(<queryOrId>, {
+  ["$push"] = {
+    colors = "yellow"
+  }
+})
+```
+
+_Append multiple values_
+
+```lua
+coll:update(<queryOrId>, {
+  ["$push"] = {
+    colors = { ["$each"] = { "brown", "purple" } }
+  }
+})
+```
+
+### Remove array values
+
+_Remove first element_
+
+```lua
+coll:update(<queryOrId>, {
+  ["$pop"] = {
+    colors = -1
+  }
+})
+```
+
+_Remove last element_
+
+```lua
+coll:update(<queryOrId>, {
+  ["$pop"] = {
+    colors = 1
+  }
+})
+```
+
+---
+
 # Resources
 
 - [Find Examples](https://docs.mongodb.com/v3.0/reference/method/db.collection.find/#examples)
 - [Query Operators](https://docs.mongodb.com/v3.0/reference/operator/query/)
 - [Update Operators](https://docs.mongodb.com/v3.0/reference/operator/update/)
+- [Array Update Operators](https://docs.mongodb.com/v3.0/reference/operator/update-array/)
+- [Aggregation Operators](https://docs.mongodb.com/v3.0/reference/operator/aggregation/)
 - [SQL to MongoDB Mapping Chart](https://docs.mongodb.com/v3.0/reference/sql-comparison/)

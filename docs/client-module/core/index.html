@@ -274,7 +274,7 @@
                 <h1 id="overview">Overview</h1>
 <p>Set up the client side plugin.</p>
 <h2 id="init">init</h2>
-<p>Initalize the client.</p>
+<p>Initialize the client.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">(</span> <span class="n">config_tbl</span> <span class="p">)</span>
 </pre></div>
 
@@ -297,6 +297,18 @@
 <td><strong>Y</strong></td>
 </tr>
 <tr>
+<td>project</td>
+<td>The project name to run api methods against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>key</td>
+<td>The project key as set in the server-side config.lua.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
 <td>debug</td>
 <td>Show message output in the console.</td>
 <td><em>Boolean</em></td>
@@ -307,6 +319,8 @@
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
+  <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
   <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span>
 <span class="p">})</span>
 </pre></div>
@@ -314,8 +328,8 @@
 
 <hr />
 <h2 id="useproject">useProject</h2>
-<p>Select the server-side project to issue commands against.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">key</span> <span class="p">)</span>
+<p>Change the server-side project to run api methods against.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span> <span class="n">project</span><span class="p">,</span> <span class="n">key</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -331,21 +345,21 @@
 </thead>
 <tbody>
 <tr>
-<td>name</td>
-<td>The project name on the server instance.</td>
+<td>project</td>
+<td>The project name to run api methods against.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
 <td>key</td>
-<td>The key as set in the project config.</td>
+<td>The project key as set in the server-side config.lua.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">setProject</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
 </pre></div>
               
             </div>
