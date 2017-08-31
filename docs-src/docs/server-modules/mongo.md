@@ -10,7 +10,7 @@
 Connect to a database and return a database object. If the database does not exist, it will be created.
 
 ```lua
-core.db.new( db_name )
+core.mongo( db_name )
 ```
 
 __Parameters__
@@ -22,7 +22,7 @@ __Parameters__
 __Example__
 
 ```lua
-local db, err = core.db.new( "app" ) 
+local db, err = core.mongo( "app" ) 
 ```
 
 ---
