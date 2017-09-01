@@ -21,6 +21,7 @@ pages:
   - 'Client Module':
     - 'API': 'client-module/api.md'
     - 'Core': 'client-module/core.md'
+    - 'Data': 'client-module/data.md'
     - 'Files': 'client-module/files.md'
   - 'Examples': 'example.md'
   - 'HTTPS / SSL': 'ssl.md'

@@ -2,6 +2,8 @@
 
 The data module provides a simple interface to the underlying Mongo datastore. It is meant for basic usage, see the [Mongo](#server-modules/mongo) module if you require more advanced usage.
 
+You can access this module directly from the client-side using the client __[data](/client-module/data)__ module.
+
 To perform any of the object methods, you need a reference to the __data__ module.
 
 ```lua
@@ -76,7 +78,7 @@ local success, err = users:delete(obj)
 ## getPage
 
 ```lua
-<source>:getPage(query, pageNum, maxPerPage, sortDir)
+<source>:getPage(query, page, perPage, sort)
 ```
 
 __Example__
