@@ -146,6 +146,9 @@ end
 core.data.delete({source="users", id="id1234"}, apiListener)
 ```
 
+!!! tip
+    While passing an id string is the most consistent way to delete an object, you can also pass the entire object to the __id__ key. Example: __{source = "users", id = obj}__. The object must contain a valid __\_id__ field for this to work.
+
 ---
 
 # Paging
@@ -170,7 +173,7 @@ __Data Params__
 |source|The data source to run against.|none|_String_|__Y__|
 |page|The page number to return.|none|_Number_|__Y__|
 |perPage|The number of objects per page.|20|_Number_|__N__|
-|sort|Specialized sorting table.|{_id = core.ASC}|_Table_|__N__|
+|sort|Sort constant or sorting table.|core.ASC|_Const_ or _Table_|__N__|
 |query|Specialized query table.|{ } (all records)|_Table_|__N__|
 |db|Specify a different database.|"_app"|_String_|__N__|
 

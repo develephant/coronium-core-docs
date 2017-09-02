@@ -144,15 +144,13 @@
             
                 <li class="toctree-l3"><a href="#overview">Overview</a></li>
                 
-                    <li><a class="toctree-l4" href="#query">query</a></li>
+                    <li><a class="toctree-l4" href="#query-q">query | q</a></li>
                 
             
-                <li class="toctree-l3"><a href="#string">string</a></li>
+                <li class="toctree-l3"><a href="#string-str">string | str</a></li>
                 
             
-                <li class="toctree-l3"><a href="#databag-usage">Databag Usage</a></li>
-                
-                    <li><a class="toctree-l4" href="#databag">databag</a></li>
+                <li class="toctree-l3"><a href="#ez-query-methods">EZ Query Methods</a></li>
                 
                     <li><a class="toctree-l4" href="#select">select</a></li>
                 
@@ -163,7 +161,10 @@
                     <li><a class="toctree-l4" href="#delete">delete</a></li>
                 
             
-                <li class="toctree-l3"><a href="#cleanbag">cleanbag</a></li>
+                <li class="toctree-l3"><a href="#remote-databases">Remote Databases</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#administration">Administration</a></li>
                 
             
             </ul>
@@ -217,6 +218,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../client-module/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/data/">Data</a>
         
     </li>
 
@@ -289,10 +297,12 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>Your Coronium Core server contains a local <strong>MySQL</strong> database. It's also possible to connect to a remote <strong>MySQL</strong> database as well.</p>
+<p>The <strong>mysql</strong> module allows you to run queries against the local MySQL server instance. You can also connect to remote databases.</p>
 <hr />
-<h2 id="query">query</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span> <span class="n">connection_tbl</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
+<h2 id="query-q">query | q</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
+<span class="c1">--OR</span>
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">q</span><span class="p">(</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -302,86 +312,66 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>connection_tbl</td>
-<td>The connection table for the database (see below).</td>
-<td><em>nil</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>query_str</td>
-<td>The MySQL query to send to the database.</td>
-<td><em>nil</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>The Connection Table</strong></p>
-<p>You need to provide a database connection table to select the working database. The table uses the following keys:</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>database</td>
-<td>The database to work with.</td>
+<td>db_name</td>
+<td>The database name to issue commands against.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>user</td>
-<td>The database user.</td>
+<td>query_str</td>
+<td>The MySQL query to send to the database.</td>
 <td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>password</td>
-<td>The user password</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>host</td>
-<td>The database host, can be used for external connections.</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>port</td>
-<td>The database port number.</td>
-<td><em>Number</em></td>
-<td><strong>N</strong></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">client_id</span> <span class="o">=</span> <span class="mi">100</span>
-<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;clients&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM orders WHERE id=%d&quot;</span><span class="p">,</span> <span class="n">client_id</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">conn_tbl</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
-<span class="kr">if</span> <span class="ow">not</span> <span class="n">ok</span> <span class="kr">then</span>
-  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="c1">--error is in the result</span>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also connect to remote MySQL databases. See <strong><a href="#remote-databases">Remote Databases</a></strong> for more info.</p>
+</div>
+<p><strong>Result Values</strong></p>
+<p>The following outlines the <strong>result</strong> values returned with each query type.</p>
+<p><em>SELECT</em></p>
+<p>A <strong>table</strong> array of records. If no records are found, returns an empty table.</p>
+<p><em>INSERT</em></p>
+<p>A <strong>number</strong> representing the insertion id.</p>
+<p><em>UPDATE</em></p>
+<p>A <strong>number</strong> indicating the amount of updated rows.</p>
+<p><em>DELETE</em></p>
+<p>A <strong>number</strong> indicating the amount of deleted rows.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Any other commands will be returned as <strong>table</strong>. It is recommended that you manage your databases using an external tool. See <strong><a href="#administration">Administration</a></strong> below.</p>
+</div>
+<hr />
+<p><strong>Select Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM orders WHERE id=%d&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;clients&quot;</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="c1">-- `result` is a table array of records.</span>
+<span class="kd">local</span> <span class="n">record</span>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+  <span class="n">record</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="c1">--a record as a table</span>
+<span class="kr">end</span>
 </pre></div>
 
 
 <hr />
-<h1 id="string">string</h1>
+<h1 id="string-str">string | str</h1>
 <p>Return a <strong>MySQL</strong> safe string.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">string</span><span class="p">(</span> <span class="n">unwashed_string</span> <span class="p">)</span>
+<span class="c1">--OR</span>
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">str</span><span class="p">(</span> <span class="n">unwashed_string</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -408,42 +398,18 @@
 
 
 <hr />
-<h1 id="databag-usage">Databag Usage</h1>
-<p>A <strong>databag</strong> wraps common MySQL actions into a module format.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you prefer the query style shown above, feel free to use it instead. They both produce similar results.</p>
-</div>
-<hr />
-<h2 id="databag">databag</h2>
-<p>A prebuilt data object for basic <strong>MySQL</strong> handling.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">connection_tbl</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Returns</strong></p>
-<p>A new databag instance.</p>
-<p><strong>Parameters</strong></p>
-<p>See <strong>The Connection Table</strong> section above.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
-</pre></div>
-
-
-<hr />
+<h1 id="ez-query-methods">EZ Query Methods</h1>
+<p>EZ query methods provide an alternative way to construct common query types.</p>
 <h2 id="select">select</h2>
-<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="nb">select</span><span class="p">(</span> <span class="n">select_tbl</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">select_tbl</span><span class="p">)</span>
 </pre></div>
 
 
 <p><strong>Parameters</strong></p>
-<p>This method requires a table with the following keys (not all keys required):</p>
-<p><strong>Select Table Keys</strong></p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
@@ -451,15 +417,40 @@
 </thead>
 <tbody>
 <tr>
-<td>tableName</td>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>select_tbl</td>
+<td>The insert table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Select Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tbl</td>
 <td>Name of the table to operate on.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
 <td>columns</td>
-<td>Specific columns to select as strings.</td>
-<td><em>Table array</em></td>
+<td>Array of columns to select as strings.</td>
+<td><em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 <tr>
@@ -482,87 +473,63 @@
 </tr>
 <tr>
 <td>distinct</td>
-<td>Do not select duplicate column values.</td>
+<td>Do not select duplicate column values. Default: false</td>
 <td><em>Boolean</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Orderby Table Keys</strong></p>
-<p>The <strong>orderby</strong> key in the <strong>Select Table</strong> is a table array filled with table objects containing the following keys:</p>
-<table>
-<thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>colName</td>
-<td>Name of a column to sort on.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>direction</td>
-<td>Which direction to sort the column</td>
-<td><strong>core.ASC</strong> or <strong>core.DESC</strong></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
+<p><strong>Orderby</strong></p>
+<p>The <strong>orderby</strong> key in the <strong>Select Table</strong> is a table array filled with <strong>column = direction</strong> pairs. The direction can be either "ASC" for ascending order or "DESC" for descending order.</p>
 <p><strong>Returns</strong></p>
-<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">-- Select and return all records from &#39;scores&#39;.</span>
-<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span><span class="n">conn_tbl</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="nb">select</span><span class="p">({</span>
-  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span>
+<p>A <strong>table</strong> array of records, or <strong>nil</strong> and an error.</p>
+<p><strong>Example 1</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Select all records from the &#39;scores&#39; table</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="s2">&quot;leaderboard&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span>
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
-  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="c1">-- `result` contains a table array of records</span>
+  <span class="kd">local</span> <span class="n">record</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">player</span><span class="o">..</span><span class="s1">&#39; scored &#39;</span><span class="o">..</span><span class="n">record</span><span class="p">.</span><span class="n">score</span><span class="p">)</span>
+  <span class="kr">end</span>
 <span class="kr">end</span>
-
-<span class="c1">-- Records are Lua tables in a table array.</span>
-<span class="kr">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">record</span> <span class="kr">in</span> <span class="nb">ipairs</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="kr">do</span>
-  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">player</span><span class="o">..</span><span class="s1">&#39; scored &#39;</span><span class="o">..</span><span class="n">record</span><span class="p">.</span><span class="n">score</span><span class="p">)</span>
-<span class="kr">end</span>
-
-<span class="kr">return</span> <span class="n">result</span>
 </pre></div>
 
 
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">-- Select and return refined query.</span>
-<span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
-
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">errCode</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="nb">select</span><span class="p">({</span>
-  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+<p><strong>Example 2</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Select 10 scores greater than 10, in descending order</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="s2">&quot;leaderboard&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
   <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">},</span>
   <span class="n">where</span> <span class="o">=</span> <span class="s1">&#39;score &gt; 10&#39;</span><span class="p">,</span>
   <span class="n">limit</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
   <span class="n">orderby</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="n">score</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">DESCENDING</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="s2">&quot;DESC&quot;</span>
   <span class="p">}</span>
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
-  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span> <span class="n">err</span><span class="p">,</span> <span class="n">errCode</span> <span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="c1">-- `result` contains a table array of records</span>
+  <span class="kd">local</span> <span class="n">record</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="n">record</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">record</span><span class="p">.</span><span class="n">player</span><span class="o">..</span><span class="s1">&#39; scored &#39;</span><span class="o">..</span><span class="n">record</span><span class="p">.</span><span class="n">score</span><span class="p">)</span>
+  <span class="kr">end</span>
 <span class="kr">end</span>
-
-<span class="kr">return</span> <span class="n">result</span>
 </pre></div>
 
 
 <hr />
 <h2 id="insert">insert</h2>
-<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">insert_tbl</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">insert_tbl</span><span class="p">)</span>
 </pre></div>
 
 
@@ -570,13 +537,19 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
 <tr>
 <td>insert_tbl</td>
 <td>The insert table options (see below).</td>
@@ -589,7 +562,7 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
@@ -597,51 +570,42 @@
 </thead>
 <tbody>
 <tr>
-<td>tableName</td>
-<td>The MySQL table name to operate on.</td>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>columns</td>
-<td>An array of column names as strings.</td>
-<td><em>Table array</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
 <td>values</td>
-<td>An array of values for each specified column.</td>
-<td><em>Table array (mixed)</em></td>
+<td>A table of <strong>column = value</strong> pairs.</td>
+<td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The amount of columns must match the amount of values for this action to be successful.</p>
-</div>
 <p><strong>Returns</strong></p>
-<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p>The record id as a <strong>number</strong>, or <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">insert</span><span class="p">({</span>
-  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
-  <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;score&#39;</span><span class="p">,</span> <span class="s1">&#39;player&#39;</span><span class="p">},</span>
-  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span><span class="mi">200</span><span class="p">,</span> <span class="s1">&#39;Sandy&#39;</span><span class="p">}</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;leaderboard&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">score</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span> 
+    <span class="n">player</span> <span class="o">=</span> <span class="s1">&#39;Sandy&#39;</span>
+  <span class="p">}</span>
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
-  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="c1">-- `result` contains the id for the inserted record</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="kr">end</span>
-
-<span class="kr">return</span> <span class="n">result</span>
 </pre></div>
 
 
 <hr />
 <h2 id="update">update</h2>
-<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">update</span><span class="p">(</span> <span class="n">update_tbl</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">update_tbl</span><span class="p">)</span>
 </pre></div>
 
 
@@ -649,13 +613,19 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
 <tr>
 <td>update_tbl</td>
 <td>The update table options (see below).</td>
@@ -664,11 +634,11 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Update Table Keys</strong></p>
+<p><strong>Update Table Parameters</strong></p>
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
@@ -676,32 +646,30 @@
 </thead>
 <tbody>
 <tr>
-<td>tableName</td>
+<td>tbl</td>
 <td>The name of the table to operate on.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
 <td>values</td>
-<td>Table of name = val pairs.</td>
+<td>A table of <strong>column = value</strong> pairs.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
 <td>where</td>
-<td>Where the colums should be updated.</td>
+<td>Where the columns should be updated.</td>
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Returns</strong></p>
-<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p>The <strong>number</strong> of records updated, or <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">databag</span><span class="p">:</span><span class="n">update</span><span class="p">({</span>
-  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;leaderboard&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
   <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">score</span> <span class="o">=</span> <span class="mi">230</span>
   <span class="p">},</span>
@@ -709,16 +677,17 @@
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
-  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="c1">-- `result` contains the number of records updated</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="kr">end</span>
-
-<span class="kr">return</span> <span class="n">result</span>
 </pre></div>
 
 
 <hr />
 <h2 id="delete">delete</h2>
-<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span> <span class="n">delete_tbl</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">delete_tbl</span><span class="p">)</span>
 </pre></div>
 
 
@@ -726,13 +695,19 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
 <tr>
 <td>delete_tbl</td>
 <td>The delete table options (see below).</td>
@@ -745,7 +720,7 @@
 <table>
 <thead>
 <tr>
-<th>Key</th>
+<th>Name</th>
 <th>Description</th>
 <th>Type</th>
 <th>Required</th>
@@ -753,7 +728,7 @@
 </thead>
 <tbody>
 <tr>
-<td>tableName</td>
+<td>tbl</td>
 <td>The name of the table to operate on.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
@@ -766,45 +741,98 @@
 </tr>
 <tr>
 <td>force</td>
-<td>Disables safety check for mising where clause.</td>
+<td>Disables safety check for missing <strong>where</strong> key.</td>
 <td><em>Boolean</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Though optional, you should <em>always</em> include a where key query when removing records. Without it, you could possibly delete <em>all</em> of the tables records.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run the delete command without a <strong>where</strong> clause, you must set <strong>force</strong> to true.</p>
 </div>
 <p><strong>Returns</strong></p>
-<p>A <strong>result</strong> or <strong>nil</strong>, <strong>error</strong>, and possible <strong>errorCode</strong>.</p>
+<p>The <strong>number</strong> of records deleted, or <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span> <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;leaderboard&quot;</span> <span class="p">}</span>
-<span class="kd">local</span> <span class="n">databag</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">databag</span><span class="p">(</span> <span class="n">conn_tbl</span> <span class="p">)</span>
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">databag</span><span class="p">:</span><span class="n">delete</span><span class="p">({</span>
-  <span class="n">tableName</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">&quot;leaderboard&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s1">&#39;scores&#39;</span><span class="p">,</span>
   <span class="n">where</span> <span class="o">=</span> <span class="s1">&#39;score &lt; 10&#39;</span>
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
-  <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="c1">-- `result` contains the number of records deleted</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="kr">end</span>
-
-<span class="kr">return</span> <span class="n">result</span>
 </pre></div>
 
 
 <hr />
-<h1 id="cleanbag">cleanbag</h1>
-<p>Clears all internal databag query variables <em>except</em> the connection table. The databag is still usable.</p>
-<div class="codehilite"><pre><span></span><span class="n">databag</span><span class="p">:</span><span class="n">cleanbag</span><span class="p">()</span>
+<h1 id="remote-databases">Remote Databases</h1>
+<p>You can connect to remote MySQL databases by using a connection table in place of the database name in the <strong>core.mysql.query</strong> and EZ Query methods.</p>
+<p><strong>Connection Table</strong></p>
+<table>
+<thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>The remote database name.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>user</td>
+<td>The remote database user.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>password</td>
+<td>The remote database password</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>host</td>
+<td>The remote database host address.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>port</td>
+<td>The remote database port. Default: 3306</td>
+<td><em>Number</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
+  <span class="n">user</span> <span class="o">=</span> <span class="s2">&quot;dbuser&quot;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
+  <span class="n">host</span> <span class="o">=</span> <span class="s2">&quot;my.sql.host&quot;</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">results</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="n">conn_tbl</span><span class="p">,</span> <span class="n">query_str</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You generally don't need to call this method. It's called automatically before any new actions take place.</p>
-</div>
+<h1 id="administration">Administration</h1>
+<p>You can and should manage your MySQL databases using a standalone tool. Below are some free resources for managing MySQL databases.</p>
+<ul>
+<li><a href="https://sequelpro.com/download">SequelPro</a> (OSX)</li>
+<li><a href="https://www.heidisql.com/download.php">HeidiSQL</a> (Windows)</li>
+</ul>
+<p>To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
               
             </div>
           </div>

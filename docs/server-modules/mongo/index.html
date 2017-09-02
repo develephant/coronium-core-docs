@@ -209,6 +209,9 @@
                 <li class="toctree-l3"><a href="#resources">Resources</a></li>
                 
             
+                <li class="toctree-l3"><a href="#administration">Administration</a></li>
+                
+            
             </ul>
         
     </li>
@@ -267,6 +270,13 @@
             
     <li class="toctree-l1 ">
         <a class="" href="../../client-module/core/">Core</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
+        <a class="" href="../../client-module/data/">Data</a>
         
     </li>
 
@@ -341,12 +351,12 @@
                 <h1 id="overview">Overview</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>The Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the <strong><a href="../server-api/mysql/">MySQL</a></strong> module.</p>
+<p>The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See <strong><a href="#administration">Administration</a></strong> below.</p>
 </div>
 <h1 id="database">Database</h1>
 <h2 id="new">new</h2>
 <p>Connect to a database and return a database object. If the database does not exist, it will be created.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mongo</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -370,7 +380,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">db</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="s2">&quot;app&quot;</span> <span class="p">)</span> 
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mongo</span><span class="p">(</span> <span class="s2">&quot;app&quot;</span> <span class="p">)</span> 
 </pre></div>
 
 
@@ -1453,6 +1463,13 @@
 <li><a href="https://docs.mongodb.com/v3.0/reference/operator/aggregation/">Aggregation Operators</a></li>
 <li><a href="https://docs.mongodb.com/v3.0/reference/sql-comparison/">SQL to MongoDB Mapping Chart</a></li>
 </ul>
+<h1 id="administration">Administration</h1>
+<p>You can and should manage your Mongo databases using a standalone tool. Below are some free resources for managing Mongo databases.</p>
+<ul>
+<li><a href="https://mongobooster.com/downloads">MongoBooster</a></li>
+<li><a href="https://studio3t.com/download/">Studio 3T</a></li>
+</ul>
+<p>To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
               
             </div>
           </div>

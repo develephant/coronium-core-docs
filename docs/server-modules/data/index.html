@@ -114,6 +114,20 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#get">get</a></li>
+                
+                    <li><a class="toctree-l4" href="#save">save</a></li>
+                
+                    <li><a class="toctree-l4" href="#delete">delete</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#pagination">Pagination</a></li>
+                
+                    <li><a class="toctree-l4" href="#getpage">getPage</a></li>
+                
+            
             </ul>
         
     </li>
@@ -199,6 +213,13 @@
         
             
     <li class="toctree-l1 ">
+        <a class="" href="../../client-module/data/">Data</a>
+        
+    </li>
+
+        
+            
+    <li class="toctree-l1 ">
         <a class="" href="../../client-module/files/">Files</a>
         
     </li>
@@ -264,7 +285,93 @@
           <div role="main">
             <div class="section">
               
-                
+                <h1 id="overview">Overview</h1>
+<p>The data module provides a simple interface to the underlying Mongo datastore. It is meant for basic usage, see the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
+<p>You can access this module directly from the client-side using the client <strong><a href="../../client-module/data">data</a></strong> module.</p>
+<p>To perform any of the object methods, you need a reference to the <strong>data</strong> module.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">source_name</span><span class="p">[,</span> <span class="n">db_name</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>A source object, or <strong>nil</strong> and an error.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>source_name</td>
+<td>The source name to use for the objects.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>db_name</td>
+<td>Set a specific database. Default: "_app"</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">users</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="get">get</h2>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="save">save</h2>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="delete">delete</h2>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h1 id="pagination">Pagination</h1>
+<hr />
+<h2 id="getpage">getPage</h2>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">getPage</span><span class="p">({},</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
               
             </div>
           </div>

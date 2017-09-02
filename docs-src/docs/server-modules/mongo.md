@@ -1,7 +1,7 @@
 # Overview
 
 !!! note
-    The Mongo module is an abstraction layer providing only specific functionality. It is not a full MongoDB client. For complex query needs it is recommended that you use the __[MySQL](server-api/mysql/)__ module.
+    The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 # Database
 
@@ -909,3 +909,12 @@ coll:update(<queryOrId>, {
 - [Array Update Operators](https://docs.mongodb.com/v3.0/reference/operator/update-array/)
 - [Aggregation Operators](https://docs.mongodb.com/v3.0/reference/operator/aggregation/)
 - [SQL to MongoDB Mapping Chart](https://docs.mongodb.com/v3.0/reference/sql-comparison/)
+
+# Administration
+
+You can and should manage your Mongo databases using a standalone tool. Below are some free resources for managing Mongo databases.
+
+- [MongoBooster](https://mongobooster.com/downloads)
+- [Studio 3T](https://studio3t.com/download/)
+
+To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.
