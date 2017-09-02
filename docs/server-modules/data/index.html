@@ -352,7 +352,7 @@
 
 <hr />
 <h2 id="get">get</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">idOrQuery</span><span class="p">)</span>
 </pre></div>
 
 
@@ -368,15 +368,15 @@
 </thead>
 <tbody>
 <tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
+<td>idOrQuery</td>
+<td>A string id or query table.</td>
+<td><em>String</em> or <em>Table</em></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id1234&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -398,10 +398,10 @@
 </thead>
 <tbody>
 <tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
+<td>obj</td>
+<td>A data object to save.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
@@ -412,7 +412,7 @@
 
 <hr />
 <h2 id="delete">delete</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">idOrObj</span><span class="p">)</span>
 </pre></div>
 
 
@@ -428,10 +428,10 @@
 </thead>
 <tbody>
 <tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
+<td>idOrObj</td>
+<td>An object id string or data object with <strong>_id</strong> field.</td>
+<td><em>String</em> or <em>Table</em></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
@@ -442,9 +442,8 @@
 
 <hr />
 <h1 id="pagination">Pagination</h1>
-<hr />
 <h2 id="getpage">getPage</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
 </pre></div>
 
 
@@ -454,16 +453,58 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Default</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
+<td>page</td>
+<td>The page number to return.</td>
+<td>none</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>perPage</td>
+<td>The number of objects per page.</td>
+<td>20</td>
+<td><em>Number</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>sort</td>
+<td>Sort constant or sorting table.</td>
+<td>core.ASC</td>
+<td><em>Const</em> or <em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>query</td>
+<td>Specialized query table.</td>
+<td>{ } (all records)</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sort Constants</strong></p>
+<table>
+<thead>
+<tr>
+<th>Enum</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>core.ASC</td>
+<td>Sort in an ascending order.</td>
+</tr>
+<tr>
+<td>core.DESC</td>
+<td>Sort in a descending order.</td>
 </tr>
 </tbody>
 </table>

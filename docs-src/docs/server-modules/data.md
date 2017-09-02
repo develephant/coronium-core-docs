@@ -36,19 +36,19 @@ local users = core.data("users")
 ## get
 
 ```lua
-<source>:get(queryOrId)
+<source>:get(idOrQuery)
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|name|description|type|required|
+|idOrQuery|A string id or query table.|_String_ or _Table_|__Y__|
 
 __Example__
 
 ```lua
-local obj, err = users:get("1234")
+local obj, err = users:get("id1234")
 ```
 
 ---
@@ -63,7 +63,7 @@ __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|name|description|type|required|
+|obj|A data object to save.|_Table_|__Y__|
 
 __Example__
 
@@ -76,14 +76,14 @@ local success, err = users:save(obj)
 ## delete
 
 ```lua
-<source>:delete(obj)
+<source>:delete(idOrObj)
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|name|description|type|required|
+|idOrObj|An object id string or data object with ___id__ field.|_String_ or _Table_|__Y__|
 
 __Example__
 
@@ -95,19 +95,27 @@ local success, err = users:delete(obj)
 
 # Pagination
 
----
-
 ## getPage
 
 ```lua
-<source>:getPage(query, page, perPage, sort)
+<source>:getPage(page, perPage, sort, query)
 ```
 
 __Parameters__
 
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|name|description|type|required|
+|Name|Description|Default|Type|Required|
+|----|-----------|----|-------|--------|
+|page|The page number to return.|none|_Number_|__Y__|
+|perPage|The number of objects per page.|20|_Number_|__N__|
+|sort|Sort constant or sorting table.|core.ASC|_Const_ or _Table_|__N__|
+|query|Specialized query table.|{ } (all records)|_Table_|__N__|
+
+__Sort Constants__
+
+|Enum|Description|
+|----|-----------|
+|core.ASC|Sort in an ascending order.|
+|core.DESC|Sort in a descending order.|
 
 __Example__
 

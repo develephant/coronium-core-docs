@@ -151,7 +151,7 @@ core.data.delete({source="users", id="id1234"}, apiListener)
 
 ---
 
-# Paging
+# Pagination
 
 ## getPage
 
