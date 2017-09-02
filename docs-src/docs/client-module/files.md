@@ -1,6 +1,9 @@
 # Overview
 
-Upload and download files to and from the server.
+This module allows you to transfer files to and from your __Coronium Core__ server.
+
+!!! tip "Amazon S3"
+    If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.
 
 ---
 

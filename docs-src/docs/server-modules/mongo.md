@@ -3,6 +3,9 @@
 !!! note
     The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
+!!! tip
+    For simple data manipulation using Mongo, take a look at the __[Data](/server-modules/data/)__ module.
+
 # Database
 
 ## new

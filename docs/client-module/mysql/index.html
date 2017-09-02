@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Data - Coronium Core</title>
+  <title>MySQL - Coronium Core</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Data";
-    var mkdocs_page_input_path = "client-module/data.md";
-    var mkdocs_page_url = "/client-module/data/";
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "client-module/mysql.md";
+    var mkdocs_page_url = "/client-module/mysql/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -201,26 +201,8 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Data</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#overview">Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#get">get</a></li>
-                
-                    <li><a class="toctree-l4" href="#save">save</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete">delete</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#paging">Paging</a></li>
-                
-                    <li><a class="toctree-l4" href="#getpage">getPage</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../data/">Data</a>
         
     </li>
 
@@ -240,8 +222,23 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../mysql/">MySQL</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">MySQL</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#select">select</a></li>
+                
+                    <li><a class="toctree-l4" href="#insert">insert</a></li>
+                
+                    <li><a class="toctree-l4" href="#update">update</a></li>
+                
+                    <li><a class="toctree-l4" href="#delete">delete</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -296,7 +293,7 @@
         
       
     
-    <li>Data</li>
+    <li>MySQL</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -307,9 +304,9 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>Provides a client-side api to the server-side <strong><a href="../../server-modules/data">Data</a></strong> module. The <strong>data</strong> module is a simple interface to the Mongo database. For more complex data handling, you must provide an <strong><a href="../../server-modules/api/">api</a></strong> on the server-side.</p>
-<h2 id="get">get</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+<p>Provides a client-side api to the <a href="../../server-modules/mysql/#ez-query-methods">EZ query methods</a> of the server-side MySQL module. For more complex data handling, you must provide an <strong><a href="../../server-modules/api/">api</a></strong> on the server-side.</p>
+<h2 id="select">select</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -325,8 +322,8 @@
 </thead>
 <tbody>
 <tr>
-<td>data_params</td>
-<td>The data parameters for the call.</td>
+<td>query_tbl</td>
+<td>The query parameters for the call.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -338,7 +335,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Data Params</strong></p>
+<p><strong>Query Table Keys</strong></p>
 <table>
 <thead>
 <tr>
@@ -350,233 +347,79 @@
 </thead>
 <tbody>
 <tr>
-<td>source</td>
-<td>The data source to run against.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>query</td>
-<td>A query table or string id.</td>
-<td><em>Table</em> or <em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
 <td>db</td>
-<td>A specific database. Default: "_app".</td>
+<td>The database to run the query against.</td>
 <td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>columns</td>
+<td>Array of columns to select as strings.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>Any additional WHERE clause to apply.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>orderby</td>
+<td>The sorting attributes. See <strong>Orderby</strong> below.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>limit</td>
+<td>Limit the records returned. See <strong>Limit</strong> below.</td>
+<td><em>Number</em> or <em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>distinct</td>
+<td>Filter out duplicate column values. Default: false</td>
+<td><em>Boolean</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Orderby</strong></p>
+<p>The <strong>orderby</strong> key should be a table filled with <strong>column = direction</strong> pairs. The direction can be either "ASC" for ascending order or "DESC" for descending order.</p>
+<p><strong>Limit</strong></p>
+<p>To limit the rows returned, supply a <strong>number</strong> value to the <strong>limit</strong> key. To <em>offset</em> the limit, supply a <strong>table</strong> array of <strong>number</strong> values. For example, to return rows 6-15: <strong>limit = {5, 10}</strong>.</p>
 <p><strong>Example</strong></p>
+<p><em>Using the "app" database, select all records from the "users" table.</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">_id</span><span class="p">)</span> <span class="c1">-- result holds the data object</span>
+    <span class="nb">print</span><span class="p">(</span><span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is table array of records</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
-<span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">({</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">query</span><span class="o">=</span><span class="s2">&quot;id1234&quot;</span><span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
-<h2 id="save">save</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data_params</td>
-<td>The data parameters for the call.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>listener</td>
-<td>The api listener callback function.</td>
-<td><em>Function</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Data Params</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>source</td>
-<td>The data source to run against.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>data</td>
-<td>A data object to save.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>db</td>
-<td>A specific database. Default: "_app".</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<p><em>Saving a new data object</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Do not add an <strong>_id</strong> key to the object, it will be generated automatically on the server-side.</p>
-</div>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">dataObj</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sally&quot;</span><span class="p">,</span>
-  <span class="n">age</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
-  <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;blue&quot;</span><span class="p">,</span> <span class="s2">&quot;gold&quot;</span><span class="p">}</span>
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span>
 <span class="p">}</span>
 
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;saved&quot;</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-
-<span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">save</span><span class="p">({</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">dataObj</span><span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
-</pre></div>
-
-
-<p><em>Updating an existing object</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>To update an existing object, first retrieve it using <strong>core.data.get</strong>.</p>
-</div>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="c1">--an object from core.data.get</span>
-
-<span class="n">obj</span><span class="p">.</span><span class="n">score</span> <span class="o">=</span> <span class="mi">200</span> <span class="c1">--add or update key value</span>
-
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="c1">--listener code (see above)</span>
-<span class="kr">end</span>
-
-<span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">save</span><span class="p">({</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">obj</span><span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not change the <strong>_id</strong> key in the object you wish to update.</p>
-</div>
-<hr />
-<h2 id="delete">delete</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data_params</td>
-<td>The data parameters for the call.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>listener</td>
-<td>The api listener callback function.</td>
-<td><em>Function</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Data Params</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>source</td>
-<td>The data source to run against.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>id</td>
-<td>The data object id string.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>db</td>
-<td>A specific database. Default: "_app".</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You can get an object id from any data object. See the <strong>core.data.get</strong> example above.</p>
-</div>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;deleted&quot;</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-
-<span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">delete</span><span class="p">({</span><span class="n">source</span><span class="o">=</span><span class="s2">&quot;users&quot;</span><span class="p">,</span> <span class="n">id</span><span class="o">=</span><span class="s2">&quot;id1234&quot;</span><span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="nb">select</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
 </pre></div>
 
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>While passing an id string is the most consistent way to delete an object, you can also pass the entire object to the <strong>id</strong> key. Example: <strong>{source = "users", id = obj}</strong>. The object must contain a valid <strong>_id</strong> field for this to work.</p>
+<p>See the server-side <strong><a href="../../server-modules/mysql/#select">core.mysql.select</a></strong> method for more examples.</p>
 </div>
 <hr />
-<h1 id="paging">Paging</h1>
-<h2 id="getpage">getPage</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+<h2 id="insert">insert</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -592,8 +435,8 @@
 </thead>
 <tbody>
 <tr>
-<td>data_params</td>
-<td>The data parameters for the call.</td>
+<td>query_tbl</td>
+<td>The query parameters for the call.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -605,101 +448,253 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Data Params</strong></p>
+<p><strong>Query Table Keys</strong></p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Default</th>
 <th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>source</td>
-<td>The data source to run against.</td>
-<td>none</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>page</td>
-<td>The page number to return.</td>
-<td>none</td>
-<td><em>Number</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>The number of objects per page.</td>
-<td>20</td>
-<td><em>Number</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>sort</td>
-<td>Sort constant or sorting table.</td>
-<td>core.ASC</td>
-<td><em>Const</em> or <em>Table</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>query</td>
-<td>Specialized query table.</td>
-<td>{ } (all records)</td>
-<td><em>Table</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
 <td>db</td>
-<td>Specify a different database.</td>
-<td>"_app"</td>
+<td>The database to run the query against.</td>
 <td><em>String</em></td>
-<td><strong>N</strong></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>values</td>
+<td>A table of <strong>column = value</strong> pairs.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Sort Constants</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../server-modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
+</div>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is the inserted id number</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bobby&quot;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">34</span>
+  <span class="p">},</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="update">update</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
 <table>
 <thead>
 <tr>
-<th>Enum</th>
+<th>Name</th>
 <th>Description</th>
+<th>Type</th>
+<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>core.ASC</td>
-<td>Sort in an ascending order.</td>
+<td>query_tbl</td>
+<td>The query parameters for the call.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>core.DESC</td>
-<td>Sort in a descending order.</td>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Query Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>The name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>values</td>
+<td>A table of <strong>column = value</strong> pairs.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>Where the columns should be updated.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../server-modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
+</div>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="n">source</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-  <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-  <span class="n">perPage</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="p">}</span>
-
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="c1">--evt.result holds array of objects</span>
-    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
-      <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">_id</span><span class="p">)</span>
-    <span class="kr">end</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is number of updated records</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
-<span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Paco&quot;</span>
+  <span class="p">},</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Bobby&#39;&quot;</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
 </pre></div>
+
+
+<hr />
+<h2 id="delete">delete</h2>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>query_tbl</td>
+<td>The query parameters for the call.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Query Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>The name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>A WHERE clause to limit deletions to.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>force</td>
+<td>Disables safety check for missing <strong>where</strong> key.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To run the delete command without a <strong>where</strong> clause, you must set <strong>force</strong> to true.</p>
+</div>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is number of deleted records</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=10&quot;</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>See the server-side <strong><a href="../../server-modules/mysql/#delete">core.mysql.delete</a></strong> method for more examples.</p>
+</div>
+<hr />
               
             </div>
           </div>
@@ -707,10 +702,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../email/" class="btn btn-neutral float-right" title="Email">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../example/" class="btn btn-neutral float-right" title="Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../core/" class="btn btn-neutral" title="Core"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../files/" class="btn btn-neutral" title="Files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -738,10 +733,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../core/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../email/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../example/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

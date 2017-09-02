@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Data - Coronium Core</title>
+  <title>Files - Coronium Core</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Data";
-    var mkdocs_page_input_path = "server-modules/data.md";
-    var mkdocs_page_url = "/server-modules/data/";
+    var mkdocs_page_name = "Files";
+    var mkdocs_page_input_path = "server-modules/files.md";
+    var mkdocs_page_url = "/server-modules/files/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -109,35 +109,24 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">Data</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#overview">Overview</a></li>
-                
-                    <li><a class="toctree-l4" href="#coredata">core.data</a></li>
-                
-                    <li><a class="toctree-l4" href="#get">get</a></li>
-                
-                    <li><a class="toctree-l4" href="#save">save</a></li>
-                
-                    <li><a class="toctree-l4" href="#delete">delete</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#pagination">Pagination</a></li>
-                
-                    <li><a class="toctree-l4" href="#getpage">getPage</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../data/">Data</a>
         
     </li>
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../files/">Files</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Files</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#file-directory">File Directory</a></li>
+                
+            
+            </ul>
         
     </li>
 
@@ -298,7 +287,7 @@
         
       
     
-    <li>Data</li>
+    <li>Files</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -309,170 +298,13 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>The <strong>data</strong> module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
-<p>You can access this module directly from the client-side using the client <strong><a href="../../client-module/data">Data</a></strong> module.</p>
-<hr />
-<h2 id="coredata">core.data</h2>
-<p>To perform any of the object methods, you need a reference to the <strong>data</strong> module.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">source_name</span><span class="p">[,</span> <span class="n">db_name</span><span class="p">])</span>
-</pre></div>
-
-
-<p><strong>Returns</strong></p>
-<p>A source object, or <strong>nil</strong> and an error.</p>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>source_name</td>
-<td>The source name to use for the objects.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>db_name</td>
-<td>Set a specific database. Default: "_app"</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">users</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
-<h2 id="get">get</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;1234&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
-<h2 id="save">save</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
-<h2 id="delete">delete</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
-<h1 id="pagination">Pagination</h1>
-<hr />
-<h2 id="getpage">getPage</h2>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>description</td>
-<td>type</td>
-<td>required</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">getPage</span><span class="p">({},</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-</pre></div>
-
-
-<hr />
+<p>File transfers are performed through the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
+<h2 id="file-directory">File Directory</h2>
+<p>All files are stored in the <strong><em>/home/coronium/files</em></strong> directory.</p>
+<div class="admonition tip">
+<p class="admonition-title">Amazon S3</p>
+<p>If you'd like to transfer files using <strong><a href="https://aws.amazon.com/s3/">Amazon S3</a></strong> take a look at the <strong><a href="https://marketplace.coronalabs.com/plugin/s3-lite">S3 Lite</a></strong> plugin for Corona.</p>
+</div>
               
             </div>
           </div>
@@ -480,10 +312,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../files/" class="btn btn-neutral float-right" title="Files">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../geoip/" class="btn btn-neutral float-right" title="GeoIP">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../api/" class="btn btn-neutral" title="API"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../data/" class="btn btn-neutral" title="Data"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -511,10 +343,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../api/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../data/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../files/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../geoip/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

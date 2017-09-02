@@ -1,6 +1,6 @@
 # Overview
 
-Provides a client-side interface to the server-side __[data](/server-modules/data)__ module.
+Provides a client-side api to the server-side __[Data](/server-modules/data)__ module. The __data__ module is a simple interface to the Mongo database. For more complex data handling, you must provide an __[api](/server-modules/api/)__ on the server-side.
 
 ## get
 

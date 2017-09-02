@@ -10,6 +10,7 @@ pages:
   - 'Server Modules':
     - 'API': 'server-modules/api.md' 
     - 'Data': 'server-modules/data.md'
+    - 'Files': 'server-modules/files.md'
     - 'GeoIP': 'server-modules/geoip.md'
     - 'JSON': 'server-modules/json.md'
     - 'Mongo': 'server-modules/mongo.md'
@@ -22,7 +23,9 @@ pages:
     - 'API': 'client-module/api.md'
     - 'Core': 'client-module/core.md'
     - 'Data': 'client-module/data.md'
+    - 'Email': 'client-module/email.md'
     - 'Files': 'client-module/files.md'
+    - 'MySQL': 'client-module/mysql.md'
   - 'Examples': 'example.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
