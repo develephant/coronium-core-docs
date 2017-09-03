@@ -1,25 +1,25 @@
 # Overview
 
-Used to call your server-side project api methods.
+Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side __[API](server-api/api)__ module.
 
-!!! important
-    You must set the project using the __[core.useProject](core/#useproject)__ method before using the __api__ method.
+Use the __[core.init](core/#init)__ method to set the project to call the methods against.
 
 ## api
 
 ```lua
-core.api.<api-method>( data_tbl, listener )
+core.api.<api-method>(input_params, listener)
 ```
 
 __Parameters__
 
-|Name|Description|Required|
-|----|-----------|--------|
-|data_tbl|A data table to pass to the api method.|__Y__|
-|listener|The api listener callback function.|__Y__|
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|input_params|Parameters to pass to the api method.|_Table_|__N__|
+|listener|The api listener callback function.|_Function_|__Y__|
 
-!!! note
-    If you're api method does not require any data, then pass an empty table ( {} ) to the __data_tbl__ parameter.
+__Event Response__
+
+On success, the __result__ will contain any values that are passed back from the server-side api method.
 
 __API Listener__
 
@@ -32,9 +32,6 @@ local function apiListener( evt )
   end
 end
 ```
-
-!!! tip "Server-Side"
-    Click __[here](server-api/api)__ to learn how to set up the matching server-side api method.
 
 __Example__
 

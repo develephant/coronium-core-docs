@@ -318,7 +318,7 @@
 <tr>
 <td>baseDir</td>
 <td>A Corona directory constant.</td>
-<td><em><a href="">Const</a></em></td>
+<td><em><a href="https://docs.coronalabs.com/api/library/system/index.html#constants">Const</a></em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
@@ -335,12 +335,36 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Event Response</strong></p>
+<p>While uploading, a <strong>progress</strong> key will be available.</p>
+<p>When the upload is complete, the <strong>result</strong> will contain the following keys:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>The server-side directory path to the file.</td>
+<td><em>String</em></td>
+</tr>
+<tr>
+<td>file</td>
+<td>The server-side file name with extension.</td>
+<td><em>String</em></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Upload Listener</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">uploadListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="p">)</span>
   <span class="kr">else</span>
-    <span class="kr">if</span> <span class="ow">not</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">done</span> <span class="kr">then</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="kr">then</span>
       <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="p">)</span>
     <span class="kr">else</span>
       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file upload complete&quot;</span><span class="p">)</span>
@@ -353,6 +377,29 @@
 
 
 <p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">upload</span><span class="p">(</span> 
+  <span class="s2">&quot;image.png&quot;</span><span class="p">,</span> 
+  <span class="n">system</span><span class="p">.</span><span class="n">DocumentsDirectory</span><span class="p">,</span> 
+  <span class="s2">&quot;imgs/image001.png&quot;</span><span class="p">,</span> 
+  <span class="n">uploadListener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Upload Progress</strong></p>
+<p>By default the listener event returns a <strong>progress</strong> key with the current upload progress as a decimal value between 0 and 1 that you can use to create progress bars, etc.</p>
+<p>If you don't care about the progress, you can write the listener function like so:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">uploadListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file upload complete&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
 <hr />
 <h2 id="download">download</h2>
 <p>Download files from the server.</p>
@@ -397,18 +444,21 @@
 </tr>
 <tr>
 <td>transform</td>
-<td>Optional parameters for image transform (See below).</td>
+<td>See <strong>Image Transforms</strong> below.</td>
 <td><em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Event Response</strong></p>
+<p>While downloading, a <strong>progress</strong> key will be available.</p>
+<p>When the download is complete, the file will be available in the directory set in the <strong>baseDir</strong> parameter.</p>
 <p><strong>Download Listener</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">downloadListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="p">)</span>
   <span class="kr">else</span>
-    <span class="kr">if</span> <span class="ow">not</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">done</span> <span class="kr">then</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="kr">then</span>
       <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="p">)</span>
     <span class="kr">else</span>
       <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file download complete&quot;</span><span class="p">)</span>
@@ -419,6 +469,29 @@
 
 
 <p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">download</span><span class="p">(</span>
+  <span class="s2">&quot;imgs/image001.png&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;image.png&quot;</span><span class="p">,</span>
+  <span class="n">system</span><span class="p">.</span><span class="n">DocumentsDirectory</span><span class="p">,</span>
+  <span class="n">downloadListener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Download Progress</strong></p>
+<p>By default the listener event returns a <strong>progress</strong> key with the current download progress as a decimal value between 0 and 1 that you can use to create progress bars, etc.</p>
+<p>If you don't care about the progress, you can write the listener function like so:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">downloadListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">evt</span><span class="p">.</span><span class="n">progress</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file download complete&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
 <h3 id="image-transforms">Image Transforms</h3>
 <p>Download an image with transformations.</p>
 <div class="admonition note">
@@ -462,6 +535,13 @@
   <span class="n">height</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
   <span class="n">sharpen</span> <span class="o">=</span> <span class="mi">50</span>
 <span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">download</span><span class="p">(</span>
+  <span class="s2">&quot;imgs/image001.png&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;image.png&quot;</span><span class="p">,</span>
+  <span class="n">system</span><span class="p">.</span><span class="n">DocumentsDirectory</span><span class="p">,</span>
+  <span class="n">downloadListener</span><span class="p">,</span>
+  <span class="n">transform</span><span class="p">)</span>
 </pre></div>
               
             </div>

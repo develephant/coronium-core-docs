@@ -284,13 +284,10 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>Used to call your server-side project api methods.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>You must set the project using the <strong><a href="../core/#useproject">core.useProject</a></strong> method before using the <strong>api</strong> method.</p>
-</div>
+<p>Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side <strong><a href="../server-api/api">API</a></strong> module.</p>
+<p>Use the <strong><a href="../core/#init">core.init</a></strong> method to set the project to call the methods against.</p>
 <h2 id="api">api</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">api</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="p">(</span> <span class="n">data_tbl</span><span class="p">,</span> <span class="n">listener</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">api</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -300,26 +297,27 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
+<th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>data_tbl</td>
-<td>A data table to pass to the api method.</td>
-<td><strong>Y</strong></td>
+<td>input_params</td>
+<td>Parameters to pass to the api method.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
 </tr>
 <tr>
 <td>listener</td>
 <td>The api listener callback function.</td>
+<td><em>Function</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If you're api method does not require any data, then pass an empty table ( {} ) to the <strong>data_tbl</strong> parameter.</p>
-</div>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will contain any values that are passed back from the server-side api method.</p>
 <p><strong>API Listener</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
@@ -331,10 +329,6 @@
 </pre></div>
 
 
-<div class="admonition tip">
-<p class="admonition-title">Server-Side</p>
-<p>Click <strong><a href="../server-api/api">here</a></strong> to learn how to set up the matching server-side api method.</p>
-</div>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>

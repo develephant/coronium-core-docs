@@ -35,6 +35,10 @@ __Limit__
 
 To limit the rows returned, supply a __number__ value to the __limit__ key. To _offset_ the limit, supply a __table__ array of __number__ values. For example, to return rows 6-15: __limit = {5, 10}__.
 
+__Event Response__
+
+On success, the __result__ will contain a __table__ array of records.
+
 __Example__
 
 _Using the "app" database, select all records from the "users" table._
@@ -44,7 +48,9 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(#evt.result) -- result is table array of records
+    for i=1, #evt.result do
+      print(evt.result[i].id)
+    end
   end
 end
 
@@ -85,6 +91,10 @@ __Query Table Keys__
 !!! note
     Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server-modules/mysql/#escape)__ method.
 
+__Event Response__
+
+On success, the __result__ will contain the inserted record id as a __number__.
+
 __Example__
 
 ```lua
@@ -92,7 +102,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result) -- result is the inserted id number
+    print("insert id:", evt.result)
   end
 end
 
@@ -135,6 +145,10 @@ __Query Table Keys__
 !!! note
     Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server-modules/mysql/#escape)__ method.
 
+__Event Response__
+
+On success, the __result__ will contain the amount of records updated as a __number__.
+
 __Example__
 
 ```lua
@@ -142,7 +156,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result) -- result is number of updated records
+    print("updated:", evt.result)
   end
 end
 
@@ -185,6 +199,10 @@ __Query Table Keys__
 !!! note
     To run the delete command without a __where__ clause, you must set __force__ to true.
 
+__Event Response__
+
+On success, the __result__ will contain the amount of records deleted as a __number__.
+
 __Example__
 
 ```lua
@@ -192,7 +210,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result) -- result is number of deleted records
+    print("deleted:", evt.result)
   end
 end
 

@@ -20,9 +20,21 @@ __Parameters__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |srcFilePath|Local source file path with extension.|_String_|__Y__|
-|baseDir|A Corona directory constant.|_[Const]()_|__Y__|
+|baseDir|A Corona directory constant.|_[Const](https://docs.coronalabs.com/api/library/system/index.html#constants)_|__Y__|
 |destFilePath|Remote destination path with extension.|_String_|__Y__|
 |listener|The upload listener callback function.|_Function_|__Y__|
+
+__Event Response__
+
+While uploading, a __progress__ key will be available.
+
+When the upload is complete, the __result__ will contain the following keys:
+
+|Name|Description|Type|
+|----|-----------|----|
+|path|The server-side directory path to the file.|_String_|
+|file|The server-side file name with extension.|_String_|
+
 
 __Upload Listener__
 
@@ -31,7 +43,7 @@ local function uploadListener( evt )
   if evt.error then
     print( evt.error )
   else
-    if not evt.result.done then
+    if evt.progress then
       print( evt.progress )
     else
       print("file upload complete")
@@ -43,6 +55,32 @@ end
 ```
 
 __Example__
+
+```lua
+core.files.upload( 
+  "image.png", 
+  system.DocumentsDirectory, 
+  "imgs/image001.png", 
+  uploadListener)
+```
+
+__Upload Progress__
+
+By default the listener event returns a __progress__ key with the current upload progress as a decimal value between 0 and 1 that you can use to create progress bars, etc.
+
+If you don't care about the progress, you can write the listener function like so:
+
+```lua
+local function uploadListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    if not evt.progress then
+      print("file upload complete")
+    end
+  end
+end
+```
 
 ---
 
@@ -62,7 +100,13 @@ __Parameters__
 |destFilePath|Local destination path with extension.|_String_|__Y__|
 |baseDir|A Corona system directory constant.|_[Const](https://docs.coronalabs.com/api/library/system/index.html#constants)_|__Y__|
 |listener|The download listener callback function.|_Function_|__Y__|
-|transform|Optional parameters for image transform (See below).|_Table_|__N__|
+|transform|See __Image Transforms__ below.|_Table_|__N__|
+
+__Event Response__
+
+While downloading, a __progress__ key will be available.
+
+When the download is complete, the file will be available in the directory set in the __baseDir__ parameter.
 
 __Download Listener__
 
@@ -71,7 +115,7 @@ local function downloadListener( evt )
   if evt.error then
     print( evt.error )
   else
-    if not evt.result.done then
+    if evt.progress then
       print( evt.progress )
     else
       print("file download complete")
@@ -82,6 +126,32 @@ end
 
 __Example__
 
+```lua
+core.files.download(
+  "imgs/image001.png",
+  "image.png",
+  system.DocumentsDirectory,
+  downloadListener)
+```
+
+
+__Download Progress__
+
+By default the listener event returns a __progress__ key with the current download progress as a decimal value between 0 and 1 that you can use to create progress bars, etc.
+
+If you don't care about the progress, you can write the listener function like so:
+
+```lua
+local function downloadListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    if not evt.progress then
+      print("file download complete")
+    end
+  end
+end
+```
 
 ### Image Transforms
 
@@ -106,4 +176,11 @@ local transform = {
   height = 100,
   sharpen = 50
 }
+
+core.files.download(
+  "imgs/image001.png",
+  "image.png",
+  system.DocumentsDirectory,
+  downloadListener,
+  transform)
 ```

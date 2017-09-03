@@ -23,6 +23,10 @@ __Data Params__
 |query|A query table or string id.|_Table_ or _String_|__Y__|
 |db|A specific database. Default: "_app".|_String_|__N__|
 
+__Event Response__
+
+On success, the __result__ will hold the data object as a __table__.
+
 __Example__
 
 ```lua
@@ -36,6 +40,9 @@ end
 
 core.data.get({source="users", query="id1234"}, apiListener)
 ```
+
+!!! tip
+    To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
 ---
 
@@ -60,6 +67,14 @@ __Data Params__
 |data|A data object to save.|_Table_|__Y__|
 |db|A specific database. Default: "_app".|_String_|__N__|
 
+__Event Response__
+
+On success, the __result__ will contain the following keys:
+
+|Name|Description|Type|
+|----|-----------|----|
+|id|The data object id.|_String_|
+
 __Example__
 
 _Saving a new data object_
@@ -79,7 +94,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print("saved")
+    print(evt.result.id) --the object id
   end
 end
 
@@ -132,6 +147,10 @@ __Data Params__
 !!! note
     You can get an object id from any data object. See the __core.data.get__ example above.
 
+__Event Response__
+
+On success, the __result__ will be __true__.
+
 __Example__
 
 ```lua
@@ -183,6 +202,10 @@ __Sort Constants__
 |----|-----------|
 |core.ASC|Sort in an ascending order.|
 |core.DESC|Sort in a descending order.|
+
+__Event Response__
+
+On success, the __result__ will hold a __table__ array of data objects.
 
 __Example__
 

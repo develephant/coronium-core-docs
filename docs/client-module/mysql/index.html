@@ -380,13 +380,17 @@
 <p>The <strong>orderby</strong> key should be a table filled with <strong>column = direction</strong> pairs. The direction can be either "ASC" for ascending order or "DESC" for descending order.</p>
 <p><strong>Limit</strong></p>
 <p>To limit the rows returned, supply a <strong>number</strong> value to the <strong>limit</strong> key. To <em>offset</em> the limit, supply a <strong>table</strong> array of <strong>number</strong> values. For example, to return rows 6-15: <strong>limit = {5, 10}</strong>.</p>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will contain a <strong>table</strong> array of records.</p>
 <p><strong>Example</strong></p>
 <p><em>Using the "app" database, select all records from the "users" table.</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is table array of records</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">id</span><span class="p">)</span>
+    <span class="kr">end</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
@@ -469,12 +473,14 @@
 <p class="admonition-title">Note</p>
 <p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../server-modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
 </div>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will contain the inserted record id as a <strong>number</strong>.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is the inserted id number</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;insert id:&quot;</span><span class="p">,</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
@@ -563,12 +569,14 @@
 <p class="admonition-title">Note</p>
 <p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../server-modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
 </div>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will contain the amount of records updated as a <strong>number</strong>.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is number of updated records</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;updated:&quot;</span><span class="p">,</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
@@ -657,12 +665,14 @@
 <p class="admonition-title">Note</p>
 <p>To run the delete command without a <strong>where</strong> clause, you must set <strong>force</strong> to true.</p>
 </div>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will contain the amount of records deleted as a <strong>number</strong>.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">-- result is number of deleted records</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;deleted:&quot;</span><span class="p">,</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
