@@ -124,20 +124,6 @@
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../geoip/">GeoIP</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
-        <a class="" href="../json/">JSON</a>
-        
-    </li>
-
-        
-            
-    <li class="toctree-l1 ">
         <a class="" href="../mongo/">Mongo</a>
         
     </li>
@@ -173,9 +159,13 @@
                 
                     <li><a class="toctree-l4" href="#split">split</a></li>
                 
+                    <li><a class="toctree-l4" href="#json">json</a></li>
+                
+                    <li><a class="toctree-l4" href="#json_safe">json_safe</a></li>
+                
                     <li><a class="toctree-l4" href="#uuid">uuid</a></li>
                 
-                    <li><a class="toctree-l4" href="#tblmerge">tblmerge</a></li>
+                    <li><a class="toctree-l4" href="#countrycode">countryCode</a></li>
                 
             
             </ul>
@@ -483,6 +473,40 @@
 
 
 <hr />
+<h2 id="json">json</h2>
+<p>JSON encoding and decoding.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span>
+</pre></div>
+
+
+<p><em>Encode</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">str</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Decode</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">tbl</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="json_safe">json_safe</h2>
+<p>JSON encoding and decoding with error handling.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json_safe</span>
+</pre></div>
+
+
+<p><em>Encode safe</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">str</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Decode safe</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">tbl</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="n">str</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
 <h2 id="uuid">uuid</h2>
 <p>Generates a universally unique id.</p>
 <p><strong>Example</strong></p>
@@ -493,77 +517,12 @@
 
 
 <hr />
-<h2 id="tblmerge">tblmerge</h2>
-<p>Merge a series of tables, with optional default inputs. Last value wins.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">tblmerge</span><span class="p">(</span> <span class="n">default_vals</span><span class="p">,</span> <span class="n">tbl_obj_1</span><span class="p">[,</span> <span class="n">tbl_obj_2</span><span class="p">[,</span> <span class="p">...]]</span> <span class="p">)</span>
-</pre></div>
+<h2 id="countrycode">countryCode</h2>
+<p>Two letter country code based on the request IP. Can only be called in a <strong>core.api</strong> method.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">countryCode</span><span class="p">()</span>
 
-
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>This method only works on the root table keys.</p>
-</div>
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Requried</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>default_vals</td>
-<td>A keyed table of default values. These values can be overridden.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>tbl_obj_N</td>
-<td>A keyed table of values. Will override any existing default_vals. You can add as many additional tables as needed.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>Merged table.</p>
-<p><strong>Usage</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">--some &quot;defaults&quot;</span>
-<span class="kd">local</span> <span class="n">defaults</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;blue&quot;</span><span class="p">,</span>
-  <span class="n">points</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="p">}</span>
-
-<span class="c1">--a &quot;user config&quot;</span>
-<span class="kd">local</span> <span class="n">user_config</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
-<span class="p">}</span>
-
-<span class="c1">--some other meta</span>
-<span class="kd">local</span> <span class="n">meta</span> <span class="o">=</span>
-<span class="p">{</span>
-  <span class="n">last_score</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
-  <span class="n">fav_avatar</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span><span class="p">,</span>
-  <span class="n">points</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="p">}</span>
-
-<span class="c1">--merge tables</span>
-<span class="kd">local</span> <span class="n">merged_tbl</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">tblmerge</span><span class="p">(</span> <span class="n">defaults</span><span class="p">,</span> <span class="n">user_config</span><span class="p">,</span> <span class="n">meta</span> <span class="p">)</span>
-</pre></div>
-
-
-<p>The merged table result:</p>
-<div class="codehilite"><pre><span></span><span class="p">{</span>
-  <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span><span class="p">,</span>
-  <span class="n">points</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span>
-  <span class="n">last_score</span> <span class="o">=</span> <span class="mi">200</span><span class="p">,</span>
-  <span class="n">fav_avatar</span> <span class="o">=</span> <span class="s2">&quot;orange&quot;</span>
-<span class="p">}</span>
+<span class="c1">-- `code` will contain something like &quot;US&quot; or &quot;EU&quot;</span>
 </pre></div>
               
             </div>

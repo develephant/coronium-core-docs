@@ -128,51 +128,6 @@ local tbl_array = core.split("User:2001:Storage", ":")
 
 ---
 
-## json
-
-JSON encoding and decoding.
-
-```lua
-local json = core.json
-```
-
-_Encode_
-
-```lua
-local str = json.encode(tbl)
-```
-
-_Decode_
-
-```lua
-local tbl = json.decode(str)
-```
-
----
-
-## json_safe
-
-JSON encoding and decoding with error handling.
-
-```lua
-local json = core.json_safe
-```
-
-_Encode safe_
-
-```lua
-local str, err = json.encode(tbl)
-```
-
-_Decode safe_
-
-```lua
-local tbl, err = json.decode(str)
-```
-
-
----
-
 ## uuid
 
 Generates a universally unique id.
@@ -187,14 +142,63 @@ local uuid = core.uuid()
 
 ---
 
-## countryCode
+## tblmerge
 
-Two letter country code based on the request IP. Can only be called in a __core.api__ method.
-
-__Example__
+Merge a series of tables, with optional default inputs. Last value wins.
 
 ```lua
-local code = core.countryCode()
+core.tblmerge( default_vals, tbl_obj_1[, tbl_obj_2[, ...]] )
+```
 
--- `code` will contain something like "US" or "EU"
+!!! note
+    This method only works on the root table keys.
+
+__Parameters__
+
+|Name|Description|Type|Requried|
+|----|-----------|----|--------|
+|default_vals|A keyed table of default values. These values can be overridden.|_Table_|__Y__|
+|tbl_obj_N|A keyed table of values. Will override any existing default_vals. You can add as many additional tables as needed.|_Table_|__Y__|
+
+__Returns__
+
+Merged table.
+
+__Usage__
+
+```lua
+--some "defaults"
+local defaults =
+{
+  color = "blue",
+  points = 0
+}
+
+--a "user config"
+local user_config =
+{
+  color = "red"
+}
+
+--some other meta
+local meta =
+{
+  last_score = 200,
+  fav_avatar = "orange",
+  points = 10
+}
+
+--merge tables
+local merged_tbl = core.tblmerge( defaults, user_config, meta )
+```
+
+The merged table result:
+
+```lua
+{
+  color = "red",
+  points = 10,
+  last_score = 200,
+  fav_avatar = "orange"
+}
 ```

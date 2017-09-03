@@ -11,8 +11,6 @@ pages:
     - 'API': 'server-modules/api.md' 
     - 'Data': 'server-modules/data.md'
     - 'Files': 'server-modules/files.md'
-    - 'GeoIP': 'server-modules/geoip.md'
-    - 'JSON': 'server-modules/json.md'
     - 'Mongo': 'server-modules/mongo.md'
     - 'MySQL': 'server-modules/mysql.md'
     - 'Network': 'server-modules/network.md'

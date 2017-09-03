@@ -77,7 +77,7 @@ Two-letter continent code, for example, “EU”, “NA”.
 __Example__
 
 ```lua
-local city_continent_code = core.geoip.cityContinentCode()
+local city_continent_code = core.geoip.continentCode()
 ```
 
 ---
