@@ -6,9 +6,7 @@
 !!! tip
     For simple data manipulation using Mongo, take a look at the __[Data](/server-modules/data/)__ module.
 
-# Database
-
-## new
+# core.mongo
 
 Connect to a database and return a database object. If the database does not exist, it will be created.
 

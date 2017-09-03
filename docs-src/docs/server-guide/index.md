@@ -58,3 +58,16 @@ sudo monit -g coronium restart
 !!! caution
     You should rarely need to manually control the Coronium stack process.
 
+
+# Coronium Tool
+
+A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:
+
+```
+coronium
+```
+
+...and press the Enter key.
+
+!!! note
+    You must be logged in as the __coronium__ user to use the tool.

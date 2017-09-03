@@ -2,7 +2,7 @@
 
 Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side __[API](server-api/api)__ module.
 
-Use the __[core.init](core/#init)__ method to set the project to call the methods against.
+Use the __[core.init](core/#init)__ method to set the server-side project to call the methods against.
 
 ## api
 

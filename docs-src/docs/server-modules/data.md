@@ -71,7 +71,7 @@ __Parameters__
 __Example__
 
 ```lua
-local success, err = users:save(obj)
+local id, err = users:save(obj)
 ```
 
 ---

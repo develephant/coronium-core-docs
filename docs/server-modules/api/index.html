@@ -107,6 +107,30 @@
         
             <ul>
             
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#projects">Projects</a></li>
+                
+                    <li><a class="toctree-l4" href="#creating-projects">Creating Projects</a></li>
+                
+                    <li><a class="toctree-l4" href="#project-files">Project Files</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#coreapi">core.api</a></li>
+                
+                    <li><a class="toctree-l4" href="#input">Input</a></li>
+                
+                    <li><a class="toctree-l4" href="#return">Return</a></li>
+                
+                    <li><a class="toctree-l4" href="#errors">Errors</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#using-modules">Using Modules</a></li>
+                
+                    <li><a class="toctree-l4" href="#examples">Examples</a></li>
+                
+            
             </ul>
         
     </li>
@@ -278,14 +302,323 @@
           <div role="main">
             <div class="section">
               
-                <p>Used to build your application api.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+                <h1 id="overview">Overview</h1>
+<p>The API module allows you to create server-side api methods that can be called using the client-side <a href="../../client-module/api/">API</a> module. </p>
+<p>A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the <a href="../../server-modules/mysql/">MySQL</a> and <a href="../../server-modules/mongo/">Mongo</a> modules.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../client-module/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../client-module/mysql/">MySQL</a></strong> module for MySQL.</p>
+</div>
+<hr />
+<h1 id="projects">Projects</h1>
+<p>Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. </p>
+<p>Projects can also be based on a specific set of functionality, like user management, which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../client-module/core/#useproject">useProject</a> method in the client-side core module.</p>
+<h2 id="creating-projects">Creating Projects</h2>
+<p>You create projects on the server using the Coronium command line tool.</p>
+<h4 id="add-project">Add Project</h4>
+<p>You will first need to log into your server using the <strong>coronium</strong> user. Once logged in, run the following to create a new project:</p>
+<div class="codehilite"><pre><span></span>sudo coronium add &lt;project-name&gt;
+</pre></div>
 
-<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">echo</span><span class="p">(</span> <span class="n">input</span> <span class="p">)</span>
+
+<p>Replace the &lt;project-name> above with your desired project name. The name should be alpha-numeric and contain no spaces. This will generate a project template.</p>
+<p>The project is stored in the <strong>/home/coronium/projects/&lt;project-name></strong> directory.</p>
+<p>At this point, you should connect to the server using SFTP and download the new project directory so that you can create the code for your api.</p>
+<h4 id="delete-project">Delete Project</h4>
+<p>To remove a project using the command line tool, run:</p>
+<div class="codehilite"><pre><span></span>sudo coronium del &lt;project-name&gt;
+</pre></div>
+
+
+<p>You can also delete a project by simply removing the project directory from the server.</p>
+<h2 id="project-files">Project Files</h2>
+<p>In the newly created project directory there will be both a <strong>main.lua</strong> and <strong>config.lua</strong> file.</p>
+<h3 id="configlua">config.lua</h3>
+<p>The config.lua file contains configuration options needed for the project. By default it will return a table, with a pre-generated <strong>key</strong>. This key is what you will pass to the client-side <strong><a href="../../client-module/core/#init">core.init</a></strong> method.</p>
+<p><em>config.lua example</em></p>
+<div class="codehilite"><pre><span></span><span class="kr">return</span>
+<span class="p">{</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;d298c2ca-9038-11e7-b346-5eed32f5ba8f&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>You can keep the pre-generated key, or supply your own. Make sure the key value is quoted, as in the example file above.</p>
+<h3 id="mainlua">main.lua</h3>
+<p>The main.lua file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.</p>
+<p><em>main.lua example</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Coronium Core API</span>
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">test</span><span class="p">(</span> <span class="n">input</span> <span class="p">)</span>
   <span class="kr">return</span> <span class="n">input</span>
 <span class="kr">end</span>
 
 <span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p>You can call this method from the client using the client-side <strong><a href="../../client-module/api/">API</a></strong> module.</p>
+<p><em>Client-side example</em></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="p">...</span>
+  <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;&lt;project-name&gt;&quot;</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;d298c2ca-9038-11e7-b346-5eed32f5ba8f&quot;</span>
+<span class="p">})</span>
+
+<span class="kd">local</span> <span class="n">apiResponse</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">-- Jimmy</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">test</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jimmy&quot;</span><span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h1 id="coreapi">core.api</h1>
+<p>To create your api, you need to extend the <strong>core.api</strong> object. As shown in the main.lua file above, this is done like so:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+</pre></div>
+
+
+<p>Add your api methods to the <strong>api</strong> object, and finally return the <strong>api</strong> object at the end of the file.</p>
+<p><em>Example</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">addUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="p">...</span> <span class="c1">--code here</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<h2 id="input">Input</h2>
+<p>API methods have a single parameter, which is a <strong>table</strong> of <em>input values</em> sent up from the client-side <a href="../../client-module/api/#api">core.api</a> method. Some methods may not need input, in which case the input parameter will be <strong>nil</strong>.</p>
+<p><em>Example</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">addUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span>
+  <span class="kd">local</span> <span class="n">age</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">age</span>
+
+  <span class="p">...</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<h2 id="return">Return</h2>
+<p><strong><em>All api methods must return a response.</em></strong> This can either be the result of the api operation, or an error (see errors below). You can only return a <em>single</em> response value.</p>
+<p>A response value can be one of the following Lua types: <em>String</em>, <em>Number</em>, <em>Boolean</em>, or <em>Table</em>. String and Table values must be JSON encodable. The value returned will be sent back down to the client for consumption.</p>
+<p><em>Example</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="kr">return</span> <span class="s2">&quot;Welcome to Coronium&quot;</span>
+  <span class="c1">--OR</span>
+  <span class="kr">return</span> <span class="mi">42</span>
+  <span class="c1">--OR</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+  <span class="c1">--OR</span>
+  <span class="kr">return</span> <span class="p">{</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Sally&quot;</span><span class="p">,</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">34</span><span class="p">}</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p>To learn how to consume the response on the client, see the client-side <strong><a href="../../client-module/api/">API</a></strong> module.</p>
+<h2 id="errors">Errors</h2>
+<p>At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a <strong>core.error</strong> response object. This will be interpeted by the client as an error event.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The <strong>core.error</strong> object requires a <strong>string</strong> message parameter, and an optional <strong>number</strong> based error code.</p>
+<p><em>Example</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">getUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The user name is missing!&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">..</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<h1 id="using-modules">Using Modules</h1>
+<p>Most often you will want to do something more useful than echoing data. You can use the server-side modules to add functionality to your api.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Most data handling can be facilitated directly on the client-side. See the client-side <strong><a href="../../client-module/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../client-module/mysql/">MySQL</a></strong> module for MySQL.</p>
+</div>
+<h2 id="examples">Examples</h2>
+<p><strong>List the available collections in a Mongo database:</strong></p>
+<p><em>Server-side</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--main.lua</span>
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">getCollections</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="c1">--get the database name from the input</span>
+  <span class="kd">local</span> <span class="n">db_name</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">db_name</span>
+
+  <span class="c1">--get a mongo db instance</span>
+  <span class="kd">local</span> <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mongo</span><span class="p">(</span><span class="n">db_name</span><span class="p">)</span>
+
+  <span class="c1">--check for errors</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">db</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--get the collection list</span>
+  <span class="kd">local</span> <span class="n">list</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
+
+  <span class="c1">--check for errors</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">list</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--otherwise return the list</span>
+  <span class="kr">return</span> <span class="n">list</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p>Some things to note in the code above:</p>
+<ul>
+<li>Errors from the server-side modules can be passed to the client with <strong>core.error</strong>.</li>
+<li>Any return values from server-side modules can be used in the <strong>return</strong>.</li>
+</ul>
+<p>To issue a call to this api method on the client, we use the client-side <strong><a href="../../client-module/api/">API</a></strong> module:</p>
+<p><em>Client-side</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="c1">--got collection list</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">-- collection name</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">getCollections</span><span class="p">({</span><span class="n">db_name</span><span class="o">=</span><span class="s2">&quot;app&quot;</span><span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<p><strong>Get a user using a MySQL query:</strong></p>
+<p><em>Server-side</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--main.lua</span>
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">queryUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="c1">--get id number from the input</span>
+  <span class="kd">local</span> <span class="n">id</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">id</span>
+
+  <span class="c1">--check for id value</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">id</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;Id is missing!&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--build sql query</span>
+  <span class="kd">local</span> <span class="n">q</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM users WHERE id=%d;&quot;</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">id</span><span class="p">)</span>
+
+  <span class="c1">--run the query</span>
+  <span class="kd">local</span> <span class="n">record</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="n">q</span><span class="p">)</span>
+
+  <span class="c1">--check for error</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">record</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--return the record</span>
+  <span class="kr">return</span> <span class="n">record</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p><em>Client-side</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="c1">--result is a record</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">--output &#39;name&#39; column</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">queryUser</span><span class="p">({</span><span class="n">id</span><span class="o">=</span><span class="mi">20</span><span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The following example can also be done directly from the client-side <strong><a href="../../client-module/mysql/#insert">MySQL</a></strong> module.</p>
+</div>
+<p>Assuming we have a MySQL database properly created called "app", we can quickly insert a new record to the "users" table like so:</p>
+<p><em>Server-side</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--main.lua</span>
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">addUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="c1">--insert data using EZ query method</span>
+  <span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="s2">&quot;app&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
+    <span class="c1">--pass the input directly, escaping string values</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">escapeAll</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+  <span class="p">})</span>
+
+  <span class="c1">--check for error</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">id</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--return new record id</span>
+  <span class="kr">return</span> <span class="n">id</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p><em>Client-side</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">--result is id</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Johnson&quot;</span><span class="p">,</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span>
+  <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">addUser</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">apiResponse</span><span class="p">)</span>
 </pre></div>
               
             </div>

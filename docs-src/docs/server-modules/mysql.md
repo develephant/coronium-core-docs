@@ -20,7 +20,7 @@ __Parameters__
 |query_str|The MySQL query to send to the database.|_String_|__Y__|
 
 !!! note
-    You can also connect to remote MySQL databases. See __[Remote Databases](#remote-databases)__ for more info.
+    To connect to remote databases see __[Remote Databases](#remote-databases)__.
 
 __Result Values__
 
@@ -153,7 +153,8 @@ values = core.mysql.escapeAll( values )
 
 EZ query methods provide an alternative way to construct common query types. For more complex queries, use the __core.mysql.query__ method above.
 
-You can access the EZ query methods directly from the client-side using the client __[MySQL](/client-module/mysql)__ module.
+!!! tip
+    You can access the EZ query methods directly using the client-side __[MySQL](/client-module/mysql)__ module.
 
 
 ## select
