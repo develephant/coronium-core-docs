@@ -14,11 +14,14 @@ On the next screen, find the __Ubuntu Server 16.04 LTS (HVM)__ AMI, and click th
 
 Select your preferred instance type. A __t2.micro__ is a good starting point. You can always increase the size later.
 
-Click the __Add Rule__ button on the __Configure Security Group__ screen, and add the following:
+Using the __Add Rule__ button on the __Configure Security Group__ screen, and add the following rules:
 
-|Type|Protocol|Port Range|Source|
-|----|--------|----------|------|
-|Custom TCP|TCP|7173|Anywhere|
+|Type|Protocol|Port Range|Source|Description|
+|----|--------|----------|------|-----------|
+|Custom TCP|TCP|443|Anywhere|_HTTPS support_|
+|Custom TCP|TCP|10001|Anywhere|_Coronium Core access_|
+|Custom TCP|TCP|3306|Anywhere or IP|_MySQL server admin_|
+|Custom TCP|TCP|27017|Anywhere or IP|_Mongo server admin_|
 
 Adjust any additional settings, and then __Launch__ the AMI.
 
