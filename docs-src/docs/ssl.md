@@ -20,7 +20,7 @@ coronium.<mydomain\>.com__
 
 ### Amazon
 
-When you first install SkyTable, make sure to add port 443 to your security group settings. You can then use the [Route 53](https://console.aws.amazon.com/route53/home) service for your DNS. There are ample guides to assist you. 
+When you first install Coronium Core, make sure to add port 443 and 10001 to your security group settings. You can then use the [Route 53](https://console.aws.amazon.com/route53/home) service for your DNS. There are ample guides to assist you. 
 
 Once set up, proceed to the [Let's Encrypt](#lets-encrypt) section below.
 
@@ -35,7 +35,7 @@ You will need to point your domain to the DigitalOcean nameservers. The process 
 _Instructions for setting nameservers on GoDaddy can be found [here](https://www.godaddy.com/help/set-custom-nameservers-for-domains-registered-with-godaddy-12317)._
 
 !!! important
-    __Spin up a SkyTable droplet as outlined in the [DigitalOcean Installation](install/digitalocean) section before continuing.__
+    __Spin up a Coronium Core droplet as outlined in the [DigitalOcean Installation](/server-install/digitalocean/) section before continuing.__
 
 1\. In the DigitalOcean control panel, click the __Networking__ link at the top:
 
@@ -67,7 +67,7 @@ You can check the progress using a site like [whatsmydns](https://www.whatsmydns
 ## Let's Encrypt
 
 !!! Danger
-    ___Do not continue with this guide until you have an active domain name for your SkyTable server that you can reach through your web browser.___
+    ___Do not continue with this guide until you have an active domain name for your Coronium Core server that you can reach through your web browser.___
 
 To move your Coronium Core server over to HTTPS, perform the following steps:
 
