@@ -165,6 +165,9 @@
                 <li class="toctree-l3"><a href="#adding-the-plugin">Adding The Plugin</a></li>
                 
             
+                <li class="toctree-l3"><a href="#require-the-plugin">Require the Plugin</a></li>
+                
+            
             </ul>
         
     </li>
@@ -229,13 +232,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../example/">Examples</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../ssl/">HTTPS / SSL</a>
         
     </li>
@@ -288,12 +284,18 @@
 {
     plugins =
     {
-        [&quot;plugin.coronium&quot;] =
+        [&quot;plugin.coronium-core&quot;] =
         {
             publisherId = &quot;com.develephant&quot;
         },
     },
 }
+</pre></div>
+
+
+<h2 id="require-the-plugin">Require the Plugin</h2>
+<p>To gain access to the plugins functionality, require it like so in your Lua file:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 </pre></div>
 
 

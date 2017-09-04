@@ -228,13 +228,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../example/">Examples</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../ssl/">HTTPS / SSL</a>
         
     </li>
@@ -287,7 +280,7 @@
 <p>Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side <strong><a href="../server-api/api">API</a></strong> module.</p>
 <p>Use the <strong><a href="../core/#init">core.init</a></strong> method to set the server-side project to call the methods against.</p>
 <h2 id="api">api</h2>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">api</span><span class="o">-</span><span class="n">method</span><span class="o">&gt;</span><span class="p">(</span><span class="n">input_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">method</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">([</span><span class="n">input_params</span><span class="p">,]</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -310,25 +303,18 @@
 </tr>
 <tr>
 <td>listener</td>
-<td>The api listener callback function.</td>
+<td>The response listener callback function.</td>
 <td><em>Function</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If a method does not require a <strong>input_params</strong> table, you can either pass any empty table, or omit the parameter table all together, supplying just the listener.</p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will contain any values that are passed back from the server-side api method.</p>
-<p><strong>API Listener</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="o">&lt;</span><span class="n">some</span><span class="o">-</span><span class="n">key</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-</pre></div>
-
-
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>

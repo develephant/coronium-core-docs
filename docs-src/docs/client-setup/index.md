@@ -12,12 +12,20 @@ settings =
 {
     plugins =
     {
-        ["plugin.coronium"] =
+        ["plugin.coronium-core"] =
         {
             publisherId = "com.develephant"
         },
     },
 }
+```
+
+## Require the Plugin
+
+To gain access to the plugins functionality, require it like so in your Lua file:
+
+```lua
+local core = require("plugin.coronium-core")
 ```
 
 You're now ready to use the __Coronium Core__ plugin.

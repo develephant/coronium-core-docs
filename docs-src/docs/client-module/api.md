@@ -7,7 +7,7 @@ Use the __[core.init](core/#init)__ method to set the server-side project to cal
 ## api
 
 ```lua
-core.api.<api-method>(input_params, listener)
+core.api.<method-name>([input_params,] listener)
 ```
 
 __Parameters__
@@ -15,23 +15,14 @@ __Parameters__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |input_params|Parameters to pass to the api method.|_Table_|__N__|
-|listener|The api listener callback function.|_Function_|__Y__|
+|listener|The response listener callback function.|_Function_|__Y__|
+
+!!! note
+    If a method does not require a __input_params__ table, you can either pass any empty table, or omit the parameter table all together, supplying just the listener.
 
 __Event Response__
 
 On success, the __result__ will contain any values that are passed back from the server-side api method.
-
-__API Listener__
-
-```lua
-local function apiListener( evt )
-  if evt.error then
-    print( evt.error )
-  else
-    print(evt.result.<some-key>)
-  end
-end
-```
 
 __Example__
 

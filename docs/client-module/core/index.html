@@ -230,13 +230,6 @@
           
             <li>
     <li class="toctree-l1 ">
-        <a class="" href="../../example/">Examples</a>
-        
-    </li>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
         <a class="" href="../../ssl/">HTTPS / SSL</a>
         
     </li>
@@ -286,7 +279,7 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>Set up the client side plugin.</p>
+<p>Provides methods to configure the client-side plugin.</p>
 <h2 id="init">init</h2>
 <p>Initialize the client.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">(</span> <span class="n">config_tbl</span> <span class="p">)</span>
@@ -314,13 +307,13 @@
 <td>project</td>
 <td>The project name to run api methods against.</td>
 <td><em>String</em></td>
-<td><strong>Y</strong></td>
+<td><strong>N</strong></td>
 </tr>
 <tr>
 <td>key</td>
 <td>The project key as set in the server-side config.lua.</td>
 <td><em>String</em></td>
-<td><strong>Y</strong></td>
+<td><strong>N</strong></td>
 </tr>
 <tr>
 <td>debug</td>
@@ -340,6 +333,10 @@
 </pre></div>
 
 
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For detailed initialization instructions, see the <strong><a href="../../client-guide/#initialization">Initialization</a></strong> section of the <strong>Client Guide</strong>.</p>
+</div>
 <hr />
 <h2 id="useproject">useProject</h2>
 <p>Change the server-side project to run api methods against.</p>

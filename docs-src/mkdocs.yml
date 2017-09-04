@@ -24,7 +24,6 @@ pages:
     - 'Email': 'client-module/email.md'
     - 'Files': 'client-module/files.md'
     - 'MySQL': 'client-module/mysql.md'
-  - 'Examples': 'example.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
 copyright: "&copy;2017 C. Byerley - develephant.com"
