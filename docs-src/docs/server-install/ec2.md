@@ -42,7 +42,7 @@ _Replace __<your-instance-ip\>__ with the address that was assigned to your inst
 
 Once you are connected to the droplet, copy and paste the following line into the terminal:
 
-`curl -LO https://s3.amazonaws.com/coronium-skytable/ami.sh && sudo bash ./ami.sh`
+`curl -LO https://s3.amazonaws.com/coronium-core/ami.sh && sudo bash ./ami.sh`
 
 Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
 
