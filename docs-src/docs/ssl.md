@@ -16,11 +16,11 @@ Once you have your domain name, you will need to "point" it to your Coronium Cor
 
 You will want to set up a 3rd level domain for your Coronium Core server. This looks something like:
 
-coronium.<mydomain\>.com__
+__coronium.<mydomain\>.com__
 
 ### Amazon
 
-When you first install Coronium Core, make sure to add port 443 and 10001 to your security group settings. You can then use the [Route 53](https://console.aws.amazon.com/route53/home) service for your DNS. There are ample guides to assist you. 
+When you first install Coronium Core, make sure to [add the proper ports](/server-install/ec2/#create-an-instance) to security group settings. You can then use the [Route 53](https://console.aws.amazon.com/route53/home) service for your DNS. There are ample guides to assist you. 
 
 Once set up, proceed to the [Let's Encrypt](#lets-encrypt) section below.
 
