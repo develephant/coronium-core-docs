@@ -229,6 +229,3 @@ end
 
 core.files.remove("imgs/image001.png", deleteListener)
 ```
-
-!!! tip
-    You can also remove files by connecting to the server via SFTP. But, if you are keeping a record of the file in a database, you should remove it programatically, along with the database reference.
