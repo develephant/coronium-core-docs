@@ -58,6 +58,9 @@ sudo monit -g coronium restart
 !!! caution
     You should rarely need to manually control the Coronium stack process.
 
+## Upload Directory
+
+All file uploads are stored in the ___/home/coronium/files___ directory.
 
 # Coronium Tool
 

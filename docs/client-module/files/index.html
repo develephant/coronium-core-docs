@@ -212,6 +212,8 @@
                 
                     <li><a class="toctree-l4" href="#download">download</a></li>
                 
+                    <li><a class="toctree-l4" href="#remove">remove</a></li>
+                
             
             </ul>
         
@@ -325,6 +327,38 @@
 <td>The upload listener callback function.</td>
 <td><em>Function</em></td>
 <td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>options</td>
+<td>See <strong>Upload Options</strong> below.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Upload Options</strong></p>
+<p>The upload options table supports the following keys:</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>safe</td>
+<td>Do not overwrite existing files.</td>
+<td><em>Boolean</em></td>
+<td><strong>false</strong></td>
+</tr>
+<tr>
+<td>unique</td>
+<td>Generate a unique file name for the file.</td>
+<td><em>Boolean</em></td>
+<td><strong>false</strong></td>
 </tr>
 </tbody>
 </table>
@@ -536,6 +570,59 @@
   <span class="n">downloadListener</span><span class="p">,</span>
   <span class="n">transform</span><span class="p">)</span>
 </pre></div>
+
+
+<hr />
+<h2 id="remove">remove</h2>
+<p>Delete a file from the server. <strong><em>Once deleted the file is not recoverable.</em></strong></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">srcFilePath</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>srcFilePath</td>
+<td>Remote source file path with extension.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> key will be <strong>true</strong>.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">deleteListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Deleted&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;imgs/image001.png&quot;</span><span class="p">,</span> <span class="n">deleteListener</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>You can also remove files by connecting to the server via SFTP. But, if you are keeping a record of the file in a database, you should remove it programatically, along with the database reference.</p>
+</div>
               
             </div>
           </div>

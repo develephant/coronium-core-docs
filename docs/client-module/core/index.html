@@ -191,6 +191,8 @@
                 
                     <li><a class="toctree-l4" href="#useproject">useProject</a></li>
                 
+                    <li><a class="toctree-l4" href="#debug">debug</a></li>
+                
             
             </ul>
         
@@ -315,20 +317,13 @@
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
-<tr>
-<td>debug</td>
-<td>Show message output in the console.</td>
-<td><em>Boolean</em></td>
-<td><strong>N</strong></td>
-</tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
-  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
   <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span><span class="p">,</span>
-  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span><span class="p">,</span>
-  <span class="n">debug</span> <span class="o">=</span> <span class="kc">true</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -371,6 +366,22 @@
 </table>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">useProject</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;1234&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="debug">debug</h2>
+<p>Pretty print the response event to the console. Useful for debugging.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="n">response_event</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+
+  <span class="p">...</span>
+<span class="kr">end</span>
 </pre></div>
               
             </div>

@@ -299,7 +299,7 @@
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
-  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://your.coronium.host&quot;</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -310,7 +310,7 @@
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
-  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://your.coronium.host&quot;</span><span class="p">,</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
   <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;&lt;project-name&gt;&quot;</span><span class="p">,</span>
   <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;project-key-here&quot;</span>
 <span class="p">})</span>
@@ -335,6 +335,10 @@
 <p>The <strong>error</strong> key will always be a string with the error message, or <strong>nil</strong> if no error is present. </p>
 <h2 id="result">result</h2>
 <p>The <strong>result</strong> key data depends on the module or api method. See each modules documentation to determine what the <strong>result</strong> key might hold.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To debug response events during development, see the <strong><a href="../client-module/core/#debug">core.debug</a></strong> method.</p>
+</div>
 <h1 id="api-methods">API Methods</h1>
 <p>Depending on the module you are addressing, use the following namespaces on the <strong>core</strong> object.</p>
 <div class="codehilite"><pre><span></span><span class="c1">--Client Side Module</span>

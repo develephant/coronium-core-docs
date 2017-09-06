@@ -23,7 +23,7 @@ Client-side modules include support for basic __[Mongo]()__ and __[MySQL]()__ da
 local core = require("plugin.coronium-core")
 
 core.init({
-  server = "http://your.coronium.host"
+  server = "https://your.coronium.host"
 })
 
 ```
@@ -38,7 +38,7 @@ First, make sure you have a [server-side project](/server-modules/api/) set up.
 local core = require("plugin.coronium-core")
 
 core.init({
-  server = "http://your.coronium.host",
+  server = "https://your.coronium.host",
   project = "<project-name>",
   key = "project-key-here"
 })
@@ -69,6 +69,9 @@ The __error__ key will always be a string with the error message, or __nil__ if 
 ## result
 
 The __result__ key data depends on the module or api method. See each modules documentation to determine what the __result__ key might hold.
+
+!!! tip
+    To debug response events during development, see the __[core.debug](/client-module/core/#debug)__ method.
 
 # API Methods
 

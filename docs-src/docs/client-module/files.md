@@ -23,6 +23,16 @@ __Parameters__
 |baseDir|A Corona directory constant.|_[Const](https://docs.coronalabs.com/api/library/system/index.html#constants)_|__Y__|
 |destFilePath|Remote destination path with extension.|_String_|__Y__|
 |listener|The upload listener callback function.|_Function_|__Y__|
+|options|See __Upload Options__ below.|_Table_|__N__|
+
+__Upload Options__
+
+The upload options table supports the following keys:
+
+|Name|Description|Type|Default|
+|----|-----------|----|-------|
+|safe|Do not overwrite existing files.|_Boolean_|__false__|
+|unique|Generate a unique file name for the file.|_Boolean_|__false__|
 
 __Event Response__
 
@@ -184,3 +194,41 @@ core.files.download(
   downloadListener,
   transform)
 ```
+
+---
+
+## remove
+
+Delete a file from the server. ___Once deleted the file is not recoverable.___
+
+```lua
+core.files.remove(srcFilePath, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|srcFilePath|Remote source file path with extension.|_String_|__Y__|
+|listener|The listener callback function.|_Function_|__Y__|
+
+__Event Response__
+
+On success, the __result__ key will be __true__.
+
+__Example__
+
+```lua
+local function deleteListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print("Deleted")
+  end
+end
+
+core.files.remove("imgs/image001.png", deleteListener)
+```
+
+!!! tip
+    You can also remove files by connecting to the server via SFTP. But, if you are keeping a record of the file in a database, you should remove it programatically, along with the database reference.

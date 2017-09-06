@@ -123,7 +123,11 @@
             
                 <li class="toctree-l3"><a href="#overview">Overview</a></li>
                 
-                    <li><a class="toctree-l4" href="#file-directory">File Directory</a></li>
+                    <li><a class="toctree-l4" href="#remove">remove</a></li>
+                
+                    <li><a class="toctree-l4" href="#rename">rename</a></li>
+                
+                    <li><a class="toctree-l4" href="#list">list</a></li>
                 
             
             </ul>
@@ -277,9 +281,118 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>File transfers are performed through the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
-<h2 id="file-directory">File Directory</h2>
-<p>All files are stored in the <strong><em>/home/coronium/files</em></strong> directory.</p>
+<p>Provides methods to manage server side files.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Uploads and Downloads are performed using the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
+</div>
+<hr />
+<h2 id="remove">remove</h2>
+<p>Remove a file from the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filepath</td>
+<td>The source filepath.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="s2">&quot;imgs/image002.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="rename">rename</h2>
+<p>Rename a file in the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>filepath</td>
+<td>The source filepath.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>new_name</td>
+<td>The name to rename the file to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;imgs/image001.png&quot;</span><span class="p">,</span> <span class="s2">&quot;image002.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method will not move a file. Any path supplied to the <strong>new_name</strong> parameter will be ignored.</p>
+</div>
+<hr />
+<h2 id="list">list</h2>
+<p>List the files in the specified directory path. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dirpath</td>
+<td>The directory to list.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">list</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="s2">&quot;imgs&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This method will only list the <em>files</em> in the directory, not any directories. If no files are present, it will return an empty table.</p>
+</div>
+<hr />
 <div class="admonition tip">
 <p class="admonition-title">Amazon S3</p>
 <p>If you'd like to transfer files using <strong><a href="https://aws.amazon.com/s3/">Amazon S3</a></strong> take a look at the <strong><a href="https://marketplace.coronalabs.com/plugin/s3-lite">S3 Lite</a></strong> plugin for Corona.</p>
