@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>DigitalOcean - Coronium Core</title>
+  <title>Pages API - Coronium Core</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
@@ -17,9 +17,9 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "DigitalOcean";
-    var mkdocs_page_input_path = "server-install/digitalocean.md";
-    var mkdocs_page_url = "/server-install/digitalocean/";
+    var mkdocs_page_name = "Pages API";
+    var mkdocs_page_input_path = "pages-guide/api.md";
+    var mkdocs_page_url = "/pages-guide/api/";
   </script>
   
   <script src="../../js/jquery-2.1.1.min.js"></script>
@@ -59,32 +59,22 @@
 
         
             
-    <li class="toctree-l1 current">
-        <a class="current" href="./">DigitalOcean</a>
-        
-            <ul>
-            
-                <li class="toctree-l3"><a href="#create-a-droplet">Create A Droplet</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#install-coronium-core">Install Coronium Core</a></li>
-                
-            
-            </ul>
+    <li class="toctree-l1 ">
+        <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../ec2/">Amazon EC2</a>
+        <a class="" href="../../server-install/ec2/">Amazon EC2</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../postinstall/">Post Install</a>
+        <a class="" href="../../server-install/postinstall/">Post Install</a>
         
     </li>
 
@@ -233,22 +223,35 @@
 
         
             
-    <li class="toctree-l1 ">
-        <a class="" href="../../pages-guide/api/">Pages API</a>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Pages API</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#overview">Overview</a></li>
+                
+                    <li><a class="toctree-l4" href="#corepages">core.pages</a></li>
+                
+                    <li><a class="toctree-l4" href="#response-resp">response | resp</a></li>
+                
+                    <li><a class="toctree-l4" href="#template-tpl">template | tpl</a></li>
+                
+            
+            </ul>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../pages-guide/usage/">Usage</a>
+        <a class="" href="../usage/">Usage</a>
         
     </li>
 
         
             
     <li class="toctree-l1 ">
-        <a class="" href="../../pages-guide/templates/">Templates</a>
+        <a class="" href="../templates/">Templates</a>
         
     </li>
 
@@ -292,11 +295,11 @@
     
       
         
-          <li>Server Install &raquo;</li>
+          <li>Pages Guide &raquo;</li>
         
       
     
-    <li>DigitalOcean</li>
+    <li>Pages API</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -306,50 +309,140 @@
           <div role="main">
             <div class="section">
               
-                <p><strong>Coronium Core</strong> runs best on a <strong><a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> Ubuntu 16.04</strong> droplet.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>If you're new to <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> please consider signing up with <strong><a href="https://m.do.co/c/cddeeddbbdb8">this link</a></strong>. Not only will you receive a $10 credit (2 free months), but it also helps support the continued development, and testing of <strong>Coronium SkyTable</strong>.</p>
-</div>
-<h3 id="create-a-droplet">Create A Droplet</h3>
-<p>Once you log into your <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> account, click the <strong>Create</strong> button and select <strong>Droplets</strong> from the menu.</p>
-<p><img alt="step1" src="../../imgs/step01.png" /></p>
-<p>On the next screen, first select a <strong>Ubuntu 16.04</strong> droplet distribution.</p>
-<p><img alt="step2" src="../../imgs/step02.png" /> </p>
-<p>Select the droplet size. A <strong>1 GB/1 CPU</strong> droplet is recommended as a minimum. If you're only testing, you can use a 512 MB droplet and increase the size later.</p>
-<p><img alt="step3" src="../../imgs/step03.png" /></p>
-<p>Next, select a region for the droplet. Consider choosing a location closest to your most active user base.</p>
-<p><img alt="step4" src="../../imgs/step04.png" /></p>
-<p>Select your SSH profile to attach to the droplet.</p>
-<p><img alt="step5" src="../../imgs/step05.png" /></p>
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing <strong>Coronium Core</strong>, though I wouldn't recommend it. You can learn more about generating SSH keys for <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> here: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets">Creating SSH Keys</a>.</p>
-</div>
-<p>Now give your droplet a hostname.</p>
-<p><img alt="step6" src="../../imgs/step06.png" /></p>
-<p><em>Be sure to replace <strong>coronium.develephant.com</strong> with your own hostname.</em></p>
-<p>And finally, click the <strong>Create</strong> button to spin up the droplet.</p>
-<p><img alt="step7" src="../../imgs/step07.png" /></p>
-<h3 id="install-coronium-core">Install Coronium Core</h3>
-<p>Once your droplet is done spinning up, note the ip address.</p>
-<p><img alt="step8" src="../../imgs/step08.png" /></p>
-<p>Using a terminal/shell of your choice, SSH into the droplet.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use the built in shells on both OSX and Linux. For Windows, check out <strong><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a></strong>.</p>
-</div>
-<div class="codehilite"><pre><span></span>ssh root@&lt;your-instance-ip&gt;
+                <h1 id="overview">Overview</h1>
+<p>Provides methods to handle web based requests, and issue responses. For full usage instructions see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
+<hr />
+<h2 id="corepages">core.pages</h2>
+<p>Creates an instance of the <strong>pages</strong> object.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 </pre></div>
 
 
-<p><em>Replace <strong>&lt;your-instance-ip></strong> with the address that was assigned to your droplet.</em></p>
-<p>Once you are connected to the droplet, copy and paste the following line into the terminal:</p>
-<p><code>curl -LO https://s3.amazonaws.com/coronium-core/up.sh &amp;&amp; sudo bash ./up.sh</code></p>
-<p>Once the installation is complete, <strong>Coronium Core</strong> is ready for action. Log out of the server by typing <strong>exit</strong> on the command line.</p>
-<div class="admonition tip">
-<p class="admonition-title">Upgrade to HTTPS</p>
-<p>Now is a good time to secure your Coronium Core server using HTTPS. See the <strong><a href="../../ssl">HTTPS/SSL</a></strong> section of the documentation.</p>
+<p><strong>Parameters</strong></p>
+<p>This method has no parameters.</p>
+<p><strong>Properties</strong></p>
+<p>The <strong>pages</strong> object contains the <a href="">response</a> and <a href="">template</a> methods below, as well as, the following properties.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>method</td>
+<td>The request method. Will be "GET" or "POST".</td>
+<td><em>String</em></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>The request headers as key/value pairs.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>query</td>
+<td>The request query string as key/value pairs.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>form</td>
+<td>If posted, will contain form key/value pairs.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>body</td>
+<td>If the method is POST, will contain the body, if any.</td>
+<td><em>String</em></td>
+</tr>
+<tr>
+<td>isAjax</td>
+<td>If the request is an ajax style request.</td>
+<td><em>Boolean</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Constants</strong></p>
+<p>The <strong>pages</strong> object has the following constants available.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td>The GET HTTP method.</td>
+<td>"GET"</td>
+</tr>
+<tr>
+<td>POST</td>
+<td>The POST HTTP method.</td>
+<td>"POST"</td>
+</tr>
+<tr>
+<td>HTML</td>
+<td>The HTML content type.</td>
+<td>"text/html"</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>The JSON content type.</td>
+<td>"application/json"</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>The plain text content type.</td>
+<td>"text/plain"</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
+</div>
+<hr />
+<h2 id="response-resp">response | resp</h2>
+<p>Sends the configured response back to the client browser. </p>
+<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
+</pre></div>
+
+
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>This should be the last method in your page file.</p>
+</div>
+<p><strong>Parameters</strong></p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<hr />
+<h2 id="template-tpl">template | tpl</h2>
+<p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
+<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;greeting.tpl&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
+</pre></div>
+
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For detailed template usage information see the <strong><a href="../../pages-guide/templates/">Templates</a></strong> section.</p>
 </div>
               
             </div>
@@ -358,10 +451,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../ec2/" class="btn btn-neutral float-right" title="Amazon EC2">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../usage/" class="btn btn-neutral float-right" title="Usage">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../.." class="btn btn-neutral" title="Introduction"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../client-module/mysql/" class="btn btn-neutral" title="MySQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -389,10 +482,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../../client-module/mysql/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../ec2/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../usage/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
