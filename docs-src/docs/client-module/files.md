@@ -165,7 +165,11 @@ end
 
 ### Image Transforms
 
-Download an image with transformations.
+Image transformations are proportional. For example, when setting the __width__ key, the image will be resized to the width provided, and the height will be resized _in proportion_ to the width. The same holds true when setting the __height__ key; the width will be resized in proportion to the height.
+
+When setting both the __width__ and __height__ keys together, the image is resized to fit proportionally _within_ the key values provided. This can be useful for display lists.
+
+The __sharpen__ key runs a "sharpness" filter on the final transformed image. If this key is not provided, no sharpening takes place.
 
 !!! note
     Transforms only work with __PNG__, __JPG__, and __GIF__ file types.
@@ -176,7 +180,7 @@ __Transform Keys__
 |----|-----------|----|-------|
 |width|Proportionally resize image based on width.|_Number_|nil|
 |height|Proportionally resize image based on height.|_Number_|nil|
-|sharpen|Increases sharpness of the final image (0-100).|_Number_|0|
+|sharpen|Increases sharpness of the final image (0-255).|_Number_|0|
 
 __Example__
 

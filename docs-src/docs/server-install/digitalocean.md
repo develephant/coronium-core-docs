@@ -61,5 +61,4 @@ Once you are connected to the droplet, copy and paste the following line into th
 
 Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
 
-!!! tip "Upgrade to HTTPS"
-    Now is a good time to secure your Coronium Core server using HTTPS. See the __[HTTPS/SSL](/ssl)__ section of the documentation.
+Continue on the the __[Post Install](/server-install/postinstall/)__ section.

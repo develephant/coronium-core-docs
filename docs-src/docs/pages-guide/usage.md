@@ -196,3 +196,30 @@ end
 ---
 
 # Core Modules
+
+You can use any of the core server modules in dynamic pages.
+
+__Example Template__
+
+```html
+<html>
+  <body>
+    <h1>{{ name }}</h1>
+    <p>{{ age }}</p>
+    <p>{{ _id }}</p>
+  </body>
+</html>
+```
+
+__Example Lua__
+
+```lua
+local pages = core.pages()
+
+local users = core.data("users")
+local doc = users:get("id1234")
+
+local body = pages.template("user.tpl", doc)
+
+pages.response(body)
+```

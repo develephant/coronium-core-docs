@@ -486,6 +486,28 @@
 
 <hr />
 <h1 id="core-modules">Core Modules</h1>
+<p>You can use any of the core server modules in dynamic pages.</p>
+<p><strong>Example Template</strong></p>
+<div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>{{ name }}<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ age }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;</span>{{ _id }}<span class="p">&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p><strong>Example Lua</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+
+<span class="kd">local</span> <span class="n">users</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id1234&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;user.tpl&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+
+<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
               
             </div>
           </div>

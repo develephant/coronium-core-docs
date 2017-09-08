@@ -549,7 +549,9 @@
 
 
 <h3 id="image-transforms">Image Transforms</h3>
-<p>Download an image with transformations.</p>
+<p>Image transformations are proportional. For example, when setting the <strong>width</strong> key, the image will be resized to the width provided, and the height will be resized <em>in proportion</em> to the width. The same holds true when setting the <strong>height</strong> key; the width will be resized in proportion to the height.</p>
+<p>When setting both the <strong>width</strong> and <strong>height</strong> keys together, the image is resized to fit proportionally <em>within</em> the key values provided. This can be useful for display lists.</p>
+<p>The <strong>sharpen</strong> key runs a "sharpness" filter on the final transformed image. If this key is not provided, no sharpening takes place.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Transforms only work with <strong>PNG</strong>, <strong>JPG</strong>, and <strong>GIF</strong> file types.</p>
@@ -579,7 +581,7 @@
 </tr>
 <tr>
 <td>sharpen</td>
-<td>Increases sharpness of the final image (0-100).</td>
+<td>Increases sharpness of the final image (0-255).</td>
 <td><em>Number</em></td>
 <td>0</td>
 </tr>
