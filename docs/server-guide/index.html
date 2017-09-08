@@ -100,10 +100,14 @@
             
                 <li class="toctree-l3"><a href="#system-services">System Services</a></li>
                 
-                    <li><a class="toctree-l4" href="#upload-directory">Upload Directory</a></li>
-                
             
                 <li class="toctree-l3"><a href="#coronium-tool">Coronium Tool</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#lua-code-cache">Lua Code Cache</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#user-directories">User Directories</a></li>
                 
             
             </ul>
@@ -359,8 +363,6 @@
 <p class="admonition-title">Caution</p>
 <p>You should rarely need to manually control the Coronium stack process.</p>
 </div>
-<h2 id="upload-directory">Upload Directory</h2>
-<p>All file uploads are stored in the <strong><em>/home/coronium/files</em></strong> directory.</p>
 <h1 id="coronium-tool">Coronium Tool</h1>
 <p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
 <div class="codehilite"><pre><span></span>coronium
@@ -372,6 +374,50 @@
 <p class="admonition-title">Note</p>
 <p>You must be logged in as the <strong>coronium</strong> user to use the tool.</p>
 </div>
+<h1 id="lua-code-cache">Lua Code Cache</h1>
+<p>During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the <strong>coronium</strong> user.</p>
+<p><em>Cache on</em></p>
+<div class="codehilite"><pre><span></span>sudo coronium cache on
+</pre></div>
+
+
+<p><em>Cache off</em></p>
+<div class="codehilite"><pre><span></span>sudo coronium cache off
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>During api development make sure to turn the Lua cache <strong>off</strong> to see your changes.</p>
+</div>
+<h1 id="user-directories">User Directories</h1>
+<p>The following user directories can be found in <strong>/home/coronium</strong>. They are will not be affected in any updates.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>See also</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>files</td>
+<td>Holds all file uploads.</td>
+<td><a href="../server-modules/files/">Files</a></td>
+</tr>
+<tr>
+<td>projects</td>
+<td>Holds all the api projects.</td>
+<td><a href="../server-modules/api/#projects">Projects</a></td>
+</tr>
+<tr>
+<td>pages</td>
+<td>Holds all public facing web pages.</td>
+<td><a href="../pages-guide/api/">Pages</a></td>
+</tr>
+</tbody>
+</table>
               
             </div>
           </div>

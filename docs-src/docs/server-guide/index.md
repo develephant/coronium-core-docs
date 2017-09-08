@@ -58,10 +58,6 @@ sudo monit -g coronium restart
 !!! caution
     You should rarely need to manually control the Coronium stack process.
 
-## Upload Directory
-
-All file uploads are stored in the ___/home/coronium/files___ directory.
-
 # Coronium Tool
 
 A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:
@@ -74,3 +70,33 @@ coronium
 
 !!! note
     You must be logged in as the __coronium__ user to use the tool.
+
+
+# Lua Code Cache
+
+During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the __coronium__ user.
+
+_Cache on_
+
+```
+sudo coronium cache on
+```
+
+_Cache off_
+
+```
+sudo coronium cache off
+```
+
+!!! tip
+    During api development make sure to turn the Lua cache __off__ to see your changes.
+
+# User Directories
+
+The following user directories can be found in __/home/coronium__. They are will not be affected in any updates.
+
+|Name|Description|See also|
+|----|-----------|--------|
+|files|Holds all file uploads.|[Files](/server-modules/files/)|
+|projects|Holds all the api projects.|[Projects](/server-modules/api/#projects)|
+|pages|Holds all public facing web pages.|[Pages](/pages-guide/api/)|

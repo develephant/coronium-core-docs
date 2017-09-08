@@ -12,12 +12,12 @@ This will start the reboot process. Wait 15-30 seconds before using the server. 
 
 ---
 
-# Enable HTTPS
-
-To secure your Coronium Core server with HTTPS, see the __[HTTPS/SSL](/ssl)__ section.
-
----
-
 # Databases
 
 To enable the Mongo and MySQL databases, see the __[Databases](/server-setup/#databases)__ section.
+
+---
+
+# Enable HTTPS
+
+To secure your Coronium Core server with HTTPS, see the __[HTTPS/SSL](/ssl)__ section.

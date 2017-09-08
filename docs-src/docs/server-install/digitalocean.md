@@ -59,6 +59,4 @@ Once you are connected to the droplet, copy and paste the following line into th
 
 `curl -LO https://s3.amazonaws.com/coronium-core/up.sh && sudo bash ./up.sh`
 
-Once the installation is complete, __Coronium Core__ is ready for action. Log out of the server by typing __exit__ on the command line.
-
-Continue on the the __[Post Install](/server-install/postinstall/)__ section.
+Once the installation is complete, continue on the the __[Post Install](/server-install/postinstall/)__ section.
