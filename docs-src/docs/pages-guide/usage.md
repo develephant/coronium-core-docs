@@ -13,7 +13,7 @@ All pages and assets reside in the __/home/coronium/pages__ directory, which is 
 
 ## Dynamic Pages
 
-To create a dynamic web page, name the file with the __.lua__ extension and use the __[core.pages](/pages-guide/api/#corepages)__ object. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.
+To create a dynamic web page, name the file with the __.lua__ extension and use the __[core.pages](/pages-guide/api/#corepages)__ method to create a pages object instance. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.
 
 __Example Paths__
 
@@ -25,7 +25,7 @@ __Example Lua__
 
 ```lua
 --users/show.lua
-local pages = core.pages()
+local page = core.pages()
 
 local body = 
 [[
@@ -36,7 +36,7 @@ local body =
   </html>
 ]]
 
-pages.response(body)
+page.response(body)
 
 ```
 
@@ -44,7 +44,7 @@ pages.response(body)
 
 # Responses
 
-Output responses to the client web browser by using the __[pages.response]()__ method. The default response type is html, but you can also respond with json, or plain text content types.
+Output responses to the client web browser by using the __[response]()__ method of the pages object instance. The default response type is html, but you can also respond with json, or plain text content types.
 
 
 ## HTML
@@ -52,7 +52,7 @@ Output responses to the client web browser by using the __[pages.response]()__ m
 To return content as html (default), pass a string body to the __response__ method.
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 local body = 
 [[
@@ -63,7 +63,7 @@ local body =
   </html>
 ]]
 
-pages.response(body)
+page.response(body)
 ```
 
 See also: __[Templates](/pages-guide/templates/)__
@@ -72,10 +72,10 @@ See also: __[Templates](/pages-guide/templates/)__
 
 ## JSON
 
-To return content as json, pass the __pages.JSON__ constant to the __content__ response parameter.
+To return content as json, pass the __JSON__ constant to the __content__ response parameter.
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 --use a table for easy construction
 local data = {
@@ -85,28 +85,28 @@ local data = {
 
 local body = core.json.encode(data)
 
-pages.response(body, nil, pages.JSON)
+page.response(body, nil, page.JSON)
 ```
 
 ---
 
 ## TEXT
 
-To return content as text, pass the __pages.TEXT__ constant to the __content__ response parameter.
+To return content as text, pass the __TEXT__ constant to the __content__ response parameter.
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 local body = "This is some plain text"
 
-pages.response(body, nil, pages.TEXT)
+page.response(body, nil, page.TEXT)
 ```
 
 ---
 
 # Queries
 
-To access properties of a query string, use the __pages.query__ property. The __query__ is a table with name/value pairs.
+To access properties of a query string, use the __query__ property of the pages object instance. The __query__ is a table with name/value pairs.
 
 __Example Path__
 
@@ -116,9 +116,9 @@ __Example Lua__
 
 ```lua
 --mypage.lua
-local pages = core.pages()
+local page = core.pages()
 
-local query_tbl = pages.query
+local query_tbl = page.query
 
 print(query_tbl.name) --Tim
 print(query_tbl.age) --42
@@ -135,7 +135,7 @@ end
 
 # Forms
 
-To access properties of a posted form, use the __pages.form__ property. The form is a __table__ with name/value pairs.
+To access properties of a posted form, use the __form__ property of the pages object instance. The form is a __table__ with name/value pairs.
 
 __Example Form__
 
@@ -152,9 +152,9 @@ __Example Lua__
 
 ```lua
 --mypage.lua
-local pages = core.pages()
+local page = core.pages()
 
-local form_tbl = pages.form
+local form_tbl = page.form
 
 local first = form.firstname
 local last = form.lastname
@@ -173,14 +173,14 @@ end
 
 # Headers
 
-To access the request headers, use the __pages.headers__ property. The headers are in a __table__ as name/value pairs.
+To access the request headers, use the __headers__ property of the pages object instance. The headers are in a __table__ as name/value pairs.
 
 __Example__
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
-local headers = pages.headers
+local headers = page.headers
 
 --print "Host" header
 print(headers["Host"])
@@ -214,12 +214,12 @@ __Example Template__
 __Example Lua__
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 local users = core.data("users")
 local doc = users:get("id1234")
 
-local body = pages.template("user.tpl", doc)
+local body = page.template("user.tpl", doc)
 
-pages.response(body)
+page.response(body)
 ```

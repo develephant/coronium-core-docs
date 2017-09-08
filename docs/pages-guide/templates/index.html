@@ -323,7 +323,7 @@
 
 <p><strong>Example Lua</strong></p>
 <p><em>Stored in /home/coronium/pages/users/show.lua</em></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> 
 <span class="p">{</span>
@@ -331,9 +331,9 @@
   <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;You are now using templates.&quot;</span>
 <span class="p">}</span>
 
-<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;show.tpl&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;show.tpl&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 
 
@@ -399,7 +399,7 @@
 
 
 <p><strong>Example Lua</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span>
 <span class="p">{</span>
@@ -411,9 +411,9 @@
   <span class="p">}</span>
 <span class="p">}</span>
 
-<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;users.tpl&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s1">&#39;users.tpl&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 
 
@@ -436,24 +436,24 @@
 
 <hr />
 <h1 id="asynchrous-request">Asynchrous Request</h1>
-<p>To check for an asynchrous request, you can use the <strong>pages.isAjax</strong> property, and output the data in the required format.</p>
+<p>To check for an asynchrous request, you can use the <strong>isAjax</strong> property of the pages object instance, and output the data in the required format.</p>
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">-- cats.lua</span>
-<span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">cats</span> <span class="o">=</span>
 <span class="p">{</span>
   <span class="s1">&#39;Snookie&#39;</span><span class="p">,</span><span class="s1">&#39;Fluffy&#39;</span><span class="p">,</span><span class="s1">&#39;Yip&#39;</span>
 <span class="p">}</span>
 
-<span class="kr">if</span> <span class="n">pages</span><span class="p">.</span><span class="n">isAjax</span> <span class="kr">then</span>
+<span class="kr">if</span> <span class="n">page</span><span class="p">.</span><span class="n">isAjax</span> <span class="kr">then</span>
   <span class="c1">--return JSON array</span>
   <span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">cats</span><span class="p">)</span>
-  <span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">pages</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
+  <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">json</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
 <span class="kr">else</span>
   <span class="c1">--pass it to a template instead</span>
-  <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;cats.tpl&quot;</span><span class="p">,</span> <span class="n">cats</span><span class="p">)</span>
-  <span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;cats.tpl&quot;</span><span class="p">,</span> <span class="n">cats</span><span class="p">)</span>
+  <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 <span class="kr">end</span>
 </pre></div>
 

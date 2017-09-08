@@ -306,7 +306,7 @@
 <p>Provides methods to handle web based requests, and issue responses. For full usage instructions see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
 <hr />
 <h2 id="corepages">core.pages</h2>
-<p>Creates an instance of the <strong>pages</strong> object.</p>
+<p>Creates a new <strong>pages</strong> object instance.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 </pre></div>
 
@@ -343,11 +343,6 @@
 <td>form</td>
 <td>If posted, will contain form key/value pairs.</td>
 <td><em>Table</em></td>
-</tr>
-<tr>
-<td>body</td>
-<td>If the method is POST, will contain the body, if any.</td>
-<td><em>String</em></td>
 </tr>
 <tr>
 <td>isAjax</td>
@@ -395,18 +390,21 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
-</div>
+<p><em>Raw Request Post Body</em></p>
+<p>In the rare case that you need access to the raw request body, pass <strong>true</strong> to the <strong>core.pages</strong> method. The body is then available on the <strong>body</strong> property of the pages object instance. Beware that this does take up additional memory per request, and should only be used if you specifically need it.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">raw_body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">body</span>
+</pre></div>
+
+
 <hr />
 <h2 id="response-resp">response | resp</h2>
 <p>Sends the configured response back to the client browser. </p>
-<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
 </pre></div>
 
 
@@ -415,21 +413,85 @@
 <p>This should be the last method in your page file.</p>
 </div>
 <p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body</td>
+<td>The data to output to the client browser.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Additional headers to send to the client browser.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>content</td>
+<td>The content-type to output to the client browser.</td>
+<td><em><a href="#corepages">Const</a></em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>status</td>
+<td>Numerical http status code to output to the client browser.</td>
+<td><em>Number</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
 </pre></div>
 
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
+</div>
 <hr />
 <h2 id="template-tpl">template | tpl</h2>
 <p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
-<div class="codehilite"><pre><span></span><span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
 </pre></div>
 
 
 <p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tpl_file</td>
+<td>The template file name.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tpl_values</td>
+<td>Values for the template.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;greeting.tpl&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;greeting.tpl&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
 </pre></div>
 
 

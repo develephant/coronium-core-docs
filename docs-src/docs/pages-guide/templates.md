@@ -25,7 +25,7 @@ __Example Lua__
 _Stored in /home/coronium/pages/users/show.lua_
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 local data = 
 {
@@ -33,9 +33,9 @@ local data =
   message = "You are now using templates."
 }
 
-local body = pages.template("show.tpl", data)
+local body = page.template("show.tpl", data)
 
-pages.response(body)
+page.response(body)
 ```
 
 __Browser Location__
@@ -114,7 +114,7 @@ __Example Template__
 __Example Lua__
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 
 local data =
 {
@@ -126,9 +126,9 @@ local data =
   }
 }
 
-local body = pages.template('users.tpl', data)
+local body = page.template('users.tpl', data)
 
-pages.response(body)
+page.response(body)
 ```
 
 __Output__
@@ -153,27 +153,27 @@ __Output__
 
 # Asynchrous Request
 
-To check for an asynchrous request, you can use the __pages.isAjax__ property, and output the data in the required format.
+To check for an asynchrous request, you can use the __isAjax__ property of the pages object instance, and output the data in the required format.
 
 __Example Lua__
 
 ```lua
 -- cats.lua
-local pages = core.pages()
+local page = core.pages()
 
 local cats =
 {
   'Snookie','Fluffy','Yip'
 }
 
-if pages.isAjax then
+if page.isAjax then
   --return JSON array
   local json = core.json.encode(cats)
-  pages.response(json, nil, pages.JSON)
+  page.response(json, nil, page.JSON)
 else
   --pass it to a template instead
-  local body = pages.template("cats.tpl", cats)
-  pages.response(body)
+  local body = page.template("cats.tpl", cats)
+  page.response(body)
 end
 ```
 

@@ -6,7 +6,7 @@ Provides methods to handle web based requests, and issue responses. For full usa
 
 ## core.pages
 
-Creates an instance of the __pages__ object.
+Creates a new __pages__ object instance.
 
 ```lua
 core.pages()
@@ -26,7 +26,6 @@ The __pages__ object contains the [response]() and [template]() methods below, a
 |headers|The request headers as key/value pairs.|_Table_|
 |query|The request query string as key/value pairs.|_Table_|
 |form|If posted, will contain form key/value pairs.|_Table_|
-|body|If the method is POST, will contain the body, if any.|_String_|
 |isAjax|If the request is an ajax style request.|_Boolean_|
 
 __Constants__
@@ -44,11 +43,17 @@ The __pages__ object has the following constants available.
 __Example__
 
 ```lua
-local pages = core.pages()
+local page = core.pages()
 ```
 
-!!! note
-    For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
+_Raw Request Post Body_
+
+In the rare case that you need access to the raw request body, pass __true__ to the __core.pages__ method. The body is then available on the __body__ property of the pages object instance. Beware that this does take up additional memory per request, and should only be used if you specifically need it.
+
+```lua
+local page = core.pages(true)
+local raw_body = page.body
+```
 
 ---
 
@@ -57,7 +62,7 @@ local pages = core.pages()
 Sends the configured response back to the client browser. 
 
 ```lua
-pages.response(body[, headers][, content][, status])
+<page-object>.response(body[, headers][, content][, status])
 ```
 
 !!! important
@@ -65,13 +70,21 @@ pages.response(body[, headers][, content][, status])
 
 __Parameters__
 
-
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|body|The data to output to the client browser.|_String_|__Y__|
+|headers|Additional headers to send to the client browser.|_Table_|__N__|
+|content|The content-type to output to the client browser.|_[Const](#corepages)_|__N__|
+|status|Numerical http status code to output to the client browser.|_Number_|__N__|
 
 __Example__
 
 ```lua
-pages.response("Hello There")
+page.response("Hello There")
 ```
+
+!!! note
+    For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
 ---
 
@@ -80,17 +93,20 @@ pages.response("Hello There")
 Compiles a template file with the supplied values. Returns __string__ body, or nil and error.
 
 ```lua
-pages.template(tpl_file, tpl_values)
+<page-object>.template(tpl_file, tpl_values)
 ```
 
 __Parameters__
 
-
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|tpl_file|The template file name.|_String_|__Y__|
+|tpl_values|Values for the template.|_Table_|__Y__|
 
 __Example__
 
 ```lua
-local body = pages.template("greeting.tpl", {greet="Hello!"})
+local body = page.template("greeting.tpl", {greet="Hello!"})
 ```
 
 !!! note

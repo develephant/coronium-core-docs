@@ -331,13 +331,13 @@
 <h2 id="pages-directory">Pages Directory</h2>
 <p>All pages and assets reside in the <strong>/home/coronium/pages</strong> directory, which is the "root" directory for all web based requests. Log in via SFTP to manage your page files.</p>
 <h2 id="dynamic-pages">Dynamic Pages</h2>
-<p>To create a dynamic web page, name the file with the <strong>.lua</strong> extension and use the <strong><a href="../../pages-guide/api/#corepages">core.pages</a></strong> object. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.</p>
+<p>To create a dynamic web page, name the file with the <strong>.lua</strong> extension and use the <strong><a href="../../pages-guide/api/#corepages">core.pages</a></strong> method to create a pages object instance. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.</p>
 <p><strong>Example Paths</strong></p>
 <p>File path: <strong><em>/home/coronium/pages/users/show.lua</em></strong></p>
 <p>Browser path: <strong><em>https://my.coronium.com/users/show</em></strong></p>
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">--users/show.lua</span>
-<span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> 
 <span class="s">[[</span>
@@ -348,16 +348,16 @@
 <span class="s">  &lt;/html&gt;</span>
 <span class="s">]]</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 
 
 <hr />
 <h1 id="responses">Responses</h1>
-<p>Output responses to the client web browser by using the <strong><a href="">pages.response</a></strong> method. The default response type is html, but you can also respond with json, or plain text content types.</p>
+<p>Output responses to the client web browser by using the <strong><a href="">response</a></strong> method of the pages object instance. The default response type is html, but you can also respond with json, or plain text content types.</p>
 <h2 id="html">HTML</h2>
 <p>To return content as html (default), pass a string body to the <strong>response</strong> method.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> 
 <span class="s">[[</span>
@@ -368,15 +368,15 @@
 <span class="s">  &lt;/html&gt;</span>
 <span class="s">]]</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
 
 
 <p>See also: <strong><a href="../../pages-guide/templates/">Templates</a></strong></p>
 <hr />
 <h2 id="json">JSON</h2>
-<p>To return content as json, pass the <strong>pages.JSON</strong> constant to the <strong>content</strong> response parameter.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<p>To return content as json, pass the <strong>JSON</strong> constant to the <strong>content</strong> response parameter.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="c1">--use a table for easy construction</span>
 <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
@@ -386,31 +386,31 @@
 
 <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">pages</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
 </pre></div>
 
 
 <hr />
 <h2 id="text">TEXT</h2>
-<p>To return content as text, pass the <strong>pages.TEXT</strong> constant to the <strong>content</strong> response parameter.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<p>To return content as text, pass the <strong>TEXT</strong> constant to the <strong>content</strong> response parameter.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;This is some plain text&quot;</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">pages</span><span class="p">.</span><span class="n">TEXT</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">TEXT</span><span class="p">)</span>
 </pre></div>
 
 
 <hr />
 <h1 id="queries">Queries</h1>
-<p>To access properties of a query string, use the <strong>pages.query</strong> property. The <strong>query</strong> is a table with name/value pairs.</p>
+<p>To access properties of a query string, use the <strong>query</strong> property of the pages object instance. The <strong>query</strong> is a table with name/value pairs.</p>
 <p><strong>Example Path</strong></p>
 <p><strong><em>/mypage?name=Tim&amp;age=42</em></strong></p>
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">--mypage.lua</span>
-<span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
-<span class="kd">local</span> <span class="n">query_tbl</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">query</span>
+<span class="kd">local</span> <span class="n">query_tbl</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">query</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">--Tim</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">.</span><span class="n">age</span><span class="p">)</span> <span class="c1">--42</span>
@@ -426,7 +426,7 @@
 
 <hr />
 <h1 id="forms">Forms</h1>
-<p>To access properties of a posted form, use the <strong>pages.form</strong> property. The form is a <strong>table</strong> with name/value pairs.</p>
+<p>To access properties of a posted form, use the <strong>form</strong> property of the pages object instance. The form is a <strong>table</strong> with name/value pairs.</p>
 <p><strong>Example Form</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
   First name:<span class="p">&lt;</span><span class="nt">br</span><span class="p">&gt;</span>
@@ -439,9 +439,9 @@
 
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">--mypage.lua</span>
-<span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
-<span class="kd">local</span> <span class="n">form_tbl</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">form</span>
+<span class="kd">local</span> <span class="n">form_tbl</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span>
 
 <span class="kd">local</span> <span class="n">first</span> <span class="o">=</span> <span class="n">form</span><span class="p">.</span><span class="n">firstname</span>
 <span class="kd">local</span> <span class="n">last</span> <span class="o">=</span> <span class="n">form</span><span class="p">.</span><span class="n">lastname</span>
@@ -459,11 +459,11 @@
 
 <hr />
 <h1 id="headers">Headers</h1>
-<p>To access the request headers, use the <strong>pages.headers</strong> property. The headers are in a <strong>table</strong> as name/value pairs.</p>
+<p>To access the request headers, use the <strong>headers</strong> property of the pages object instance. The headers are in a <strong>table</strong> as name/value pairs.</p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
-<span class="kd">local</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">headers</span>
+<span class="kd">local</span> <span class="n">headers</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">headers</span>
 
 <span class="c1">--print &quot;Host&quot; header</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">headers</span><span class="p">[</span><span class="s2">&quot;Host&quot;</span><span class="p">])</span>
@@ -492,14 +492,14 @@
 
 
 <p><strong>Example Lua</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">pages</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">users</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">)</span>
 <span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id1234&quot;</span><span class="p">)</span>
 
-<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">pages</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;user.tpl&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;user.tpl&quot;</span><span class="p">,</span> <span class="n">doc</span><span class="p">)</span>
 
-<span class="n">pages</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
+<span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">)</span>
 </pre></div>
               
             </div>
