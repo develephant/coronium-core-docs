@@ -5,7 +5,6 @@ pages:
     - 'DigitalOcean': 'server-install/digitalocean.md'
     - 'Amazon EC2': 'server-install/ec2.md'
     - 'Post Install': 'server-install/postinstall.md'
-  - 'Server Setup': 'server-setup/index.md'
   - 'Server Guide': 'server-guide/index.md'
   - 'Server Modules':
     - 'API': 'server-modules/api.md' 

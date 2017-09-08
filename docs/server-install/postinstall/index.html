@@ -81,6 +81,9 @@
                 <li class="toctree-l3"><a href="#reboot">Reboot</a></li>
                 
             
+                <li class="toctree-l3"><a href="#password">Password</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#databases">Databases</a></li>
                 
             
@@ -93,13 +96,6 @@
 
         
     </ul>
-<li>
-          
-            <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../../server-setup/">Server Setup</a>
-        
-    </li>
 <li>
           
             <li>
@@ -318,8 +314,47 @@
 
 <p>This will start the reboot process. Wait 15-30 seconds before using the server. All processes will automatically reload.</p>
 <hr />
+<h1 id="password">Password</h1>
+<p>The default password for a fresh install is: <strong>cloudadmin</strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>You should change the default password after the install.</p>
+</div>
+<p>Log in with the <strong>coronium</strong> user:</p>
+<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<p>Use the following command to change the password:</p>
+<div class="codehilite"><pre><span></span>sudo passwd coronium
+</pre></div>
+
+
+<p>And then follow the prompts.</p>
+<hr />
 <h1 id="databases">Databases</h1>
-<p>To enable the Mongo and MySQL databases, see the <strong><a href="../../server-setup/#databases">Databases</a></strong> section.</p>
+<p>You will need to run the database setup tool so that you can connect to your databases, both internally, and externally.</p>
+<p>1. If you're not logged in, then log in with the <strong>coronium</strong> user:</p>
+<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<p>2. Enter your password. If you have not updated the password yet, the default is <strong>cloudadmin</strong>.</p>
+<p>3. Run the database setup tool:</p>
+<div class="codehilite"><pre><span></span>sudo coronium-dbsetup
+</pre></div>
+
+
+<p>4. Carefully follow the prompts to set up the passwords for both MySQL and MongoDB.</p>
+<p>5. When you are finished, close the shell connection:</p>
+<div class="codehilite"><pre><span></span>exit
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Use the passwords you set using the database tool to access your databases externally.</p>
+</div>
 <hr />
 <h1 id="enable-https">Enable HTTPS</h1>
 <p>To secure your Coronium Core server with HTTPS, see the <strong><a href="../../ssl">HTTPS/SSL</a></strong> section.</p>
@@ -330,7 +365,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../../server-setup/" class="btn btn-neutral float-right" title="Server Setup">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../server-guide/" class="btn btn-neutral float-right" title="Server Guide">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
         <a href="../ec2/" class="btn btn-neutral" title="Amazon EC2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
@@ -364,7 +399,7 @@
         <span><a href="../ec2/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../../server-setup/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../../server-guide/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>

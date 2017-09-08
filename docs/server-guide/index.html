@@ -83,28 +83,21 @@
 <li>
           
             <li>
-    <li class="toctree-l1 ">
-        <a class="" href="../server-setup/">Server Setup</a>
-        
-    </li>
-<li>
-          
-            <li>
     <li class="toctree-l1 current">
         <a class="current" href="./">Server Guide</a>
         
             <ul>
             
-                <li class="toctree-l3"><a href="#viewing-logs">Viewing Logs</a></li>
-                
-            
-                <li class="toctree-l3"><a href="#system-services">System Services</a></li>
-                
-            
                 <li class="toctree-l3"><a href="#coronium-tool">Coronium Tool</a></li>
                 
             
+                <li class="toctree-l3"><a href="#viewing-logs">Viewing Logs</a></li>
+                
+            
                 <li class="toctree-l3"><a href="#lua-code-cache">Lua Code Cache</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#system-services">System Services</a></li>
                 
             
                 <li class="toctree-l3"><a href="#user-directories">User Directories</a></li>
@@ -311,7 +304,19 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="viewing-logs">Viewing Logs</h1>
+                <h1 id="coronium-tool">Coronium Tool</h1>
+<p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
+<div class="codehilite"><pre><span></span>coronium
+</pre></div>
+
+
+<p>...and press the Enter key.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You must be logged in as the <strong>coronium</strong> user to use the tool.</p>
+</div>
+<hr />
+<h1 id="viewing-logs">Viewing Logs</h1>
 <p>To view log files, connect to the server with the <strong>coronium</strong> user.</p>
 <div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
 </pre></div>
@@ -319,7 +324,7 @@
 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To quickly monitor the main server log file, enter <code>cclog</code> on the command line.</p>
+<p>To quickly monitor the debug (nginx) log file, enter <code>cclog</code> on the command line.</p>
 </div>
 <p>Log files can be found in the <strong>/usr/local/coronium/logs</strong> directory. Possible log files include <em>nginx.log</em> and <em>mongo.log</em>.</p>
 <p>To watch a log file in real-time:</p>
@@ -334,46 +339,9 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>To view all logs consolidated into one file (including the mysql.log) type <strong>cc logs</strong>.</p>
+<p>To view all logs consolidated into one file (including the mysql.log) type <strong>coronium logs</strong>.</p>
 </div>
 <hr />
-<h1 id="system-services">System Services</h1>
-<p>When your <strong>Coronium Core</strong> server starts, its monitored by a utility called <strong>Monit</strong>, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.</p>
-<p>In the rare case where you need to manually stop, start or restart the Coronium stack, log in using the <strong>coronium</strong> user.</p>
-<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
-</pre></div>
-
-
-<p>To stop the Coronium stack, on the command line, enter:</p>
-<div class="codehilite"><pre><span></span>sudo monit -g coronium stop
-</pre></div>
-
-
-<p>To start the Coronium stack, use:</p>
-<div class="codehilite"><pre><span></span>sudo monit -g coronium start
-</pre></div>
-
-
-<p>To restart the Coronium stack:</p>
-<div class="codehilite"><pre><span></span>sudo monit -g coronium restart
-</pre></div>
-
-
-<div class="admonition caution">
-<p class="admonition-title">Caution</p>
-<p>You should rarely need to manually control the Coronium stack process.</p>
-</div>
-<h1 id="coronium-tool">Coronium Tool</h1>
-<p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
-<div class="codehilite"><pre><span></span>coronium
-</pre></div>
-
-
-<p>...and press the Enter key.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You must be logged in as the <strong>coronium</strong> user to use the tool.</p>
-</div>
 <h1 id="lua-code-cache">Lua Code Cache</h1>
 <p>During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the <strong>coronium</strong> user.</p>
 <p><em>Cache on</em></p>
@@ -390,8 +358,36 @@
 <p class="admonition-title">Tip</p>
 <p>During api development make sure to turn the Lua cache <strong>off</strong> to see your changes.</p>
 </div>
+<hr />
+<h1 id="system-services">System Services</h1>
+<p>When your <strong>Coronium Core</strong> server starts, its monitored by a utility called <strong>Monit</strong>, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.</p>
+<p>In the rare case where you need to manually stop, start or restart the Coronium stack, log in using the <strong>coronium</strong> user.</p>
+<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<p>To stop the Coronium stack, on the command line, enter:</p>
+<div class="codehilite"><pre><span></span>sudo coronium stop
+</pre></div>
+
+
+<p>To start the Coronium stack, use:</p>
+<div class="codehilite"><pre><span></span>sudo coronium start
+</pre></div>
+
+
+<p>To restart the Coronium stack, use:</p>
+<div class="codehilite"><pre><span></span>sudo coronium restart
+</pre></div>
+
+
+<div class="admonition caution">
+<p class="admonition-title">Caution</p>
+<p>You should rarely need to manually control the Coronium stack process.</p>
+</div>
+<hr />
 <h1 id="user-directories">User Directories</h1>
-<p>The following user directories can be found in <strong>/home/coronium</strong>. They are will not be affected in any updates.</p>
+<p>The following user directories can be found in <strong>/home/coronium</strong>. They are will not be affected in any server updates.</p>
 <table>
 <thead>
 <tr>
@@ -428,7 +424,7 @@
         <a href="../server-modules/api/" class="btn btn-neutral float-right" title="API">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../server-setup/" class="btn btn-neutral" title="Server Setup"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../server-install/postinstall/" class="btn btn-neutral" title="Post Install"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -456,7 +452,7 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../server-setup/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../server-install/postinstall/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
         <span style="margin-left: 15px"><a href="../server-modules/api/" style="color: #fcfcfc">Next &raquo;</a></span>
