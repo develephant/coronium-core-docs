@@ -2,6 +2,9 @@
 
 Provides methods to handle web based requests, and issue responses. For full usage instructions see the __[Usage](/pages-guide/usage/)__ section.
 
+!!! important
+    See the __[Configuration](/pages-guide/config/)__ section before attempting to use pages.
+
 ---
 
 ## core.pages

@@ -27,6 +27,7 @@ pages:
     - 'Pages API': 'pages-guide/api.md'
     - 'Usage': 'pages-guide/usage.md'
     - 'Templates': 'pages-guide/templates.md'
+    - 'Configuration': 'pages-guide/config.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
 copyright: "&copy;2017 C. Byerley - develephant.com"
