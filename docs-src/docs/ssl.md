@@ -118,5 +118,6 @@ Be sure to update the __host__ in the client configuration (in the Corona projec
 ```lua
 core:init({
   server = "https://<coronium-core-host>"
+  ...
 })
 ```
