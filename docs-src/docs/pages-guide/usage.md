@@ -223,3 +223,9 @@ local body = page.template("user.tpl", doc)
 
 page.response(body)
 ```
+
+---
+
+# Files Directory
+
+Files uploaded to the __[files/public](/server-guide/#public-directory)__ directory using the __[Files](/client-module/files/)__ module can be displayed using page templates. When referencing a file in a template, the path will be checked in the __pages__ directory first. If no file is found, then the __files/public__ directory path will be checked.

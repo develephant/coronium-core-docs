@@ -105,3 +105,16 @@ The following user directories can be found in __/home/coronium__. They are will
 |files|Holds all file uploads.|[Files](/server-modules/files/)|
 |projects|Holds all the api projects.|[Projects](/server-modules/api/#projects)|
 |pages|Holds all public facing web pages.|[Pages](/pages-guide/api/)|
+
+## Public Directory
+
+If you store files in the __files/public__ directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within [page templates](/pages-guide/templates/). 
+
+!!! important
+    If a file with the same path exists in the __pages__ directory, it will be served first. If a file does not exist at the path, then the __files/public__ directory will be checked.
+
+__Path Examples__
+
+File: _/home/coronium/files/public/imgs/image.png_
+
+URL: _https://your.coronium.server/imgs/image.png_

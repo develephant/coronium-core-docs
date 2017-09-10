@@ -102,6 +102,8 @@
             
                 <li class="toctree-l3"><a href="#user-directories">User Directories</a></li>
                 
+                    <li><a class="toctree-l4" href="#public-directory">Public Directory</a></li>
+                
             
             </ul>
         
@@ -421,6 +423,15 @@
 </tr>
 </tbody>
 </table>
+<h2 id="public-directory">Public Directory</h2>
+<p>If you store files in the <strong>files/public</strong> directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within <a href="../pages-guide/templates/">page templates</a>. </p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If a file with the same path exists in the <strong>pages</strong> directory, it will be served first. If a file does not exist at the path, then the <strong>files/public</strong> directory will be checked.</p>
+</div>
+<p><strong>Path Examples</strong></p>
+<p>File: <em>/home/coronium/files/public/imgs/image.png</em></p>
+<p>URL: <em>https://your.coronium.server/imgs/image.png</em></p>
               
             </div>
           </div>
