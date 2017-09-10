@@ -241,10 +241,10 @@
             <div class="section">
               
                 <h1 id="overview">Overview</h1>
-<p>The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side <strong><a href="">API</a></strong> module.</p>
+<p>The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side <strong><a href="../server-modules/api/">API</a></strong> module.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
-<p>You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on <strong><a href="">DigitalOcean</a></strong> or <strong><a href="">Amazon EC2</a></strong>.</p>
+<p>You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on <strong><a href="../server-install/digitalocean/">DigitalOcean</a></strong> or <strong><a href="../server-install/ec2/">Amazon EC2</a></strong>.</p>
 </div>
 <p>Before continuing, make sure you have read through the <strong><a href="../client-setup/">Client Setup</a></strong> section.</p>
 <p>Coronium Core offers both client-side modules, and custom server-side api methods. In this guide we will be focused on the client-side functionality. On the client-side there are modules for data handling and file transfers, which require no server-side code.</p>
@@ -252,7 +252,7 @@
 <h1 id="initialization">Initialization</h1>
 <p>How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. Let's look at both initialization options.</p>
 <p><strong>Client modules only</strong></p>
-<p>Client-side modules include support for basic <strong><a href="">Mongo</a></strong> and <strong><a href="">MySQL</a></strong> data handling, as well as, the <strong><a href="">File</a></strong> transfer module. You do not need to write any server-side code.</p>
+<p>Client-side modules include support for basic <strong><a href="../client-module/data/">Mongo</a></strong> and <strong><a href="../client-module/mysql/">MySQL</a></strong> data handling, as well as, the <strong><a href="../client-module/files/">File</a></strong> transfer module. You do not need to write any server-side code.</p>
 <pre class="codehilite"><code class="language-lua">local core = require(&quot;plugin.coronium-core&quot;)
 
 core.init({
@@ -262,7 +262,7 @@ core.init({
 
 
 <p><strong>Server and Client modules</strong></p>
-<p>Using custom server-side api methods allow you to use the full <strong><a href="">Mongo</a></strong> and <strong><a href="">MySQL</a></strong> modules, as well as, any other server-side modules available. See the server-side <strong><a href="../server-modules/api/">API</a></strong> module for more information.</p>
+<p>Using custom server-side api methods allow you to use the full <strong><a href="../server-modules/mongo/">Mongo</a></strong> and <strong><a href="../server-modules/mysql/">MySQL</a></strong> modules, as well as, any other server-side modules available. See the server-side <strong><a href="../server-modules/api/">API</a></strong> module for more information.</p>
 <p>First, make sure you have a <a href="../server-modules/api/">server-side project</a> set up. </p>
 <pre class="codehilite"><code class="language-lua">local core = require(&quot;plugin.coronium-core&quot;)
 

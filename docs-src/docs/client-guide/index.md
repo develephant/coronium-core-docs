@@ -1,9 +1,9 @@
 # Overview
 
-The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API]()__ module.
+The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
 
 !!! important
-    You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on __[DigitalOcean]()__ or __[Amazon EC2]()__.
+    You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on __[DigitalOcean](/server-install/digitalocean/)__ or __[Amazon EC2](/server-install/ec2/)__.
 
 Before continuing, make sure you have read through the __[Client Setup](/client-setup/)__ section.
 
@@ -17,7 +17,7 @@ How you initialize the client plugin depends on whether you are using custom ser
 
 __Client modules only__
 
-Client-side modules include support for basic __[Mongo]()__ and __[MySQL]()__ data handling, as well as, the __[File]()__ transfer module. You do not need to write any server-side code.
+Client-side modules include support for basic __[Mongo](/client-module/data/)__ and __[MySQL](/client-module/mysql/)__ data handling, as well as, the __[File](/client-module/files/)__ transfer module. You do not need to write any server-side code.
 
 ```lua
 local core = require("plugin.coronium-core")
@@ -31,7 +31,7 @@ core.init({
 
 __Server and Client modules__
 
-Using custom server-side api methods allow you to use the full __[Mongo]()__ and __[MySQL]()__ modules, as well as, any other server-side modules available. See the server-side __[API](/server-modules/api/)__ module for more information.
+Using custom server-side api methods allow you to use the full __[Mongo](/server-modules/mongo/)__ and __[MySQL](/server-modules/mysql/)__ modules, as well as, any other server-side modules available. See the server-side __[API](/server-modules/api/)__ module for more information.
 
 First, make sure you have a [server-side project](/server-modules/api/) set up. 
 
