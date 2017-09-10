@@ -45,22 +45,7 @@ You can also delete a project by simply removing the project directory from the 
 
 ## Project Files
 
-In the newly created project directory there will be both a __main.lua__ and __config.lua__ file.
-
-### config.lua
-
-The config.lua file contains configuration options needed for the project. By default it will return a table, with a pre-generated __key__. This key is what you will pass to the client-side __[core.init](/client-module/core/#init)__ method.
-
-_config.lua example_
-
-```lua
-return
-{
-  key = "d298c2ca-9038-11e7-b346-5eed32f5ba8f"
-}
-```
-
-You can keep the pre-generated key, or supply your own. Make sure the key value is quoted, as in the example file above.
+Project code is stored in the newly created project directory. The required __main.lua__ file will be generated when using the command line tool (see above).
 
 ### main.lua
 
@@ -85,9 +70,9 @@ _Client-side example_
 
 ```lua
 core.init({
-  ...
-  project = "<project-name>"
-  key = "d298c2ca-9038-11e7-b346-5eed32f5ba8f"
+  server = "https://your.coronium.host",
+  key = "<coronium-server-key>",
+  project = "default"
 })
 
 local apiResponse(evt)
@@ -275,7 +260,7 @@ _Server-side_
 
 ```lua
 --main.lua
-local api = core.api
+local api = core.api()
 
 function api.queryUser(input)
 

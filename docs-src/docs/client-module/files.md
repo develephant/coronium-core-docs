@@ -203,6 +203,46 @@ core.files.download(
 
 ---
 
+## list
+
+List the files in the specified directory path.
+
+```lua
+core.files.list(dirpath, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|dirpath|The directory on the server to list.|_String_|__Y__|
+|listener|The listener callback function.|_Function_|__Y__|
+
+__Event Response__
+
+On success, the __result__ key will contain a __table__ array with the items found in the directory, if any.
+
+__Example__
+
+```lua
+local function onList(evt)
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      print(evt.result[i]) --file name
+    end
+  end
+end
+
+core.files.list("imgs", onList)
+```
+
+!!! note
+    This method will only list the _files_ in the directory, not any directories. If no files are present, it will return an empty table.
+
+---
+
 ## remove
 
 Delete a file from the server. ___Once deleted the file is not recoverable.___
@@ -234,4 +274,16 @@ local function deleteListener( evt )
 end
 
 core.files.remove("imgs/image001.png", deleteListener)
+```
+
+---
+
+# Android file restrictions
+
+When working with Android, make sure you understand the file restrictions. You can find more information in the Corona documentation by [clicking here](https://docs.coronalabs.com/guide/data/readWriteFiles/index.html#android-file-restrictions).
+
+In the documentaion, there is a reference to a __[copyFile](https://docs.coronalabs.com/guide/data/readWriteFiles/index.html#copying-files-to-subfolders)__ method. As a convenience, this method is available in the Coronium Core plugin and can be accessed like so:
+
+```lua
+core.utils.copyFile(srcName, srcPath, dstName, dstPath, overwrite)
 ```

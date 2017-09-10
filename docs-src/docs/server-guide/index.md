@@ -13,6 +13,22 @@ coronium
 
 ---
 
+# Server Key
+
+A server key is generated the __/home/coronium/config/keyfile__ file when you first install the server. You use this key when connecting with the client-side plugin.
+
+__Do not remove this file__. You should back up this file to your computer and store it some place safe.
+
+!!! tip
+    A quick way to view the server key is by running __coronium key__ on the command line while logged into the server.
+
+In the event that you need to generate a new keyfile, you can run __sudo coronium genkey__ on the command line.
+
+!!! warning
+    If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.
+
+---
+
 # Viewing Logs
 
 To view log files, connect to the server with the __coronium__ user.
@@ -118,3 +134,4 @@ __Path Examples__
 File: _/home/coronium/files/public/imgs/image.png_
 
 URL: _https://your.coronium.server/imgs/image.png_
+

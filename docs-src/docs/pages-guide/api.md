@@ -7,21 +7,21 @@ Provides methods to handle web based requests, and issue responses. For full usa
 
 ---
 
-## core.pages
+## new
 
 Creates a new __pages__ object instance.
 
 ```lua
-core.pages()
+core.pages.new()
 ```
 
 __Parameters__
 
-This method has no parameters.
+This method has no required parameters.
 
 __Properties__
 
-The __pages__ object contains the [response]() and [template]() methods below, as well as, the following properties.
+A __pages__ object instance contains the [response](#response-resp) and [template](#template-tpl) methods below, as well as, the following properties.
 
 |Name|Description|Type|
 |----|-----------|----|
@@ -46,7 +46,7 @@ The __pages__ object has the following constants available.
 __Example__
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 ```
 
 _Raw Request Post Body_
@@ -54,7 +54,7 @@ _Raw Request Post Body_
 In the rare case that you need access to the raw request body, pass __true__ to the __core.pages__ method. The body is then available on the __body__ property of the pages object instance. Beware that this does take up additional memory per request, and should only be used if you specifically need it.
 
 ```lua
-local page = core.pages(true)
+local page = core.pages.new(true)
 local raw_body = page.body
 ```
 

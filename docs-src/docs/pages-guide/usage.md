@@ -13,7 +13,7 @@ All pages and assets reside in the __/home/coronium/pages__ directory, which is 
 
 ## Dynamic Pages
 
-To create a dynamic web page, name the file with the __.lua__ extension and use the __[core.pages](/pages-guide/api/#corepages)__ method to create a pages object instance. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.
+To create a dynamic web page, name the file with the __.lua__ extension and use the __[new](/pages-guide/api/#new)__ method to create a pages object instance. The browser path will be the path relative to the pages directory. Call the Lua file by addressing it by name, without the .lua extension.
 
 __Example Paths__
 
@@ -25,7 +25,7 @@ __Example Lua__
 
 ```lua
 --users/show.lua
-local page = core.pages()
+local page = core.pages.new()
 
 local body = 
 [[
@@ -52,7 +52,7 @@ Output responses to the client web browser by using the __[response]()__ method 
 To return content as html (default), pass a string body to the __response__ method.
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local body = 
 [[
@@ -75,7 +75,7 @@ See also: __[Templates](/pages-guide/templates/)__
 To return content as json, pass the __JSON__ constant to the __content__ response parameter.
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 --use a table for easy construction
 local data = {
@@ -95,7 +95,7 @@ page.response(body, nil, page.JSON)
 To return content as text, pass the __TEXT__ constant to the __content__ response parameter.
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local body = "This is some plain text"
 
@@ -116,7 +116,7 @@ __Example Lua__
 
 ```lua
 --mypage.lua
-local page = core.pages()
+local page = core.pages.new()
 
 local query_tbl = page.query
 
@@ -152,7 +152,7 @@ __Example Lua__
 
 ```lua
 --mypage.lua
-local page = core.pages()
+local page = core.pages.new()
 
 local form_tbl = page.form
 
@@ -178,7 +178,7 @@ To access the request headers, use the __headers__ property of the pages object 
 __Example__
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local headers = page.headers
 
@@ -214,7 +214,7 @@ __Example Template__
 __Example Lua__
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local users = core.data("users")
 local doc = users:get("id1234")

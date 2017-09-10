@@ -23,7 +23,8 @@ Client-side modules include support for basic __[Mongo]()__ and __[MySQL]()__ da
 local core = require("plugin.coronium-core")
 
 core.init({
-  server = "https://your.coronium.host"
+  server = "https://your.coronium.host",
+  key = "<coronium-server-key>"
 })
 
 ```
@@ -39,8 +40,8 @@ local core = require("plugin.coronium-core")
 
 core.init({
   server = "https://your.coronium.host",
+  key = "<coronium-server-key>",
   project = "<project-name>",
-  key = "project-key-here"
 })
 ```
 

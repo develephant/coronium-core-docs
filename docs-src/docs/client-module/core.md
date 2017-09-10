@@ -14,17 +14,17 @@ __Config Table Keys__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|server|Your Coronium Core server endpoint.|_String_|__Y__|
+|server|The Coronium Core server address.|_String_|__Y__|
+|key|The Coronium Core [server key](/server-guide/#server-key).|_String_|__Y__|
 |project|The project name to run api methods against.|_String_|__N__|
-|key|The project key as set in the server-side config.lua.|_String_|__N__|
 
 __Example__
 
 ```lua
 core.init({
   server = "https://<coronium-host-address>",
-  project = "default",
-  key = "1234"
+  key = "<coronium-server-key>",
+  project = "default"
 })
 ```
 
@@ -38,7 +38,7 @@ core.init({
 Change the server-side project to run api methods against.
 
 ```lua
-core.useProject( project, key )
+core.useProject( project )
 ```
 
 __Parameters__
@@ -46,12 +46,11 @@ __Parameters__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |project|The project name to run api methods against.|_String_|__Y__|
-|key|The project key as set in the server-side config.lua.|_String_|__Y__|
 
 __Example__
 
 ```lua
-core.useProject("default", "1234")
+core.useProject("default")
 ```
 
 ---
