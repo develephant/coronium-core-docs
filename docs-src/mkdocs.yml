@@ -35,6 +35,8 @@ site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'
 site_dir: ../docs
 extra:
+  logo:
+    icon: 'cloud'
   social:
     - type: 'support'
       link: 'https://forums.coronalabs.com/forum/643-coronium/'
