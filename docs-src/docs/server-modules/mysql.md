@@ -15,7 +15,7 @@ __Parameters__
 |db_name|The database name to issue commands against.|_String_|__Y__|
 |query_str|The MySQL query to send to the database.|_String_|__Y__|
 
-!!! note
+!!! info ""
     To connect to remote databases see __[Remote Databases](#remote-databases)__.
 
 __Result Values__
@@ -38,7 +38,7 @@ _DELETE_
 
 A __number__ indicating the amount of deleted rows.
 
-!!! note
+!!! info ""
     Any other commands will be returned as __table__. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 !!! tip
@@ -106,7 +106,7 @@ __Example__
 local str = core.mysql.escape("Eat at Joe's")
 ```
 
-!!! note
+!!! info "Important"
     The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query.
 
 ### escapeAll
@@ -139,7 +139,7 @@ values = core.mysql.escapeAll( values )
 
 EZ query methods provide an alternative way to construct common query types. For more complex queries, use the __core.mysql.query__ method above.
 
-!!! tip
+!!! tip "Client-Side API"
     You can access the EZ query methods directly using the client-side __[MySQL](/client-module/mysql)__ module.
 
 
@@ -249,7 +249,7 @@ __Insert Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 
-!!! note
+!!! note ""
     Strings in the __values__ table will be automatically run through __core.mysql.escape__.
 
 __Example__
@@ -296,7 +296,7 @@ __Update Table Parameters__
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 |where|Where the columns should be updated.|_String_|__N__|
 
-!!! note
+!!! note ""
     Strings in the __values__ table will be automatically run through __core.mysql.escape__.
 
 __Example__
@@ -343,7 +343,7 @@ __Delete Table Keys__
 |where|A WHERE clause to limit deletions to.|_String_|__N__|
 |force|Disables safety check for missing __where__ key.|_Boolean_|__N__|
 
-!!! note
+!!! info "Important"
     To run the delete command without a __where__ clause, you must set __force__ to true.
 
 __Example__

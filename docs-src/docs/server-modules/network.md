@@ -15,7 +15,7 @@ request:headers({
 local result, err = request:result()
 ```
 
-!!! note
+!!! note "Special Note"
     All of the network methods, except for __new__ and __request__ are getters and setters.
 
 __Using getters and setters__

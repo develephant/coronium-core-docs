@@ -786,8 +786,7 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
 <p>To connect to remote databases see <strong><a href="#remote-databases">Remote Databases</a></strong>.</p>
 </div>
 <p><strong>Result Values</strong></p>
@@ -800,8 +799,7 @@
 <p>A <strong>number</strong> indicating the amount of updated rows.</p>
 <p><em>DELETE</em></p>
 <p>A <strong>number</strong> indicating the amount of deleted rows.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
 <p>Any other commands will be returned as <strong>table</strong>. It is recommended that you manage your databases using an external tool. See <strong><a href="#administration">Administration</a></strong> below.</p>
 </div>
 <div class="admonition tip">
@@ -875,8 +873,8 @@
 </pre></div>
 
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
 <p>The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query.</p>
 </div>
 <h3 id="escapeall">escapeAll</h3>
@@ -916,7 +914,7 @@
 <h2 id="ez-query-methods">EZ Query Methods</h2>
 <p>EZ query methods provide an alternative way to construct common query types. For more complex queries, use the <strong>core.mysql.query</strong> method above.</p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<p class="admonition-title">Client-Side API</p>
 <p>You can access the EZ query methods directly using the client-side <strong><a href="../../client-module/mysql">MySQL</a></strong> module.</p>
 </div>
 <h3 id="select">select</h3>
@@ -1106,7 +1104,6 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>Strings in the <strong>values</strong> table will be automatically run through <strong>core.mysql.escape</strong>.</p>
 </div>
 <p><strong>Example</strong></p>
@@ -1191,7 +1188,6 @@
 </tbody>
 </table>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>Strings in the <strong>values</strong> table will be automatically run through <strong>core.mysql.escape</strong>.</p>
 </div>
 <p><strong>Example</strong></p>
@@ -1275,8 +1271,8 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
 <p>To run the delete command without a <strong>where</strong> clause, you must set <strong>force</strong> to true.</p>
 </div>
 <p><strong>Example</strong></p>

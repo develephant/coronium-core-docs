@@ -713,19 +713,18 @@
 
 <p>...and press the Enter key.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>You must be logged in as the <strong>coronium</strong> user to use the tool.</p>
+<p>You must be logged in as the <strong>coronium</strong> user to use the command line tool.</p>
 </div>
 <h2 id="server-key">Server Key</h2>
 <p>A server key is generated the <strong>/home/coronium/config/keyfile</strong> file when you first install the server. You use this key when connecting with the client-side plugin.</p>
 <p><strong>Do not remove this file</strong>. You should back up this file to your computer and store it some place safe.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition info">
+<p class="admonition-title">Viewing the Key</p>
 <p>A quick way to view the server key is by running <strong>coronium key</strong> on the command line while logged into the server.</p>
 </div>
 <p>In the event that you need to generate a new keyfile, you can run <strong>sudo coronium genkey</strong> on the command line.</p>
 <div class="admonition warning">
-<p class="admonition-title">Warning</p>
+<p class="admonition-title">Important Note</p>
 <p>If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.</p>
 </div>
 <h2 id="viewing-logs">Viewing Logs</h2>
@@ -734,8 +733,8 @@
 </pre></div>
 
 
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition info">
+<p class="admonition-title">Viewing the Log</p>
 <p>To quickly monitor the debug (nginx) log file, enter <code>cclog</code> on the command line.</p>
 </div>
 <p>Log files can be found in the <strong>/usr/local/coronium/logs</strong> directory. Possible log files include <em>nginx.log</em> and <em>mongo.log</em>.</p>
@@ -746,7 +745,6 @@
 
 <p>Press <strong>control-x</strong> to stop watching the log file.</p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.</p>
 </div>
 <div class="admonition tip">
@@ -792,7 +790,6 @@
 
 
 <div class="admonition caution">
-<p class="admonition-title">Caution</p>
 <p>You should rarely need to manually control the Coronium stack process.</p>
 </div>
 <h2 id="user-directories">User Directories</h2>
@@ -826,7 +823,6 @@
 <h3 id="public-directory">Public Directory</h3>
 <p>If you store files in the <strong>files/public</strong> directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within <a href="../pages-guide/templates/">page templates</a>. </p>
 <div class="admonition note">
-<p class="admonition-title">Note</p>
 <p>If a file with the same path exists in the <strong>pages</strong> directory, it will be served first. If a file does not exist at the path, then the <strong>files/public</strong> directory will be checked.</p>
 </div>
 <p><strong>Path Examples</strong></p>

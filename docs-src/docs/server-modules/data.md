@@ -45,7 +45,7 @@ __Example__
 local obj, err = users:get("id1234")
 ```
 
-!!! tip
+!!! tip ""
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
 ### save

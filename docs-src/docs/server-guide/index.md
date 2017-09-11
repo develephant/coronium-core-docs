@@ -8,8 +8,8 @@ coronium
 
 ...and press the Enter key.
 
-!!! note
-    You must be logged in as the __coronium__ user to use the tool.
+!!! note ""
+    You must be logged in as the __coronium__ user to use the command line tool.
 
 ## Server Key
 
@@ -17,12 +17,12 @@ A server key is generated the __/home/coronium/config/keyfile__ file when you fi
 
 __Do not remove this file__. You should back up this file to your computer and store it some place safe.
 
-!!! tip
+!!! info "Viewing the Key"
     A quick way to view the server key is by running __coronium key__ on the command line while logged into the server.
 
 In the event that you need to generate a new keyfile, you can run __sudo coronium genkey__ on the command line.
 
-!!! warning
+!!! warning "Important Note"
     If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.
 
 ## Viewing Logs
@@ -33,7 +33,7 @@ To view log files, connect to the server with the __coronium__ user.
 ssh coronium@<your-instance-ip>
 ```
 
-!!! tip
+!!! info "Viewing the Log"
     To quickly monitor the debug (nginx) log file, enter `cclog` on the command line.
 
 Log files can be found in the __/usr/local/coronium/logs__ directory. Possible log files include _nginx.log_ and _mongo.log_.
@@ -46,7 +46,7 @@ tail -f /usr/local/coronium/logs/<log-name>.log
 
 Press __control-x__ to stop watching the log file.
 
-!!! note
+!!! note ""
     The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.
 
 !!! tip
@@ -99,7 +99,7 @@ To restart the Coronium stack, use:
 sudo coronium restart
 ```
 
-!!! caution
+!!! caution ""
     You should rarely need to manually control the Coronium stack process.
 
 
@@ -117,7 +117,7 @@ The following user directories can be found in __/home/coronium__. They are will
 
 If you store files in the __files/public__ directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within [page templates](/pages-guide/templates/). 
 
-!!! note
+!!! note ""
     If a file with the same path exists in the __pages__ directory, it will be served first. If a file does not exist at the path, then the __files/public__ directory will be checked.
 
 __Path Examples__

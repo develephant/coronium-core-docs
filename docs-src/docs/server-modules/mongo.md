@@ -1,4 +1,4 @@
-!!! note
+!!! tldr "Important Note"
     The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 !!! tip
@@ -52,7 +52,7 @@ Close the database connection.
 db:close()
 ```
 
-!!! note
+!!! note ""
     To keep memory usage down, you should always close the database connection when finished.
 
 ### collection
@@ -144,7 +144,7 @@ doc.name = "Nancy"
 local id, err = coll:save(doc)
 ```
 
-!!! note
+!!! note ""
     This method is the same as setting __upsert=true__ when using the __update__ method.
 
 ### insert
@@ -563,7 +563,7 @@ local cur, err = users:aggregate({
 
 _Output aggregation results to a collection instead of a cursor_
 
-!!! note
+!!! note ""
     The __$out__ key must be the last step in the pipeline. Creates and returns a new collection.
 
 ```lua
@@ -598,7 +598,7 @@ Return document(s) based on the previous cursor options. Returns a __table__ arr
 cursor:all()
 ```
 
-!!! tip
+!!! info "Important"
     Always call this method last (or in a chain), to retrieve the documents from the cursor.
 
 __Parameters__

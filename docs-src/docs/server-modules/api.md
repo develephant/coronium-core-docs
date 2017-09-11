@@ -2,7 +2,7 @@ The API module allows you to create server-side api methods that can be called u
 
 A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the [MySQL](/server-modules/mysql/) and [Mongo](/server-modules/mongo/) modules.
 
-!!! tip
+!!! tip "Client-Side API"
     Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side __[Data](/client-module/data/)__ module for Mongo, and the client-side __[MySQL](/client-module/mysql/)__ module for MySQL.
 
 ## Projects
@@ -180,8 +180,8 @@ return api
 
 Most often you will want to do something more useful than echoing data. You can use the server-side modules to add functionality to your api.
 
-!!! tip
-    Most data handling can be facilitated directly on the client-side. See the client-side __[Data](/client-module/data/)__ module for Mongo, and the client-side __[MySQL](/client-module/mysql/)__ module for MySQL.
+!!! tip "Client-Side API"
+    Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side __[Data](/client-module/data/)__ module for Mongo, and the client-side __[MySQL](/client-module/mysql/)__ module for MySQL.
 
 ### Examples
 
@@ -297,7 +297,7 @@ end
 core.api.queryUser({id=20}, apiResponse)
 ```
 
-!!! note
+!!! tip ""
     The following example can also be done directly from the client-side __[MySQL](/client-module/mysql/#insert)__ module.
 
 Assuming we have a MySQL database properly created called "app", we can quickly insert a new record to the "users" table like so:
