@@ -23,7 +23,7 @@ __Do not remove this file__. You should back up this file to your computer and s
 In the event that you need to generate a new keyfile, you can run __sudo coronium genkey__ on the command line.
 
 !!! warning "Important Note"
-    If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.
+    If you regenerate the keyfile, any deployed Corona apps that use the server key will be unable to connect to the server.
 
 ## Viewing Logs
 
