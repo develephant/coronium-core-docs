@@ -11,11 +11,3 @@ Extend your applications into the cloud with Mongo and MySQL databases, secure f
 Use the __Coronium Core__ client-side plugin api for most tasks without ever writing a line of code on the server. When you need to take it to the next level, create custom server-side apis with Lua for complex data driven applications.
 
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for Corona developers.
-
-For questions, assistance, and discussions, visit the __[Coronium forum](https://forums.coronalabs.com/forum/643-coronium/)__.
-
-
-__Coronium Core__ is available for installation as a __[DigitalOcean](install/digitalocean)__ droplet or __[Amazon EC2](install/ec2)__ instance.
-
-!!! warning "Plugin Required"
-    You will need the __Coronium Core Plugin__ available in the __[Corona Marketplace](https://marketplace.coronalabs.com/plugin/coronium-core)__, in addition to a running server install.
