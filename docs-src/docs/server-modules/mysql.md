@@ -1,7 +1,5 @@
 The __mysql__ module allows you to run queries against the local MySQL server instance. You can also connect to remote databases.
 
----
-
 ### query | q
 
 ```lua
@@ -43,8 +41,6 @@ A __number__ indicating the amount of deleted rows.
 !!! note
     Any other commands will be returned as __table__. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
----
-
 !!! tip
     Use __[core.sf](utils/#sf-string-format)__ (string format) to make queries easier to build, and type safe.
 
@@ -66,8 +62,6 @@ for i=1, #result do
 end
 
 ```
-
----
 
 __Insert Example__
 
@@ -92,8 +86,6 @@ end
 core.log("inserted id is: ", result)
 ```
 
----
-
 ### escape
 
 Escape a string value to be sql safe. Returns an escaped __string__.
@@ -116,8 +108,6 @@ local str = core.mysql.escape("Eat at Joe's")
 
 !!! note
     The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query.
-
----
 
 ### escapeAll
 
@@ -144,8 +134,6 @@ local values = {
 
 values = core.mysql.escapeAll( values )
 ```
-
----
 
 ## EZ Query Methods
 
@@ -190,8 +178,6 @@ The __orderby__ key should be a table filled with __column = direction__ pairs. 
 __Limit__
 
 To limit the rows returned, supply a __number__ value to the __limit__ key. To _offset_ the limit, supply a __table__ array of __number__ values. For example, to return rows 6-15: __limit = {5, 10}__.
-
----
 
 __Example 1__
 
@@ -239,8 +225,6 @@ else
 end
 ```
 
----
-
 ### insert
 
 ```lua
@@ -286,8 +270,6 @@ else
   core.log(result)
 end
 ```
-
----
 
 ### update
 
@@ -335,8 +317,6 @@ else
   core.log(result)
 end
 ```
-
----
 
 ### delete
 
@@ -399,8 +379,6 @@ else
   core.log(result)
 end
 ```
-
----
 
 ## Remote Databases
 

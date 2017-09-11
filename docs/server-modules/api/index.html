@@ -817,7 +817,6 @@
 <p class="admonition-title">Tip</p>
 <p>Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../client-module/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../client-module/mysql/">MySQL</a></strong> module for MySQL.</p>
 </div>
-<hr />
 <h2 id="projects">Projects</h2>
 <p>Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. </p>
 <p>Projects can also be based on a specific set of functionality, like user management, which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../client-module/core/#useproject">useProject</a> method in the client-side core module.</p>
@@ -874,7 +873,6 @@
 </pre></div>
 
 
-<hr />
 <h2 id="coreapi">core.api</h2>
 <p>To create your api, you need to extend the <strong>core.api</strong> object. As shown in the main.lua file above, this is done like so:</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
@@ -1018,7 +1016,6 @@
 </pre></div>
 
 
-<hr />
 <p><strong>Get a user using a MySQL query:</strong></p>
 <p><em>Server-side</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">--main.lua</span>
@@ -1067,7 +1064,6 @@
 </pre></div>
 
 
-<hr />
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The following example can also be done directly from the client-side <strong><a href="../../client-module/mysql/#insert">MySQL</a></strong> module.</p>

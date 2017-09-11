@@ -1183,7 +1183,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="use">use</h3>
 <p>Change the current working database. If the database does not exist, it will be created.</p>
 <div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
@@ -1214,7 +1213,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="close">close</h3>
 <p>Close the database connection.</p>
 <div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>
@@ -1225,7 +1223,6 @@
 <p class="admonition-title">Note</p>
 <p>To keep memory usage down, you should always close the database connection when finished.</p>
 </div>
-<hr />
 <h3 id="collection">collection</h3>
 <p>Select and return a collection to operate on. If the collection does not exist, it will be created.</p>
 <div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
@@ -1256,7 +1253,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="listcollections">listCollections</h3>
 <p>Retreive a list of collections. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
@@ -1274,7 +1270,6 @@
 </pre></div>
 
 
-<hr />
 <h2 id="collections">Collections</h2>
 <p>The following methods operate on collections. See <strong><a href="#collection">db:collection</a></strong> above to gain access to a collection object.</p>
 <h3 id="save">save</h3>
@@ -1332,7 +1327,6 @@
 <p class="admonition-title">Note</p>
 <p>This method is the same as setting <strong>upsert=true</strong> when using the <strong>update</strong> method.</p>
 </div>
-<hr />
 <h3 id="insert">insert</h3>
 <p>Insert multiple documents into a collection. Returns array of <strong>ids</strong> and <strong>number</strong> inserted, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
@@ -1374,7 +1368,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="findone">findOne</h3>
 <p>Find and return the first document that matches the query or id. Returns the <strong>doc</strong>, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
@@ -1430,7 +1423,6 @@
 <ul>
 <li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
 </ul>
-<hr />
 <h3 id="find">find</h3>
 <p>Find multiple documents based on query. Returns a new <strong><a href="#cursor">cursor</a></strong> object.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
@@ -1484,7 +1476,6 @@
 <li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
 <li><a href="#resources">Resources</a></li>
 </ul>
-<hr />
 <h3 id="findandmodify">findAndModify</h3>
 <p>Finds the first document that matches the query and updates it in place based on the <strong>options</strong>. Returns old doc (unless <strong>new</strong> option is set), or <strong>nil</strong>, and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findAndModify</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
@@ -1557,7 +1548,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="update">update</h3>
 <p>Update a record. Returns <strong>number</strong> updated, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">updateDoc</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
@@ -1664,7 +1654,6 @@
 <li><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
 <li><a href="#resources">Resources</a></li>
 </ul>
-<hr />
 <h3 id="remove">remove</h3>
 <p>Remove a document or documents based on the query. Returns <strong>number</strong> of records removed, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">isSingle</span><span class="p">)</span>
@@ -1700,7 +1689,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="drop">drop</h3>
 <p>Remove a collection and all the containing documents. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">drop</span><span class="p">()</span>
@@ -1714,7 +1702,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="rename">rename</h3>
 <p>Rename a collection. Returns newly named collection, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="n">drop</span><span class="p">)</span>
@@ -1758,7 +1745,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="getindexes">getIndexes</h3>
 <p>The current collection indexes. Returns a <strong>table</strong> array with index objects, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">getIndexes</span><span class="p">()</span>
@@ -1804,7 +1790,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="createindex">createIndex</h3>
 <p>Create index(es) for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">createIndex</span><span class="p">(</span><span class="n">index_arr</span><span class="p">)</span>
@@ -1861,7 +1846,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="dropindex">dropIndex</h3>
 <p>Drop indexes for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">dropIndex</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
@@ -1896,7 +1880,6 @@
 <ul>
 <li><a href="#getindexes">getIndexes</a></li>
 </ul>
-<hr />
 <h3 id="aggregate">aggregate</h3>
 <p>Performs aggregation operation based on the pipeline commands. By default returns a cursor, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
@@ -1947,7 +1930,6 @@
 <ul>
 <li><a href="#resources">Resources</a></li>
 </ul>
-<hr />
 <h2 id="cursor">Cursor</h2>
 <p>A cursor object contains a group of documents returned from the <strong><a href="#find">find</a></strong> method. After setting the needed cursor methods, use the <strong><a href="#all">all</a></strong> or <strong><a href="#next">next</a></strong> cursor method to retrieve the documents. For example, using <strong>all</strong>:</p>
 <div class="codehilite"><pre><span></span><span class="c1">-- return first 10 docs from the find request</span>
@@ -1976,7 +1958,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="sort">sort</h3>
 <p>Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">sort</span><span class="p">(</span> <span class="n">sort_tbl</span> <span class="p">)</span>
@@ -2011,7 +1992,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="skip">skip</h3>
 <p>Skip a specific amount of documents in the cursor results. Returns the cursor.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">skip</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -2043,7 +2023,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="limit">limit</h3>
 <p>Limit the amount of documents returned based on the current cursor options. Returns the cursor.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
@@ -2075,7 +2054,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="count">count</h3>
 <p>Return the current document amount based on the current cursor options. Returns a <strong>number</strong>.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">count</span><span class="p">()</span>
@@ -2089,7 +2067,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="rewind">rewind</h3>
 <p>Set the cursor pointer back to the begining of the document results. Returns the cursor.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">rewind</span><span class="p">()</span>
@@ -2103,7 +2080,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="next">next</h3>
 <p>Interate over the cursor results. On each call, returns a document, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="nb">next</span><span class="p">()</span>
@@ -2125,7 +2101,6 @@
 <li><a href="#all">all</a></li>
 <li><a href="#rewind">rewind</a></li>
 </ul>
-<hr />
 <h3 id="distinct">distinct</h3>
 <p>Pull distinct key values from the cursor results. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">distinct</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -2157,7 +2132,6 @@
 </pre></div>
 
 
-<hr />
 <h2 id="mongodb-to-lua">MongoDB to Lua</h2>
 <p>MongoDB used JSON objects. When viewing the documentation on the MongoDB website, you must convert the JSON information to Lua. What follows are some tips to do that.</p>
 <h3 id="operators">Operators</h3>
@@ -2189,7 +2163,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="arrays">Arrays</h3>
 <p>Arrays are rendered as indexed tables.</p>
 <table>
@@ -2252,7 +2225,6 @@
 </pre></div>
 
 
-<hr />
 <h2 id="resources">Resources</h2>
 <ul>
 <li><a href="https://docs.mongodb.com/v3.0/reference/method/db.collection.find/#examples">Find Examples</a></li>

@@ -708,7 +708,6 @@
                   <h1>Utils</h1>
                 
                 <p>Here you can find various helpers available in the root <strong>core</strong> namespace.</p>
-<hr />
 <h3 id="log">log</h3>
 <p>Prints a string message to the <strong>/usr/local/coronium/logs/coronium.log</strong> file.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span> <span class="n">message</span> <span class="p">)</span>
@@ -737,7 +736,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="sf-string-format">sf (string format)</h3>
 <p>Format a string based on token replacment. This method shares the same attributes as the Lua string.format method.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span> <span class="n">str_template</span><span class="p">,</span> <span class="n">values</span> <span class="p">)</span>
@@ -804,7 +802,6 @@
 <p class="admonition-title">Tip</p>
 <p>The <strong>sf</strong> method is useful for creating SQL queries, as well as other type-safe replacments.</p>
 </div>
-<hr />
 <h3 id="trim">trim</h3>
 <p>Removes empty space from the start and end of a string, if any.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">trim</span><span class="p">(</span> <span class="n">string</span> <span class="p">)</span>
@@ -835,7 +832,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="split">split</h3>
 <p>Converts a delimited string into a Lua table array.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">split</span><span class="p">(</span> <span class="n">string</span><span class="p">[,</span> <span class="n">delimiter</span> <span class="p">]</span> <span class="p">)</span>
@@ -881,7 +877,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="json">json</h3>
 <p>JSON encoding and decoding.</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span>
@@ -898,7 +893,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="json_safe">json_safe</h3>
 <p>JSON encoding and decoding with error handling.</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">json</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json_safe</span>
@@ -915,7 +909,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="uuid">uuid</h3>
 <p>Generates a universally unique id.</p>
 <p><strong>Example</strong></p>
@@ -925,7 +918,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="countrycode">countryCode</h3>
 <p>Two letter country code based on the request IP. Can only be called in a <strong>core.api</strong> method.</p>
 <p><strong>Example</strong></p>

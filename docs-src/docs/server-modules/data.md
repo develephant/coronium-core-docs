@@ -2,8 +2,6 @@ The __data__ module provides a simple interface to the underlying Mongo database
 
 You can access this module directly from the client-side using the client __[Data](/client-module/data)__ module.
 
----
-
 ## core.data
 
 To perform any of the object methods, you need a reference to the __data__ module.
@@ -29,8 +27,6 @@ __Example__
 local users = core.data("users")
 ```
 
----
-
 ### get
 
 ```lua
@@ -52,8 +48,6 @@ local obj, err = users:get("id1234")
 !!! tip
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
----
-
 ### save
 
 ```lua
@@ -72,8 +66,6 @@ __Example__
 local id, err = users:save(obj)
 ```
 
----
-
 ### delete
 
 ```lua
@@ -91,8 +83,6 @@ __Example__
 ```lua
 local success, err = users:delete(obj)
 ```
-
----
 
 ## Pagination
 
@@ -123,6 +113,3 @@ __Example__
 ```lua
 local objects = users:getPage({}, 1, 10)
 ```
-
----
-

@@ -15,8 +15,6 @@ request:headers({
 local result, err = request:result()
 ```
 
----
-
 !!! note
     All of the network methods, except for __new__ and __request__ are getters and setters.
 
@@ -33,8 +31,6 @@ request:host('12.12.12.12')
 request:host('12.12.12.12'):port(8080)
 local result, err = request:result()
 ```
-
----
 
 ### new
 
@@ -61,8 +57,6 @@ __Example__
 local request = core.network.new('123.123.123.123', 8080)
 ```
 
----
-
 ### host
 
 ```lua
@@ -87,8 +81,6 @@ local hostname = request:hostname()
 --set
 request:hostname('13.13.13.13')
 ```
-
----
 
 ### port
 
@@ -115,8 +107,6 @@ local port = request:port()
 request:port(8080)
 ```
 
----
-
 ### path
 
 ```lua
@@ -141,8 +131,6 @@ local path = request:path()
 --set
 request:path('/echo/test')
 ```
-
----
 
 ### header
 
@@ -169,8 +157,6 @@ local header = request:header('Content-Type')
 --set
 request:header('Content-Type','application/json')
 ```
-
----
 
 ### headers
 
@@ -202,8 +188,6 @@ request:headers({
 
 !!! warning
     The __headers__ method will clear _all_ existing header assigments.
-
----
 
 ### method
 
@@ -239,8 +223,6 @@ __Method Constants__
 |core.DELETE|DELETE request method|
 |core.UPDATE|UPDATE request method|
 
----
-
 ### timeout
 
 ```lua
@@ -265,8 +247,6 @@ local timeout = request:timeout()
 --set
 request:timeout(30)
 ```
-
----
 
 ### ssl_verify
 
@@ -293,8 +273,6 @@ local ssl_verify = request:ssl_verify()
 request:ssl_verify(true)
 ```
 
----
-
 ### body
 
 ```lua
@@ -319,8 +297,6 @@ local body_data = request:body()
 --set
 request:body("Here is some body data")
 ```
-
----
 
 ### result
 

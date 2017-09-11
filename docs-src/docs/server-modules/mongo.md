@@ -24,8 +24,6 @@ __Example__
 local db, err = core.mongo( "app" ) 
 ```
 
----
-
 ### use
 
 Change the current working database. If the database does not exist, it will be created.
@@ -46,8 +44,6 @@ __Example__
 local db = db:use( "app2" )
 ```
 
----
-
 ### close
 
 Close the database connection.
@@ -58,8 +54,6 @@ db:close()
 
 !!! note
     To keep memory usage down, you should always close the database connection when finished.
-
----
 
 ### collection
 
@@ -80,8 +74,6 @@ __Example__
 ```lua
 local coll = db:collection( "users" )
 ```
-
----
 
 ### listCollections
 
@@ -104,8 +96,6 @@ for i=1, #list do
   print(list[i]) -- collection name
 end
 ```
-
----
 
 ## Collections
 
@@ -157,8 +147,6 @@ local id, err = coll:save(doc)
 !!! note
     This method is the same as setting __upsert=true__ when using the __update__ method.
 
----
-
 ### insert
 
 Insert multiple documents into a collection. Returns array of __ids__ and __number__ inserted, or __nil__ and an error.
@@ -190,8 +178,6 @@ local docs = {
 
 local ids, errOrNum = coll:insert( docs )
 ```
-
----
 
 ### findOne
 
@@ -236,8 +222,6 @@ __See also__
 
 - [MongoDB to Lua](#mongodb-to-lua)
 
----
-
 ### find
 
 Find multiple documents based on query. Returns a new __[cursor](#cursor)__ object.
@@ -276,8 +260,6 @@ __See also__
 - [MongoDB to Lua](#mongodb-to-lua)
 - [Resources](#resources)
 
----
-
 ### findAndModify
 
 Finds the first document that matches the query and updates it in place based on the __options__. Returns old doc (unless __new__ option is set), or __nil__, and an error.
@@ -305,8 +287,6 @@ __Options Keys__
 ```lua
 local doc, err = col:findAndModify(query_or_id, opts)
 ```
-
----
 
 ### update
 
@@ -381,8 +361,6 @@ __See also__
 - [MongoDB to Lua](#mongodb-to-lua)
 - [Resources](#resources)
 
----
-
 ### remove
 
 Remove a document or documents based on the query. Returns __number__ of records removed, or __nil__ and an error.
@@ -402,8 +380,6 @@ __Parameters__
 local num, err = coll:remove(query_id, is_single)
 ```
 
----
-
 ### drop
 
 Remove a collection and all the containing documents. Returns __true__, or __nil__ and an error.
@@ -421,8 +397,6 @@ __Example__
 ```lua
 local res, err = coll:drop()
 ```
-
----
 
 ### rename
 
@@ -453,8 +427,6 @@ To rename and move the collection to another database, pass the full namespace t
 -- namespace <db>.<collection>
 col:rename("otherdb.newname")
 ```
-
----
 
 ### getIndexes
 
@@ -490,8 +462,6 @@ for i=1, #indexes do
   print(index.name)
 end
 ```
-
----
 
 ### createIndex
 
@@ -544,8 +514,6 @@ local res, err = coll:createIndex({
 })
 ```
 
----
-
 ### dropIndex
 
 Drop indexes for a collection. Returns __true__, or __nil__ and an error.
@@ -569,8 +537,6 @@ local res, err = coll:dropIndex( "age_asc" )
 __See also__
 
 - [getIndexes](#getindexes)
-
----
 
 ### aggregate
 
@@ -612,8 +578,6 @@ __See also__
 
 - [Resources](#resources)
 
----
-
 ## Cursor
 
 A cursor object contains a group of documents returned from the __[find](#find)__ method. After setting the needed cursor methods, use the __[all](#all)__ or __[next](#next)__ cursor method to retrieve the documents. For example, using __all__:
@@ -647,8 +611,6 @@ __Example__
 local docs, err = cur:all()
 ```
 
----
-
 ### sort
 
 Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.
@@ -673,8 +635,6 @@ local cur = cur:sort({ age = core.ASC })
 local cur = cur:sort({age = core.DESC, name = core.ASC })
 ```
 
----
-
 ### skip
 
 Skip a specific amount of documents in the cursor results. Returns the cursor.
@@ -695,8 +655,6 @@ __Example__
 --skip the first 20 documents
 local cur = cur:skip( 20 )
 ```
-
----
 
 ### limit
 
@@ -719,8 +677,6 @@ __Example__
 local cur = cur:limit( 10 )
 ```
 
----
-
 ### count
 
 Return the current document amount based on the current cursor options. Returns a __number__.
@@ -739,8 +695,6 @@ __Example__
 local cnt = cur:count()
 ```
 
----
-
 ### rewind
 
 Set the cursor pointer back to the begining of the document results. Returns the cursor.
@@ -758,8 +712,6 @@ __Example__
 ```lua
 local cur = cur:rewind()
 ```
-
----
 
 ### next
 
@@ -787,8 +739,6 @@ __See also__
 - [all](#all)
 - [rewind](#rewind)
 
----
-
 ### distinct
 
 Pull distinct key values from the cursor results. Returns a __table__ array, or __nil__ and an error.
@@ -809,8 +759,6 @@ __Example__
 local res, err = cur:distinct( "age" )
 -- 'res' is a table array
 ```
-
----
 
 ## MongoDB to Lua
 
@@ -834,8 +782,6 @@ coll:update({name="Jimmy"}, {
   }
 })
 ```
-
----
 
 ### Arrays
 
@@ -897,8 +843,6 @@ coll:update(<queryOrId>, {
   }
 })
 ```
-
----
 
 ## Resources
 

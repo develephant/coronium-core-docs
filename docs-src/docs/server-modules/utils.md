@@ -1,7 +1,5 @@
 Here you can find various helpers available in the root __core__ namespace.
 
----
-
 ### log
 
 Prints a string message to the __/usr/local/coronium/logs/coronium.log__ file.
@@ -21,8 +19,6 @@ __Example__
 ```lua
 core.log('something to log')
 ```
-
----
 
 ### sf (string format)
 
@@ -67,8 +63,6 @@ local str = core.sf("Ordered %d %s with %s.", 2, 'burgers', 'cheese')
 !!! tip
     The __sf__ method is useful for creating SQL queries, as well as other type-safe replacments.
 
----
-
 ### trim
 
 Removes empty space from the start and end of a string, if any.
@@ -90,8 +84,6 @@ local trimmed_str = core.trim("  I could use a trim  ")
 
 -- trimmed_str = "I could use a trim"
 ```
-
----
 
 ### split
 
@@ -124,8 +116,6 @@ local tbl_array = core.split("User:2001:Storage", ":")
 -- `tbl_array` contains {"User","2001","Storage"}
 ```
 
----
-
 ### json
 
 JSON encoding and decoding.
@@ -145,8 +135,6 @@ _Decode_
 ```lua
 local tbl = json.decode(str)
 ```
-
----
 
 ### json_safe
 
@@ -168,9 +156,6 @@ _Decode safe_
 local tbl, err = json.decode(str)
 ```
 
-
----
-
 ### uuid
 
 Generates a universally unique id.
@@ -182,8 +167,6 @@ local uuid = core.uuid()
 
 -- `uuid` will contain something like "1f0af2fa-8b06-4605-bace-e13a85aa36d5"
 ```
-
----
 
 ### countryCode
 

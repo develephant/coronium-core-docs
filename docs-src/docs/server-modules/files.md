@@ -1,9 +1,10 @@
 Provides methods to manage server side files.
 
 !!! note
-    Uploads and Downloads are performed using the client-side __[Files](/client-module/files/)__ module.
+    __Uploads__ and __Downloads__ are performed using the client-side __[Files](/client-module/files/)__ module.
 
----
+!!! tip "Amazon S3"
+    If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.
 
 ### list
 
@@ -25,8 +26,6 @@ local list, err = core.files.list("imgs")
 
 !!! note
     This method will only list the _files_ in the directory, not any directories. If no files are present, it will return an empty table.
-
----
 
 ### move
 
@@ -51,8 +50,6 @@ __Example__
 local ok, err = core.files.move("imgs/image01.png", "assets/image01.png")
 ```
 
----
-
 ### copy
 
 Copy a file in the server files directory.
@@ -76,8 +73,6 @@ __Example__
 local ok, err = core.files.copy("imgs/image01.png", "assets/image01.png")
 ```
 
----
-
 ### remove
 
 Remove a file from the server files directory. Returns __true__ on success, or __nil__ and an error.
@@ -97,8 +92,6 @@ __Example__
 ```lua
 local ok, err = core.files.remove("imgs/image002.png")
 ```
-
----
 
 ### rename
 
@@ -123,12 +116,3 @@ local ok, err = core.files.rename("imgs/image001.png", "image002.png")
 
 !!! note
     This method will not move a file. Any path supplied to the __new_name__ parameter will be ignored.
-
----
-
-
-
----
-
-!!! tip "Amazon S3"
-    If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.

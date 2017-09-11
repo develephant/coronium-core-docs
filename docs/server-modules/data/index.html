@@ -705,7 +705,6 @@
                 
                 <p>The <strong>data</strong> module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
 <p>You can access this module directly from the client-side using the client <strong><a href="../../client-module/data">Data</a></strong> module.</p>
-<hr />
 <h2 id="coredata">core.data</h2>
 <p>To perform any of the object methods, you need a reference to the <strong>data</strong> module.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">source_name</span><span class="p">[,</span> <span class="n">db_name</span><span class="p">])</span>
@@ -744,7 +743,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="get">get</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">idOrQuery</span><span class="p">)</span>
 </pre></div>
@@ -778,7 +776,6 @@
 <p class="admonition-title">Tip</p>
 <p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
 </div>
-<hr />
 <h3 id="save">save</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
@@ -808,7 +805,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="delete">delete</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">idOrObj</span><span class="p">)</span>
 </pre></div>
@@ -838,7 +834,6 @@
 </pre></div>
 
 
-<hr />
 <h2 id="pagination">Pagination</h2>
 <h3 id="getpage">getPage</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
@@ -909,9 +904,6 @@
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">getPage</span><span class="p">({},</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
-
-
-<hr />
                 
                   
                 

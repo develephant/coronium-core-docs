@@ -5,8 +5,6 @@ A server-side api is useful for type checking, validation, and more complex data
 !!! tip
     Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side __[Data](/client-module/data/)__ module for Mongo, and the client-side __[MySQL](/client-module/mysql/)__ module for MySQL.
 
----
-
 ## Projects
 
 Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. 
@@ -82,8 +80,6 @@ local apiResponse(evt)
 end
 core.api.test({name="Jimmy"}, apiResponse)
 ```
-
----
 
 ## core.api
 
@@ -250,8 +246,6 @@ end
 core.api.getCollections({db_name="app"}, apiResponse)
 ```
 
----
-
 __Get a user using a MySQL query:__
 
 _Server-side_
@@ -302,8 +296,6 @@ end
 
 core.api.queryUser({id=20}, apiResponse)
 ```
-
----
 
 !!! note
     The following example can also be done directly from the client-side __[MySQL](/client-module/mysql/#insert)__ module.

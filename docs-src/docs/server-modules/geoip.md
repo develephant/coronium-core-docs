@@ -6,8 +6,6 @@ The following methods use the __[GeoIP](http://dev.maxmind.com/geoip/legacy/geol
 !!! note
     The following methods may return nothing depending on the database IP matching.
 
----
-
 ## countryCode
 
 Two-letter country code, for example, “RU”, “US”.
@@ -17,8 +15,6 @@ __Example__
 ```lua
 local country_code = core.geoip.countryCode()
 ```
-
----
 
 ## countryCode3
 
@@ -30,8 +26,6 @@ __Example__
 local country_code3 = core.geoip.countryCode3()
 ```
 
----
-
 ## countryName
 
 Country name, for example, “Russian Federation”, “United States”.
@@ -41,8 +35,6 @@ __Example__
 ```lua
 local country_name = core.geoip.countryName()
 ```
-
----
 
 ## city
 
@@ -54,8 +46,6 @@ __Example__
 local city = core.geoip.city()
 ```
 
----
-
 ## postalCode
 
 Postal code.
@@ -65,8 +55,6 @@ __Example__
 ```lua
 local postal_code = cloud.geoip.postalCode()
 ```
-
----
 
 ## cityContinentCode
 
@@ -78,8 +66,6 @@ __Example__
 local city_continent_code = core.geoip.continentCode()
 ```
 
----
-
 ## region
 
 Two-symbol country region code (region, territory, state, province, etc.), for example, “48”, “DC”.
@@ -89,8 +75,6 @@ __Example__
 ```lua
 local region = core.geoip.region()
 ```
-
----
 
 ## regionName
 
@@ -102,8 +86,6 @@ __Example__
 local region_name = core.geoip.regionName()
 ```
 
----
-
 ## latitude
 
 Latitude.
@@ -113,8 +95,6 @@ __Example__
 ```lua
 local latitude = core.geoip.latitude()
 ```
-
----
 
 ## longitude
 

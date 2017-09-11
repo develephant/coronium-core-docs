@@ -668,9 +668,12 @@
                 <p>Provides methods to manage server side files.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Uploads and Downloads are performed using the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
+<p><strong>Uploads</strong> and <strong>Downloads</strong> are performed using the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
 </div>
-<hr />
+<div class="admonition tip">
+<p class="admonition-title">Amazon S3</p>
+<p>If you'd like to transfer files using <strong><a href="https://aws.amazon.com/s3/">Amazon S3</a></strong> take a look at the <strong><a href="https://marketplace.coronalabs.com/plugin/s3-lite">S3 Lite</a></strong> plugin for Corona.</p>
+</div>
 <h3 id="list">list</h3>
 <p>List the files in the specified directory path. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span>
@@ -704,7 +707,6 @@
 <p class="admonition-title">Note</p>
 <p>This method will only list the <em>files</em> in the directory, not any directories. If no files are present, it will return an empty table.</p>
 </div>
-<hr />
 <h3 id="move">move</h3>
 <p>Move a file in the server files directory.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">srcpath</span><span class="p">,</span> <span class="n">destpath</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
@@ -747,7 +749,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="copy">copy</h3>
 <p>Copy a file in the server files directory.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">srcpath</span><span class="p">,</span> <span class="n">destpath</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
@@ -790,7 +791,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="remove">remove</h3>
 <p>Remove a file from the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
@@ -821,7 +821,6 @@
 </pre></div>
 
 
-<hr />
 <h3 id="rename">rename</h3>
 <p>Rename a file in the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span>
@@ -861,12 +860,6 @@
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>This method will not move a file. Any path supplied to the <strong>new_name</strong> parameter will be ignored.</p>
-</div>
-<hr />
-<hr />
-<div class="admonition tip">
-<p class="admonition-title">Amazon S3</p>
-<p>If you'd like to transfer files using <strong><a href="https://aws.amazon.com/s3/">Amazon S3</a></strong> take a look at the <strong><a href="https://marketplace.coronalabs.com/plugin/s3-lite">S3 Lite</a></strong> plugin for Corona.</p>
 </div>
                 
                   
