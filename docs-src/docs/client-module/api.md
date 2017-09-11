@@ -15,7 +15,7 @@ __Parameters__
 |input_params|Parameters to pass to the api method.|_Table_|__N__|
 |listener|The response listener callback function.|_Function_|__Y__|
 
-!!! note
+!!! tldr "Special Note"
     If a method does not require a __input_params__ table, you can either pass any empty table, or omit the parameter table all together, supplying just the listener.
 
 __Event Response__

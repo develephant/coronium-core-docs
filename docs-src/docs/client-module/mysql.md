@@ -84,7 +84,7 @@ __Query Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 
-!!! note
+!!! note ""
     Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server-modules/mysql/#escape)__ method.
 
 __Event Response__
@@ -136,7 +136,7 @@ __Query Table Keys__
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 |where|Where the columns should be updated.|_String_|__N__|
 
-!!! note
+!!! note ""
     Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server-modules/mysql/#escape)__ method.
 
 __Event Response__
@@ -188,7 +188,7 @@ __Query Table Keys__
 |where|A WHERE clause to limit deletions to.|_String_|__N__|
 |force|Disables safety check for missing __where__ key.|_Boolean_|__N__|
 
-!!! note
+!!! info "Important"
     To run the delete command without a __where__ clause, you must set __force__ to true.
 
 __Event Response__

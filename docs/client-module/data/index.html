@@ -761,7 +761,6 @@
 
 
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
 <p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
 </div>
 <h3 id="save">save</h3>
@@ -845,8 +844,8 @@
 </table>
 <p><strong>Example</strong></p>
 <p><em>Saving a new data object</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
 <p>Do not add an <strong>_id</strong> key to the object, it will be generated automatically on the server-side.</p>
 </div>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">dataObj</span> <span class="o">=</span> <span class="p">{</span>
@@ -869,8 +868,7 @@
 
 
 <p><em>Updating an existing object</em></p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
 <p>To update an existing object, first retrieve it using <strong>core.data.get</strong>.</p>
 </div>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span> <span class="o">=</span> <span class="c1">--an object from core.data.get</span>
@@ -950,8 +948,7 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition info">
 <p>You can get an object id from any data object. See the <strong>core.data.get</strong> example above.</p>
 </div>
 <p><strong>Event Response</strong></p>
@@ -969,8 +966,8 @@
 </pre></div>
 
 
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition tldr">
+<p class="admonition-title">Special Note</p>
 <p>While passing an id string is the most consistent way to delete an object, you can also pass the entire object to the <strong>id</strong> key. Example: <strong>{source = "users", id = obj}</strong>. The object must contain a valid <strong>_id</strong> field for this to work.</p>
 </div>
 <h2 id="pagination">Pagination</h2>

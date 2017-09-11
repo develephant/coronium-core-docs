@@ -2,7 +2,7 @@ This module allows you to transfer files to and from your __Coronium Core__ serv
 
 See also the special note about the __[files/public](/server-guide/#public-directory)__ directory.
 
-!!! tip "Amazon S3"
+!!! tip ""
     If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.
 
 ### upload
@@ -166,7 +166,7 @@ When setting both the __width__ and __height__ keys together, the image is resiz
 
 The __sharpen__ key runs a "sharpness" filter on the final transformed image. If this key is not provided, no sharpening takes place.
 
-!!! note
+!!! info ""
     Transforms only work with __PNG__, __JPG__, and __GIF__ file types.
 
 __Transform Keys__
@@ -229,7 +229,7 @@ end
 core.files.list("imgs", onList)
 ```
 
-!!! note
+!!! tldr "Special Note"
     This method will only list the _files_ in the directory, not any directories. If no files are present, it will return an empty table.
 
 ### remove

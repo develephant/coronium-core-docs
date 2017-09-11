@@ -36,7 +36,7 @@ You're now ready to use the __Coronium Core__ plugin.
 
 The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
 
-!!! important
+!!! info "Important"
     You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on __[DigitalOcean](/server-install/digitalocean/)__ or __[Amazon EC2](/server-install/ec2/)__.
 
 Before continuing, make sure you have read through the __[Client Setup](/client-setup/)__ section.
@@ -127,7 +127,7 @@ __Parameters__
 |input_params|The parameters to pass to the method.|_Table_|__N__|
 |listener|The response listener callback function.|_Function_|__Y__|
 
-!!! note
+!!! tldr "Special Note"
     If a method does not require a __input_params__ table, you can either pass any empty table, or omit the parameter table all together, supplying just the listener.
 
 __Examples__
@@ -167,5 +167,5 @@ end
 core.api.echo({name="Jimmy"}, apiResponse)
 ```
 
-!!! tip
-    See each client-side module for full usage instructions and examples.
+!!! tip ""
+    See each client-side module documentation for full usage instructions and examples.
