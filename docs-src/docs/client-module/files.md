@@ -1,5 +1,3 @@
-# Overview
-
 This module allows you to transfer files to and from your __Coronium Core__ server. Files are stored on the server in the __/home/coronium/files__ directory.
 
 See also the special note about the __[files/public](/server-guide/#public-directory)__ directory.
@@ -7,9 +5,7 @@ See also the special note about the __[files/public](/server-guide/#public-direc
 !!! tip "Amazon S3"
     If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.
 
----
-
-## upload
+### upload
 
 Upload a file to the server.
 
@@ -94,9 +90,7 @@ local function uploadListener( evt )
 end
 ```
 
----
-
-## download
+### download
 
 Download files from the server.
 
@@ -146,7 +140,6 @@ core.files.download(
   downloadListener)
 ```
 
-
 __Download Progress__
 
 By default the listener event returns a __progress__ key with the current download progress as a decimal value between 0 and 1 that you can use to create progress bars, etc.
@@ -165,7 +158,7 @@ local function downloadListener( evt )
 end
 ```
 
-### Image Transforms
+#### Image Transforms
 
 Image transformations are proportional. For example, when setting the __width__ key, the image will be resized to the width provided, and the height will be resized _in proportion_ to the width. The same holds true when setting the __height__ key; the width will be resized in proportion to the height.
 
@@ -201,9 +194,7 @@ core.files.download(
   transform)
 ```
 
----
-
-## list
+### list
 
 List the files in the specified directory path.
 
@@ -241,9 +232,7 @@ core.files.list("imgs", onList)
 !!! note
     This method will only list the _files_ in the directory, not any directories. If no files are present, it will return an empty table.
 
----
-
-## remove
+### remove
 
 Delete a file from the server. ___Once deleted the file is not recoverable.___
 
@@ -276,9 +265,7 @@ end
 core.files.remove("imgs/image001.png", deleteListener)
 ```
 
----
-
-# Android file restrictions
+## Android file restrictions
 
 When working with Android, make sure you understand the file restrictions. You can find more information in the Corona documentation by [clicking here](https://docs.coronalabs.com/guide/data/readWriteFiles/index.html#android-file-restrictions).
 

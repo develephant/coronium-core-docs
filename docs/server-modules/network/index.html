@@ -313,8 +313,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Network
@@ -327,8 +325,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -655,8 +651,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -753,8 +747,9 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>Make external HTTP network requests and retrieve the results.</p>
+                  <h1>Network</h1>
+                
+                <p>Make external HTTP network requests and retrieve the results.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;google.com&#39;</span><span class="p">)</span> <span class="c1">--host only, no path</span>
 <span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/end/point&#39;</span><span class="p">)</span>
@@ -788,7 +783,7 @@
 
 
 <hr />
-<h2 id="new">new</h2>
+<h3 id="new">new</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="p">[</span><span class="n">host</span><span class="p">][,</span> <span class="n">port</span><span class="p">]</span> <span class="p">)</span>
 </pre></div>
 
@@ -830,7 +825,7 @@
 
 
 <hr />
-<h2 id="host">host</h2>
+<h3 id="host">host</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span> <span class="n">hostname</span> <span class="p">)</span>
 </pre></div>
 
@@ -865,7 +860,7 @@
 
 
 <hr />
-<h2 id="port">port</h2>
+<h3 id="port">port</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span> <span class="n">port</span> <span class="p">)</span>
 </pre></div>
 
@@ -902,7 +897,7 @@
 
 
 <hr />
-<h2 id="path">path</h2>
+<h3 id="path">path</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span> <span class="n">path</span> <span class="p">)</span>
 </pre></div>
 
@@ -937,7 +932,7 @@
 
 
 <hr />
-<h2 id="header">header</h2>
+<h3 id="header">header</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
 </pre></div>
 
@@ -978,7 +973,7 @@
 
 
 <hr />
-<h2 id="headers">headers</h2>
+<h3 id="headers">headers</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">(</span> <span class="n">headers</span> <span class="p">)</span>
 </pre></div>
 
@@ -1020,7 +1015,7 @@
 <p>The <strong>headers</strong> method will clear <em>all</em> existing header assigments.</p>
 </div>
 <hr />
-<h2 id="method">method</h2>
+<h3 id="method">method</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span>
 </pre></div>
 
@@ -1082,7 +1077,7 @@
 </tbody>
 </table>
 <hr />
-<h2 id="timeout">timeout</h2>
+<h3 id="timeout">timeout</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span>
 </pre></div>
 
@@ -1119,7 +1114,7 @@
 
 
 <hr />
-<h2 id="ssl_verify">ssl_verify</h2>
+<h3 id="ssl_verify">ssl_verify</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span> <span class="n">verify_flag</span> <span class="p">)</span>
 </pre></div>
 
@@ -1156,7 +1151,7 @@
 
 
 <hr />
-<h2 id="body">body</h2>
+<h3 id="body">body</h3>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span> <span class="n">body_data</span> <span class="p">)</span>
 </pre></div>
 
@@ -1191,7 +1186,7 @@
 
 
 <hr />
-<h2 id="result">result</h2>
+<h3 id="result">result</h3>
 <p>Compiles the options and makes the network request. Must be the last method called on a network request object.</p>
 <div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
 </pre></div>

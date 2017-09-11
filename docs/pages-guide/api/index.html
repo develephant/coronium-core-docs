@@ -469,8 +469,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Pages API
@@ -483,8 +481,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -599,8 +595,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -641,14 +635,14 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>Provides methods to handle web based requests, and issue responses. For full usage instructions see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
+                  <h1>Pages API</h1>
+                
+                <p>Provides methods to handle web based requests, and issue responses. For full usage instructions see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>
 <p>See the <strong><a href="../../pages-guide/config/">Configuration</a></strong> section before attempting to use pages.</p>
 </div>
-<hr />
-<h2 id="new">new</h2>
+<h3 id="new">new</h3>
 <p>Creates a new <strong>pages</strong> object instance.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 </pre></div>
@@ -744,8 +738,7 @@
 </pre></div>
 
 
-<hr />
-<h2 id="response-resp">response | resp</h2>
+<h3 id="response-resp">response | resp</h3>
 <p>Sends the configured response back to the client browser. </p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
 </pre></div>
@@ -801,8 +794,7 @@
 <p class="admonition-title">Note</p>
 <p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
 </div>
-<hr />
-<h2 id="template-tpl">template | tpl</h2>
+<h3 id="template-tpl">template | tpl</h3>
 <p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
 </pre></div>

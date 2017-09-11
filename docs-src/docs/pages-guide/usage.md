@@ -1,5 +1,3 @@
-# Overview
-
 Pages allow you to display and collect data using your Coronium Core server. You can display simple static web pages, or serve [dynamic pages](#dynamic-pages) using Lua.
 
 Only the GET and POST HTTP methods are supported for server requests.
@@ -40,14 +38,12 @@ page.response(body)
 
 ```
 
----
-
-# Responses
+## Responses
 
 Output responses to the client web browser by using the __[response]()__ method of the pages object instance. The default response type is html, but you can also respond with json, or plain text content types.
 
 
-## HTML
+### HTML
 
 To return content as html (default), pass a string body to the __response__ method.
 
@@ -68,9 +64,7 @@ page.response(body)
 
 See also: __[Templates](/pages-guide/templates/)__
 
----
-
-## JSON
+### JSON
 
 To return content as json, pass the __JSON__ constant to the __content__ response parameter.
 
@@ -88,9 +82,7 @@ local body = core.json.encode(data)
 page.response(body, nil, page.JSON)
 ```
 
----
-
-## TEXT
+### TEXT
 
 To return content as text, pass the __TEXT__ constant to the __content__ response parameter.
 
@@ -102,9 +94,7 @@ local body = "This is some plain text"
 page.response(body, nil, page.TEXT)
 ```
 
----
-
-# Queries
+## Queries
 
 To access properties of a query string, use the __query__ property of the pages object instance. The __query__ is a table with name/value pairs.
 
@@ -131,9 +121,7 @@ end
 ...
 ```
 
----
-
-# Forms
+## Forms
 
 To access properties of a posted form, use the __form__ property of the pages object instance. The form is a __table__ with name/value pairs.
 
@@ -169,9 +157,7 @@ end
 ...
 ```
 
----
-
-# Headers
+## Headers
 
 To access the request headers, use the __headers__ property of the pages object instance. The headers are in a __table__ as name/value pairs.
 
@@ -193,9 +179,7 @@ end
 ...
 ```
 
----
-
-# Core Modules
+## Core Modules
 
 You can use any of the core server modules in dynamic pages.
 
@@ -224,8 +208,6 @@ local body = page.template("user.tpl", doc)
 page.response(body)
 ```
 
----
-
-# Files Directory
+## Files Directory
 
 Files uploaded to the __[files/public](/server-guide/#public-directory)__ directory using the __[Files](/client-module/files/)__ module can be displayed using page templates. When referencing a file in a template, the path will be checked in the __pages__ directory first. If no file is found, then the __files/public__ directory path will be checked.

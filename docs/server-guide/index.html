@@ -216,12 +216,83 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Server Guide
+      </label>
     
     <a href="./" title="Server Guide" class="md-nav__link md-nav__link--active">
       Server Guide
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coronium-tool" title="Coronium Tool" class="md-nav__link">
+    Coronium Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-key" title="Server Key" class="md-nav__link">
+    Server Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-logs" title="Viewing Logs" class="md-nav__link">
+    Viewing Logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lua-code-cache" title="Lua Code Cache" class="md-nav__link">
+    Lua Code Cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-services" title="System Services" class="md-nav__link">
+    System Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-directories" title="User Directories" class="md-nav__link">
+    User Directories
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-directory" title="Public Directory" class="md-nav__link">
+    Public Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -552,8 +623,68 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coronium-tool" title="Coronium Tool" class="md-nav__link">
+    Coronium Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-key" title="Server Key" class="md-nav__link">
+    Server Key
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-logs" title="Viewing Logs" class="md-nav__link">
+    Viewing Logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lua-code-cache" title="Lua Code Cache" class="md-nav__link">
+    Lua Code Cache
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-services" title="System Services" class="md-nav__link">
+    System Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-directories" title="User Directories" class="md-nav__link">
+    User Directories
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-directory" title="Public Directory" class="md-nav__link">
+    Public Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -566,7 +697,9 @@
               
                 
                 
-                <h1 id="coronium-tool">Coronium Tool</h1>
+                  <h1>Server Guide</h1>
+                
+                <h2 id="coronium-tool">Coronium Tool</h2>
 <p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
 <div class="codehilite"><pre><span></span>coronium
 </pre></div>
@@ -577,8 +710,7 @@
 <p class="admonition-title">Note</p>
 <p>You must be logged in as the <strong>coronium</strong> user to use the tool.</p>
 </div>
-<hr />
-<h1 id="server-key">Server Key</h1>
+<h2 id="server-key">Server Key</h2>
 <p>A server key is generated the <strong>/home/coronium/config/keyfile</strong> file when you first install the server. You use this key when connecting with the client-side plugin.</p>
 <p><strong>Do not remove this file</strong>. You should back up this file to your computer and store it some place safe.</p>
 <div class="admonition tip">
@@ -590,8 +722,7 @@
 <p class="admonition-title">Warning</p>
 <p>If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.</p>
 </div>
-<hr />
-<h1 id="viewing-logs">Viewing Logs</h1>
+<h2 id="viewing-logs">Viewing Logs</h2>
 <p>To view log files, connect to the server with the <strong>coronium</strong> user.</p>
 <div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
 </pre></div>
@@ -616,8 +747,7 @@
 <p class="admonition-title">Tip</p>
 <p>To view all logs consolidated into one file (including the mysql.log) type <strong>coronium logs</strong>.</p>
 </div>
-<hr />
-<h1 id="lua-code-cache">Lua Code Cache</h1>
+<h2 id="lua-code-cache">Lua Code Cache</h2>
 <p>During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the <strong>coronium</strong> user.</p>
 <p><em>Cache on</em></p>
 <div class="codehilite"><pre><span></span>sudo coronium cache on
@@ -633,8 +763,7 @@
 <p class="admonition-title">Tip</p>
 <p>During api development make sure to turn the Lua cache <strong>off</strong> to see your changes.</p>
 </div>
-<hr />
-<h1 id="system-services">System Services</h1>
+<h2 id="system-services">System Services</h2>
 <p>When your <strong>Coronium Core</strong> server starts, its monitored by a utility called <strong>Monit</strong>, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.</p>
 <p>In the rare case where you need to manually stop, start or restart the Coronium stack, log in using the <strong>coronium</strong> user.</p>
 <div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
@@ -660,8 +789,7 @@
 <p class="admonition-title">Caution</p>
 <p>You should rarely need to manually control the Coronium stack process.</p>
 </div>
-<hr />
-<h1 id="user-directories">User Directories</h1>
+<h2 id="user-directories">User Directories</h2>
 <p>The following user directories can be found in <strong>/home/coronium</strong>. They are will not be affected in any server updates.</p>
 <table>
 <thead>
@@ -689,7 +817,7 @@
 </tr>
 </tbody>
 </table>
-<h2 id="public-directory">Public Directory</h2>
+<h3 id="public-directory">Public Directory</h3>
 <p>If you store files in the <strong>files/public</strong> directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within <a href="../pages-guide/templates/">page templates</a>. </p>
 <div class="admonition important">
 <p class="admonition-title">Important</p>

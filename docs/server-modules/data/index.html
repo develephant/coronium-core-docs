@@ -265,8 +265,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Data
@@ -280,8 +278,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -291,26 +287,52 @@
     core.data
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#get" title="get" class="md-nav__link">
     get
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#save" title="save" class="md-nav__link">
     save
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination" title="Pagination" class="md-nav__link">
+    Pagination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpage" title="getPage" class="md-nav__link">
+    getPage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -606,8 +628,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -617,26 +637,52 @@
     core.data
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#get" title="get" class="md-nav__link">
     get
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#save" title="save" class="md-nav__link">
     save
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination" title="Pagination" class="md-nav__link">
+    Pagination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpage" title="getPage" class="md-nav__link">
+    getPage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -655,8 +701,9 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>The <strong>data</strong> module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
+                  <h1>Data</h1>
+                
+                <p>The <strong>data</strong> module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
 <p>You can access this module directly from the client-side using the client <strong><a href="../../client-module/data">Data</a></strong> module.</p>
 <hr />
 <h2 id="coredata">core.data</h2>
@@ -698,7 +745,7 @@
 
 
 <hr />
-<h2 id="get">get</h2>
+<h3 id="get">get</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">idOrQuery</span><span class="p">)</span>
 </pre></div>
 
@@ -732,7 +779,7 @@
 <p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
 </div>
 <hr />
-<h2 id="save">save</h2>
+<h3 id="save">save</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
 </pre></div>
 
@@ -762,7 +809,7 @@
 
 
 <hr />
-<h2 id="delete">delete</h2>
+<h3 id="delete">delete</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">idOrObj</span><span class="p">)</span>
 </pre></div>
 
@@ -792,8 +839,8 @@
 
 
 <hr />
-<h1 id="pagination">Pagination</h1>
-<h2 id="getpage">getPage</h2>
+<h2 id="pagination">Pagination</h2>
+<h3 id="getpage">getPage</h3>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
 </pre></div>
 

@@ -277,8 +277,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Files
@@ -291,8 +289,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -613,8 +609,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -669,14 +663,15 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>Provides methods to manage server side files.</p>
+                  <h1>Files</h1>
+                
+                <p>Provides methods to manage server side files.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Uploads and Downloads are performed using the client-side <strong><a href="../../client-module/files/">Files</a></strong> module.</p>
 </div>
 <hr />
-<h2 id="list">list</h2>
+<h3 id="list">list</h3>
 <p>List the files in the specified directory path. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">dirpath</span><span class="p">)</span>
 </pre></div>
@@ -710,7 +705,7 @@
 <p>This method will only list the <em>files</em> in the directory, not any directories. If no files are present, it will return an empty table.</p>
 </div>
 <hr />
-<h2 id="move">move</h2>
+<h3 id="move">move</h3>
 <p>Move a file in the server files directory.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">move</span><span class="p">(</span><span class="n">srcpath</span><span class="p">,</span> <span class="n">destpath</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
 </pre></div>
@@ -753,7 +748,7 @@
 
 
 <hr />
-<h2 id="copy">copy</h2>
+<h3 id="copy">copy</h3>
 <p>Copy a file in the server files directory.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">copy</span><span class="p">(</span><span class="n">srcpath</span><span class="p">,</span> <span class="n">destpath</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>
 </pre></div>
@@ -796,7 +791,7 @@
 
 
 <hr />
-<h2 id="remove">remove</h2>
+<h3 id="remove">remove</h3>
 <p>Remove a file from the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
 </pre></div>
@@ -827,7 +822,7 @@
 
 
 <hr />
-<h2 id="rename">rename</h2>
+<h3 id="rename">rename</h3>
 <p>Rename a file in the server files directory. Returns <strong>true</strong> on success, or <strong>nil</strong> and an error.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">rename</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">new_name</span><span class="p">)</span>
 </pre></div>

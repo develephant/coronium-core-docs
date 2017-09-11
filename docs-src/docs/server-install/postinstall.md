@@ -1,4 +1,4 @@
-# Reboot
+## Reboot
 
 After the __Coronium Core__ installation runs, it is wise to reboot the server instance, so that you can free up any memory that may have been used during the installation process.
 
@@ -10,9 +10,7 @@ sudo reboot -h
 
 This will start the reboot process. Wait 15-30 seconds before using the server. All processes will automatically reload.
 
----
-
-# Password
+## Password
 
 The default password for a fresh install is: __cloudadmin__.
 
@@ -33,9 +31,7 @@ sudo passwd coronium
 
 And then follow the prompts.
 
----
-
-# Databases
+## Databases
 
 You will need to run the database setup tool so that you can connect to your databases, both internally, and externally.
 
@@ -64,8 +60,6 @@ exit
 !!! tip
     Use the passwords you set using the database tool to access your databases externally.
 
----
-
-# Enable HTTPS
+## Enable HTTPS
 
 To secure your Coronium Core server with HTTPS, see the __[HTTPS/SSL](/ssl)__ section.

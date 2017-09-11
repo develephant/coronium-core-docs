@@ -421,8 +421,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Files
@@ -435,8 +433,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -479,6 +475,13 @@
         <li class="md-nav__item">
   <a href="#remove" title="remove" class="md-nav__link">
     remove
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#android-file-restrictions" title="Android file restrictions" class="md-nav__link">
+    Android file restrictions
   </a>
   
 </li>
@@ -619,8 +622,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -666,6 +667,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#android-file-restrictions" title="Android file restrictions" class="md-nav__link">
+    Android file restrictions
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -681,15 +689,15 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>This module allows you to transfer files to and from your <strong>Coronium Core</strong> server. Files are stored on the server in the <strong>/home/coronium/files</strong> directory.</p>
+                  <h1>Files</h1>
+                
+                <p>This module allows you to transfer files to and from your <strong>Coronium Core</strong> server. Files are stored on the server in the <strong>/home/coronium/files</strong> directory.</p>
 <p>See also the special note about the <strong><a href="../../server-guide/#public-directory">files/public</a></strong> directory.</p>
 <div class="admonition tip">
 <p class="admonition-title">Amazon S3</p>
 <p>If you'd like to transfer files using <strong><a href="https://aws.amazon.com/s3/">Amazon S3</a></strong> take a look at the <strong><a href="https://marketplace.coronalabs.com/plugin/s3-lite">S3 Lite</a></strong> plugin for Corona.</p>
 </div>
-<hr />
-<h2 id="upload">upload</h2>
+<h3 id="upload">upload</h3>
 <p>Upload a file to the server.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">upload</span><span class="p">(</span><span class="n">srcFilePath</span><span class="p">,</span> <span class="n">baseDir</span><span class="p">,</span> <span class="n">destFilePath</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
@@ -829,8 +837,7 @@
 </pre></div>
 
 
-<hr />
-<h2 id="download">download</h2>
+<h3 id="download">download</h3>
 <p>Download files from the server.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">download</span><span class="p">(</span><span class="n">srcFilePath</span><span class="p">,</span> <span class="n">destFilePath</span><span class="p">,</span> <span class="n">baseDir</span><span class="p">,</span> <span class="n">listener</span><span class="p">[,</span> <span class="n">transform</span><span class="p">])</span>
 </pre></div>
@@ -921,7 +928,7 @@
 </pre></div>
 
 
-<h3 id="image-transforms">Image Transforms</h3>
+<h4 id="image-transforms">Image Transforms</h4>
 <p>Image transformations are proportional. For example, when setting the <strong>width</strong> key, the image will be resized to the width provided, and the height will be resized <em>in proportion</em> to the width. The same holds true when setting the <strong>height</strong> key; the width will be resized in proportion to the height.</p>
 <p>When setting both the <strong>width</strong> and <strong>height</strong> keys together, the image is resized to fit proportionally <em>within</em> the key values provided. This can be useful for display lists.</p>
 <p>The <strong>sharpen</strong> key runs a "sharpness" filter on the final transformed image. If this key is not provided, no sharpening takes place.</p>
@@ -976,8 +983,7 @@
 </pre></div>
 
 
-<hr />
-<h2 id="list">list</h2>
+<h3 id="list">list</h3>
 <p>List the files in the specified directory path.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">list</span><span class="p">(</span><span class="n">dirpath</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
@@ -1029,8 +1035,7 @@
 <p class="admonition-title">Note</p>
 <p>This method will only list the <em>files</em> in the directory, not any directories. If no files are present, it will return an empty table.</p>
 </div>
-<hr />
-<h2 id="remove">remove</h2>
+<h3 id="remove">remove</h3>
 <p>Delete a file from the server. <strong><em>Once deleted the file is not recoverable.</em></strong></p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">files</span><span class="p">.</span><span class="n">remove</span><span class="p">(</span><span class="n">srcFilePath</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
@@ -1076,8 +1081,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="android-file-restrictions">Android file restrictions</h1>
+<h2 id="android-file-restrictions">Android file restrictions</h2>
 <p>When working with Android, make sure you understand the file restrictions. You can find more information in the Corona documentation by <a href="https://docs.coronalabs.com/guide/data/readWriteFiles/index.html#android-file-restrictions">clicking here</a>.</p>
 <p>In the documentaion, there is a reference to a <strong><a href="https://docs.coronalabs.com/guide/data/readWriteFiles/index.html#copying-files-to-subfolders">copyFile</a></strong> method. As a convenience, this method is available in the Coronium Core plugin and can be accessed like so:</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">utils</span><span class="p">.</span><span class="n">copyFile</span><span class="p">(</span><span class="n">srcName</span><span class="p">,</span> <span class="n">srcPath</span><span class="p">,</span> <span class="n">dstName</span><span class="p">,</span> <span class="n">dstPath</span><span class="p">,</span> <span class="n">overwrite</span><span class="p">)</span>

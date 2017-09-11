@@ -1,5 +1,3 @@
-# Overview
-
 A template is simply an HTML file laced with template tags that will be filled in by values dynamically. 
 
 Template files are stored relative to the file that will be using them. The file referencing the template will be the .lua pages file.
@@ -18,7 +16,6 @@ _Stored in /home/coronium/pages/users/show.tpl_
   </body>
 </html>
 ```
-
 
 __Example Lua__
 
@@ -45,7 +42,7 @@ _Path: https://my.coronium.com/users/show_
 !!! tip
     To keep your template code from accidentally being viewed raw in the browser, be sure to name all template files with the __.tpl__ extension.
 
-# Template Tags
+## Template Tags
 
 __Escaped Value__
 
@@ -77,9 +74,7 @@ __Raw Block__
 {-raw-}non-interpolated text{-raw-}
 ```
 
----
-
-# Looping Data
+## Looping Data
 
 Template loops allow you to "loop" over data and generate the output.
 
@@ -149,9 +144,7 @@ __Output__
 </html>
 ```
 
----
-
-# Asynchrous Request
+## Asynchrous Request
 
 To check for an asynchrous request, you can use the __isAjax__ property of the pages object instance, and output the data in the required format.
 

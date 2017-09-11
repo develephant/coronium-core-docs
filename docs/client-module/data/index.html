@@ -397,8 +397,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Data
@@ -411,8 +409,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -436,6 +432,26 @@
   <a href="#delete" title="delete" class="md-nav__link">
     delete
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pagination" title="Pagination" class="md-nav__link">
+    Pagination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpage" title="getPage" class="md-nav__link">
+    getPage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -599,8 +615,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -626,6 +640,26 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#pagination" title="Pagination" class="md-nav__link">
+    Pagination
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#getpage" title="getPage" class="md-nav__link">
+    getPage
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -641,9 +675,10 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>Provides a client-side api to the server-side <strong><a href="../../server-modules/data">Data</a></strong> module. The <strong>data</strong> module is a simple interface to the Mongo database. For more complex data handling, you must provide an <strong><a href="../../server-modules/api/">api</a></strong> on the server-side.</p>
-<h2 id="get">get</h2>
+                  <h1>Data</h1>
+                
+                <p>Provides a client-side api to the server-side <strong><a href="../../server-modules/data">Data</a></strong> module. The <strong>data</strong> module is a simple interface to the Mongo database. For more complex data handling, you must provide an <strong><a href="../../server-modules/api/">api</a></strong> on the server-side.</p>
+<h3 id="get">get</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -723,8 +758,7 @@
 <p class="admonition-title">Tip</p>
 <p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
 </div>
-<hr />
-<h2 id="save">save</h2>
+<h3 id="save">save</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -849,8 +883,7 @@
 <p class="admonition-title">Warning</p>
 <p>Do not change the <strong>_id</strong> key in the object you wish to update.</p>
 </div>
-<hr />
-<h2 id="delete">delete</h2>
+<h3 id="delete">delete</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -934,9 +967,8 @@
 <p class="admonition-title">Tip</p>
 <p>While passing an id string is the most consistent way to delete an object, you can also pass the entire object to the <strong>id</strong> key. Example: <strong>{source = "users", id = obj}</strong>. The object must contain a valid <strong>_id</strong> field for this to work.</p>
 </div>
-<hr />
-<h1 id="pagination">Pagination</h1>
-<h2 id="getpage">getPage</h2>
+<h2 id="pagination">Pagination</h2>
+<h3 id="getpage">getPage</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 

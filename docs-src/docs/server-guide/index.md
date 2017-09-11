@@ -1,4 +1,4 @@
-# Coronium Tool
+## Coronium Tool
 
 A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:
 
@@ -11,9 +11,7 @@ coronium
 !!! note
     You must be logged in as the __coronium__ user to use the tool.
 
----
-
-# Server Key
+## Server Key
 
 A server key is generated the __/home/coronium/config/keyfile__ file when you first install the server. You use this key when connecting with the client-side plugin.
 
@@ -27,9 +25,7 @@ In the event that you need to generate a new keyfile, you can run __sudo coroniu
 !!! warning
     If you regenerate the keyfile, any delpoyed Corona apps that use the server key will be unable to connect to the server.
 
----
-
-# Viewing Logs
+## Viewing Logs
 
 To view log files, connect to the server with the __coronium__ user.
 
@@ -56,9 +52,7 @@ Press __control-x__ to stop watching the log file.
 !!! tip
     To view all logs consolidated into one file (including the mysql.log) type __coronium logs__.
 
----
-
-# Lua Code Cache
+## Lua Code Cache
 
 During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the __coronium__ user.
 
@@ -77,9 +71,7 @@ sudo coronium cache off
 !!! tip
     During api development make sure to turn the Lua cache __off__ to see your changes.
 
----
-
-# System Services
+## System Services
 
 When your __Coronium Core__ server starts, its monitored by a utility called __Monit__, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.
 
@@ -110,9 +102,8 @@ sudo coronium restart
 !!! caution
     You should rarely need to manually control the Coronium stack process.
 
----
 
-# User Directories
+## User Directories
 
 The following user directories can be found in __/home/coronium__. They are will not be affected in any server updates.
 
@@ -122,7 +113,7 @@ The following user directories can be found in __/home/coronium__. They are will
 |projects|Holds all the api projects.|[Projects](/server-modules/api/#projects)|
 |pages|Holds all public facing web pages.|[Pages](/pages-guide/api/)|
 
-## Public Directory
+### Public Directory
 
 If you store files in the __files/public__ directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within [page templates](/pages-guide/templates/). 
 

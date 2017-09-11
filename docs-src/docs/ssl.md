@@ -1,5 +1,3 @@
-# Overview
-
 !!! note "Screencast"
     View the secure install instructions in a screencast format by [clicking here](https://youtu.be/8WyWMkVLQWw).
 
@@ -18,13 +16,13 @@ You will want to set up a 3rd level domain for your Coronium Core server. This l
 
 __coronium.<mydomain\>.com__
 
-### Amazon
+## Amazon
 
 When you first install Coronium Core, make sure to [add the proper ports](/server-install/ec2/#create-an-instance) to security group settings. You can then use the [Route 53](https://console.aws.amazon.com/route53/home) service for your DNS. There are ample guides to assist you. 
 
 Once set up, proceed to the [Let's Encrypt](#lets-encrypt) section below.
 
-### DigitalOcean
+## DigitalOcean
 
 You will need to point your domain to the DigitalOcean nameservers. The process for this varies by domain registar, but in all cases, you will need the DigitalOcean nameserver addresses, which are:
 

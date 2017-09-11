@@ -1,10 +1,8 @@
-# Overview
-
 Here you can find various helpers available in the root __core__ namespace.
 
 ---
 
-## log
+### log
 
 Prints a string message to the __/usr/local/coronium/logs/coronium.log__ file.
 
@@ -26,7 +24,7 @@ core.log('something to log')
 
 ---
 
-## sf (string format)
+### sf (string format)
 
 Format a string based on token replacment. This method shares the same attributes as the Lua string.format method.
 
@@ -71,7 +69,7 @@ local str = core.sf("Ordered %d %s with %s.", 2, 'burgers', 'cheese')
 
 ---
 
-## trim
+### trim
 
 Removes empty space from the start and end of a string, if any.
 
@@ -95,7 +93,7 @@ local trimmed_str = core.trim("  I could use a trim  ")
 
 ---
 
-## split
+### split
 
 Converts a delimited string into a Lua table array.
 
@@ -128,7 +126,7 @@ local tbl_array = core.split("User:2001:Storage", ":")
 
 ---
 
-## json
+### json
 
 JSON encoding and decoding.
 
@@ -150,7 +148,7 @@ local tbl = json.decode(str)
 
 ---
 
-## json_safe
+### json_safe
 
 JSON encoding and decoding with error handling.
 
@@ -173,7 +171,7 @@ local tbl, err = json.decode(str)
 
 ---
 
-## uuid
+### uuid
 
 Generates a universally unique id.
 
@@ -187,7 +185,7 @@ local uuid = core.uuid()
 
 ---
 
-## countryCode
+### countryCode
 
 Two letter country code based on the request IP. Can only be called in a __core.api__ method.
 

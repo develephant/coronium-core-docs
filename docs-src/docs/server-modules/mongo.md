@@ -1,12 +1,10 @@
-# Overview
-
 !!! note
     The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 !!! tip
     For simple data manipulation using Mongo, take a look at the __[Data](/server-modules/data/)__ module.
 
-# core.mongo
+## core.mongo
 
 Connect to a database and return a database object. If the database does not exist, it will be created.
 
@@ -28,7 +26,7 @@ local db, err = core.mongo( "app" )
 
 ---
 
-## use
+### use
 
 Change the current working database. If the database does not exist, it will be created.
 
@@ -50,7 +48,7 @@ local db = db:use( "app2" )
 
 ---
 
-## close
+### close
 
 Close the database connection.
 
@@ -63,7 +61,7 @@ db:close()
 
 ---
 
-## collection
+### collection
 
 Select and return a collection to operate on. If the collection does not exist, it will be created.
 
@@ -85,7 +83,7 @@ local coll = db:collection( "users" )
 
 ---
 
-## listCollections
+### listCollections
 
 Retreive a list of collections. Returns a __table__ array, or __nil__ and an error.
 
@@ -109,11 +107,11 @@ end
 
 ---
 
-# Collections
+## Collections
 
 The following methods operate on collections. See __[db:collection](#collection)__ above to gain access to a collection object.
 
-## save
+### save
 
 Inserts or updates a single document. If no id field is present, creates a new document, otherwise updates the document. Returns the document id, or __nil__ and an error. 
 
@@ -161,7 +159,7 @@ local id, err = coll:save(doc)
 
 ---
 
-## insert
+### insert
 
 Insert multiple documents into a collection. Returns array of __ids__ and __number__ inserted, or __nil__ and an error.
 
@@ -195,7 +193,7 @@ local ids, errOrNum = coll:insert( docs )
 
 ---
 
-## findOne
+### findOne
 
 Find and return the first document that matches the query or id. Returns the __doc__, or __nil__ and an error.
 
@@ -240,7 +238,7 @@ __See also__
 
 ---
 
-## find
+### find
 
 Find multiple documents based on query. Returns a new __[cursor](#cursor)__ object.
 
@@ -280,7 +278,7 @@ __See also__
 
 ---
 
-## findAndModify
+### findAndModify
 
 Finds the first document that matches the query and updates it in place based on the __options__. Returns old doc (unless __new__ option is set), or __nil__, and an error.
 
@@ -310,7 +308,7 @@ local doc, err = col:findAndModify(query_or_id, opts)
 
 ---
 
-## update
+### update
 
 Update a record. Returns __number__ updated, or __nil__ and an error.
 
@@ -385,7 +383,7 @@ __See also__
 
 ---
 
-## remove
+### remove
 
 Remove a document or documents based on the query. Returns __number__ of records removed, or __nil__ and an error.
 
@@ -406,7 +404,7 @@ local num, err = coll:remove(query_id, is_single)
 
 ---
 
-## drop
+### drop
 
 Remove a collection and all the containing documents. Returns __true__, or __nil__ and an error.
 
@@ -426,7 +424,7 @@ local res, err = coll:drop()
 
 ---
 
-## rename
+### rename
 
 Rename a collection. Returns newly named collection, or __nil__ and an error.
 
@@ -458,7 +456,7 @@ col:rename("otherdb.newname")
 
 ---
 
-## getIndexes
+### getIndexes
 
 The current collection indexes. Returns a __table__ array with index objects, or __nil__ and an error.
 
@@ -495,7 +493,7 @@ end
 
 ---
 
-## createIndex
+### createIndex
 
 Create index(es) for a collection. Returns __true__, or __nil__ and an error.
 
@@ -548,7 +546,7 @@ local res, err = coll:createIndex({
 
 ---
 
-## dropIndex
+### dropIndex
 
 Drop indexes for a collection. Returns __true__, or __nil__ and an error.
 
@@ -574,7 +572,7 @@ __See also__
 
 ---
 
-## aggregate
+### aggregate
 
 Performs aggregation operation based on the pipeline commands. By default returns a cursor, or __nil__ and an error.
 
@@ -616,7 +614,7 @@ __See also__
 
 ---
 
-# Cursor
+## Cursor
 
 A cursor object contains a group of documents returned from the __[find](#find)__ method. After setting the needed cursor methods, use the __[all](#all)__ or __[next](#next)__ cursor method to retrieve the documents. For example, using __all__:
 
@@ -628,7 +626,7 @@ local docs = cursor:limit(10):all()
 !!! tip
     Cursor object methods are chainable.
 
-## all
+### all
 
 Return document(s) based on the previous cursor options. Returns a __table__ array of documents, or __nil__ and an error.
 
@@ -651,7 +649,7 @@ local docs, err = cur:all()
 
 ---
 
-## sort
+### sort
 
 Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.
 
@@ -677,7 +675,7 @@ local cur = cur:sort({age = core.DESC, name = core.ASC })
 
 ---
 
-## skip
+### skip
 
 Skip a specific amount of documents in the cursor results. Returns the cursor.
 
@@ -700,7 +698,7 @@ local cur = cur:skip( 20 )
 
 ---
 
-## limit
+### limit
 
 Limit the amount of documents returned based on the current cursor options. Returns the cursor.
 
@@ -723,7 +721,7 @@ local cur = cur:limit( 10 )
 
 ---
 
-## count
+### count
 
 Return the current document amount based on the current cursor options. Returns a __number__.
 
@@ -743,7 +741,7 @@ local cnt = cur:count()
 
 ---
 
-## rewind
+### rewind
 
 Set the cursor pointer back to the begining of the document results. Returns the cursor.
 
@@ -763,7 +761,7 @@ local cur = cur:rewind()
 
 ---
 
-## next
+### next
 
 Interate over the cursor results. On each call, returns a document, or __nil__ and an error.
 
@@ -791,7 +789,7 @@ __See also__
 
 ---
 
-## distinct
+### distinct
 
 Pull distinct key values from the cursor results. Returns a __table__ array, or __nil__ and an error.
 
@@ -814,11 +812,11 @@ local res, err = cur:distinct( "age" )
 
 ---
 
-# MongoDB to Lua
+## MongoDB to Lua
 
 MongoDB used JSON objects. When viewing the documentation on the MongoDB website, you must convert the JSON information to Lua. What follows are some tips to do that.
 
-## Operators
+### Operators
 
 MongoDB uses special operators that are prefixed with a dollar sign ( $ ). These operators keys must be set using an array style syntax when providing them using Lua.
 
@@ -839,7 +837,7 @@ coll:update({name="Jimmy"}, {
 
 ---
 
-## Arrays
+### Arrays
 
 Arrays are rendered as indexed tables.
 
@@ -856,7 +854,7 @@ coll:insert({
 })
 ```
 
-### Append values to an array
+#### Append values
 
 _Append a single value_
 
@@ -878,7 +876,7 @@ coll:update(<queryOrId>, {
 })
 ```
 
-### Remove array values
+#### Remove values
 
 _Remove first element_
 
@@ -902,7 +900,7 @@ coll:update(<queryOrId>, {
 
 ---
 
-# Resources
+## Resources
 
 - [Find Examples](https://docs.mongodb.com/v3.0/reference/method/db.collection.find/#examples)
 - [Query Operators](https://docs.mongodb.com/v3.0/reference/operator/query/)
@@ -911,7 +909,7 @@ coll:update(<queryOrId>, {
 - [Aggregation Operators](https://docs.mongodb.com/v3.0/reference/operator/aggregation/)
 - [SQL to MongoDB Mapping Chart](https://docs.mongodb.com/v3.0/reference/sql-comparison/)
 
-# Administration
+## Administration
 
 You can and should manage your Mongo databases using a standalone tool. Below are some free resources for managing Mongo databases.
 

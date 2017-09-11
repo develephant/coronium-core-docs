@@ -1,13 +1,9 @@
-# Overview
-
 Provides methods to handle web based requests, and issue responses. For full usage instructions see the __[Usage](/pages-guide/usage/)__ section.
 
 !!! important
     See the __[Configuration](/pages-guide/config/)__ section before attempting to use pages.
 
----
-
-## new
+### new
 
 Creates a new __pages__ object instance.
 
@@ -58,9 +54,7 @@ local page = core.pages.new(true)
 local raw_body = page.body
 ```
 
----
-
-## response | resp
+### response | resp
 
 Sends the configured response back to the client browser. 
 
@@ -89,9 +83,7 @@ page.response("Hello There")
 !!! note
     For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
----
-
-## template | tpl
+### template | tpl
 
 Compiles a template file with the supplied values. Returns __string__ body, or nil and error.
 

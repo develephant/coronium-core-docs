@@ -1,8 +1,6 @@
-# Overview
-
 Provides a client-side api to the server-side __[Data](/server-modules/data)__ module. The __data__ module is a simple interface to the Mongo database. For more complex data handling, you must provide an __[api](/server-modules/api/)__ on the server-side.
 
-## get
+### get
 
 ```lua
 core.data.get(data_params, listener)
@@ -44,9 +42,7 @@ core.data.get({source="users", query="id1234"}, apiListener)
 !!! tip
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
----
-
-## save
+### save
 
 ```lua
 core.data.save(data_params, listener)
@@ -121,9 +117,7 @@ core.data.save({source="users", data=obj}, apiListener)
 !!! warning
     Do not change the ___id__ key in the object you wish to update.
 
----
-
-## delete
+### delete
 
 ```lua
 core.data.delete(data_params, listener)
@@ -168,11 +162,9 @@ core.data.delete({source="users", id="id1234"}, apiListener)
 !!! tip
     While passing an id string is the most consistent way to delete an object, you can also pass the entire object to the __id__ key. Example: __{source = "users", id = obj}__. The object must contain a valid __\_id__ field for this to work.
 
----
+## Pagination
 
-# Pagination
-
-## getPage
+### getPage
 
 ```lua
 core.data.getPage(data_params, listener)

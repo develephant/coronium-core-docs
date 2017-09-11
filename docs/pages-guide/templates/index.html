@@ -493,12 +493,49 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Templates
+      </label>
     
     <a href="./" title="Templates" class="md-nav__link md-nav__link--active">
       Templates
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#template-tags" title="Template Tags" class="md-nav__link">
+    Template Tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#looping-data" title="Looping Data" class="md-nav__link">
+    Looping Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchrous-request" title="Asynchrous Request" class="md-nav__link">
+    Asynchrous Request
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -558,8 +595,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#template-tags" title="Template Tags" class="md-nav__link">
+    Template Tags
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#looping-data" title="Looping Data" class="md-nav__link">
+    Looping Data
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asynchrous-request" title="Asynchrous Request" class="md-nav__link">
+    Asynchrous Request
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
   
 </nav>
                   </div>
@@ -572,8 +635,9 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>A template is simply an HTML file laced with template tags that will be filled in by values dynamically. </p>
+                  <h1>Templates</h1>
+                
+                <p>A template is simply an HTML file laced with template tags that will be filled in by values dynamically. </p>
 <p>Template files are stored relative to the file that will be using them. The file referencing the template will be the .lua pages file.</p>
 <p><strong>Example Template</strong></p>
 <p><em>Stored in /home/coronium/pages/users/show.tpl</em></p>
@@ -610,7 +674,7 @@
 <p class="admonition-title">Tip</p>
 <p>To keep your template code from accidentally being viewed raw in the browser, be sure to name all template files with the <strong>.tpl</strong> extension.</p>
 </div>
-<h1 id="template-tags">Template Tags</h1>
+<h2 id="template-tags">Template Tags</h2>
 <p><strong>Escaped Value</strong></p>
 <div class="codehilite"><pre><span></span><span class="cp">{{</span> <span class="nv">expression</span> <span class="cp">}}</span><span class="x"></span>
 </pre></div>
@@ -636,8 +700,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="looping-data">Looping Data</h1>
+<h2 id="looping-data">Looping Data</h2>
 <p>Template loops allow you to "loop" over data and generate the output.</p>
 <p><em>A Loop:</em></p>
 <div class="codehilite"><pre><span></span><span class="cp">{%</span> <span class="k">for</span> <span class="nv">idx</span><span class="o">,</span> <span class="nv">item</span> <span class="k">in</span> <span class="nv">ipairs</span><span class="o">(</span><span class="nv">items</span><span class="o">)</span> <span class="nv">do</span> <span class="cp">%}</span>
@@ -701,8 +764,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="asynchrous-request">Asynchrous Request</h1>
+<h2 id="asynchrous-request">Asynchrous Request</h2>
 <p>To check for an asynchrous request, you can use the <strong>isAjax</strong> property of the pages object instance, and output the data in the required format.</p>
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">-- cats.lua</span>

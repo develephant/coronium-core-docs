@@ -1,8 +1,6 @@
-# Overview
-
 Provides methods to configure the client-side plugin.
 
-## init
+### init
 
 Initialize the client.
 
@@ -31,9 +29,7 @@ core.init({
 !!! tip
     For detailed initialization instructions, see the __[Initialization](/client-guide/#initialization)__ section of the __Client Guide__.
 
----
-
-## useProject
+### useProject
 
 Change the server-side project to run api methods against.
 
@@ -53,9 +49,7 @@ __Example__
 core.useProject("default")
 ```
 
----
-
-## debug
+### debug
 
 Pretty print the response event to the console. Useful for debugging.
 

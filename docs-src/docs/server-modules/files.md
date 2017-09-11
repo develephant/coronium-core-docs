@@ -1,5 +1,3 @@
-# Overview
-
 Provides methods to manage server side files.
 
 !!! note
@@ -7,7 +5,7 @@ Provides methods to manage server side files.
 
 ---
 
-## list
+### list
 
 List the files in the specified directory path. Returns a __table__ array, or __nil__ and an error.
 
@@ -30,7 +28,7 @@ local list, err = core.files.list("imgs")
 
 ---
 
-## move
+### move
 
 Move a file in the server files directory.
 
@@ -55,7 +53,7 @@ local ok, err = core.files.move("imgs/image01.png", "assets/image01.png")
 
 ---
 
-## copy
+### copy
 
 Copy a file in the server files directory.
 
@@ -80,7 +78,7 @@ local ok, err = core.files.copy("imgs/image01.png", "assets/image01.png")
 
 ---
 
-## remove
+### remove
 
 Remove a file from the server files directory. Returns __true__ on success, or __nil__ and an error.
 
@@ -102,7 +100,7 @@ local ok, err = core.files.remove("imgs/image002.png")
 
 ---
 
-## rename
+### rename
 
 Rename a file in the server files directory. Returns __true__ on success, or __nil__ and an error.
 

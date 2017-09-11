@@ -516,8 +516,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         HTTPS / SSL
@@ -530,8 +528,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -593,8 +589,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -635,8 +629,9 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<div class="admonition note">
+                  <h1>HTTPS / SSL</h1>
+                
+                <div class="admonition note">
 <p class="admonition-title">Screencast</p>
 <p>View the secure install instructions in a screencast format by <a href="https://youtu.be/8WyWMkVLQWw">clicking here</a>.</p>
 </div>
@@ -650,10 +645,10 @@
 <p>Once you have your domain name, you will need to "point" it to your Coronium Core server. Most domain registars provide a means of setting up DNS.</p>
 <p>You will want to set up a 3rd level domain for your Coronium Core server. This looks something like:</p>
 <p><strong>coronium.&lt;mydomain>.com</strong></p>
-<h3 id="amazon">Amazon</h3>
+<h2 id="amazon">Amazon</h2>
 <p>When you first install Coronium Core, make sure to <a href="../server-install/ec2/#create-an-instance">add the proper ports</a> to security group settings. You can then use the <a href="https://console.aws.amazon.com/route53/home">Route 53</a> service for your DNS. There are ample guides to assist you. </p>
 <p>Once set up, proceed to the <a href="#lets-encrypt">Let's Encrypt</a> section below.</p>
-<h3 id="digitalocean">DigitalOcean</h3>
+<h2 id="digitalocean">DigitalOcean</h2>
 <p>You will need to point your domain to the DigitalOcean nameservers. The process for this varies by domain registar, but in all cases, you will need the DigitalOcean nameserver addresses, which are:</p>
 <ul>
 <li>ns1.digitalocean.com</li>

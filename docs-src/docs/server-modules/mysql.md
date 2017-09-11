@@ -1,10 +1,8 @@
-# Overview
-
 The __mysql__ module allows you to run queries against the local MySQL server instance. You can also connect to remote databases.
 
 ---
 
-## query | q
+### query | q
 
 ```lua
 core.mysql.query( db_name, query_str )
@@ -96,7 +94,7 @@ core.log("inserted id is: ", result)
 
 ---
 
-# escape
+### escape
 
 Escape a string value to be sql safe. Returns an escaped __string__.
 
@@ -121,7 +119,7 @@ local str = core.mysql.escape("Eat at Joe's")
 
 ---
 
-## escapeAll
+### escapeAll
 
 Escape all string values in a table array to be sql safe. Returns __table__ array.
 
@@ -149,7 +147,7 @@ values = core.mysql.escapeAll( values )
 
 ---
 
-# EZ Query Methods
+## EZ Query Methods
 
 EZ query methods provide an alternative way to construct common query types. For more complex queries, use the __core.mysql.query__ method above.
 
@@ -157,7 +155,7 @@ EZ query methods provide an alternative way to construct common query types. For
     You can access the EZ query methods directly using the client-side __[MySQL](/client-module/mysql)__ module.
 
 
-## select
+### select
 
 ```lua
 core.mysql.select(db_name, select_tbl)
@@ -243,7 +241,7 @@ end
 
 ---
 
-## insert
+### insert
 
 ```lua
 core.mysql.insert(db_name, insert_tbl)
@@ -291,7 +289,7 @@ end
 
 ---
 
-## update
+### update
 
 ```lua
 core.mysql.update(db_name, update_tbl)
@@ -340,7 +338,7 @@ end
 
 ---
 
-## delete
+### delete
 
 ```lua
 core.mysql.delete(db_name, delete_tbl)
@@ -404,7 +402,7 @@ end
 
 ---
 
-# Remote Databases
+## Remote Databases
 
 You can connect to remote MySQL databases by using a connection table in place of the database name in the __core.mysql.query__ and EZ Query methods.
 
@@ -431,7 +429,7 @@ local conn_tbl = {
 local results, err = core.mysql.query(conn_tbl, query_str)
 ```
 
-# Administration
+## Administration
 
 You can and should manage your MySQL databases using a standalone tool. Below are some free resources for managing MySQL databases.
 

@@ -1,8 +1,6 @@
-# Overview
-
 Provides a client-side api to the [EZ query methods](/server-modules/mysql/#ez-query-methods) of the server-side MySQL module. For more complex data handling, you must provide an __[api](/server-modules/api/)__ on the server-side.
 
-## select
+### select
 
 ```lua
 core.mysql.select(query_tbl, listener)
@@ -65,9 +63,7 @@ core.mysql.select(params, apiListener)
 !!! tip
     See the server-side __[core.mysql.select](/server-modules/mysql/#select)__ method for more examples.
 
----
-
-## insert
+### insert
 
 ```lua
 core.mysql.insert(query_tbl, listener)
@@ -118,9 +114,7 @@ local params = {
 core.mysql.insert(params, apiListener)
 ```
 
----
-
-## update
+### update
 
 ```lua
 core.mysql.update(query_tbl, listener)
@@ -172,9 +166,7 @@ local params = {
 core.mysql.update(params, apiListener)
 ```
 
----
-
-## delete
+### delete
 
 ```lua
 core.mysql.delete(query_tbl, listener)
@@ -225,5 +217,3 @@ core.mysql.delete(params, apiListener)
 
 !!! tip
     See the server-side __[core.mysql.delete](/server-modules/mysql/#delete)__ method for more examples.
-
----

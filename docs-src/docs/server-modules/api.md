@@ -1,5 +1,3 @@
-# Overview
-
 The API module allows you to create server-side api methods that can be called using the client-side [API](/client-module/api/) module. 
 
 A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the [MySQL](/server-modules/mysql/) and [Mongo](/server-modules/mongo/) modules.
@@ -9,7 +7,7 @@ A server-side api is useful for type checking, validation, and more complex data
 
 ---
 
-# Projects
+## Projects
 
 Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. 
 
@@ -19,7 +17,7 @@ Projects can also be based on a specific set of functionality, like user managem
 
 You create projects on the server using the Coronium command line tool.
 
-#### Add Project
+### Add Project
 
 You will first need to log into your server using the __coronium__ user. Once logged in, run the following to create a new project:
 
@@ -33,7 +31,7 @@ The project is stored in the __/home/coronium/projects/<project-name\>__ directo
 
 At this point, you should connect to the server using SFTP and download the new project directory so that you can create the code for your api.
 
-#### Delete Project
+### Delete Project
 
 To remove a project using the command line tool, run:
 
@@ -87,7 +85,7 @@ core.api.test({name="Jimmy"}, apiResponse)
 
 ---
 
-# core.api
+## core.api
 
 To create your api, you need to extend the __core.api__ object. As shown in the main.lua file above, this is done like so:
 
@@ -109,7 +107,7 @@ end
 return api
 ```
 
-## Input
+### Input
 
 API methods have a single parameter, which is a __table__ of _input values_ sent up from the client-side [core.api](/client-module/api/#api) method. Some methods may not need input, in which case the input parameter will be __nil__.
 
@@ -128,7 +126,7 @@ end
 return api
 ```
 
-## Return
+### Return
 
 ___All api methods must return a response.___ This can either be the result of the api operation, or an error (see errors below). You can only return a _single_ response value.
 
@@ -156,7 +154,7 @@ return api
 
 To learn how to consume the response on the client, see the client-side __[API](/client-module/api/)__ module.
 
-## Errors
+### Errors
 
 At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a __core.error__ response object. This will be interpeted by the client as an error event.
 
@@ -182,14 +180,14 @@ end
 return api
 ```
 
-# Using Modules
+## Using Modules
 
 Most often you will want to do something more useful than echoing data. You can use the server-side modules to add functionality to your api.
 
 !!! tip
     Most data handling can be facilitated directly on the client-side. See the client-side __[Data](/client-module/data/)__ module for Mongo, and the client-side __[MySQL](/client-module/mysql/)__ module for MySQL.
 
-## Examples
+### Examples
 
 __List the available collections in a Mongo database:__
 

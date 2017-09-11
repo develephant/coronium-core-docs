@@ -505,8 +505,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Configuration
@@ -520,23 +518,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#validation" title="Validation" class="md-nav__link">
+    Validation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#create-the-script" title="Create the script" class="md-nav__link">
     Create the script
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#run-the-script" title="Run the script" class="md-nav__link">
     Run the script
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -592,23 +601,34 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#validation" title="Validation" class="md-nav__link">
+    Validation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#create-the-script" title="Create the script" class="md-nav__link">
     Create the script
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#run-the-script" title="Run the script" class="md-nav__link">
     Run the script
   </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -627,9 +647,11 @@
               
                 
                 
-                <h1 id="validation">Validation</h1>
+                  <h1>Configuration</h1>
+                
+                <h2 id="validation">Validation</h2>
 <p>To use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.</p>
-<h2 id="create-the-script">Create the script</h2>
+<h3 id="create-the-script">Create the script</h3>
 <p>First make sure your Coronium Core server is running, and then create a new Corona project with the <a href="../../client-setup/#get-the-plugin">Coronium Core plugin</a>.</p>
 <p>Add the following code to the <strong>main.lua</strong>:</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
@@ -644,7 +666,7 @@
 </pre></div>
 
 
-<h2 id="run-the-script">Run the script</h2>
+<h3 id="run-the-script">Run the script</h3>
 <p>Run the Corona project. If all goes well, you should see <strong>result: true</strong> output to the Corona console.</p>
 <p>Your Pages module is now validated, you don't need to run this code again for this Coronium Core server instance.</p>
 <div class="admonition note">

@@ -1,3 +1,5 @@
+This guide outlines the client-side plugin setup and general usage.
+
 ## Installation
 
 If you don't already have it, get the __Coronium Core Plugin__ from the __[Corona Marketplace](https://marketplace.coronalabs.com/plugin/coronium-core)__.
@@ -30,9 +32,7 @@ local core = require("plugin.coronium-core")
 
 You're now ready to use the __Coronium Core__ plugin.
 
----
-
-# Client Overview
+## Plugin Overview
 
 The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
 
@@ -45,7 +45,7 @@ Coronium Core offers both client-side modules, and custom server-side api method
 
 In this example, we will use the __main.lua__ of a Corona project as a reference point, though you may require and use the client plugin in whichever file it is most useful.
 
-# Initialization
+## Initialization
 
 How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. Let's look at both initialization options.
 
@@ -79,7 +79,7 @@ core.init({
 })
 ```
 
-# Response Events
+## Response Events
 
 When calling a module or api method, you must supply an event listener function to recieve the response back from the server:
 
@@ -97,18 +97,18 @@ end
 
 All response events will contain either an __error__ key, or the successful response in the __result__ key. Some modules may have additional event keys. See each modules documentation for event responses.
 
-## error
+### error
 
 The __error__ key will always be a string with the error message, or __nil__ if no error is present. 
 
-## result
+### result
 
 The __result__ key data depends on the module or api method. See each modules documentation to determine what the __result__ key might hold.
 
 !!! tip
     To debug response events during development, see the __[core.debug](/client-module/core/#debug)__ method.
 
-# API Methods
+## API Methods
 
 Depending on the module you are addressing, use the following namespaces on the __core__ object.
 
@@ -132,8 +132,6 @@ __Parameters__
 
 __Examples__
 
----
-
 _Client side __[data](/client-module/data/)__ module_
 
 ```lua
@@ -155,8 +153,6 @@ core.data.save({
 },  apiResponse)
 ```
 
----
-
 _Custom server-side __[api](/server-modules/api/)__ method_
 
 ```lua
@@ -170,8 +166,6 @@ end
 
 core.api.echo({name="Jimmy"}, apiResponse)
 ```
-
----
 
 !!! tip
     See each client-side module for full usage instructions and examples.

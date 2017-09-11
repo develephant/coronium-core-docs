@@ -1,5 +1,3 @@
-# Overview
-
 Make external HTTP network requests and retrieve the results.
 
 __Example__
@@ -38,7 +36,7 @@ local result, err = request:result()
 
 ---
 
-## new
+### new
 
 ```lua
 core.network.new( [host][, port] )
@@ -65,7 +63,7 @@ local request = core.network.new('123.123.123.123', 8080)
 
 ---
 
-## host
+### host
 
 ```lua
 request:host( hostname )
@@ -92,7 +90,7 @@ request:hostname('13.13.13.13')
 
 ---
 
-## port
+### port
 
 ```lua
 request:port( port )
@@ -119,7 +117,7 @@ request:port(8080)
 
 ---
 
-## path
+### path
 
 ```lua
 request:path( path )
@@ -146,7 +144,7 @@ request:path('/echo/test')
 
 ---
 
-## header
+### header
 
 ```lua
 request:header( name, value )
@@ -174,7 +172,7 @@ request:header('Content-Type','application/json')
 
 ---
 
-## headers
+### headers
 
 ```lua
 request:headers( headers )
@@ -207,7 +205,7 @@ request:headers({
 
 ---
 
-## method
+### method
 
 ```lua
 request:method( method )
@@ -243,7 +241,7 @@ __Method Constants__
 
 ---
 
-## timeout
+### timeout
 
 ```lua
 request:timeout( timeout )
@@ -270,7 +268,7 @@ request:timeout(30)
 
 ---
 
-## ssl_verify
+### ssl_verify
 
 ```lua
 request:ssl_verify( verify_flag )
@@ -297,7 +295,7 @@ request:ssl_verify(true)
 
 ---
 
-## body
+### body
 
 ```lua
 request:body( body_data )
@@ -324,7 +322,7 @@ request:body("Here is some body data")
 
 ---
 
-## result
+### result
 
 Compiles the options and makes the network request. Must be the last method called on a network request object.
 

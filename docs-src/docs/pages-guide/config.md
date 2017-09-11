@@ -1,8 +1,8 @@
-# Validation
+## Validation
 
 To use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.
 
-## Create the script
+### Create the script
 
 First make sure your Coronium Core server is running, and then create a new Corona project with the [Coronium Core plugin](/client-setup/#get-the-plugin).
 
@@ -20,7 +20,7 @@ core.pages.generateAuth(function(evt)
 end)
 ```
 
-## Run the script
+### Run the script
 
 Run the Corona project. If all goes well, you should see __result: true__ output to the Corona console.
 

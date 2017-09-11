@@ -481,8 +481,6 @@
     
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
-      
-    
     
       <label class="md-nav__link md-nav__link--active" for="toc">
         Usage
@@ -495,8 +493,6 @@
       
 <nav class="md-nav md-nav--secondary">
   
-  
-    
   
   
     <label class="md-nav__title" for="toc">Table of contents</label>
@@ -512,6 +508,75 @@
         <li class="md-nav__item">
   <a href="#dynamic-pages" title="Dynamic Pages" class="md-nav__link">
     Dynamic Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" title="Responses" class="md-nav__link">
+    Responses
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html" title="HTML" class="md-nav__link">
+    HTML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" title="JSON" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="TEXT" class="md-nav__link">
+    TEXT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" title="Queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" title="Headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-modules" title="Core Modules" class="md-nav__link">
+    Core Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-directory" title="Files Directory" class="md-nav__link">
+    Files Directory
   </a>
   
 </li>
@@ -592,8 +657,6 @@
 <nav class="md-nav md-nav--secondary">
   
   
-    
-  
   
     <label class="md-nav__title" for="toc">Table of contents</label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -608,6 +671,75 @@
         <li class="md-nav__item">
   <a href="#dynamic-pages" title="Dynamic Pages" class="md-nav__link">
     Dynamic Pages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" title="Responses" class="md-nav__link">
+    Responses
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#html" title="HTML" class="md-nav__link">
+    HTML
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#json" title="JSON" class="md-nav__link">
+    JSON
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="TEXT" class="md-nav__link">
+    TEXT
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#queries" title="Queries" class="md-nav__link">
+    Queries
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#forms" title="Forms" class="md-nav__link">
+    Forms
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" title="Headers" class="md-nav__link">
+    Headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#core-modules" title="Core Modules" class="md-nav__link">
+    Core Modules
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#files-directory" title="Files Directory" class="md-nav__link">
+    Files Directory
   </a>
   
 </li>
@@ -627,8 +759,9 @@
               
                 
                 
-                <h1 id="overview">Overview</h1>
-<p>Pages allow you to display and collect data using your Coronium Core server. You can display simple static web pages, or serve <a href="#dynamic-pages">dynamic pages</a> using Lua.</p>
+                  <h1>Usage</h1>
+                
+                <p>Pages allow you to display and collect data using your Coronium Core server. You can display simple static web pages, or serve <a href="#dynamic-pages">dynamic pages</a> using Lua.</p>
 <p>Only the GET and POST HTTP methods are supported for server requests.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -658,10 +791,9 @@
 </pre></div>
 
 
-<hr />
-<h1 id="responses">Responses</h1>
+<h2 id="responses">Responses</h2>
 <p>Output responses to the client web browser by using the <strong><a href="">response</a></strong> method of the pages object instance. The default response type is html, but you can also respond with json, or plain text content types.</p>
-<h2 id="html">HTML</h2>
+<h3 id="html">HTML</h3>
 <p>To return content as html (default), pass a string body to the <strong>response</strong> method.</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
@@ -679,8 +811,7 @@
 
 
 <p>See also: <strong><a href="../../pages-guide/templates/">Templates</a></strong></p>
-<hr />
-<h2 id="json">JSON</h2>
+<h3 id="json">JSON</h3>
 <p>To return content as json, pass the <strong>JSON</strong> constant to the <strong>content</strong> response parameter.</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
@@ -696,8 +827,7 @@
 </pre></div>
 
 
-<hr />
-<h2 id="text">TEXT</h2>
+<h3 id="text">TEXT</h3>
 <p>To return content as text, pass the <strong>TEXT</strong> constant to the <strong>content</strong> response parameter.</p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
@@ -707,8 +837,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="queries">Queries</h1>
+<h2 id="queries">Queries</h2>
 <p>To access properties of a query string, use the <strong>query</strong> property of the pages object instance. The <strong>query</strong> is a table with name/value pairs.</p>
 <p><strong>Example Path</strong></p>
 <p><strong><em>/mypage?name=Tim&amp;age=42</em></strong></p>
@@ -730,8 +859,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="forms">Forms</h1>
+<h2 id="forms">Forms</h2>
 <p>To access properties of a posted form, use the <strong>form</strong> property of the pages object instance. The form is a <strong>table</strong> with name/value pairs.</p>
 <p><strong>Example Form</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">form</span><span class="p">&gt;</span>
@@ -763,8 +891,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="headers">Headers</h1>
+<h2 id="headers">Headers</h2>
 <p>To access the request headers, use the <strong>headers</strong> property of the pages object instance. The headers are in a <strong>table</strong> as name/value pairs.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
@@ -783,8 +910,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="core-modules">Core Modules</h1>
+<h2 id="core-modules">Core Modules</h2>
 <p>You can use any of the core server modules in dynamic pages.</p>
 <p><strong>Example Template</strong></p>
 <div class="codehilite"><pre><span></span><span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
@@ -809,8 +935,7 @@
 </pre></div>
 
 
-<hr />
-<h1 id="files-directory">Files Directory</h1>
+<h2 id="files-directory">Files Directory</h2>
 <p>Files uploaded to the <strong><a href="../../server-guide/#public-directory">files/public</a></strong> directory using the <strong><a href="../../client-module/files/">Files</a></strong> module can be displayed using page templates. When referencing a file in a template, the path will be checked in the <strong>pages</strong> directory first. If no file is found, then the <strong>files/public</strong> directory path will be checked.</p>
                 
                   

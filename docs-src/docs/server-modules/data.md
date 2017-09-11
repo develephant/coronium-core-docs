@@ -1,5 +1,3 @@
-# Overview
-
 The __data__ module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the [Mongo](#server-modules/mongo) module if you require more advanced usage.
 
 You can access this module directly from the client-side using the client __[Data](/client-module/data)__ module.
@@ -33,7 +31,7 @@ local users = core.data("users")
 
 ---
 
-## get
+### get
 
 ```lua
 <source>:get(idOrQuery)
@@ -56,7 +54,7 @@ local obj, err = users:get("id1234")
 
 ---
 
-## save
+### save
 
 ```lua
 <source>:save(obj)
@@ -76,7 +74,7 @@ local id, err = users:save(obj)
 
 ---
 
-## delete
+### delete
 
 ```lua
 <source>:delete(idOrObj)
@@ -96,9 +94,9 @@ local success, err = users:delete(obj)
 
 ---
 
-# Pagination
+## Pagination
 
-## getPage
+### getPage
 
 ```lua
 <source>:getPage(page, perPage, sort, query)
