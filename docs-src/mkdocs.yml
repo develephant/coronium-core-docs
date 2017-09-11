@@ -29,13 +29,22 @@ pages:
     - 'Configuration': 'pages-guide/config.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
-copyright: "&copy;2017 C. Byerley - develephant.com"
+copyright: "&copy;2017 C. Byerley"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'
 site_dir: ../docs
 extra:
-  logo: 'imgs/logo128.png'
+  social:
+    - type: 'support'
+      link: 'https://forums.coronalabs.com/forum/643-coronium/'
+    - type: 'twitter'
+      link: 'https://twitter.com/develephant'
+    - type: 'globe'
+      link: 'http://develephant.com'
+  palette:
+    primary: 'blue-grey'
+    accent: 'teal'
 markdown_extensions:
   - admonition
   - codehilite
