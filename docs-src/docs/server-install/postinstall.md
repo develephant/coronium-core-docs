@@ -14,7 +14,7 @@ This will start the reboot process. Wait 15-30 seconds before using the server. 
 
 The default password for a fresh install is: __cloudadmin__.
 
-!!! warning
+!!! warning "Important Note"
     You should change the default password after the install.
     
 Log in with the __coronium__ user:
@@ -57,7 +57,7 @@ sudo coronium-dbsetup
 exit
 ```
 
-!!! tip
+!!! note
     Use the passwords you set using the database tool to access your databases externally.
 
 ## Enable HTTPS

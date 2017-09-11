@@ -33,6 +33,6 @@ local function apiListener( evt )
   end
 end
 
--- Assuming you have an "echo" server-side method
-core.api.echo({message="Hello"}, apiListener)
+-- Assuming you have an "test" server-side method
+core.api.test({message="Hello"}, apiListener)
 ```

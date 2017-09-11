@@ -1,7 +1,7 @@
 Provides methods to handle web based requests, and issue responses. For full usage instructions see the __[Usage](/pages-guide/usage/)__ section.
 
-!!! important
-    See the __[Configuration](/pages-guide/config/)__ section before attempting to use pages.
+!!! warning "Important"
+    __See the__ __[Configuration](/pages-guide/config/)__ __section before attempting to use pages.__
 
 ### new
 
@@ -62,8 +62,8 @@ Sends the configured response back to the client browser.
 <page-object>.response(body[, headers][, content][, status])
 ```
 
-!!! important
-    This should be the last method in your page file.
+!!! warning "Important"
+    __This should be the last method in your page file.__
 
 __Parameters__
 
@@ -80,7 +80,7 @@ __Example__
 page.response("Hello There")
 ```
 
-!!! note
+!!! info ""
     For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
 ### template | tpl
@@ -104,5 +104,5 @@ __Example__
 local body = page.template("greeting.tpl", {greet="Hello!"})
 ```
 
-!!! note
+!!! info ""
     For detailed template usage information see the __[Templates](/pages-guide/templates/)__ section.

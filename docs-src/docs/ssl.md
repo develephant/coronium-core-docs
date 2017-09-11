@@ -1,10 +1,12 @@
-!!! note "Screencast"
-    View the secure install instructions in a screencast format by [clicking here](https://youtu.be/8WyWMkVLQWw).
-
 Secure your __Coronium Core__ server by utilizing the free SSL certificate service __[Let's Encrypt](https://letsencrypt.org/)__.
 
 !!! warning
     Setting up a secure Coronium Core server is not a trivial process, so be sure to read through _all_ of the steps before starting, and then follow them carefully.
+
+!!! note "Screencast"
+    View the secure install instructions in a screencast format by [clicking here](https://youtu.be/8WyWMkVLQWw).
+
+## Overview
 
 To be issued a secure certificate, you must have a fully qualified domain name, and the proper DNS set up to serve the domain.
 

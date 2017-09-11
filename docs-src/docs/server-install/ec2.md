@@ -1,6 +1,6 @@
 __Coronium Core__ server is eligible for the EC2 free tier using Amazon Web Services.
 
-!!! warning "Prerequisites"
+!!! warning "Important Note"
     This guide assumes that you have an active AWS account, and are familiar with managing EC2 instances.
 
 !!! note "Screencast"
@@ -32,7 +32,7 @@ Once your instance is in a __running__ state, note the __IPv4 Public IP__ addres
 Using a terminal/shell of your choice, SSH into the instance.
 
 !!! tip
-    You can use the built in shells on both OSX and Linux. For Windows, check out __[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)__.
+    You can use the built in terminal on OSX. For Windows, check out __[PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html)__.
 
 ```
 ssh -i <path/to/.pem> ubuntu@<your-instance-ip>

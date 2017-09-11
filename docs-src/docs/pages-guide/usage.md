@@ -2,8 +2,8 @@ Pages allow you to display and collect data using your Coronium Core server. You
 
 Only the GET and POST HTTP methods are supported for server requests.
 
-!!! note
-    The Coronium Pages module is meant to supplement the core functionality of the application server. It is not designed to serve entire websites.
+!!! tldr "Special Note"
+    The __Pages__ module is meant to supplement the core functionality of the application server. It is not designed to serve entire websites.
 
 ## Pages Directory
 
