@@ -117,7 +117,7 @@ The following user directories can be found in __/home/coronium__. They are will
 
 If you store files in the __files/public__ directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within [page templates](/pages-guide/templates/). 
 
-!!! important
+!!! note
     If a file with the same path exists in the __pages__ directory, it will be served first. If a file does not exist at the path, then the __files/public__ directory will be checked.
 
 __Path Examples__
