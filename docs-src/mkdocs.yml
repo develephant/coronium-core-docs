@@ -32,7 +32,10 @@ pages:
 copyright: "&copy;2017 C. Byerley - develephant.com"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
+site_favicon: 'imgs/favicon.ico'
 site_dir: ../docs
+extra:
+  logo: 'imgs/logo128.png'
 markdown_extensions:
   - admonition
   - codehilite
