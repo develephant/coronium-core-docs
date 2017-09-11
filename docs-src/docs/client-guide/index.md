@@ -1,4 +1,38 @@
-# Overview
+## Installation
+
+If you don't already have it, get the __Coronium Core Plugin__ from the __[Corona Marketplace](https://marketplace.coronalabs.com/plugin/coronium-core)__.
+
+
+<h4>Add the plugin</h4>
+
+Add the plugin by adding an entry to the __plugins__ table of __build.settings__ file:
+
+```
+settings =
+{
+    plugins =
+    {
+        ["plugin.coronium-core"] =
+        {
+            publisherId = "com.develephant"
+        },
+    },
+}
+```
+
+<h4>Require the plugin</h4>
+
+To gain access to the plugins functionality, require it like so in your Lua file:
+
+```lua
+local core = require("plugin.coronium-core")
+```
+
+You're now ready to use the __Coronium Core__ plugin.
+
+---
+
+# Client Overview
 
 The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
 

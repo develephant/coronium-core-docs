@@ -14,7 +14,6 @@ pages:
     - 'MySQL': 'server-modules/mysql.md'
     - 'Network': 'server-modules/network.md'
     - 'Utils': 'server-modules/utils.md'
-  - 'Client Setup': 'client-setup/index.md'
   - 'Client Guide': 'client-guide/index.md'
   - 'Client Module':
     - 'API': 'client-module/api.md'
@@ -31,7 +30,7 @@ pages:
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
 copyright: "&copy;2017 C. Byerley - develephant.com"
-theme: readthedocs
+theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_dir: ../docs
 markdown_extensions:

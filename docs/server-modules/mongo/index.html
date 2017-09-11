@@ -1,320 +1,577 @@
+
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Mongo - Coronium Core</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Mongo";
-    var mkdocs_page_input_path = "server-modules/mongo.md";
-    var mkdocs_page_url = "/server-modules/mongo/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<html class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Coronium Core</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-modules/mongo/">
+      
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.5.4">
+    
+    
+      
+        <title>Mongo - Coronium Core</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-b1a1975878.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://develephant.github.io/coronium-core-docs" title="Coronium Core" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Server Install</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../server-install/ec2/">Amazon EC2</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../server-install/postinstall/">Post Install</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../server-guide/">Server Guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Server Modules</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../api/">API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data/">Data</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../files/">Files</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Mongo</a>
-    <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#overview">Overview</a></li>
-    
-
-    <li class="toctree-l3"><a href="#coremongo">core.mongo</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#use">use</a></li>
-        
-            <li><a class="toctree-l4" href="#close">close</a></li>
-        
-            <li><a class="toctree-l4" href="#collection">collection</a></li>
-        
-            <li><a class="toctree-l4" href="#listcollections">listCollections</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#collections">Collections</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#save">save</a></li>
-        
-            <li><a class="toctree-l4" href="#insert">insert</a></li>
-        
-            <li><a class="toctree-l4" href="#findone">findOne</a></li>
-        
-            <li><a class="toctree-l4" href="#find">find</a></li>
-        
-            <li><a class="toctree-l4" href="#findandmodify">findAndModify</a></li>
-        
-            <li><a class="toctree-l4" href="#update">update</a></li>
-        
-            <li><a class="toctree-l4" href="#remove">remove</a></li>
-        
-            <li><a class="toctree-l4" href="#drop">drop</a></li>
-        
-            <li><a class="toctree-l4" href="#rename">rename</a></li>
-        
-            <li><a class="toctree-l4" href="#getindexes">getIndexes</a></li>
-        
-            <li><a class="toctree-l4" href="#createindex">createIndex</a></li>
-        
-            <li><a class="toctree-l4" href="#dropindex">dropIndex</a></li>
-        
-            <li><a class="toctree-l4" href="#aggregate">aggregate</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#cursor">Cursor</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#all">all</a></li>
-        
-            <li><a class="toctree-l4" href="#sort">sort</a></li>
-        
-            <li><a class="toctree-l4" href="#skip">skip</a></li>
-        
-            <li><a class="toctree-l4" href="#limit">limit</a></li>
-        
-            <li><a class="toctree-l4" href="#count">count</a></li>
-        
-            <li><a class="toctree-l4" href="#rewind">rewind</a></li>
-        
-            <li><a class="toctree-l4" href="#next">next</a></li>
-        
-            <li><a class="toctree-l4" href="#distinct">distinct</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#mongodb-to-lua">MongoDB to Lua</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#operators">Operators</a></li>
-        
-            <li><a class="toctree-l4" href="#arrays">Arrays</a></li>
-        
-        </ul>
-    
-
-    <li class="toctree-l3"><a href="#resources">Resources</a></li>
-    
-
-    <li class="toctree-l3"><a href="#administration">Administration</a></li>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../mysql/">MySQL</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../network/">Network</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../utils/">Utils</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../client-setup/">Client Setup</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../client-guide/">Client Guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Client Module</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../client-module/api/">API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/core/">Core</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/data/">Data</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/email/">Email</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/files/">Files</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/mysql/">MySQL</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Pages Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/api/">Pages API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/usage/">Usage</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/templates/">Templates</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/config/">Configuration</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../ssl/">HTTPS / SSL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Coronium Core</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Server Modules &raquo;</li>
-        
-      
-    
-    <li>Mongo</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
               
+                <span class="md-header-nav__parent">
+                  Server Modules
+                </span>
+              
+            
+            Mongo
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    Coronium Core
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Server Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Server Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/digitalocean/" title="DigitalOcean" class="md-nav__link">
+      DigitalOcean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/ec2/" title="Amazon EC2" class="md-nav__link">
+      Amazon EC2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/postinstall/" title="Post Install" class="md-nav__link">
+      Post Install
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../server-guide/" title="Server Guide" class="md-nav__link">
+      Server Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Server Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Server Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+    <a href="./" title="Mongo" class="md-nav__link md-nav__link--active">
+      Mongo
+    </a>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../utils/" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../client-guide/" title="Client Guide" class="md-nav__link">
+      Client Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Client Module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Client Module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Pages Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Pages Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ssl/" title="HTTPS / SSL" class="md-nav__link">
+      HTTPS / SSL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
                 <h1 id="overview">Overview</h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -326,7 +583,8 @@
 </div>
 <h1 id="coremongo">core.mongo</h1>
 <p>Connect to a database and return a database object. If the database does not exist, it will be created.</p>
-<pre class="codehilite"><code class="language-lua">core.mongo( db_name )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mongo</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -349,13 +607,15 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local db, err = core.mongo( &quot;app&quot; ) </code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mongo</span><span class="p">(</span> <span class="s2">&quot;app&quot;</span> <span class="p">)</span> 
+</pre></div>
 
 
 <hr />
 <h2 id="use">use</h2>
 <p>Change the current working database. If the database does not exist, it will be created.</p>
-<pre class="codehilite"><code class="language-lua">db:use( db_name )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -378,13 +638,15 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local db = db:use( &quot;app2&quot; )</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">use</span><span class="p">(</span> <span class="s2">&quot;app2&quot;</span> <span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="close">close</h2>
 <p>Close the database connection.</p>
-<pre class="codehilite"><code class="language-lua">db:close()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
 
 
 <div class="admonition note">
@@ -394,7 +656,8 @@
 <hr />
 <h2 id="collection">collection</h2>
 <p>Select and return a collection to operate on. If the collection does not exist, it will be created.</p>
-<pre class="codehilite"><code class="language-lua">db:collection( name )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -417,23 +680,26 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local coll = db:collection( &quot;users&quot; )</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">coll</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">collection</span><span class="p">(</span> <span class="s2">&quot;users&quot;</span> <span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="listcollections">listCollections</h2>
 <p>Retreive a list of collections. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">db:listCollections()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local list, err = db:listCollections()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">list</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">:</span><span class="n">listCollections</span><span class="p">()</span>
 
-for i=1, #list do
-  print(list[i]) -- collection name
-end</code></pre>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">list</span> <span class="kr">do</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">list</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="c1">-- collection name</span>
+<span class="kr">end</span>
+</pre></div>
 
 
 <hr />
@@ -441,7 +707,8 @@ end</code></pre>
 <p>The following methods operate on collections. See <strong><a href="#collection">db:collection</a></strong> above to gain access to a collection object.</p>
 <h2 id="save">save</h2>
 <p>Inserts or updates a single document. If no id field is present, creates a new document, otherwise updates the document. Returns the document id, or <strong>nil</strong> and an error. </p>
-<pre class="codehilite"><code class="language-lua">collection:save(doc)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -465,26 +732,28 @@ end</code></pre>
 </table>
 <p><strong>Example</strong></p>
 <p><em>Insert a new document</em></p>
-<pre class="codehilite"><code class="language-lua">local doc = {
-  name = &quot;Jimmy&quot;,
-  age = 20,
-  active = true,
-  colors = {
-    &quot;red&quot;,
-    &quot;green&quot;,
-    &quot;blue&quot;
-  }
-}
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jimmy&quot;</span><span class="p">,</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;red&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;green&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;blue&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-local id, err = coll:save(doc)</code></pre>
+<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
 
 
 <p><em>Update an existing document</em></p>
-<pre class="codehilite"><code class="language-lua">local doc = coll:findOne(&lt;queryOrId&gt;)
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">)</span>
 
-doc.name = &quot;Nancy&quot;
+<span class="n">doc</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nancy&quot;</span>
 
-local id, err = coll:save(doc)</code></pre>
+<span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">doc</span><span class="p">)</span>
+</pre></div>
 
 
 <div class="admonition note">
@@ -494,7 +763,8 @@ local id, err = coll:save(doc)</code></pre>
 <hr />
 <h2 id="insert">insert</h2>
 <p>Insert multiple documents into a collection. Returns array of <strong>ids</strong> and <strong>number</strong> inserted, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:insert( docs )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -517,24 +787,26 @@ local id, err = coll:save(doc)</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local docs = {
-  {
-    name = &quot;Tina&quot;,
-    age = 24
-  },
-  {
-    name = &quot;Jeff&quot;,
-    age = 36
-  }
-}
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">docs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">24</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jeff&quot;</span><span class="p">,</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">36</span>
+  <span class="p">}</span>
+<span class="p">}</span>
 
-local ids, errOrNum = coll:insert( docs )</code></pre>
+<span class="kd">local</span> <span class="n">ids</span><span class="p">,</span> <span class="n">errOrNum</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">(</span> <span class="n">docs</span> <span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="findone">findOne</h2>
 <p>Find and return the first document that matches the query or id. Returns the <strong>doc</strong>, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:findOne(queryOrId, fields)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -564,19 +836,22 @@ local ids, errOrNum = coll:insert( docs )</code></pre>
 </table>
 <p><strong>Example</strong></p>
 <p><em>By query</em></p>
-<pre class="codehilite"><code class="language-lua">local doc, err = coll:findOne( {name=&quot;Jeff&quot;, age=36} )</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">}</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><em>By id</em></p>
-<pre class="codehilite"><code class="language-lua">local doc, err = coll:findOne( &quot;59a583516362392a28000001&quot; )</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="s2">&quot;59a583516362392a28000001&quot;</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><em>Limit fields</em></p>
-<pre class="codehilite"><code class="language-lua">-- return only the 'name' field
-local doc, err = coll:findOne( {name=&quot;Jeff&quot;, age=36}, {name=true} )
+<div class="codehilite"><pre><span></span><span class="c1">-- return only the &#39;name&#39; field</span>
+<span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="kc">true</span><span class="p">}</span> <span class="p">)</span>
 
--- return all except the 'name' field
-local doc, err = coll:findOne( {name=&quot;Jeff&quot;, age=36}, {name=false} )</code></pre>
+<span class="c1">-- return all except the &#39;name&#39; field</span>
+<span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">findOne</span><span class="p">(</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jeff&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">36</span><span class="p">},</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="kc">false</span><span class="p">}</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>See also</strong></p>
@@ -586,7 +861,8 @@ local doc, err = coll:findOne( {name=&quot;Jeff&quot;, age=36}, {name=false} )</
 <hr />
 <h2 id="find">find</h2>
 <p>Find multiple documents based on query. Returns a new <strong><a href="#cursor">cursor</a></strong> object.</p>
-<pre class="codehilite"><code class="language-lua">collection:find(query, fields)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">find</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">fields</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -615,14 +891,15 @@ local doc, err = coll:findOne( {name=&quot;Jeff&quot;, age=36}, {name=false} )</
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">-- find documents where name equals &quot;Jimmy&quot;
-local cursor = coll:find({ name = &quot;Jimmy&quot; })
+<div class="codehilite"><pre><span></span><span class="c1">-- find documents where name equals &quot;Jimmy&quot;</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jimmy&quot;</span> <span class="p">})</span>
 
--- find documents where age greater than 20
-local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20} })
+<span class="c1">-- find documents where age greater than 20</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$gt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">}</span> <span class="p">})</span>
 
--- find documents where age greater than 20, and name is &quot;Tina&quot;
-local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quot; })</code></pre>
+<span class="c1">-- find documents where age greater than 20, and name is &quot;Tina&quot;</span>
+<span class="kd">local</span> <span class="n">cursor</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">find</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$gt&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">20</span><span class="p">},</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span> <span class="p">})</span>
+</pre></div>
 
 
 <div class="admonition tip">
@@ -638,7 +915,8 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 <hr />
 <h2 id="findandmodify">findAndModify</h2>
 <p>Finds the first document that matches the query and updates it in place based on the <strong>options</strong>. Returns old doc (unless <strong>new</strong> option is set), or <strong>nil</strong>, and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:findAndModify(queryOrId, options)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">findAndModify</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -703,13 +981,15 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 </tr>
 </tbody>
 </table>
-<pre class="codehilite"><code class="language-lua">local doc, err = col:findAndModify(query_or_id, opts)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">doc</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">col</span><span class="p">:</span><span class="n">findAndModify</span><span class="p">(</span><span class="n">query_or_id</span><span class="p">,</span> <span class="n">opts</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="update">update</h2>
 <p>Update a record. Returns <strong>number</strong> updated, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:update(queryOrId, updateDoc, flags)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">updateDoc</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -770,36 +1050,41 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 </table>
 <p><strong>Example</strong></p>
 <p><em>Replace entire document</em></p>
-<pre class="codehilite"><code class="language-lua">local num, err = collection:update({name=&quot;Jim&quot;}, {
-  name=&quot;John&quot;, 
-  age=45
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jim&quot;</span><span class="p">},</span> <span class="p">{</span>
+  <span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> 
+  <span class="n">age</span><span class="o">=</span><span class="mi">45</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Update and add fields</em></p>
-<pre class="codehilite"><code class="language-lua">local num, err = collection:update({name=&quot;John&quot;, age=45}, {
-  [&quot;$set&quot;] = { age = 43, active = true }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;John&quot;</span><span class="p">,</span> <span class="n">age</span><span class="o">=</span><span class="mi">45</span><span class="p">},</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">43</span><span class="p">,</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Using id</em></p>
-<pre class="codehilite"><code class="language-lua">local num, err = collection:update(&quot;59a583516362392a28000001&quot;, {
-  [&quot;$set&quot;] = { active = false }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;59a583516362392a28000001&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Update multiple</em></p>
-<pre class="codehilite"><code class="language-lua">local num, err = collection:update({active = false}, 
-  { [&quot;$set&quot;] = { active = true } }, 
-  { multi = true }
-)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">active</span> <span class="o">=</span> <span class="kc">false</span><span class="p">},</span> 
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span> 
+  <span class="p">{</span> <span class="n">multi</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
 
 
 <p><em>Add field to documents if missing</em></p>
-<pre class="codehilite"><code class="language-lua">local num, err = collection:update({ active = {[&quot;$exists&quot;] = false }}, 
-  { [&quot;$set&quot;] = { active = true } }, 
-  { multi = true }
-)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">collection</span><span class="p">:</span><span class="n">update</span><span class="p">({</span> <span class="n">active</span> <span class="o">=</span> <span class="p">{[</span><span class="s2">&quot;$exists&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}},</span> 
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">active</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span> <span class="p">},</span> 
+  <span class="p">{</span> <span class="n">multi</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">}</span>
+<span class="p">)</span>
+</pre></div>
 
 
 <p><strong>See also</strong></p>
@@ -810,7 +1095,8 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 <hr />
 <h2 id="remove">remove</h2>
 <p>Remove a document or documents based on the query. Returns <strong>number</strong> of records removed, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:remove(queryOrId, isSingle)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">queryOrId</span><span class="p">,</span> <span class="n">isSingle</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -838,25 +1124,29 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 </tr>
 </tbody>
 </table>
-<pre class="codehilite"><code class="language-lua">local num, err = coll:remove(query_id, is_single)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">num</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">remove</span><span class="p">(</span><span class="n">query_id</span><span class="p">,</span> <span class="n">is_single</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="drop">drop</h2>
 <p>Remove a collection and all the containing documents. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:drop()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">drop</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:drop()</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">drop</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
 <h2 id="rename">rename</h2>
 <p>Rename a collection. Returns newly named collection, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:rename(new_name, drop)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="n">drop</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -885,19 +1175,22 @@ local cursor = coll:find({ age = {[&quot;$gt&quot;] = 20}, name = &quot;Tina&quo
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local new_col, err = col:rename(new_name, drop)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">new_col</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">col</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="n">new_name</span><span class="p">,</span> <span class="n">drop</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Moving to another database</strong></p>
 <p>To rename and move the collection to another database, pass the full namespace to the <strong>new_name</strong> parameter:</p>
-<pre class="codehilite"><code class="language-lua">-- namespace &lt;db&gt;.&lt;collection&gt;
-col:rename(&quot;otherdb.newname&quot;)</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">-- namespace &lt;db&gt;.&lt;collection&gt;</span>
+<span class="n">col</span><span class="p">:</span><span class="n">rename</span><span class="p">(</span><span class="s2">&quot;otherdb.newname&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="getindexes">getIndexes</h2>
 <p>The current collection indexes. Returns a <strong>table</strong> array with index objects, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:getIndexes()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">getIndexes</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -925,23 +1218,25 @@ col:rename(&quot;otherdb.newname&quot;)</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local indexes, err = coll:getIndexes()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">indexes</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">getIndexes</span><span class="p">()</span>
 
-for i=1, #indexes do
-  local index = indexes[i]
-  --index key info
-  for field, opt in pairs(index.key) do
-    print(field, opt)
-  end
-  --index name
-  print(index.name)
-end</code></pre>
+<span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">indexes</span> <span class="kr">do</span>
+  <span class="kd">local</span> <span class="n">index</span> <span class="o">=</span> <span class="n">indexes</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+  <span class="c1">--index key info</span>
+  <span class="kr">for</span> <span class="n">field</span><span class="p">,</span> <span class="n">opt</span> <span class="kr">in</span> <span class="nb">pairs</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">key</span><span class="p">)</span> <span class="kr">do</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">field</span><span class="p">,</span> <span class="n">opt</span><span class="p">)</span>
+  <span class="kr">end</span>
+  <span class="c1">--index name</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">index</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
 
 
 <hr />
 <h2 id="createindex">createIndex</h2>
 <p>Create index(es) for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:createIndex(index_arr)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">createIndex</span><span class="p">(</span><span class="n">index_arr</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -965,35 +1260,40 @@ end</code></pre>
 </table>
 <p><strong>Example</strong></p>
 <p><em>Simple index</em></p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:createIndex({
-  { key = { age = 1 } }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Compound index</em></p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:createIndex({
-  { key = { age = 1, name = -1 } }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Create multiple indexes</em></p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:createIndex({
-  { key = { name = 1 } },
-  { key = { age = -1, score = 1 } }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">score</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><strong>Index names</strong></p>
 <p>By default Mongo will generate the index name based on the fields passed. To set an index name manually, pass a <strong>name</strong> key in the object.</p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:createIndex({
-  { key = { age = 1 }, name = &quot;age_asc&quot; }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">createIndex</span><span class="p">({</span>
+  <span class="p">{</span> <span class="n">key</span> <span class="o">=</span> <span class="p">{</span> <span class="n">age</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">},</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;age_asc&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <hr />
 <h2 id="dropindex">dropIndex</h2>
 <p>Drop indexes for a collection. Returns <strong>true</strong>, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:dropIndex( name )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">dropIndex</span><span class="p">(</span> <span class="n">name</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1016,7 +1316,8 @@ end</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local res, err = coll:dropIndex( &quot;age_asc&quot; )</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">coll</span><span class="p">:</span><span class="n">dropIndex</span><span class="p">(</span> <span class="s2">&quot;age_asc&quot;</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>See also</strong></p>
@@ -1026,7 +1327,8 @@ end</code></pre>
 <hr />
 <h2 id="aggregate">aggregate</h2>
 <p>Performs aggregation operation based on the pipeline commands. By default returns a cursor, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">collection:aggregate(pipeline)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">collection</span><span class="p">:</span><span class="n">aggregate</span><span class="p">(</span><span class="n">pipeline</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1049,10 +1351,11 @@ end</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local cur, err = users:aggregate({
-  { [&quot;$project&quot;] = { name = { [&quot;$toUpper&quot;] = &quot;$name&quot; }, _id = 0 } },
-  { [&quot;$sort&quot;] = { name = 1 } }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cur</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">aggregate</span><span class="p">({</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$toUpper&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$name&quot;</span> <span class="p">},</span> <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$sort&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Output aggregation results to a collection instead of a cursor</em></p>
@@ -1060,11 +1363,12 @@ end</code></pre>
 <p class="admonition-title">Note</p>
 <p>The <strong>$out</strong> key must be the last step in the pipeline. Creates and returns a new collection.</p>
 </div>
-<pre class="codehilite"><code class="language-lua">local coll, err = users:aggregate({
-  { [&quot;$project&quot;] = { name = { [&quot;$toUpper&quot;] = &quot;$name&quot; }, _id = 0 } },
-  { [&quot;$sort&quot;] = { name = 1 } },
-  { [&quot;$out&quot;] = &quot;uppernames&quot; }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">coll</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">aggregate</span><span class="p">({</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$project&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$toUpper&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;$name&quot;</span> <span class="p">},</span> <span class="n">_id</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$sort&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">}</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$out&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;uppernames&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><strong>See also</strong></p>
@@ -1074,8 +1378,9 @@ end</code></pre>
 <hr />
 <h1 id="cursor">Cursor</h1>
 <p>A cursor object contains a group of documents returned from the <strong><a href="#find">find</a></strong> method. After setting the needed cursor methods, use the <strong><a href="#all">all</a></strong> or <strong><a href="#next">next</a></strong> cursor method to retrieve the documents. For example, using <strong>all</strong>:</p>
-<pre class="codehilite"><code class="language-lua">-- return first 10 docs from the find request
-local docs = cursor:limit(10):all()</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">-- return first 10 docs from the find request</span>
+<span class="kd">local</span> <span class="n">docs</span> <span class="o">=</span> <span class="n">cursor</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
 
 
 <div class="admonition tip">
@@ -1084,7 +1389,8 @@ local docs = cursor:limit(10):all()</code></pre>
 </div>
 <h2 id="all">all</h2>
 <p>Return document(s) based on the previous cursor options. Returns a <strong>table</strong> array of documents, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">cursor:all()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
 
 
 <div class="admonition tip">
@@ -1094,13 +1400,15 @@ local docs = cursor:limit(10):all()</code></pre>
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local docs, err = cur:all()</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">docs</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">all</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
 <h2 id="sort">sort</h2>
 <p>Sort the documents currently held in the cursor based on the sorting table. Returns the cursor.</p>
-<pre class="codehilite"><code class="language-lua">cursor:sort( sort_tbl )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">sort</span><span class="p">(</span> <span class="n">sort_tbl</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1123,17 +1431,19 @@ local docs = cursor:limit(10):all()</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">--sort by age, ascending
-local cur = cur:sort({ age = core.ASC })
+<div class="codehilite"><pre><span></span><span class="c1">--sort by age, ascending</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">sort</span><span class="p">({</span> <span class="n">age</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">ASC</span> <span class="p">})</span>
 
---sort by age descending and name ascending
-local cur = cur:sort({age = core.DESC, name = core.ASC })</code></pre>
+<span class="c1">--sort by age descending and name ascending</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">sort</span><span class="p">({</span><span class="n">age</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">DESC</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">ASC</span> <span class="p">})</span>
+</pre></div>
 
 
 <hr />
 <h2 id="skip">skip</h2>
 <p>Skip a specific amount of documents in the cursor results. Returns the cursor.</p>
-<pre class="codehilite"><code class="language-lua">cursor:skip(num)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">skip</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1156,14 +1466,16 @@ local cur = cur:sort({age = core.DESC, name = core.ASC })</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">--skip the first 20 documents
-local cur = cur:skip( 20 )</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">--skip the first 20 documents</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">skip</span><span class="p">(</span> <span class="mi">20</span> <span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="limit">limit</h2>
 <p>Limit the amount of documents returned based on the current cursor options. Returns the cursor.</p>
-<pre class="codehilite"><code class="language-lua">cursor:limit(num)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1186,47 +1498,54 @@ local cur = cur:skip( 20 )</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">--return the first 10 documents
-local cur = cur:limit( 10 )</code></pre>
+<div class="codehilite"><pre><span></span><span class="c1">--return the first 10 documents</span>
+<span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">limit</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="count">count</h2>
 <p>Return the current document amount based on the current cursor options. Returns a <strong>number</strong>.</p>
-<pre class="codehilite"><code class="language-lua">cursor:count()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local cnt = cur:count()</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cnt</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
 <h2 id="rewind">rewind</h2>
 <p>Set the cursor pointer back to the begining of the document results. Returns the cursor.</p>
-<pre class="codehilite"><code class="language-lua">cursor:rewind()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">rewind</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local cur = cur:rewind()</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">cur</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">rewind</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
 <h2 id="next">next</h2>
 <p>Interate over the cursor results. On each call, returns a document, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">cursor:next()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="nb">next</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
 <p>This method has no parameters.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">while true do
-  local doc = cur:next()
-  if doc == nil then break end
-end</code></pre>
+<div class="codehilite"><pre><span></span><span class="kr">while</span> <span class="kc">true</span> <span class="kr">do</span>
+  <span class="kd">local</span> <span class="n">doc</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="nb">next</span><span class="p">()</span>
+  <span class="kr">if</span> <span class="n">doc</span> <span class="o">==</span> <span class="kc">nil</span> <span class="kr">then</span> <span class="kr">break</span> <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
 
 
 <p><strong>See also</strong></p>
@@ -1237,7 +1556,8 @@ end</code></pre>
 <hr />
 <h2 id="distinct">distinct</h2>
 <p>Pull distinct key values from the cursor results. Returns a <strong>table</strong> array, or <strong>nil</strong> and an error.</p>
-<pre class="codehilite"><code class="language-lua">cursor:distinct(key)</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">cursor</span><span class="p">:</span><span class="n">distinct</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -1260,8 +1580,9 @@ end</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local res, err = cur:distinct( &quot;age&quot; )
--- 'res' is a table array</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">cur</span><span class="p">:</span><span class="n">distinct</span><span class="p">(</span> <span class="s2">&quot;age&quot;</span> <span class="p">)</span>
+<span class="c1">-- &#39;res&#39; is a table array</span>
+</pre></div>
 
 
 <hr />
@@ -1288,11 +1609,12 @@ end</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">coll:update({name=&quot;Jimmy&quot;}, {
-  [&quot;$set&quot;] = {
-    age = 23
-  }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jimmy&quot;</span><span class="p">},</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$set&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <hr />
@@ -1313,44 +1635,49 @@ end</code></pre>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">coll:insert({
-  name = &quot;Tina&quot;,
-  colors = {&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;}
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">insert</span><span class="p">({</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tina&quot;</span><span class="p">,</span>
+  <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;red&quot;</span><span class="p">,</span><span class="s2">&quot;green&quot;</span><span class="p">,</span><span class="s2">&quot;blue&quot;</span><span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <h3 id="append-values-to-an-array">Append values to an array</h3>
 <p><em>Append a single value</em></p>
-<pre class="codehilite"><code class="language-lua">coll:update(&lt;queryOrId&gt;, {
-  [&quot;$push&quot;] = {
-    colors = &quot;yellow&quot;
-  }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$push&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="s2">&quot;yellow&quot;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Append multiple values</em></p>
-<pre class="codehilite"><code class="language-lua">coll:update(&lt;queryOrId&gt;, {
-  [&quot;$push&quot;] = {
-    colors = { [&quot;$each&quot;] = { &quot;brown&quot;, &quot;purple&quot; } }
-  }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$push&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span> <span class="p">[</span><span class="s2">&quot;$each&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;brown&quot;</span><span class="p">,</span> <span class="s2">&quot;purple&quot;</span> <span class="p">}</span> <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <h3 id="remove-array-values">Remove array values</h3>
 <p><em>Remove first element</em></p>
-<pre class="codehilite"><code class="language-lua">coll:update(&lt;queryOrId&gt;, {
-  [&quot;$pop&quot;] = {
-    colors = -1
-  }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$pop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <p><em>Remove last element</em></p>
-<pre class="codehilite"><code class="language-lua">coll:update(&lt;queryOrId&gt;, {
-  [&quot;$pop&quot;] = {
-    colors = 1
-  }
-})</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">coll</span><span class="p">:</span><span class="n">update</span><span class="p">(</span><span class="o">&lt;</span><span class="n">queryOrId</span><span class="o">&gt;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="p">[</span><span class="s2">&quot;$pop&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">colors</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <hr />
@@ -1370,52 +1697,85 @@ end</code></pre>
 <li><a href="https://studio3t.com/download/">Studio 3T</a></li>
 </ul>
 <p>To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
+                
+                  
+                
               
-            </div>
+              
+                
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../mysql/" class="btn btn-neutral float-right" title="MySQL">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../files/" class="btn btn-neutral" title="Files"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../files/" title="Files" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Files
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../mysql/" title="MySQL" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                MySQL
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-      <p>&copy;2017 C. Byerley - develephant.com</p>
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
-        </div>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy;2017 C. Byerley - develephant.com
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
       </div>
-
-    </section>
-    
+      
+        
+      
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+</footer>
       
+    </div>
+    
+      <script src="../../assets/javascripts/application-0b7df094bf.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
       
-        <span><a href="../files/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+    
+    
       
-      
-        <span style="margin-left: 15px"><a href="../mysql/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script src="../../js/theme.js"></script>
-
-</body>
+    
+  </body>
 </html>

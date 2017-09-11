@@ -1,271 +1,772 @@
+
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Network - Coronium Core</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
-
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/highlight.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Network";
-    var mkdocs_page_input_path = "server-modules/network.md";
-    var mkdocs_page_url = "/server-modules/network/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js"></script>
-  <script src="../../js/modernizr-2.8.3.min.js"></script>
-  <script type="text/javascript" src="../../js/highlight.pack.js"></script> 
-  
-</head>
-
-<body class="wy-body-for-nav" role="document">
-
-  <div class="wy-grid-for-nav">
-
+<html class="no-js">
+  <head>
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> Coronium Core</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
-  </form>
-</div>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-modules/network/">
+      
+      
+      
+        <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.5.4">
+    
+    
+      
+        <title>Network - Coronium Core</title>
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr-56ade86843.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application-b1a1975878.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body>
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <a href="https://develephant.github.io/coronium-core-docs" title="Coronium Core" class="md-icon md-icon--home md-header-nav__button">
+          </a>
+        
       </div>
-
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
           
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Introduction</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Server Install</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../server-install/digitalocean/">DigitalOcean</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../server-install/ec2/">Amazon EC2</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../server-install/postinstall/">Post Install</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../server-guide/">Server Guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Server Modules</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../api/">API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../data/">Data</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../files/">Files</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../mongo/">Mongo</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../mysql/">MySQL</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Network</a>
-    <ul class="subnav">
             
-    <li class="toctree-l3"><a href="#overview">Overview</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#new">new</a></li>
-        
-            <li><a class="toctree-l4" href="#host">host</a></li>
-        
-            <li><a class="toctree-l4" href="#port">port</a></li>
-        
-            <li><a class="toctree-l4" href="#path">path</a></li>
-        
-            <li><a class="toctree-l4" href="#header">header</a></li>
-        
-            <li><a class="toctree-l4" href="#headers">headers</a></li>
-        
-            <li><a class="toctree-l4" href="#method">method</a></li>
-        
-            <li><a class="toctree-l4" href="#timeout">timeout</a></li>
-        
-            <li><a class="toctree-l4" href="#ssl_verify">ssl_verify</a></li>
-        
-            <li><a class="toctree-l4" href="#body">body</a></li>
-        
-            <li><a class="toctree-l4" href="#result">result</a></li>
-        
-        </ul>
-    
-
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../utils/">Utils</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../client-setup/">Client Setup</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../client-guide/">Client Guide</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Client Module</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../client-module/api/">API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/core/">Core</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/data/">Data</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/email/">Email</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/files/">Files</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../client-module/mysql/">MySQL</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Pages Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/api/">Pages API</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/usage/">Usage</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/templates/">Templates</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../pages-guide/config/">Configuration</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../ssl/">HTTPS / SSL</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../../about/">About</a>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">Coronium Core</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-        
-          <li>Server Modules &raquo;</li>
-        
-      
-    
-    <li>Network</li>
-    <li class="wy-breadcrumbs-aside">
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
               
+                <span class="md-header-nav__parent">
+                  Server Modules
+                </span>
+              
+            
+            Network
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search">
+  <div class="md-search__overlay"></div>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" accesskey="s" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">close</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <div class="md-header-nav__source">
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    
+      <i class="md-icon md-icon--home md-nav__button"></i>
+    
+    Coronium Core
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      Server Install
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Server Install
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/digitalocean/" title="DigitalOcean" class="md-nav__link">
+      DigitalOcean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/ec2/" title="Amazon EC2" class="md-nav__link">
+      Amazon EC2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server-install/postinstall/" title="Post Install" class="md-nav__link">
+      Post Install
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../server-guide/" title="Server Guide" class="md-nav__link">
+      Server Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      Server Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        Server Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mongo/" title="Mongo" class="md-nav__link">
+      Mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Network
+      </label>
+    
+    <a href="./" title="Network" class="md-nav__link md-nav__link--active">
+      Network
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new" title="new" class="md-nav__link">
+    new
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host" title="host" class="md-nav__link">
+    host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port" title="port" class="md-nav__link">
+    port
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path" title="path" class="md-nav__link">
+    path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#header" title="header" class="md-nav__link">
+    header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" title="headers" class="md-nav__link">
+    headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method" title="method" class="md-nav__link">
+    method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeout" title="timeout" class="md-nav__link">
+    timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl_verify" title="ssl_verify" class="md-nav__link">
+    ssl_verify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" title="body" class="md-nav__link">
+    body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result" title="result" class="md-nav__link">
+    result
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../utils/" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../client-guide/" title="Client Guide" class="md-nav__link">
+      Client Guide
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+    <label class="md-nav__link" for="nav-6">
+      Client Module
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        Client Module
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../client-module/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
+      Pages Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        Pages Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages-guide/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../ssl/" title="HTTPS / SSL" class="md-nav__link">
+      HTTPS / SSL
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#new" title="new" class="md-nav__link">
+    new
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#host" title="host" class="md-nav__link">
+    host
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#port" title="port" class="md-nav__link">
+    port
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#path" title="path" class="md-nav__link">
+    path
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#header" title="header" class="md-nav__link">
+    header
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#headers" title="headers" class="md-nav__link">
+    headers
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#method" title="method" class="md-nav__link">
+    method
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#timeout" title="timeout" class="md-nav__link">
+    timeout
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ssl_verify" title="ssl_verify" class="md-nav__link">
+    ssl_verify
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#body" title="body" class="md-nav__link">
+    body
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#result" title="result" class="md-nav__link">
+    result
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
                 <h1 id="overview">Overview</h1>
 <p>Make external HTTP network requests and retrieve the results.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local request = cloud.network.new('google.com') --host only, no path
-request:path('/end/point')
-request:method(cloud.POST)
-request:body(&lt;JSON CONTENT&gt;)
-request:headers({
-  ['Content-Type'] = 'application/json',
-  -- add more headers
-})
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;google.com&#39;</span><span class="p">)</span> <span class="c1">--host only, no path</span>
+<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/end/point&#39;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="n">JSON</span> <span class="n">CONTENT</span><span class="o">&gt;</span><span class="p">)</span>
+<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
+  <span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="c1">-- add more headers</span>
+<span class="p">})</span>
 
-local result, err = request:result()</code></pre>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
@@ -274,20 +775,22 @@ local result, err = request:result()</code></pre>
 <p>All of the network methods, except for <strong>new</strong> and <strong>request</strong> are getters and setters.</p>
 </div>
 <p><strong>Using getters and setters</strong></p>
-<pre class="codehilite"><code class="language-lua">-- To get a value, omit any arguments
-local host = request:host()
+<div class="codehilite"><pre><span></span><span class="c1">-- To get a value, omit any arguments</span>
+<span class="kd">local</span> <span class="n">host</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">()</span>
 
--- To set a an option
-request:host('12.12.12.12')
+<span class="c1">-- To set a an option</span>
+<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">)</span>
 
--- Chain options
-request:host('12.12.12.12'):port(8080)
-local result, err = request:result()</code></pre>
+<span class="c1">-- Chain options</span>
+<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">):</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
 
 
 <hr />
 <h2 id="new">new</h2>
-<pre class="codehilite"><code class="language-lua">core.network.new( [host][, port] )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="p">[</span><span class="n">host</span><span class="p">][,</span> <span class="n">port</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -322,12 +825,14 @@ local result, err = request:result()</code></pre>
 <p><strong>Returns</strong></p>
 <p>A new request connection object.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local request = core.network.new('123.123.123.123', 8080)</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;123.123.123.123&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="host">host</h2>
-<pre class="codehilite"><code class="language-lua">request:host( hostname )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span> <span class="n">hostname</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -352,15 +857,17 @@ local result, err = request:result()</code></pre>
 <p><strong>Returns</strong></p>
 <p>The hostname if no value is passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local hostname = request:hostname()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">hostname</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">()</span>
 
---set
-request:hostname('13.13.13.13')</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">(</span><span class="s1">&#39;13.13.13.13&#39;</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="port">port</h2>
-<pre class="codehilite"><code class="language-lua">request:port( port )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span> <span class="n">port</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -387,15 +894,17 @@ request:hostname('13.13.13.13')</code></pre>
 <p><strong>Returns</strong></p>
 <p>The port if no value is passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local port = request:port()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">port</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">()</span>
 
---set
-request:port(8080)</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="path">path</h2>
-<pre class="codehilite"><code class="language-lua">request:path( path )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span> <span class="n">path</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -420,15 +929,17 @@ request:port(8080)</code></pre>
 <p><strong>Returns</strong></p>
 <p>The path if no value is passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local path = request:path()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">()</span>
 
---set
-request:path('/echo/test')</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/echo/test&#39;</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="header">header</h2>
-<pre class="codehilite"><code class="language-lua">request:header( name, value )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -459,15 +970,17 @@ request:path('/echo/test')</code></pre>
 <p><strong>Returns</strong></p>
 <p>The header value if only the name key is passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local header = request:header('Content-Type')
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">)</span>
 
---set
-request:header('Content-Type','application/json')</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="headers">headers</h2>
-<pre class="codehilite"><code class="language-lua">request:headers( headers )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">(</span> <span class="n">headers</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -492,13 +1005,14 @@ request:header('Content-Type','application/json')</code></pre>
 <p><strong>Returns</strong></p>
 <p>All headers if no arguments are passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local header = request:headers()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">()</span>
 
---set
-request:headers({
-  'Content-Type' = 'application/json',
-  'Host' = '12.12.12.12.'
-})</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
+  <span class="s1">&#39;Content-Type&#39;</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;Host&#39;</span> <span class="o">=</span> <span class="s1">&#39;12.12.12.12.&#39;</span>
+<span class="p">})</span>
+</pre></div>
 
 
 <div class="admonition warning">
@@ -507,7 +1021,8 @@ request:headers({
 </div>
 <hr />
 <h2 id="method">method</h2>
-<pre class="codehilite"><code class="language-lua">request:method( method )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -532,10 +1047,11 @@ request:headers({
 <p><strong>Returns</strong></p>
 <p>The HTTP method name if no arguments are passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local method = request:method()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">()</span>
 
---set
-request:method(cloud.GET)</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">GET</span><span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Method Constants</strong></p>
@@ -567,7 +1083,8 @@ request:method(cloud.GET)</code></pre>
 </table>
 <hr />
 <h2 id="timeout">timeout</h2>
-<pre class="codehilite"><code class="language-lua">request:timeout( timeout )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -594,15 +1111,17 @@ request:method(cloud.GET)</code></pre>
 <p><strong>Returns</strong></p>
 <p>The timeout setting if no arguments are passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local timeout = request:timeout()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">()</span>
 
---set
-request:timeout(30)</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="ssl_verify">ssl_verify</h2>
-<pre class="codehilite"><code class="language-lua">request:ssl_verify( verify_flag )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span> <span class="n">verify_flag</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -629,15 +1148,17 @@ request:timeout(30)</code></pre>
 <p><strong>Returns</strong></p>
 <p>The ssl_verify value, if no arguments are passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local ssl_verify = request:ssl_verify()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ssl_verify</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">()</span>
 
---set
-request:ssl_verify(true)</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="body">body</h2>
-<pre class="codehilite"><code class="language-lua">request:body( body_data )</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span> <span class="n">body_data</span> <span class="p">)</span>
+</pre></div>
 
 
 <p><strong>Parameters</strong></p>
@@ -662,68 +1183,104 @@ request:ssl_verify(true)</code></pre>
 <p><strong>Returns</strong></p>
 <p>The body data value, if no arguments are passed.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local body_data = request:body()
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body_data</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">()</span>
 
---set
-request:body(&quot;Here is some body data&quot;)</code></pre>
+<span class="c1">--set</span>
+<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="s2">&quot;Here is some body data&quot;</span><span class="p">)</span>
+</pre></div>
 
 
 <hr />
 <h2 id="result">result</h2>
 <p>Compiles the options and makes the network request. Must be the last method called on a network request object.</p>
-<pre class="codehilite"><code class="language-lua">request:result()</code></pre>
+<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
 
 
 <p><strong>Returns</strong></p>
 <p>The <strong>result</strong> if successful, otherwise <strong>nil</strong> and <strong>error</strong> message.</p>
 <p><strong>Example</strong></p>
-<pre class="codehilite"><code class="language-lua">local result, err = request:result()</code></pre>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+</pre></div>
+                
+                  
+                
               
-            </div>
+              
+                
+              
+            </article>
           </div>
-          <footer>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../utils/" class="btn btn-neutral float-right" title="Utils">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../mysql/" class="btn btn-neutral" title="MySQL"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../mysql/" title="MySQL" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                MySQL
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../utils/" title="Utils" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Utils
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
     </div>
   
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
-    
-      <p>&copy;2017 C. Byerley - develephant.com</p>
-    
-  </div>
-
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-	  
-        </div>
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy;2017 C. Byerley - develephant.com
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
       </div>
-
-    </section>
-    
+      
+        
+      
+    </div>
   </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
+</footer>
       
+    </div>
+    
+      <script src="../../assets/javascripts/application-0b7df094bf.js"></script>
+      <script>app.initialize({url:{base:"../.."}})</script>
       
-        <span><a href="../mysql/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+    
+    
       
-      
-        <span style="margin-left: 15px"><a href="../utils/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
-</div>
-    <script src="../../js/theme.js"></script>
-
-</body>
+    
+  </body>
 </html>
