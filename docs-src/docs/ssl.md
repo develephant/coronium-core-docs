@@ -34,7 +34,7 @@ You will need to point your domain to the DigitalOcean nameservers. The process 
 
 _Instructions for setting nameservers on GoDaddy can be found [here](https://www.godaddy.com/help/set-custom-nameservers-for-domains-registered-with-godaddy-12317)._
 
-!!! important
+!!! warning "Important"
     __Spin up a Coronium Core droplet as outlined in the [DigitalOcean Installation](/server-install/digitalocean/) section before continuing.__
 
 1\. In the DigitalOcean control panel, click the __Networking__ link at the top:

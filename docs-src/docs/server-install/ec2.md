@@ -42,6 +42,20 @@ _Replace __<your-instance-ip\>__ with the address that was assigned to your inst
 
 Once you are connected to the droplet, copy and paste the following line into the terminal:
 
-`curl -LO https://s3.amazonaws.com/coronium-core/ami.sh && sudo bash ./ami.sh`
+`wget https://s3.amazonaws.com/coronium-core/ec2/up.sh && sudo bash up.sh`
 
-Once the installation is complete, continue on to the __[Post Install](/server-install/postinstall/)__ section.
+### Database Selection
+
+At the start of the installation you will be prompted to choose the databases to install with your __Coronium Core__ server. You can select both __MySQL__ and __Mongo__ databases, or if you are only planning on using one kind, then select accordingly.
+
+!!! tip ""
+    You can conserve server memory by using only one database type.
+
+!!! failure "Important"
+    __You must select at least one database type or the installation will fail.__ Choose wisely, you cannot install an additional database after the the selection process has completed.
+
+### Database Passwords
+
+Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.
+
+Once the installation is complete, take a look at the __[Post Install](/server-install/postinstall/)__ section.

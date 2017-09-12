@@ -230,6 +230,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#database-selection" title="Database Selection" class="md-nav__link">
+    Database Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
+    Database Passwords
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -612,6 +626,20 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#database-selection" title="Database Selection" class="md-nav__link">
+    Database Selection
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
+    Database Passwords
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -698,8 +726,19 @@
 
 <p><em>Replace <strong>&lt;your-instance-ip></strong> with the address that was assigned to your instance.</em></p>
 <p>Once you are connected to the droplet, copy and paste the following line into the terminal:</p>
-<p><code>curl -LO https://s3.amazonaws.com/coronium-core/ami.sh &amp;&amp; sudo bash ./ami.sh</code></p>
-<p>Once the installation is complete, continue on to the <strong><a href="../../server-install/postinstall/">Post Install</a></strong> section.</p>
+<p><code>wget https://s3.amazonaws.com/coronium-core/ec2/up.sh &amp;&amp; sudo bash up.sh</code></p>
+<h3 id="database-selection">Database Selection</h3>
+<p>At the start of the installation you will be prompted to choose the databases to install with your <strong>Coronium Core</strong> server. You can select both <strong>MySQL</strong> and <strong>Mongo</strong> databases, or if you are only planning on using one kind, then select accordingly.</p>
+<div class="admonition tip">
+<p>You can conserve server memory by using only one database type.</p>
+</div>
+<div class="admonition failure">
+<p class="admonition-title">Important</p>
+<p><strong>You must select at least one database type or the installation will fail.</strong> Choose wisely, you cannot install an additional database after the the selection process has completed.</p>
+</div>
+<h3 id="database-passwords">Database Passwords</h3>
+<p>Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.</p>
+<p>Once the installation is complete, take a look at the <strong><a href="../../server-install/postinstall/">Post Install</a></strong> section.</p>
                 
                   
                 
