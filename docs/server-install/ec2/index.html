@@ -231,8 +231,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-selection" title="Database Selection" class="md-nav__link">
-    Database Selection
+  <a href="#mongo-database" title="Mongo Database" class="md-nav__link">
+    Mongo Database
   </a>
   
 </li>
@@ -639,8 +639,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#database-selection" title="Database Selection" class="md-nav__link">
-    Database Selection
+  <a href="#mongo-database" title="Mongo Database" class="md-nav__link">
+    Mongo Database
   </a>
   
 </li>
@@ -742,14 +742,11 @@
 </pre></div>
 
 
-<h3 id="database-selection">Database Selection</h3>
-<p>At the start of the installation you will be prompted to choose the databases to install with your <strong>Coronium Core</strong> server. You can select both <strong>MySQL</strong> and <strong>Mongo</strong> databases, or if you are only planning on using one kind, then select accordingly.</p>
-<div class="admonition tip">
-<p>You can conserve server memory by using only one database type.</p>
-</div>
+<h3 id="mongo-database">Mongo Database</h3>
+<p>At the start of the installation you will be prompted to choose whether to install the <strong>Mongo</strong> database. The <strong>MySQL</strong> database is a mandatory installation.</p>
 <div class="admonition failure">
 <p class="admonition-title">Important</p>
-<p><strong>You must select at least one database type or the installation will fail.</strong> Choose wisely, you cannot install an additional database after the the selection process has completed.</p>
+<p>If you choose to skip the Mongo installation, you will not be able to use the <strong><a href="../../server-modules/data/">Data</a></strong> or <strong><a href="../../server-modules/mongo/">Mongo</a></strong> modules. <strong><em>Choose wisely, as you cannot install Mongo once the server is running</em></strong>.</p>
 </div>
 <h3 id="database-passwords">Database Passwords</h3>
 <p>Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.</p>

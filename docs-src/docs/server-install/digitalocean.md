@@ -61,15 +61,12 @@ Once you are connected to the droplet, copy and paste the following line into th
 wget https://s3.amazonaws.com/coronium-core/do/up.sh && sudo bash up.sh
 ```
 
-### Database Selection
+### Mongo Database
 
-At the start of the installation you will be prompted to choose the databases to install with your __Coronium Core__ server. You can select both __MySQL__ and __Mongo__ databases, or if you are only planning on using one kind, then select accordingly.
-
-!!! tip ""
-    You can conserve server memory by using only one database type.
+At the start of the installation you will be prompted to choose whether to install the __Mongo__ database. The __MySQL__ database is a mandatory installation.
 
 !!! failure "Important"
-    __You must select at least one database type or the installation will fail.__ Choose wisely, you cannot install an additional database after the the selection process has completed.
+    If you choose to skip the Mongo installation, you will not be able to use the __[Data](/server-modules/data/)__ or __[Mongo](/server-modules/mongo/)__ modules. ___Choose wisely, as you cannot install Mongo once the server is running___.
 
 ### Database Passwords
 
