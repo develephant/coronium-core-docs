@@ -46,3 +46,4 @@ __Coronium Core__ wouldn't be possible without these great projects.
 - MySQL
 - LuaJIT
 - LuaRocks
+- Chef
