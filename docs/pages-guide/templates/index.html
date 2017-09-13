@@ -672,7 +672,7 @@
 
 <p><strong>Example Lua</strong></p>
 <p><em>Stored in /home/coronium/pages/users/show.lua</em></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> 
 <span class="p">{</span>
@@ -747,7 +747,7 @@
 
 
 <p><strong>Example Lua</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">data</span> <span class="o">=</span>
 <span class="p">{</span>
@@ -786,7 +786,7 @@
 <p>To check for an asynchrous request, you can use the <strong>isAjax</strong> property of the pages object instance, and output the data in the required format.</p>
 <p><strong>Example Lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="c1">-- cats.lua</span>
-<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">()</span>
+<span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
 <span class="kd">local</span> <span class="n">cats</span> <span class="o">=</span>
 <span class="p">{</span>

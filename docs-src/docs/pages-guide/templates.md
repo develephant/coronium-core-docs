@@ -22,7 +22,7 @@ __Example Lua__
 _Stored in /home/coronium/pages/users/show.lua_
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local data = 
 {
@@ -109,7 +109,7 @@ __Example Template__
 __Example Lua__
 
 ```lua
-local page = core.pages()
+local page = core.pages.new()
 
 local data =
 {
@@ -152,7 +152,7 @@ __Example Lua__
 
 ```lua
 -- cats.lua
-local page = core.pages()
+local page = core.pages.new()
 
 local cats =
 {
