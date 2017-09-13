@@ -1,3 +1,5 @@
+![logo-sm](imgs/logo128.png)
+
 Code and documentation ©2017 C. Byerley ( [develephant](http://develephant.com) )
 
 ## Support
