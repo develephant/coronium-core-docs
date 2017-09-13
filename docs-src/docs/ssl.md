@@ -86,7 +86,9 @@ If you have not changed the password yet, the default is __cloudadmin__. You may
 !!! warning
     At this point make sure you're ready to move over to HTTPS. The following process will permanently modify your configuration settings.
 
-`curl -LO https://s3.amazonaws.com/coronium-core/ssl.sh && sudo bash ./ssl.sh`
+```
+wget https://s3.amazonaws.com/coronium-core/ssl.sh && sudo bash ./ssl.sh
+```
 
 The script will install the needed components, and update the configuration files. 
 

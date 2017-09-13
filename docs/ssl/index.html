@@ -727,7 +727,10 @@
 <p class="admonition-title">Warning</p>
 <p>At this point make sure you're ready to move over to HTTPS. The following process will permanently modify your configuration settings.</p>
 </div>
-<p><code>curl -LO https://s3.amazonaws.com/coronium-core/ssl.sh &amp;&amp; sudo bash ./ssl.sh</code></p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core/ssl.sh &amp;&amp; sudo bash ./ssl.sh
+</pre></div>
+
+
 <p>The script will install the needed components, and update the configuration files. </p>
 <p>You will then be propted for the <em>hostname</em>, a <em>fully qualified domain name</em>, and a valid <em>email</em>. These items are required to request a certificate from Let's Encrypt.</p>
 <p>As stated earlier, you should have created a 3rd level domain, for example: <strong>coronium.&lt;domain>.com</strong>. Using the example, when entering the requested information, it might look like:</p>
