@@ -1,5 +1,6 @@
 ![logo-sm](imgs/logo128.png)
 
+<h3>Coronium Core</h3>
 Code and documentation ©2017 C. Byerley ( [develephant](http://develephant.com) )
 
 ## Support
