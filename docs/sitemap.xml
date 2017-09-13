@@ -171,6 +171,14 @@
 
     
     <url>
+     <loc>https://develephant.github.io/coronium-core-docs/demo/</loc>
+     <lastmod>2017-09-12</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>https://develephant.github.io/coronium-core-docs/about/</loc>
      <lastmod>2017-09-12</lastmod>
      <changefreq>daily</changefreq>

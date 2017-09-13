@@ -28,6 +28,7 @@ pages:
     - 'Templates': 'pages-guide/templates.md'
     - 'Configuration': 'pages-guide/config.md'
   - 'HTTPS / SSL': 'ssl.md'
+  - 'Demo Project': 'demo.md'
   - 'About': 'about.md'
 copyright: "&copy;2017 C. Byerley ( develephant )"
 theme: material
