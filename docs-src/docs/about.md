@@ -50,6 +50,6 @@ __Coronium Core__ wouldn't be possible without these great projects.
 - LuaRocks
 - Chef
 
-_And most importantly, my wife, daughter, Izzy & Supples (my pet ratties), the Corona community, and coffee._
+_And most importantly; my Wife, Daughter, Izzy & Supples (my pet ratties), the Corona community, and coffee._
 
 ![dev](imgs/sm-dev.png)
