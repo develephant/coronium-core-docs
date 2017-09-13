@@ -1,4 +1,4 @@
-![logo](imgs/logo256.png)
+# ![logo](imgs/logo256.png)
 
 <h3>The ultimate cloud sidekick for your Corona apps and games.</h3>
 
