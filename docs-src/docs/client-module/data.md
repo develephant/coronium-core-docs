@@ -65,7 +65,7 @@ __Data Params__
 
 __Event Response__
 
-On success, the __result__ will contain the __string__ id of the newly created object.
+On success, the __result__ will contain the __id__ of the newly created object as a __string__.
 
 __Example__
 
