@@ -65,11 +65,7 @@ __Data Params__
 
 __Event Response__
 
-On success, the __result__ will contain the following keys:
-
-|Name|Description|Type|
-|----|-----------|----|
-|id|The data object id.|_String_|
+On success, the __result__ will contain the __string__ id of the newly created object.
 
 __Example__
 
@@ -90,7 +86,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result.id) --the object id
+    print(evt.result) --the object id
   end
 end
 

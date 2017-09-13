@@ -837,23 +837,7 @@
 </tbody>
 </table>
 <p><strong>Event Response</strong></p>
-<p>On success, the <strong>result</strong> will contain the following keys:</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>The data object id.</td>
-<td><em>String</em></td>
-</tr>
-</tbody>
-</table>
+<p>On success, the <strong>result</strong> will contain the <strong>string</strong> id of the newly created object.</p>
 <p><strong>Example</strong></p>
 <p><em>Saving a new data object</em></p>
 <div class="admonition warning">
@@ -871,7 +855,7 @@
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">id</span><span class="p">)</span> <span class="c1">--the object id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span> <span class="c1">--the object id</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
