@@ -29,7 +29,7 @@ pages:
     - 'Configuration': 'pages-guide/config.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'About': 'about.md'
-copyright: "&copy;2017 C. Byerley"
+copyright: "&copy;2017 C. Byerley ( develephant )"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'
