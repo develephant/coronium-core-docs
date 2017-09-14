@@ -2,6 +2,8 @@ Provides a client-side api to the server-side __[Data](/server-modules/data)__ m
 
 ### get
 
+Get a data object from the Mongo database.
+
 ```lua
 core.data.get(data_params, listener)
 ```
@@ -43,6 +45,8 @@ core.data.get({source="users", query="id1234"}, apiListener)
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
 ### save
+
+Create a new, or update an existing, data object and save it in the Mongo database.
 
 ```lua
 core.data.save(data_params, listener)
@@ -115,6 +119,8 @@ core.data.save({source="users", data=obj}, apiListener)
 
 ### delete
 
+Delete a data object from the Mongo database.
+
 ```lua
 core.data.delete(data_params, listener)
 ```
@@ -161,6 +167,8 @@ core.data.delete({source="users", id="id1234"}, apiListener)
 ## Pagination
 
 ### getPage
+
+Get multiple data objects from the Mongo database based on a specific criteria.
 
 ```lua
 core.data.getPage(data_params, listener)

@@ -179,3 +179,25 @@ local code = core.countryCode()
 
 -- `code` will contain something like "US" or "EU"
 ```
+
+### callApi
+
+Call a method on a custom api endpoint built using the __[core.api](/server-modules/api/#coreapi)__. This method allows you to call other project api methods from within a different project api.
+
+```lua
+core.callApi(project, action, data_params)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|project|The name of the api project.|_String_|__Y__|
+|action|The name of the api method to call.|_String_|__Y__|
+|data_params|Values to pass to the api method.|_Table_|__Y__|
+
+__Example__
+
+```lua
+local result, err = core.callApi("default", "test", {greet="Hello!"})
+```

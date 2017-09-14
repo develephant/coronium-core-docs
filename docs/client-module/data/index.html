@@ -697,6 +697,7 @@
                 
                 <p>Provides a client-side api to the server-side <strong><a href="../../server-modules/data">Data</a></strong> module. The <strong>data</strong> module is a simple interface to the Mongo database. For more complex data handling, you must provide an <strong><a href="../../server-modules/api/">api</a></strong> on the server-side.</p>
 <h3 id="get">get</h3>
+<p>Get a data object from the Mongo database.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -776,6 +777,7 @@
 <p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
 </div>
 <h3 id="save">save</h3>
+<p>Create a new, or update an existing, data object and save it in the Mongo database.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">save</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -884,6 +886,7 @@
 <p>Do not change the <strong>_id</strong> key in the object you wish to update.</p>
 </div>
 <h3 id="delete">delete</h3>
+<p>Delete a data object from the Mongo database.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -968,6 +971,7 @@
 </div>
 <h2 id="pagination">Pagination</h2>
 <h3 id="getpage">getPage</h3>
+<p>Get multiple data objects from the Mongo database based on a specific criteria.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">.</span><span class="n">getPage</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 

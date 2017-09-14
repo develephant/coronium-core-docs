@@ -17,15 +17,23 @@ This method has no required parameters.
 
 __Properties__
 
-A __pages__ object instance contains the [response](#response-resp) and [template](#template-tpl) methods below, as well as, the following properties.
+A __pages__ object instance may contain the following properties.
 
 |Name|Description|Type|
 |----|-----------|----|
+|hasQuery|If the request contains a query string.|_Boolean_|
+|hasForm|If the request body is a form.|_Boolean_|
+|hasBody|If the request contains body data.|_Boolean_|
+|isGet|If the request is of type "GET".|_Boolean_|
+|isPost|If the request is of type "POST".|_Boolean_|
+|isAjax|If the request is an ajax style request.|_Boolean_|
+|query|The request query string as key/value pairs.|_Table_|
+|form|Contains the form data as key/value pairs.|_Table_|
+|body|If not a form, will contain string body, if any.|_String_|
 |method|The request method. Will be "GET" or "POST".|_String_|
 |headers|The request headers as key/value pairs.|_Table_|
-|query|The request query string as key/value pairs.|_Table_|
-|form|If posted, will contain form key/value pairs.|_Table_|
-|isAjax|If the request is an ajax style request.|_Boolean_|
+|path|The uri request path.|_String_|
+
 
 __Constants__
 
@@ -45,25 +53,13 @@ __Example__
 local page = core.pages.new()
 ```
 
-_Raw Request Post Body_
-
-In the rare case that you need access to the raw request body, pass __true__ to the __core.pages__ method. The body is then available on the __body__ property of the pages object instance. Beware that this does take up additional memory per request, and should only be used if you specifically need it.
-
-```lua
-local page = core.pages.new(true)
-local raw_body = page.body
-```
-
-### response | resp
+### response
 
 Sends the configured response back to the client browser. 
 
 ```lua
 <page-object>.response(body[, headers][, content][, status])
 ```
-
-!!! warning "Important"
-    __This should be the last method in your page file.__
 
 __Parameters__
 
@@ -83,7 +79,7 @@ page.response("Hello There")
 !!! info ""
     For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
-### template | tpl
+### template
 
 Compiles a template file with the supplied values. Returns __string__ body, or nil and error.
 
@@ -106,3 +102,49 @@ local body = page.template("greeting.tpl", {greet="Hello!"})
 
 !!! info ""
     For detailed template usage information see the __[Templates](/pages-guide/templates/)__ section.
+
+### redirect
+
+Redirect the client browser to a different location.
+
+```lua
+<page-object>.redirect(uri[, isPerm])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|uri|The address to redirect the client browser to.|_String_|__Y__|
+|isPerm|Whether this is a premanent redirect. Default: __false__|_Boolean_|__N__|
+
+!!! tip ""
+    The uri can be a remote address, for example: _https://google.com_
+
+__Example__
+
+```lua
+page.redirect("/anotherpage")
+```
+
+### callApi
+
+Call a method on a project api endpoint that was built using the __[core.api](/server-modules/api/#coreapi)__.
+
+```lua
+<page-object>.callApi(project, action, data_params)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|project|The name of the api project.|_String_|__Y__|
+|action|The name of the api method to call.|_String_|__Y__|
+|data_params|Values to pass to the api method.|_Table_|__Y__|
+
+__Example__
+
+```lua
+local result, err = page.callApi("default", "test", {greet="Hello!"})
+```

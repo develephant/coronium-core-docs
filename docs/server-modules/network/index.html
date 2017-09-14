@@ -337,79 +337,64 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#new" title="new" class="md-nav__link">
-    new
+  <a href="#request" title="request" class="md-nav__link">
+    request
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#host" title="host" class="md-nav__link">
-    host
+  <a href="#get" title="get" class="md-nav__link">
+    get
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#port" title="port" class="md-nav__link">
-    port
+  <a href="#post" title="post" class="md-nav__link">
+    post
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#path" title="path" class="md-nav__link">
-    path
+  <a href="#getjson" title="getJson" class="md-nav__link">
+    getJson
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#header" title="header" class="md-nav__link">
-    header
+  <a href="#postjson" title="postJson" class="md-nav__link">
+    postJson
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#headers" title="headers" class="md-nav__link">
-    headers
+  <a href="#encode" title="encode" class="md-nav__link">
+    encode
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-example" title="Form Example" class="md-nav__link">
+    Form Example
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#method" title="method" class="md-nav__link">
-    method
+        
+          <li class="md-nav__item">
+  <a href="#query-example" title="Query Example" class="md-nav__link">
+    Query Example
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#timeout" title="timeout" class="md-nav__link">
-    timeout
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssl_verify" title="ssl_verify" class="md-nav__link">
-    ssl_verify
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#body" title="body" class="md-nav__link">
-    body
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#result" title="result" class="md-nav__link">
-    result
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -674,79 +659,64 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#new" title="new" class="md-nav__link">
-    new
+  <a href="#request" title="request" class="md-nav__link">
+    request
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#host" title="host" class="md-nav__link">
-    host
+  <a href="#get" title="get" class="md-nav__link">
+    get
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#port" title="port" class="md-nav__link">
-    port
+  <a href="#post" title="post" class="md-nav__link">
+    post
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#path" title="path" class="md-nav__link">
-    path
+  <a href="#getjson" title="getJson" class="md-nav__link">
+    getJson
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#header" title="header" class="md-nav__link">
-    header
+  <a href="#postjson" title="postJson" class="md-nav__link">
+    postJson
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#headers" title="headers" class="md-nav__link">
-    headers
+  <a href="#encode" title="encode" class="md-nav__link">
+    encode
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#form-example" title="Form Example" class="md-nav__link">
+    Form Example
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#method" title="method" class="md-nav__link">
-    method
+        
+          <li class="md-nav__item">
+  <a href="#query-example" title="Query Example" class="md-nav__link">
+    Query Example
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#timeout" title="timeout" class="md-nav__link">
-    timeout
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#ssl_verify" title="ssl_verify" class="md-nav__link">
-    ssl_verify
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#body" title="body" class="md-nav__link">
-    body
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#result" title="result" class="md-nav__link">
-    result
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -768,80 +738,9 @@
                   <h1>Network</h1>
                 
                 <p>Make external HTTP network requests and retrieve the results.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">cloud</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;google.com&#39;</span><span class="p">)</span> <span class="c1">--host only, no path</span>
-<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/end/point&#39;</span><span class="p">)</span>
-<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">POST</span><span class="p">)</span>
-<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="o">&lt;</span><span class="n">JSON</span> <span class="n">CONTENT</span><span class="o">&gt;</span><span class="p">)</span>
-<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
-  <span class="p">[</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-  <span class="c1">-- add more headers</span>
-<span class="p">})</span>
-
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
-</pre></div>
-
-
-<div class="admonition note">
-<p class="admonition-title">Special Note</p>
-<p>All of the network methods, except for <strong>new</strong> and <strong>request</strong> are getters and setters.</p>
-</div>
-<p><strong>Using getters and setters</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">-- To get a value, omit any arguments</span>
-<span class="kd">local</span> <span class="n">host</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">()</span>
-
-<span class="c1">-- To set a an option</span>
-<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">)</span>
-
-<span class="c1">-- Chain options</span>
-<span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span><span class="s1">&#39;12.12.12.12&#39;</span><span class="p">):</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
-</pre></div>
-
-
-<h3 id="new">new</h3>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span> <span class="p">[</span><span class="n">host</span><span class="p">][,</span> <span class="n">port</span><span class="p">]</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>host</td>
-<td>The hostname to connect to.</td>
-<td><em>String</em></td>
-<td>'127.0.0.1'</td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>port</td>
-<td>The port number to connect with.</td>
-<td><em>Number</em></td>
-<td>80</td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<p><em>The host and port can be set with the network instance methods as well.</em></p>
-<p><strong>Returns</strong></p>
-<p>A new request connection object.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">request</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="s1">&#39;123.123.123.123&#39;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="host">host</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">host</span><span class="p">(</span> <span class="n">hostname</span> <span class="p">)</span>
+<h3 id="request">request</h3>
+<p>Send a network request. On success, returns a <strong>table</strong> with response keys (see below). Otherwise, <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </pre></div>
 
 
@@ -857,351 +756,341 @@
 </thead>
 <tbody>
 <tr>
-<td>hostname</td>
-<td>The hostname to connect to.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The hostname if no value is passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">hostname</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">hostname</span><span class="p">(</span><span class="s1">&#39;13.13.13.13&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="port">port</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span> <span class="n">port</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>port</td>
-<td>The port to connect to.</td>
-<td><em>Number</em></td>
-<td>80</td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The port if no value is passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">port</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">port</span><span class="p">(</span><span class="mi">8080</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="path">path</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span> <span class="n">path</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>path</td>
-<td>The path to connect to.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The path if no value is passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">path</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">path</span><span class="p">(</span><span class="s1">&#39;/echo/test&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="header">header</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span> <span class="n">name</span><span class="p">,</span> <span class="n">value</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>The header name</td>
+<td>url</td>
+<td>The url endpoint for the network request.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>value</td>
-<td>The header value.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The header value if only the name key is passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">)</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">header</span><span class="p">(</span><span class="s1">&#39;Content-Type&#39;</span><span class="p">,</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="headers">headers</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">(</span> <span class="n">headers</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>headers</td>
-<td>A table of request headers.</td>
+<td>params</td>
+<td>A table of options for the request.</td>
 <td><em>Table</em></td>
-<td><strong>N</strong></td>
+<td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
-<p>All headers if no arguments are passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">header</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">headers</span><span class="p">({</span>
-  <span class="s1">&#39;Content-Type&#39;</span> <span class="o">=</span> <span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;Host&#39;</span> <span class="o">=</span> <span class="s1">&#39;12.12.12.12.&#39;</span>
-<span class="p">})</span>
-</pre></div>
-
-
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>The <strong>headers</strong> method will clear <em>all</em> existing header assigments.</p>
-</div>
-<h3 id="method">method</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span> <span class="n">method</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
+<p><strong>Params Table Keys</strong></p>
 <table>
 <thead>
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Default</th>
+<th>Type</th>
 <th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>method</td>
-<td>A HTTP method. Can use method constants (see below).</td>
-<td><em>core.POST</em></td>
+<td>The HTTP method for the request ("GET", "POST", etc.).</td>
+<td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The HTTP method name if no arguments are passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">method</span><span class="p">(</span><span class="n">cloud</span><span class="p">.</span><span class="n">GET</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Method Constants</strong></p>
-<table>
-<thead>
 <tr>
-<th>Constant</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>core.POST</td>
-<td>POST request method</td>
-</tr>
-<tr>
-<td>core.GET</td>
-<td>GET request method</td>
-</tr>
-<tr>
-<td>core.DELETE</td>
-<td>DELETE request method</td>
-</tr>
-<tr>
-<td>core.UPDATE</td>
-<td>UPDATE request method</td>
-</tr>
-</tbody>
-</table>
-<h3 id="timeout">timeout</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span> <span class="n">timeout</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>timeout</td>
-<td>Timeout in <strong>milliseconds</strong>.</td>
-<td><em>Number</em></td>
-<td>500</td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The timeout setting if no arguments are passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">timeout</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="ssl_verify">ssl_verify</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span> <span class="n">verify_flag</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Default</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>verify_flag</td>
-<td>Enable or disable SSL verification.</td>
-<td><em>Boolean</em></td>
-<td>false</td>
+<td>headers</td>
+<td>A table of headers to send with request.</td>
+<td><em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The ssl_verify value, if no arguments are passed.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ssl_verify</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">()</span>
-
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">ssl_verify</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="body">body</h3>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span> <span class="n">body_data</span> <span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
 <tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>body_data</td>
-<td>Set or retrieve the request body.</td>
+<td>body</td>
+<td>A string body to send with request.</td>
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
+<tr>
+<td>ssl_verify</td>
+<td>Verify SSL cert matches hostname.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
 </tbody>
 </table>
-<p><strong>Returns</strong></p>
-<p>The body data value, if no arguments are passed.</p>
+<p><strong>Response Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body</td>
+<td>The response body returned by the request, if any.</td>
+<td><em>String</em></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>A table of response headers from the request.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>status</td>
+<td>The HTTP response status of the request.</td>
+<td><em>Number</em></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body_data</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="s2">&quot;https://google.com&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+  <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">JSON</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="p">,</span>
+  <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+  <span class="p">}</span>
+<span class="p">})</span>
 
-<span class="c1">--set</span>
-<span class="n">request</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="s2">&quot;Here is some body data&quot;</span><span class="p">)</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
 
 
-<h3 id="result">result</h3>
-<p>Compiles the options and makes the network request. Must be the last method called on a network request object.</p>
-<div class="codehilite"><pre><span></span><span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+<h3 id="get">get</h3>
+<p>Convenience method for a "GET" request. On success, returns response body as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
 </pre></div>
 
 
-<p><strong>Returns</strong></p>
-<p>The <strong>result</strong> if successful, otherwise <strong>nil</strong> and <strong>error</strong> message.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The url endpoint for the "GET" request.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Optional headers to send with the request.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">request</span><span class="p">:</span><span class="n">result</span><span class="p">()</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://google.com&quot;</span><span class="p">)</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="post">post</h3>
+<p>Convenience method for a "POST" request. On success, returns response body as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The url endpoint for the "POST" request.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>body</td>
+<td>A string body to post to the endpoint.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Optional headers to send with the request.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;Here is some text I am posting.&quot;</span>
+
+<span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://post.com/submit&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+</pre></div>
+
+
+<p>See also: <a href="#form-example">Form Example</a></p>
+<h3 id="getjson">getJson</h3>
+<p>Specialized method that sends a "GET" request to an endpoint that responds with JSON. On success, returns the decoded JSON result as a <strong>table</strong>. Otherwise, <strong>nil</strong> and an error.</p>
+<div class="admonition note">
+<p class="admonition-title">Usage Note</p>
+<p>This method returns a Lua table with the decoded JSON response, not the JSON string.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="n">url</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The url endpoint for the network request.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Optional headers to send with the request.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="s2">&quot;https://getjson.com&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">some_key</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="postjson">postJson</h3>
+<p>Specialized method that sends a "POST" request to an endpoint that expects JSON. On success, returns the result as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
+<div class="admonition note">
+<p class="admonition-title">Usage Note</p>
+<p>This method takes a Lua table and JSON-encodes it. Do not pass a raw JSON string.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">postJson</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>The url endpoint for to post the JSON data to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>A Lua table of data to be JSON encoded.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>Optional headers to send with the request.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tim&quot;</span><span class="p">,</span>
+  <span class="n">age</span> <span class="o">=</span> <span class="mi">34</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">postJson</span><span class="p">(</span><span class="s2">&quot;https://postjson.com&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="encode">encode</h3>
+<p>Encode a table for use as post or query arguments.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">encode</span><span class="p">(</span><span class="n">tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tbl</td>
+<td>A table with key/value pairs.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<h4 id="form-example">Form Example</h4>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">form</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">encode</span><span class="p">({</span>
+  <span class="n">firstname</span> <span class="o">=</span> <span class="s2">&quot;Sally&quot;</span><span class="p">,</span>
+  <span class="n">lastname</span> <span class="o">=</span> <span class="s2">&quot;Jones&quot;</span>
+<span class="p">})</span>
+
+<span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;http://post.com/submit&quot;</span><span class="p">,</span> <span class="n">form</span><span class="p">)</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<h4 id="query-example">Query Example</h4>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">args</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">encode</span><span class="p">({</span>
+  <span class="n">page</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">perpage</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="p">})</span>
+
+<span class="kd">local</span> <span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://page.com?&quot;</span><span class="o">..</span><span class="n">args</span>
+
+<span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
+<span class="p">...</span>
 </pre></div>
                 
                   

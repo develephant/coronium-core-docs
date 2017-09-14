@@ -404,6 +404,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#callapi" title="callApi" class="md-nav__link">
+    callApi
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -708,6 +715,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#callapi" title="callApi" class="md-nav__link">
+    callApi
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -942,6 +956,48 @@
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">countryCode</span><span class="p">()</span>
 
 <span class="c1">-- `code` will contain something like &quot;US&quot; or &quot;EU&quot;</span>
+</pre></div>
+
+
+<h3 id="callapi">callApi</h3>
+<p>Call a method on a custom api endpoint built using the <strong><a href="../../server-modules/api/#coreapi">core.api</a></strong>. This method allows you to call other project api methods from within a different project api.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">data_params</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project</td>
+<td>The name of the api project.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>action</td>
+<td>The name of the api method to call.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>data_params</td>
+<td>Values to pass to the api method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
 </pre></div>
                 
                   

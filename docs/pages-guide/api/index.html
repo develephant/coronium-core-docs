@@ -500,15 +500,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response-resp" title="response | resp" class="md-nav__link">
-    response | resp
+  <a href="#response" title="response" class="md-nav__link">
+    response
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-tpl" title="template | tpl" class="md-nav__link">
-    template | tpl
+  <a href="#template" title="template" class="md-nav__link">
+    template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirect" title="redirect" class="md-nav__link">
+    redirect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callapi" title="callApi" class="md-nav__link">
+    callApi
   </a>
   
 </li>
@@ -625,15 +639,29 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#response-resp" title="response | resp" class="md-nav__link">
-    response | resp
+  <a href="#response" title="response" class="md-nav__link">
+    response
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-tpl" title="template | tpl" class="md-nav__link">
-    template | tpl
+  <a href="#template" title="template" class="md-nav__link">
+    template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#redirect" title="redirect" class="md-nav__link">
+    redirect
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#callapi" title="callApi" class="md-nav__link">
+    callApi
   </a>
   
 </li>
@@ -669,7 +697,7 @@
 <p><strong>Parameters</strong></p>
 <p>This method has no required parameters.</p>
 <p><strong>Properties</strong></p>
-<p>A <strong>pages</strong> object instance contains the <a href="#response-resp">response</a> and <a href="#template-tpl">template</a> methods below, as well as, the following properties.</p>
+<p>A <strong>pages</strong> object instance may contain the following properties.</p>
 <table>
 <thead>
 <tr>
@@ -679,6 +707,51 @@
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>hasQuery</td>
+<td>If the request contains a query string.</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>hasForm</td>
+<td>If the request body is a form.</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>hasBody</td>
+<td>If the request contains body data.</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>isGet</td>
+<td>If the request is of type "GET".</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>isPost</td>
+<td>If the request is of type "POST".</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>isAjax</td>
+<td>If the request is an ajax style request.</td>
+<td><em>Boolean</em></td>
+</tr>
+<tr>
+<td>query</td>
+<td>The request query string as key/value pairs.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>form</td>
+<td>Contains the form data as key/value pairs.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>body</td>
+<td>If not a form, will contain string body, if any.</td>
+<td><em>String</em></td>
+</tr>
 <tr>
 <td>method</td>
 <td>The request method. Will be "GET" or "POST".</td>
@@ -690,19 +763,9 @@
 <td><em>Table</em></td>
 </tr>
 <tr>
-<td>query</td>
-<td>The request query string as key/value pairs.</td>
-<td><em>Table</em></td>
-</tr>
-<tr>
-<td>form</td>
-<td>If posted, will contain form key/value pairs.</td>
-<td><em>Table</em></td>
-</tr>
-<tr>
-<td>isAjax</td>
-<td>If the request is an ajax style request.</td>
-<td><em>Boolean</em></td>
+<td>path</td>
+<td>The uri request path.</td>
+<td><em>String</em></td>
 </tr>
 </tbody>
 </table>
@@ -749,23 +812,12 @@
 </pre></div>
 
 
-<p><em>Raw Request Post Body</em></p>
-<p>In the rare case that you need access to the raw request body, pass <strong>true</strong> to the <strong>core.pages</strong> method. The body is then available on the <strong>body</strong> property of the pages object instance. Beware that this does take up additional memory per request, and should only be used if you specifically need it.</p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
-<span class="kd">local</span> <span class="n">raw_body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">body</span>
-</pre></div>
-
-
-<h3 id="response-resp">response | resp</h3>
+<h3 id="response">response</h3>
 <p>Sends the configured response back to the client browser. </p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p><strong>This should be the last method in your page file.</strong></p>
-</div>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -811,7 +863,7 @@
 <div class="admonition info">
 <p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
 </div>
-<h3 id="template-tpl">template | tpl</h3>
+<h3 id="template">template</h3>
 <p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
 </pre></div>
@@ -850,6 +902,85 @@
 <div class="admonition info">
 <p>For detailed template usage information see the <strong><a href="../../pages-guide/templates/">Templates</a></strong> section.</p>
 </div>
+<h3 id="redirect">redirect</h3>
+<p>Redirect the client browser to a different location.</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">uri</span><span class="p">[,</span> <span class="n">isPerm</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>uri</td>
+<td>The address to redirect the client browser to.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>isPerm</td>
+<td>Whether this is a premanent redirect. Default: <strong>false</strong></td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition tip">
+<p>The uri can be a remote address, for example: <em>https://google.com</em></p>
+</div>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/anotherpage&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="callapi">callApi</h3>
+<p>Call a method on a project api endpoint that was built using the <strong><a href="../../server-modules/api/#coreapi">core.api</a></strong>.</p>
+<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">data_params</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>project</td>
+<td>The name of the api project.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>action</td>
+<td>The name of the api method to call.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>data_params</td>
+<td>Values to pass to the api method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
+</pre></div>
                 
                   
                 

@@ -29,6 +29,8 @@ local users = core.data("users")
 
 ### get
 
+Get a data object from the Mongo database.
+
 ```lua
 <source>:get(idOrQuery)
 ```
@@ -50,6 +52,8 @@ local obj, err = users:get("id1234")
 
 ### save
 
+Create a new, or update an existing, data object and save it in the Mongo database.
+
 ```lua
 <source>:save(obj)
 ```
@@ -67,6 +71,8 @@ local id, err = users:save(obj)
 ```
 
 ### delete
+
+Delete a data object from the Mongo database.
 
 ```lua
 <source>:delete(idOrObj)
@@ -87,6 +93,8 @@ local success, err = users:delete(obj)
 ## Pagination
 
 ### getPage
+
+Get multiple data objects from the Mongo database based on a specific criteria.
 
 ```lua
 <source>:getPage(page, perPage, sort, query)
