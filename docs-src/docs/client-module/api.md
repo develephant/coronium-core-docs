@@ -1,4 +1,4 @@
-Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side __[API](server-api/api)__ module.
+Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side __[API](/server-api/api)__ module.
 
 !!! tip "Screencast Available"
     Learn how to use the Client API in a screencast format by __[Clicking here](https://youtu.be/PoxkpVwhmPE)__.
