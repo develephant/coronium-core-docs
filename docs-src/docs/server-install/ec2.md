@@ -15,6 +15,7 @@ Using the __Add Rule__ button on the __Configure Security Group__ screen, and ad
 
 |Type|Protocol|Port Range|Source|Description|
 |----|--------|----------|------|-----------|
+|Custom TCP|TCP|80|Anywhere|_HTTP support_|
 |Custom TCP|TCP|443|Anywhere|_HTTPS support_|
 |Custom TCP|TCP|10001|Anywhere|_Coronium Core access_|
 |Custom TCP|TCP|3306|Anywhere or IP|_MySQL server admin_|
