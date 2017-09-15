@@ -15,7 +15,7 @@ pages:
     - 'Network': 'server-modules/network.md'
     - 'Utils': 'server-modules/utils.md'
   - 'Corona Guide': 'client-guide/index.md'
-  - 'Corona Plugin':
+  - 'Corona Plugin API':
     - 'API': 'client-module/api.md'
     - 'Core': 'client-module/core.md'
     - 'Data': 'client-module/data.md'
