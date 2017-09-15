@@ -4,7 +4,7 @@ Provides methods to handle web based requests, and issue responses. For full usa
     __See the__ __[Configuration](/pages-guide/config/)__ __section before attempting to use pages.__
 
 !!! tip "Screencasts Available"
-    Get an overview of using the Pages API in a screencast format. __[Click here for Part I](https://youtu.be/SWhMWURdaEM)__. __[Click here for Part II](https://youtu.be/lU2gjw0dxdU)__.
+    Get an overview of using the Pages API in a screencast format. __[Click here for Part I](/screencasts/#pages-api-part-i)__. __[Click here for Part II](/screencasts/#pages-api-part-ii)__.
 
 ### new
 

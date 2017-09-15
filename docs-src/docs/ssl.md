@@ -4,7 +4,7 @@ Secure your __Coronium Core__ server by utilizing the free SSL certificate servi
     Setting up a secure Coronium Core server is not a trivial process, so be sure to read through _all_ of the steps before starting, and then follow them carefully.
 
 !!! tip "Screencast Available"
-    Learn how to set up HTTPS in a screencast format by __[Clicking here](https://youtu.be/2sP3PXdO4OU)__.
+    Learn how to set up HTTPS in a screencast format by __[Clicking here](/screencasts/#https-ssl)__.
 
 ## Overview
 

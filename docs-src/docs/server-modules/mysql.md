@@ -412,7 +412,7 @@ local results, err = core.mysql.query(conn_tbl, query_str)
 You can and should manage your MySQL databases using a standalone tool. Below are some free resources for managing MySQL databases.
 
 !!! tip "Screencast Available"
-    Learn more about database administration in a screencast format by __[Clicking here](https://youtu.be/umS7EaEBnec)__.
+    Learn more about database administration in a screencast format by __[Clicking here](/screencasts/#database-administation)__.
 
 - [SequelPro](https://sequelpro.com/download) (OSX)
 - [HeidiSQL](https://www.heidisql.com/download.php) (Windows)

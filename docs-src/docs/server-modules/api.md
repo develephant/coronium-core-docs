@@ -1,7 +1,7 @@
 The API module allows you to create server-side api methods that can be called using the client-side [API](/client-module/api/) module.
 
 !!! tip "Screencasts Available"
-    Get an overview of using the Server API in a screencast format. __[Click here for Part I](https://youtu.be/AQeHLuXv2fE)__. __[Click here for Part II](https://youtu.be/BLEkVZgDtG8)__. 
+    Get an overview of using the Server API in a screencast format. __[Click here for Part I](/screencasts/#server-api-part-i)__. __[Click here for Part II](/screencasts/#server-api-part-ii)__. 
 
 A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the [MySQL](/server-modules/mysql/) and [Mongo](/server-modules/mongo/) modules.
 
