@@ -14,8 +14,8 @@ pages:
     - 'MySQL': 'server-modules/mysql.md'
     - 'Network': 'server-modules/network.md'
     - 'Utils': 'server-modules/utils.md'
-  - 'Corona Guide': 'client-guide/index.md'
-  - 'Corona Plugin':
+  - 'Client Guide': 'client-guide/index.md'
+  - 'Client Module':
     - 'API': 'client-module/api.md'
     - 'Core': 'client-module/core.md'
     - 'Data': 'client-module/data.md'
