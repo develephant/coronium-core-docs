@@ -857,6 +857,9 @@ coll:update(<queryOrId>, {
 
 You can and should manage your Mongo databases using a standalone tool. Below are some free resources for managing Mongo databases.
 
+!!! tip "Screencast Available"
+    Learn more about database administration in a screencast format by __[Clicking here](https://youtu.be/umS7EaEBnec)__.
+
 - [MongoBooster](https://mongobooster.com/downloads)
 - [Studio 3T](https://studio3t.com/download/)
 

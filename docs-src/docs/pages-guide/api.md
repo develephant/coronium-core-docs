@@ -3,6 +3,9 @@ Provides methods to handle web based requests, and issue responses. For full usa
 !!! warning "Important"
     __See the__ __[Configuration](/pages-guide/config/)__ __section before attempting to use pages.__
 
+!!! tip "Screencasts Available"
+    Get an overview of using the Pages API in a screencast format. __[Click here for Part I](https://youtu.be/SWhMWURdaEM)__. __[Click here for Part II](https://youtu.be/lU2gjw0dxdU)__.
+
 ### new
 
 Creates a new __pages__ object instance.

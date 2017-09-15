@@ -1,6 +1,9 @@
 __Coronium Core__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8) Ubuntu 16.04__ droplet.
 
-!!! tip "Free Hosting Credit"
+!!! tip "Screencast Available"
+    Watch the installation instructions in a screencast format by __[Clicking here](https://youtu.be/t1GgTfxLgIA)__.
+
+!!! info "Free Hosting Credit"
     If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit (2 free months), but it also helps support the continued development, and testing of __Coronium Core__.
 
 ### Create A Droplet
