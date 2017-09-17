@@ -1,5 +1,8 @@
 The __mysql__ module allows you to run queries against the local MySQL server instance. You can also connect to remote databases.
 
+!!! info "Database Needed"
+    Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](#administration) section for more information on connecting to your database.
+
 ### query | q
 
 ```lua

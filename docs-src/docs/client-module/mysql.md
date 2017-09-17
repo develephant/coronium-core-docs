@@ -1,5 +1,8 @@
 Provides a client-side api to the [EZ query methods](/server-modules/mysql/#ez-query-methods) of the server-side MySQL module. For more complex data handling, you must provide an __[api](/server-modules/api/)__ on the server-side.
 
+!!! info "Database Needed"
+    Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](/server-modules/mysql/#administration) section for more information on connecting to your database.
+
 ### select
 
 ```lua
