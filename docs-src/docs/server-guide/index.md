@@ -126,3 +126,21 @@ File: _/home/coronium/files/public/imgs/image.png_
 
 URL: _https://your.coronium.server/imgs/image.png_
 
+### Database Passwords
+
+If you need to change the databases passwords at any time, you can issue the following commands, and carefully follow the instructions while logged in as the __coronium__ user:
+
+#### Mongo
+
+You will need to provide your current Mongo password.
+
+```
+sudo mongo-updatepw
+```
+
+#### MySQL
+
+```
+sudo mysql-updatepw
+```
+
