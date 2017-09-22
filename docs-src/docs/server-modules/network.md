@@ -210,6 +210,6 @@ local args = core.network.encode({
 
 local url = "http://page.com?"..args
 
-local resp, err = core.network.post(url, body)
+local resp, err = core.network.get(url)
 ...
 ```
