@@ -50,7 +50,7 @@ A __number__ indicating the amount of deleted rows.
 __Select Example__
 
 ```lua
-local query = core.sf("SELECT * FROM orders", 100)
+local query = core.sf("SELECT * FROM orders LIMIT %d", 100)
 
 local result, err = core.mysql.query("clients", query)
 
