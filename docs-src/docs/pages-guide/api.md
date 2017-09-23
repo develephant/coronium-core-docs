@@ -46,6 +46,7 @@ The __pages__ object has the following constants available.
 |----|-----------|----|
 |GET|The GET HTTP method.|"GET"|
 |POST|The POST HTTP method.|"POST"|
+|OPTIONS|The OPTIONS HTTP method.|"OPTIONS"|
 |HTML|The HTML content type.|"text/html"|
 |JSON|The JSON content type.|"application/json"|
 |TEXT|The plain text content type.|"text/plain"|
