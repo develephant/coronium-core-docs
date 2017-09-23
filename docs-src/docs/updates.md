@@ -22,11 +22,11 @@ The following will update your Coronium Core 2.0.2 server to version 2.0.3
 __Fixed__
 
 - Temp cache body file now works properly for large payloads.
+- Pages `status` convienence method added to quickly return a status code other than 200.
 
 __Added__
 
 - Pages `response` method returns a status properly when provided.
-- Pages `status` convienence method added to quickly return a status code other than 200.
 - Support for OPTIONS method for CORS support in Pages. 
 - Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
 
