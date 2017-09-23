@@ -27,7 +27,6 @@ __Fixed__
 __Added__
 
 - Pages `status` convienence method added to quickly return a status code other than 200.
-- Support for OPTIONS method for CORS support in Pages. 
 - Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
 
 Paste the following one-liner into your terminal to start the update:
