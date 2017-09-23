@@ -36,6 +36,6 @@ Paste the following one-liner into your terminal to start the update:
 wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh && sudo bash ./update.sh
 ```
 
-When the update is finished it is recommended that you reboot the server using `sudo reboot -h`.
+When the update is finished you should reboot the server using `sudo reboot -h`.
 
-Once the reboot has finished you can log in with the __coronium__ user to verify the server is updated by runnin a `coronium status` command.
+Once the reboot has finished you can log in with the __coronium__ user to verify the server is updated by running the `coronium status` command.
