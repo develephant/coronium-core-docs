@@ -130,6 +130,30 @@ __Example__
 page.redirect("/anotherpage")
 ```
 
+### status
+
+End the response by sending an HTTP status code to the client browser.
+
+```lua
+<page-object>.status(code)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|code|HTTP numerical status code ([reference](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)).|_Number_|__Y__|
+
+!!! info ""
+    One this method is called, the response phase will end. You cannot issue a [response]() or [redirect]() after calling this method.
+
+__Example__
+
+```lua
+--send `Unauthorized` status
+page.status(401)
+```
+
 ### callApi
 
 Call a method on a project api endpoint that was built using the __[core.api](/server-modules/api/#coreapi)__.
