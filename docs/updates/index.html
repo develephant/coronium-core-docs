@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/demo/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/updates/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Demo Project - Coronium Core</title>
+        <title>Version Updates - Coronium Core</title>
       
     
     
@@ -80,7 +80,7 @@
             
               
             
-            Demo Project
+            Version Updates
           
         </span>
       </div>
@@ -527,18 +527,6 @@
       
       
 
-
-  <li class="md-nav__item">
-    <a href="../updates/" title="Version Updates" class="md-nav__link">
-      Version Updates
-    </a>
-  </li>
-
-    
-      
-      
-      
-
   
 
 
@@ -548,11 +536,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Demo Project
+        Version Updates
       </label>
     
-    <a href="./" title="Demo Project" class="md-nav__link md-nav__link--active">
-      Demo Project
+    <a href="./" title="Version Updates" class="md-nav__link md-nav__link--active">
+      Version Updates
     </a>
     
       
@@ -564,16 +552,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#check-your-version" title="Check your version" class="md-nav__link">
+    Check your version
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
+  <a href="#log-in-as-root" title="Log in as root" class="md-nav__link">
+    Log in as root
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-an-update" title="Select an update" class="md-nav__link">
+    Select an update
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#202-to-203" title="2.0.2 to 2.0.3" class="md-nav__link">
+    2.0.2 to 2.0.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -583,6 +591,18 @@
   
 </nav>
     
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../demo/" title="Demo Project" class="md-nav__link">
+      Demo Project
+    </a>
   </li>
 
     
@@ -629,16 +649,36 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#download" title="Download" class="md-nav__link">
-    Download
+  <a href="#check-your-version" title="Check your version" class="md-nav__link">
+    Check your version
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#usage" title="Usage" class="md-nav__link">
-    Usage
+  <a href="#log-in-as-root" title="Log in as root" class="md-nav__link">
+    Log in as root
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-an-update" title="Select an update" class="md-nav__link">
+    Select an update
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#202-to-203" title="2.0.2 to 2.0.3" class="md-nav__link">
+    2.0.2 to 2.0.3
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -657,23 +697,35 @@
               
                 
                 
-                  <h1>Demo Project</h1>
+                  <h1>Version Updates</h1>
                 
-                <h2 id="download">Download</h2>
-<p>A simple Corona demo project showing a few Coronium Core client module features is available by clicking on the link below.</p>
-<p><strong><a href="https://coronium.nyc3.digitaloceanspaces.com/core/coronium-demo.zip">Coronium Core Demo</a></strong></p>
-<h2 id="usage">Usage</h2>
-<ol>
-<li>
-<p>Replace the <strong>CORONIUM_SERVER_HOST</strong> placeholder with your server address.</p>
-</li>
-<li>
-<p>Replace the <strong>CORONIUM_SERVER_KEY</strong> placeholder with your <a href="../server-guide/#server-key">server key</a>.</p>
-</li>
-<li>
-<p>Run the project using <strong>Corona</strong>, click the buttons, and view the output in the console. </p>
-</li>
-</ol>
+                <p>It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.</p>
+<h2 id="check-your-version">Check your version</h2>
+<p>Using the <a href="../server-guide/#coronium-tool">Coronium Tool</a>, check the current version by running <code>coronium status</code> on the command line.</p>
+<h2 id="log-in-as-root">Log in as root</h2>
+<p>You must log in as the <strong>root</strong> user to perform an update on the server.</p>
+<h2 id="select-an-update">Select an update</h2>
+<p>Listed below are one-liners specific to the versions for updating. Make sure to select the proper update based on your current version.</p>
+<div class="admonition fail">
+<p class="admonition-title">Important Note</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<h3 id="202-to-203">2.0.2 to 2.0.3</h3>
+<p>The following will update your Coronium Core 2.0.2 server to version 2.0.3</p>
+<p><strong>Fixed</strong></p>
+<ul>
+<li>Temp cache body file now works properly for large payloads.</li>
+</ul>
+<p><strong>Added</strong></p>
+<ul>
+<li>Pages <code>response</code> method returns a status properly when provided.</li>
+<li>Pages <code>status</code> convienence method added to quickly return a status code other than 200.</li>
+<li>Support for OPTIONS method for CORS support in Pages. </li>
+<li>Server <code>coronium.body.conf</code> file which can be used to adjust the body cache for servers with large memory allocations.</li>
+</ul>
+<p>Updater One-Liner</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh &amp;&amp; sudo bash ./update.sh
+</pre></div>
                 
                   
                 
@@ -692,7 +744,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../updates/" title="Version Updates" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ssl/" title="HTTPS / SSL" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -701,19 +753,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Version Updates
+                HTTPS / SSL
               </span>
             </div>
           </a>
         
         
-          <a href="../screencasts/" title="Video Tutorials" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../demo/" title="Demo Project" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Video Tutorials
+                Demo Project
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

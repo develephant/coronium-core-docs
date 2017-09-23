@@ -906,6 +906,31 @@
             "title": "Let's Encrypt"
         },
         {
+            "location": "/updates/",
+            "text": "It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.\n\n\nCheck your version\n\n\nUsing the \nCoronium Tool\n, check the current version by running \ncoronium status\n on the command line.\n\n\nLog in as root\n\n\nYou must log in as the \nroot\n user to perform an update on the server.\n\n\nSelect an update\n\n\nListed below are one-liners specific to the versions for updating. Make sure to select the proper update based on your current version.\n\n\n\n\nImportant Note\n\n\nYou must be logged in as the \nroot\n user to run the updater or it may fail.\n\n\n\n\n2.0.2 to 2.0.3\n\n\nThe following will update your Coronium Core 2.0.2 server to version 2.0.3\n\n\nFixed\n\n\n\n\nTemp cache body file now works properly for large payloads.\n\n\n\n\nAdded\n\n\n\n\nPages \nresponse\n method returns a status properly when provided.\n\n\nPages \nstatus\n convienence method added to quickly return a status code other than 200.\n\n\nSupport for OPTIONS method for CORS support in Pages. \n\n\nServer \ncoronium.body.conf\n file which can be used to adjust the body cache for servers with large memory allocations.\n\n\n\n\nUpdater One-Liner\n\n\nwget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh && sudo bash ./update.sh",
+            "title": "Version Updates"
+        },
+        {
+            "location": "/updates/#check-your-version",
+            "text": "Using the  Coronium Tool , check the current version by running  coronium status  on the command line.",
+            "title": "Check your version"
+        },
+        {
+            "location": "/updates/#log-in-as-root",
+            "text": "You must log in as the  root  user to perform an update on the server.",
+            "title": "Log in as root"
+        },
+        {
+            "location": "/updates/#select-an-update",
+            "text": "Listed below are one-liners specific to the versions for updating. Make sure to select the proper update based on your current version.   Important Note  You must be logged in as the  root  user to run the updater or it may fail.",
+            "title": "Select an update"
+        },
+        {
+            "location": "/updates/#202-to-203",
+            "text": "The following will update your Coronium Core 2.0.2 server to version 2.0.3  Fixed   Temp cache body file now works properly for large payloads.   Added   Pages  response  method returns a status properly when provided.  Pages  status  convienence method added to quickly return a status code other than 200.  Support for OPTIONS method for CORS support in Pages.   Server  coronium.body.conf  file which can be used to adjust the body cache for servers with large memory allocations.   Updater One-Liner  wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh && sudo bash ./update.sh",
+            "title": "2.0.2 to 2.0.3"
+        },
+        {
             "location": "/demo/",
             "text": "Download\n\n\nA simple Corona demo project showing a few Coronium Core client module features is available by clicking on the link below.\n\n\nCoronium Core Demo\n\n\nUsage\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_HOST\n placeholder with your server address.\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_KEY\n placeholder with your \nserver key\n.\n\n\n\n\n\n\nRun the project using \nCorona\n, click the buttons, and view the output in the console.",
             "title": "Demo Project"
