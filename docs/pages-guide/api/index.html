@@ -897,6 +897,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
+<p>One this method is called, the response phase will end. You cannot issue a <a href="#result">redirect</a> or <a href="#status">status</a> after calling this method.</p>
+</div>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
 </pre></div>
@@ -975,6 +979,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">Important</p>
+<p>One this method is called, the response phase will end. You cannot issue a <a href="#response">response</a> or <a href="#status">status</a> after calling this method.</p>
+</div>
 <div class="admonition tip">
 <p>The uri can be a remote address, for example: <em>https://google.com</em></p>
 </div>

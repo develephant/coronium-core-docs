@@ -73,6 +73,9 @@ __Parameters__
 |content|The content-type to output to the client browser.|_[Const](#corepages)_|__N__|
 |status|Numerical http status code to output to the client browser.|_Number_|__N__|
 
+!!! info "Important"
+    One this method is called, the response phase will end. You cannot issue a [redirect](#result) or [status](#status) after calling this method.
+
 __Example__
 
 ```lua
@@ -120,6 +123,9 @@ __Parameters__
 |----|-----------|----|--------|
 |uri|The address to redirect the client browser to.|_String_|__Y__|
 |isPerm|Whether this is a premanent redirect. Default: __false__|_Boolean_|__N__|
+
+!!! info "Important"
+    One this method is called, the response phase will end. You cannot issue a [response](#response) or [status](#status) after calling this method.
 
 !!! tip ""
     The uri can be a remote address, for example: _https://google.com_
