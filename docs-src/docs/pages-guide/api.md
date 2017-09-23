@@ -144,8 +144,8 @@ __Parameters__
 |----|-----------|----|--------|
 |code|HTTP numerical status code ([reference](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)).|_Number_|__Y__|
 
-!!! info ""
-    One this method is called, the response phase will end. You cannot issue a [response]() or [redirect]() after calling this method.
+!!! info "Important"
+    One this method is called, the response phase will end. You cannot issue a [response](#response) or [redirect](#result) after calling this method.
 
 __Example__
 
