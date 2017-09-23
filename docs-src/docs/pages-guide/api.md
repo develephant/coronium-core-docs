@@ -101,14 +101,14 @@ __Parameters__
 |tpl_file|The template file name.|_String_|__Y__|
 |tpl_values|Values for the template.|_Table_|__Y__|
 
+!!! info ""
+    For detailed template usage information see the __[Templates](/pages-guide/templates/)__ section.
+
 __Example__
 
 ```lua
 local body = page.template("greeting.tpl", {greet="Hello!"})
 ```
-
-!!! info ""
-    For detailed template usage information see the __[Templates](/pages-guide/templates/)__ section.
 
 ### redirect
 
