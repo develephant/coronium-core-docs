@@ -30,7 +30,7 @@ pages:
   - 'HTTPS / SSL': 'ssl.md'
   - 'Version Updates': 'updates.md'
   - 'Demo Project': 'demo.md'
-  - 'Video Tutorials': 'screencasts.md'
+  - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
 copyright: "&copy;2017 C. Byerley ( develephant )"
 theme: material

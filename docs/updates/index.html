@@ -612,8 +612,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../screencasts/" title="Video Tutorials" class="md-nav__link">
-      Video Tutorials
+    <a href="../screencasts/" title="Screencasts" class="md-nav__link">
+      Screencasts
     </a>
   </li>
 
@@ -723,9 +723,13 @@
 <li>Support for OPTIONS method for CORS support in Pages. </li>
 <li>Server <code>coronium.body.conf</code> file which can be used to adjust the body cache for servers with large memory allocations.</li>
 </ul>
-<p>Updater One-Liner</p>
+<p>Paste the following one-liner into your terminal to start the update:</p>
 <div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh &amp;&amp; sudo bash ./update.sh
 </pre></div>
+
+
+<p>When the update is finished it is recommended that you reboot the server using <code>sudo reboot -h</code>.</p>
+<p>Once the reboot has finished you can log in with the <strong>coronium</strong> user to verify the server is updated by runnin a <code>coronium status</code> command.</p>
                 
                   
                 

@@ -30,8 +30,12 @@ __Added__
 - Support for OPTIONS method for CORS support in Pages. 
 - Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
 
-Updater One-Liner
+Paste the following one-liner into your terminal to start the update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh && sudo bash ./update.sh
 ```
+
+When the update is finished it is recommended that you reboot the server using `sudo reboot -h`.
+
+Once the reboot has finished you can log in with the __coronium__ user to verify the server is updated by runnin a `coronium status` command.
