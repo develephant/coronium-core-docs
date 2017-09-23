@@ -902,18 +902,18 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
+<div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>One this method is called, the response phase will end. You cannot issue a <a href="#result">redirect</a> or <a href="#status">status</a> after calling this method.</p>
+</div>
+<div class="admonition info">
+<p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
 </div>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<div class="admonition info">
-<p>For more detailed examples see the <strong><a href="../../pages-guide/usage/">Usage</a></strong> section.</p>
-</div>
 <h3 id="template">template</h3>
 <p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
 <div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
@@ -984,7 +984,7 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
+<div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>One this method is called, the response phase will end. You cannot issue a <a href="#response">response</a> or <a href="#status">status</a> after calling this method.</p>
 </div>
@@ -1021,7 +1021,7 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition info">
+<div class="admonition warning">
 <p class="admonition-title">Important</p>
 <p>One this method is called, the response phase will end. You cannot issue a <a href="#response">response</a> or <a href="#result">redirect</a> after calling this method.</p>
 </div>

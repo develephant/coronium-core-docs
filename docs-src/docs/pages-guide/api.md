@@ -74,17 +74,17 @@ __Parameters__
 |content|The content-type to output to the client browser.|_[Const](#corepages)_|__N__|
 |status|Numerical http status code to output to the client browser.|_Number_|__N__|
 
-!!! info "Important"
+!!! warning "Important"
     One this method is called, the response phase will end. You cannot issue a [redirect](#result) or [status](#status) after calling this method.
+
+!!! info ""
+    For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
 __Example__
 
 ```lua
 page.response("Hello There")
 ```
-
-!!! info ""
-    For more detailed examples see the __[Usage](/pages-guide/usage/)__ section.
 
 ### template
 
@@ -125,7 +125,7 @@ __Parameters__
 |uri|The address to redirect the client browser to.|_String_|__Y__|
 |isPerm|Whether this is a premanent redirect. Default: __false__|_Boolean_|__N__|
 
-!!! info "Important"
+!!! warning "Important"
     One this method is called, the response phase will end. You cannot issue a [response](#response) or [status](#status) after calling this method.
 
 !!! tip ""
@@ -151,7 +151,7 @@ __Parameters__
 |----|-----------|----|--------|
 |code|HTTP numerical status code ([reference](https://en.wikipedia.org/wiki/List_of_HTTP_status_codes)).|_Number_|__Y__|
 
-!!! info "Important"
+!!! warning "Important"
     One this method is called, the response phase will end. You cannot issue a [response](#response) or [redirect](#result) after calling this method.
 
 __Example__
