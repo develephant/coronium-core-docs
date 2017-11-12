@@ -1,6 +1,6 @@
-## Web Admin
+## Webmin
 
-Access the web administration area at /coronium/admin/
+Visualize your Coronium Core server with your web browser. Learn more about the Coronium Core Webmin UI in the __[Webmin Guide](/webmin-guide/setup/)__.
 
 ## Coronium Tool
 

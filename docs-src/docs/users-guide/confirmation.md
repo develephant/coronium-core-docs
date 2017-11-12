@@ -1,5 +1,8 @@
 You can _optionally_ require a user to confirm their registration via email by using the email confirmation feature of the __Users__ module.
 
+!!! tip "Screencast Available"
+    Learn about user confirmation and custom email templates in a screencast format by __[Clicking here](/screencasts/#confirming-users)__.
+
 !!! warning "Mailgun Account Required"
     A valid __Mailgun__ account and the proper configuration must be set up to use the email confirmation feature. See the __[Mailgun Config](/webmin-guide/mailgun/)__ section for more information.
 

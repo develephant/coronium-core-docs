@@ -1,5 +1,8 @@
 Provides methods to register, login, and track users for your applications.
 
+!!! tip "Screencasts Available"
+    Get an overview of using the User module in a screencast format by clicking one of the following links: __[Creating Users](/screencasts/#creating-users)__, __[Updating Users](/screencasts/#updating-users)__, __[Confirming Users](/screencasts/#confirming-users)__.
+
 ### login
 
 Retrieve the users meta data, and marks a _login event_ in the __users__ database.

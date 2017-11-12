@@ -768,7 +768,11 @@
                 
                   <h1>Logging In</h1>
                 
-                <p>Once a user has been registered and confirmed in the system, you can log them in by providing the username and password to the client-side User module <strong><a href="../../client-module/users/#login">login</a></strong> method.</p>
+                <div class="admonition tip">
+<p class="admonition-title">Screencast Available</p>
+<p>Learn more about logging in users in a screencast format by <strong><a href="../../screencasts/#creating-users">Clicking here</a></strong>.</p>
+</div>
+<p>Once a user has been registered and confirmed in the system, you can log them in by providing the username and password to the client-side User module <strong><a href="../../client-module/users/#login">login</a></strong> method.</p>
 <p>A "login" provides you with the users unique identifier and whatever meta data you may have saved along with it, allowing you to work with the user. In addition, a login marks a special login event to help track your application logins per user, which can be viewed in the <strong><a href="../../webmin-guide/users/">Webmin user section</a></strong>.</p>
 <p>The login functionality itself does nothing special as far as setting any type of "token" or similar. This is something that must be handled by the developer. Because of this, there is no special "logout" functionality. You as the developer determine when a user is logged out of your application.</p>
 <p>The client-side User module also has a <strong><a href="">get</a></strong> method, which will retrieve all of the users stored data based on their unique user id (which can be obtained by the <strong><a href="">login</a></strong> method). When using the <strong><a href="">get</a></strong> method, no login tracking is performed. If you wish to track when a user is accessing your application, you must use the <strong><a href="">login</a></strong> method.</p>

@@ -1,3 +1,6 @@
+!!! tip "Screencast Available"
+    Learn more about logging in users in a screencast format by __[Clicking here](/screencasts/#creating-users)__.
+
 Once a user has been registered and confirmed in the system, you can log them in by providing the username and password to the client-side User module __[login](/client-module/users/#login)__ method.
 
 A "login" provides you with the users unique identifier and whatever meta data you may have saved along with it, allowing you to work with the user. In addition, a login marks a special login event to help track your application logins per user, which can be viewed in the __[Webmin user section](/webmin-guide/users/)__.

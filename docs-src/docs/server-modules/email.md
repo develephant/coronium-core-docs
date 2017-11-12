@@ -1,5 +1,8 @@
 Send email messages using the __[Mailgun](https://mailgun.com)__ messaging service.
 
+!!! tip "Screencast Available"
+    Learn about sending email in a screencast format by __[Clicking here](/screencasts/#email-module)__.
+
 !!! warning "Mailgun Account Required"
     A valid __Mailgun__ account and the proper configuration must be set up to use the __email__ module. See the __[Configuration](#configuration)__ section below.
 
