@@ -159,7 +159,7 @@ core.mysql.date()
 MySQL compatible timestamp based on the local server time.
 
 ```lua
-core.mysql.localTimestamp
+core.mysql.localTimestamp()
 ```
 
 ### localDate
@@ -167,7 +167,7 @@ core.mysql.localTimestamp
 MySQL compatible date based on the local server date.
 
 ```lua
-core.mysql.localDate
+core.mysql.localDate()
 ```
 
 ## EZ Query Methods
