@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-install/postinstall/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/users-guide/confirmation/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Post Install - Coronium Core</title>
+        <title>Confirmation - Coronium Core</title>
       
     
     
@@ -80,11 +80,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Server Install
+                  Users Guide
                 </span>
               
             
-            Post Install
+            Confirmation
           
         </span>
       </div>
@@ -159,12 +159,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Server Install
@@ -182,7 +180,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../digitalocean/" title="DigitalOcean" class="md-nav__link">
+    <a href="../../server-install/digitalocean/" title="DigitalOcean" class="md-nav__link">
       DigitalOcean
     </a>
   </li>
@@ -194,7 +192,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ec2/" title="Amazon EC2" class="md-nav__link">
+    <a href="../../server-install/ec2/" title="Amazon EC2" class="md-nav__link">
       Amazon EC2
     </a>
   </li>
@@ -204,57 +202,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Post Install
-      </label>
-    
-    <a href="./" title="Post Install" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../server-install/postinstall/" title="Post Install" class="md-nav__link">
       Post Install
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#password" title="Password" class="md-nav__link">
-    Password
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#enable-https" title="Enable HTTPS" class="md-nav__link">
-    Enable HTTPS
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#activate-webmin" title="Activate Webmin" class="md-nav__link">
-    Activate Webmin
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -543,10 +495,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Users Guide
@@ -564,7 +518,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../users-guide/login/" title="Logging In" class="md-nav__link">
+    <a href="../login/" title="Logging In" class="md-nav__link">
       Logging In
     </a>
   </li>
@@ -574,11 +528,111 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../users-guide/confirmation/" title="Confirmation" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Confirmation
+      </label>
+    
+    <a href="./" title="Confirmation" class="md-nav__link md-nav__link--active">
       Confirmation
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#confirmation-table" title="Confirmation Table" class="md-nav__link">
+    Confirmation Table
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client-side-example" title="Client-Side Example" class="md-nav__link">
+    Client-Side Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-confirmation" title="Default Confirmation" class="md-nav__link">
+    Default Confirmation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-template" title="Default Template" class="md-nav__link">
+    Default Template
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#custom-templates" title="Custom Templates" class="md-nav__link">
+    Custom Templates
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-example" title="Template Example" class="md-nav__link">
+    Template Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-create-code" title="User Create Code" class="md-nav__link">
+    User Create Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-notes" title="Important Notes" class="md-nav__link">
+    Important Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmation-page" title="Confirmation Page" class="md-nav__link">
+    Confirmation Page
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -798,22 +852,76 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#password" title="Password" class="md-nav__link">
-    Password
+  <a href="#confirmation-table" title="Confirmation Table" class="md-nav__link">
+    Confirmation Table
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enable-https" title="Enable HTTPS" class="md-nav__link">
-    Enable HTTPS
+  <a href="#client-side-example" title="Client-Side Example" class="md-nav__link">
+    Client-Side Example
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#default-confirmation" title="Default Confirmation" class="md-nav__link">
+    Default Confirmation
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#default-template" title="Default Template" class="md-nav__link">
+    Default Template
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#activate-webmin" title="Activate Webmin" class="md-nav__link">
-    Activate Webmin
+  <a href="#custom-templates" title="Custom Templates" class="md-nav__link">
+    Custom Templates
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#template-example" title="Template Example" class="md-nav__link">
+    Template Example
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#user-create-code" title="User Create Code" class="md-nav__link">
+    User Create Code
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#important-notes" title="Important Notes" class="md-nav__link">
+    Important Notes
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#confirmation-page" title="Confirmation Page" class="md-nav__link">
+    Confirmation Page
   </a>
   
 </li>
@@ -833,29 +941,151 @@
               
                 
                 
-                  <h1>Post Install</h1>
+                  <h1>Confirmation</h1>
                 
-                <h2 id="password">Password</h2>
-<p>The default password for a fresh install is: <strong>cloudadmin</strong>.</p>
+                <p>You can <em>optionally</em> require a user to confirm their registration via email by using the email confirmation feature of the <strong>Users</strong> module.</p>
 <div class="admonition warning">
-<p class="admonition-title">Important Note</p>
-<p>You should change the default password after the install.</p>
+<p class="admonition-title">Mailgun Account Required</p>
+<p>A valid <strong>Mailgun</strong> account and the proper configuration must be set up to use the email confirmation feature. See the <strong><a href="../../webmin-guide/mailgun/">Mailgun Config</a></strong> section for more information.</p>
 </div>
-<p>Log in with the <strong>coronium</strong> user:</p>
-<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+<h2 id="confirmation-table">Confirmation Table</h2>
+<p>When using the confirmation feature, the following parameters can be supplied in the <strong>confirmation</strong> table. Not all parameters are required.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>from_email</td>
+<td>The senders email address. This is usually your address.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>subject</td>
+<td>The registration email subject line.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>email_tpl</td>
+<td>Identifier for a custom registration email template.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>tpl_keys</td>
+<td>Additional template keys for the registration email template.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<h2 id="client-side-example">Client-Side Example</h2>
+<p>You initialize the creation and confirmation using the client-side <strong><a href="../../client-module/users/#create">core.users.create</a></strong> method.</p>
+<h3 id="default-confirmation">Default Confirmation</h3>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">create</span><span class="p">({</span>
+  <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;SuperUser&quot;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234abcd&quot;</span><span class="p">,</span>
+  <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;newuser@somemail.com&quot;</span><span class="p">,</span>
+  <span class="n">confirmation</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">from_email</span> <span class="o">=</span> <span class="s2">&quot;register@funrun.com&quot;</span><span class="p">,</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;Please confirm your registration.&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="n">onUserCreate</span><span class="p">)</span>
 </pre></div>
 
 
-<p>Use the following command to change the password:</p>
-<div class="codehilite"><pre><span></span>sudo passwd coronium
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Plain text passwords are hashed before being sent to the server. Do not try to hash the passwords yourself.</p>
+</div>
+<h2 id="default-template">Default Template</h2>
+<p>By default the following email template is sent to the users email. The only required template key is the <strong>{* confirm_link *}</strong> which is replaced automatically with the proper link to confirm the user.</p>
+<div class="admonition fail">
+<p class="admonition-title">Required Key</p>
+<p>If you do not include the <strong>{* confirm_link *}</strong> template key in the email template, the user will have no way to confirm the registration.</p>
+</div>
+<p>You can edit the default template messaging if you wish, but to add additional template keys you must create a custom template, which is explained in the next section.</p>
+<p>Template Location: <strong>/home/coronium/templates/registration/email.tpl</strong></p>
+<div class="codehilite"><pre><span></span>Hello,
+
+You have requested to sign up for our app. 
+
+Please confirm your registration by clicking the link below:
+
+{* confirm_link *}
+
+Thank you.
 </pre></div>
 
 
-<p>And then follow the prompts.</p>
-<h2 id="enable-https">Enable HTTPS</h2>
-<p>To secure your Coronium Core server with HTTPS, see the <strong><a href="../../ssl">HTTPS/SSL</a></strong> section.</p>
-<h2 id="activate-webmin">Activate Webmin</h2>
-<p>To activate the Coronium Core Webmin, see the <strong><a href="../../webmin-guide/setup/">Webmin Guide</a></strong> setup section.</p>
+<h2 id="custom-templates">Custom Templates</h2>
+<p>To create a custom email template, you create, and place your custom template file in the <strong>/home/coronium/templates/registration/</strong> directory, and pass a reference to the template file in the <strong>confirmation.email_tpl</strong> parameter.</p>
+<p>At a minimum you must include the <strong>{* confirm_link *}</strong> template key in your custom template for the auto-generated confirmation link, but you can also supply other template keys by passing a table of key/value pairs to the <strong>confirmation.tpl_keys</strong> parameter.</p>
+<div class="admonition tip">
+<p>You can create as many custom email templates as you wish.</p>
+</div>
+<h3 id="template-example">Template Example</h3>
+<p>Template Location: <strong>/home/coronium/templates/registration/custom_email.tpl</strong></p>
+<div class="codehilite"><pre><span></span>Hello {{ username }},
+
+Thank you for signing up to use the {{ app_name }} application.
+
+Please click the following link to confirm your registration:
+
+{* confirm_link *}
+
+Have a nice day.
+</pre></div>
+
+
+<h3 id="user-create-code">User Create Code</h3>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">create</span><span class="p">({</span>
+  <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;SuperUser&quot;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234abcd&quot;</span><span class="p">,</span>
+  <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;newuser@somemail.com&quot;</span><span class="p">,</span>
+  <span class="n">confirmation</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">from_email</span> <span class="o">=</span> <span class="s2">&quot;register@funrun.com&quot;</span><span class="p">,</span>
+    <span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;Please confirm your registration.&quot;</span><span class="p">,</span>
+    <span class="n">email_tpl</span> <span class="o">=</span> <span class="s2">&quot;custom_email.tpl&quot;</span><span class="p">,</span>
+    <span class="n">tpl_keys</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;Timmy&quot;</span><span class="p">,</span>
+      <span class="n">app_name</span> <span class="o">=</span> <span class="s2">&quot;FunRun&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="n">onUserCreate</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Result</strong></p>
+<div class="codehilite"><pre><span></span>Hello Timmy,
+
+Thank you for signing up to use the FunRun application.
+
+Please click the following link to confirm your registration:
+
+http://your.coronium.host/_confirmation?code=&lt;generated-confirmation-code&gt;
+
+Have a nice day.
+</pre></div>
+
+
+<h3 id="important-notes">Important Notes</h3>
+<p>When using the email confirmation feature you must provide both the <strong>email</strong> key and the <strong>confirmation.from_email</strong> key or the confirmation will not be sent.</p>
+<p>Do not add a <strong>confirm_link</strong> key to the <strong>confirmation.tpl_keys</strong> entry. Just be sure to include it in your custom template and it will be populated automatically with the correct confirmation link when the email is sent.</p>
+<h2 id="confirmation-page">Confirmation Page</h2>
+<p>Once the user clicks the confirmation link in the registration email, they will be taken to the confirmation landing page. </p>
+<p>When the user is confirmed they will be marked as <em>active</em> in the <strong>users</strong> database.</p>
+<p>To customize the landing page, you can edit the following resources.</p>
+<p>Template: <strong>/home/coronium/pages/_coronium/registration/confirmation.tpl</strong></p>
+<p>Lua Code: <strong>/home/coronium/pages/_coronium/registration/confirmation.lua</strong></p>
                 
                   
                 
@@ -874,7 +1104,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ec2/" title="Amazon EC2" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../login/" title="Logging In" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -883,19 +1113,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Amazon EC2
+                Logging In
               </span>
             </div>
           </a>
         
         
-          <a href="../../server-guide/" title="Server Guide" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../pages-guide/api/" title="Pages API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Server Guide
+                Pages API
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

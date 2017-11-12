@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-modules/data/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-modules/email/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Data - Coronium Core</title>
+        <title>Email - Coronium Core</title>
       
     
     
@@ -84,7 +84,7 @@
                 </span>
               
             
-            Data
+            Email
           
         </span>
       </div>
@@ -264,6 +264,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -273,11 +285,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="toc">
-        Data
+        Email
       </label>
     
-    <a href="./" title="Data" class="md-nav__link md-nav__link--active">
-      Data
+    <a href="./" title="Email" class="md-nav__link md-nav__link--active">
+      Email
     </a>
     
       
@@ -289,30 +301,107 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#coredata" title="core.data" class="md-nav__link">
-    core.data
+  <a href="#new" title="new" class="md-nav__link">
+    new
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-object" title="Message Object" class="md-nav__link">
+    Message Object
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get" title="get" class="md-nav__link">
-    get
+  <a href="#to" title="to" class="md-nav__link">
+    to
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#save" title="save" class="md-nav__link">
-    save
+  <a href="#from" title="from" class="md-nav__link">
+    from
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete" title="delete" class="md-nav__link">
-    delete
+  <a href="#cc" title="cc" class="md-nav__link">
+    cc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcc" title="bcc" class="md-nav__link">
+    bcc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replyto" title="replyTo" class="md-nav__link">
+    replyTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject" title="subject" class="md-nav__link">
+    subject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="text" class="md-nav__link">
+    text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" title="html" class="md-nav__link">
+    html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" title="tag" class="md-nav__link">
+    tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requiretls" title="requireTls" class="md-nav__link">
+    requireTls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipverification" title="skipVerification" class="md-nav__link">
+    skipVerification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testmode" title="testMode" class="md-nav__link">
+    testMode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send" title="send" class="md-nav__link">
+    send
   </a>
   
 </li>
@@ -323,22 +412,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pagination" title="Pagination" class="md-nav__link">
-    Pagination
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getpage" title="getPage" class="md-nav__link">
-    getPage
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -348,18 +424,6 @@
   
 </nav>
     
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../email/" title="Email" class="md-nav__link">
-      Email
-    </a>
   </li>
 
         
@@ -831,30 +895,107 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#coredata" title="core.data" class="md-nav__link">
-    core.data
+  <a href="#new" title="new" class="md-nav__link">
+    new
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#message-object" title="Message Object" class="md-nav__link">
+    Message Object
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#get" title="get" class="md-nav__link">
-    get
+  <a href="#to" title="to" class="md-nav__link">
+    to
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#save" title="save" class="md-nav__link">
-    save
+  <a href="#from" title="from" class="md-nav__link">
+    from
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#delete" title="delete" class="md-nav__link">
-    delete
+  <a href="#cc" title="cc" class="md-nav__link">
+    cc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bcc" title="bcc" class="md-nav__link">
+    bcc
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replyto" title="replyTo" class="md-nav__link">
+    replyTo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#subject" title="subject" class="md-nav__link">
+    subject
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#text" title="text" class="md-nav__link">
+    text
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#html" title="html" class="md-nav__link">
+    html
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tag" title="tag" class="md-nav__link">
+    tag
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#requiretls" title="requireTls" class="md-nav__link">
+    requireTls
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#skipverification" title="skipVerification" class="md-nav__link">
+    skipVerification
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#testmode" title="testMode" class="md-nav__link">
+    testMode
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#send" title="send" class="md-nav__link">
+    send
   </a>
   
 </li>
@@ -865,22 +1006,9 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pagination" title="Pagination" class="md-nav__link">
-    Pagination
+  <a href="#configuration" title="Configuration" class="md-nav__link">
+    Configuration
   </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#getpage" title="getPage" class="md-nav__link">
-    getPage
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -899,18 +1027,25 @@
               
                 
                 
-                  <h1>Data</h1>
+                  <h1>Email</h1>
                 
-                <p>The <strong>data</strong> module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the <a href="#server-modules/mongo">Mongo</a> module if you require more advanced usage.</p>
-<p>You can access this module directly from the client-side using the client <strong><a href="../../client-module/data">Data</a></strong> module.</p>
-<h2 id="coredata">core.data</h2>
-<p>To perform any of the object methods, you need a reference to the <strong>data</strong> module.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="n">source_name</span><span class="p">[,</span> <span class="n">db_name</span><span class="p">])</span>
+                <p>Send email messages using the <strong><a href="https://mailgun.com">Mailgun</a></strong> messaging service.</p>
+<div class="admonition warning">
+<p class="admonition-title">Mailgun Account Required</p>
+<p>A valid <strong>Mailgun</strong> account and the proper configuration must be set up to use the <strong>email</strong> module. See the <strong><a href="#configuration">Configuration</a></strong> section below.</p>
+</div>
+<div class="admonition info">
+<p>The <strong>Mailgun</strong> messaging service allows you to send up to 10,000 free email messages a month.</p>
+</div>
+<h3 id="new">new</h3>
+<p>Create a new email message object.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">([</span><span class="n">key</span><span class="p">][,</span> <span class="n">domain</span><span class="p">])</span>
 </pre></div>
 
 
 <p><strong>Returns</strong></p>
-<p>A source object, or <strong>nil</strong> and an error.</p>
+<p>A new email message object based on the <strong>Mailgun</strong> credentials.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -923,60 +1058,33 @@
 </thead>
 <tbody>
 <tr>
-<td>source_name</td>
-<td>The source name to use for the objects.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
+<td>key</td>
+<td>Your Mailgun API key.</td>
+<td>String</td>
+<td><strong>N</strong></td>
 </tr>
 <tr>
-<td>db_name</td>
-<td>Set a specific database. Default: "_app"</td>
-<td><em>String</em></td>
+<td>domain</td>
+<td>Your verified Mailgun domain.</td>
+<td>String</td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">users</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s2">&quot;users&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="get">get</h3>
-<p>Get a data object from the Mongo database.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="n">idOrQuery</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>idOrQuery</td>
-<td>A string id or query table.</td>
-<td><em>String</em> or <em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">obj</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;id1234&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<div class="admonition tip">
-<p>To retrieve multiple data objects, see the <strong><a href="#getpage">getPage</a></strong> method.</p>
+<div class="admonition info">
+<p class="admonition-title">Default Credentials</p>
+<p>If you have already set your <strong>Mailgun</strong> credentials using the <strong><a href="../../webmin-guide/setup/">Webmin</a></strong> then these will be used by default, and you do not need to include the <code>key</code> and <code>domain</code> arguments.</p>
 </div>
-<h3 id="save">save</h3>
-<p>Create a new, or update an existing, data object and save it in the Mongo database.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="message-object">Message Object</h2>
+<h3 id="to">to</h3>
+<p>The address(es) to send the message to. Multiple values must be seperated by a comma. <strong><em>This is a required value</em></strong>.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">to</span><span class="p">(</span> <span class="n">address</span><span class="p">[,</span> <span class="n">addressN</span><span class="p">]</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -987,26 +1095,35 @@
 <th>Name</th>
 <th>Description</th>
 <th>Type</th>
-<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>obj</td>
-<td>A data object to save.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
+<td>address</td>
+<td>The recipient address(es).</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<p><strong>Examples</strong></p>
+<p><em>Single address:</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--Address only</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;user@email.com&quot;</span><span class="p">)</span>
+
+<span class="c1">--With name</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;Chris &lt;user@email.com&gt;&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h3 id="delete">delete</h3>
-<p>Delete a data object from the Mongo database.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">idOrObj</span><span class="p">)</span>
+<p><em>Multiple addresses:</em></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;user1@email.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Jim &lt;user2@email.com&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="from">from</h3>
+<p>The message sender address. <strong><em>This is a required value</em></strong>.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">from</span><span class="p">(</span> <span class="n">address</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -1017,27 +1134,25 @@
 <th>Name</th>
 <th>Description</th>
 <th>Type</th>
-<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>idOrObj</td>
-<td>An object id string or data object with <strong>_id</strong> field.</td>
-<td><em>String</em> or <em>Table</em></td>
-<td><strong>Y</strong></td>
+<td>address</td>
+<td>The sender address.</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">success</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">delete</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">from</span><span class="p">(</span><span class="s2">&quot;sender@email.com&quot;</span><span class="p">)</span>
 </pre></div>
 
 
-<h2 id="pagination">Pagination</h2>
-<h3 id="getpage">getPage</h3>
-<p>Get multiple data objects from the Mongo database based on a specific criteria.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">source</span><span class="o">&gt;</span><span class="p">:</span><span class="n">getPage</span><span class="p">(</span><span class="n">page</span><span class="p">,</span> <span class="n">perPage</span><span class="p">,</span> <span class="n">sort</span><span class="p">,</span> <span class="n">query</span><span class="p">)</span>
+<h3 id="cc">cc</h3>
+<p>The address(es) to "cc" the message to. Multiple values must be seperated by a comma.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">cc</span><span class="p">(</span> <span class="n">address</span><span class="p">[,</span> <span class="n">addressN</span><span class="p">]</span> <span class="p">)</span>
 </pre></div>
 
 
@@ -1047,64 +1162,322 @@
 <tr>
 <th>Name</th>
 <th>Description</th>
-<th>Default</th>
 <th>Type</th>
-<th>Required</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>page</td>
-<td>The page number to return.</td>
-<td>none</td>
-<td><em>Number</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>perPage</td>
-<td>The number of objects per page.</td>
-<td>20</td>
-<td><em>Number</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>sort</td>
-<td>Sort constant or sorting table.</td>
-<td>core.ASC</td>
-<td><em>Const</em> or <em>Table</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>query</td>
-<td>Specialized query table.</td>
-<td>{ } (all records)</td>
-<td><em>Table</em></td>
-<td><strong>N</strong></td>
+<td>address</td>
+<td>The "cc" address(es).</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>
-<p><strong>Sort Constants</strong></p>
+<p><strong>Examples</strong></p>
+<p><em>Single address:</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--Address only</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">cc</span><span class="p">(</span><span class="s2">&quot;user@email.com&quot;</span><span class="p">)</span>
+
+<span class="c1">--With name</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">cc</span><span class="p">(</span><span class="s2">&quot;Chris &lt;user@email.com&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Multiple addresses:</em></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">cc</span><span class="p">(</span><span class="s2">&quot;user1@email.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Jim &lt;user2@email.com&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="bcc">bcc</h3>
+<p>The address(es) to "bcc" the message to. Multiple values must be seperated by a comma.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">bcc</span><span class="p">(</span> <span class="n">address</span><span class="p">[,</span> <span class="n">addressN</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
 <table>
 <thead>
 <tr>
-<th>Enum</th>
+<th>Name</th>
 <th>Description</th>
+<th>Type</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>core.ASC</td>
-<td>Sort in an ascending order.</td>
+<td>address</td>
+<td>The "bcc" address(es).</td>
+<td>String</td>
 </tr>
+</tbody>
+</table>
+<p><strong>Examples</strong></p>
+<p><em>Single address:</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--Address only</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">bcc</span><span class="p">(</span><span class="s2">&quot;user@email.com&quot;</span><span class="p">)</span>
+
+<span class="c1">--With name</span>
+<span class="n">msg</span><span class="p">:</span><span class="n">bcc</span><span class="p">(</span><span class="s2">&quot;Chris &lt;user@email.com&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Multiple addresses:</em></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">bcc</span><span class="p">(</span><span class="s2">&quot;user1@email.com&quot;</span><span class="p">,</span> <span class="s2">&quot;Jim &lt;user2@email.com&gt;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="replyto">replyTo</h3>
+<p>Sets a specific reply-to address. If not set, the sender address is the default.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">replyTo</span><span class="p">(</span> <span class="n">address</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
 <tr>
-<td>core.DESC</td>
-<td>Sort in a descending order.</td>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>address</td>
+<td>A specific reply-to address.</td>
+<td>String</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">objects</span> <span class="o">=</span> <span class="n">users</span><span class="p">:</span><span class="n">getPage</span><span class="p">({},</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">replyTo</span><span class="p">(</span><span class="s2">&quot;Support &lt;support@email.com&gt;&quot;</span><span class="p">)</span>
 </pre></div>
+
+
+<h3 id="subject">subject</h3>
+<p>The subject line for the email. The default is "(no subject)" if not provided.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">subject</span><span class="p">(</span> <span class="n">subject_str</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>subject_str</td>
+<td>The subject title.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">subject</span><span class="p">(</span><span class="s2">&quot;A Super Email&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="text">text</h3>
+<p>The plain text version of the message body.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">text</span><span class="p">(</span> <span class="n">message_str</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message_str</td>
+<td>A plain string message.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">text</span><span class="p">(</span><span class="s2">&quot;Here is your plain information.&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="html">html</h3>
+<p>The html version of the message body.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">html</span><span class="p">(</span> <span class="n">message_html</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>message_html</td>
+<td>An html string message.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">html</span><span class="p">(</span><span class="s2">&quot;Here is your &lt;b&gt;bold&lt;/b&gt; information.&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="tag">tag</h3>
+<p>Sets a specific tag for the email. Can be used for tracking in Mailgun.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">tag</span><span class="p">(</span> <span class="n">tag_str</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tag_str</td>
+<td>A string tag for tracking.</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">tag</span><span class="p">(</span><span class="s2">&quot;appuser&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="requiretls">requireTls</h3>
+<p>Force Mailgun to use TLS when sending the message. Defaults to <em>false</em>.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">requireTls</span><span class="p">(</span> <span class="n">bool</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>Whether to enable TLS for this message.</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">requireTls</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="skipverification">skipVerification</h3>
+<p>Skip certificate verification when using TLS. Defaults to <em>false</em>.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">skipVerification</span><span class="p">(</span> <span class="n">bool</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>Whether to skip verification in TLS.</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">skipVerification</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="testmode">testMode</h3>
+<p>Used for debugging in Mailgun. Defaults to <em>false</em>.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">testMode</span><span class="p">(</span> <span class="n">bool</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>bool</td>
+<td>Whether to enable test mode.</td>
+<td>Boolean</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">testMode</span><span class="p">(</span><span class="kc">true</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="send">send</h3>
+<p>Send the final message via Mailgun.</p>
+<p><strong>Syntax</strong></p>
+<div class="codehilite"><pre><span></span><span class="n">msg</span><span class="p">:</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<p>This method takes no parameters.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">msg</span><span class="p">:</span><span class="n">send</span><span class="p">()</span>
+</pre></div>
+
+
+<h2 id="configuration">Configuration</h2>
+<p>To use the <strong>Email</strong> module you will need a valid <strong><a href="https://mailgun.com">Mailgun</a></strong> account.</p>
+<p>Once you have your account set-up you will need to provide your <em>Sending Domain</em> and <em>Secret API Key</em> from Mailgun to your Coronium Core system.</p>
+<p>Using the <strong><a href="../../webmin-guide/setup/">Webmin</a></strong>, navigate to the <strong>Config</strong> section and enter the requested information in the <strong>Mailgun Settings</strong> area. Click the <strong>update</strong> button to add your credentials.</p>
+<p>You can now use the <strong>Email</strong> module for sending email.</p>
                 
                   
                 
@@ -1123,7 +1496,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api/" title="API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../data/" title="Data" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1132,19 +1505,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                API
+                Data
               </span>
             </div>
           </a>
         
         
-          <a href="../email/" title="Email" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../files/" title="Files" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Email
+                Files
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
