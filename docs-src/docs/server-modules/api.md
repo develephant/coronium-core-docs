@@ -16,7 +16,10 @@ Projects can also be based on a specific set of functionality, like user managem
 
 ## Creating Projects
 
-You create projects on the server using the Coronium command line tool.
+You create projects on the server using the Coronium command line tool, or through the Webmin project editor.
+
+!!! tip "Webmin Project Editor"
+    You can set up your projects through your web browser using the Coronium Core Webmin. See the __[API Code Editor](/screencasts/#api-code-editor)__ screencast for more information.
 
 ### Add Project
 
