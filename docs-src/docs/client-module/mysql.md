@@ -5,6 +5,8 @@ Provides a client-side api to the [EZ query methods](/server-modules/mysql/#ez-q
 
 ### select
 
+Select multiple records from a database table.
+
 ```lua
 core.mysql.select(query_tbl, listener)
 ```
@@ -66,7 +68,62 @@ core.mysql.select(params, apiListener)
 !!! tip
     See the server-side __[core.mysql.select](/server-modules/mysql/#select)__ method for more examples.
 
+### selectOne
+
+Select and return a single record from a database table.
+
+```lua
+core.mysql.selectOne(query_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|query_tbl|The query parameters for the call.|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Query Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|db|The database to run the query against.|_String_|__Y__|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_|__Y__|
+|columns|Array of columns to select as strings.|_Table_|__N__|
+
+__Event Response__
+
+On success, the __result__ will contain a __table__.
+
+!!! note ""
+    Unlike the __[select](#select)__ method, the result is returned as a single record as opposed to an array of records.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.name)
+  end
+end
+
+local params = {
+  db = "app",
+  tbl = "users",
+  where = "user_id=20",
+  columns = { "name" }
+}
+
+core.mysql.selectOne(params, apiListener)
+```
+
+
 ### insert
+
+Insert a single record into a database table.
 
 ```lua
 core.mysql.insert(query_tbl, listener)
@@ -117,7 +174,70 @@ local params = {
 core.mysql.insert(params, apiListener)
 ```
 
+### insertMany
+
+Insert multiple records in a database table in an optimized way.
+
+```lua
+core.mysql.insertMany(query_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|query_tbl|The query parameters for the call.|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Query Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the query against.|_String_|__Y__|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|records|A table array of `values` tables. See the [insert](#insert) method above.|_Table_|__Y__|
+
+!!! note ""
+    Strings in the `values` tables will be automatically run through the server-side __[core.mysql.escape](/server-modules/mysql/#escape)__ method.
+
+__Event Response__
+
+On success, the __result__ will contain the amount of records inserted as a __number__.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print("inserted:", evt.result)
+  end
+end
+
+local toys = {
+  {
+    name = "Car",
+    color = "red"
+  },
+  {
+    name = "Teddy Bear",
+    color = "brown"
+  }
+}
+
+local params = {
+  db = "products",
+  tbl = "toys",
+  records = toys
+}
+
+core.mysql.insertMany(params, apiListener)
+```
+
 ### update
+
+Update record(s) in a database table.
 
 ```lua
 core.mysql.update(query_tbl, listener)
@@ -171,6 +291,8 @@ core.mysql.update(params, apiListener)
 
 ### delete
 
+Delete record(s) from a database table.
+
 ```lua
 core.mysql.delete(query_tbl, listener)
 ```
@@ -220,3 +342,28 @@ core.mysql.delete(params, apiListener)
 
 !!! tip
     See the server-side __[core.mysql.delete](/server-modules/mysql/#delete)__ method for more examples.
+
+## Network Timeout
+
+Though rare, very large workloads may cause the Corona client to throw a network timeout error before you receive a reponse from the server. In these cases you can add a `timeout` parameter to the __query_tbl__ table.
+
+The Corona default network timeout is 30 seconds. _This is an optional parameter_.
+
+### Example
+
+```lua
+local function apiListener( evt )
+  ...
+end
+
+local params = {
+  db = "app",
+  tbl = "users",
+  timeout = 60
+}
+
+core.mysql.select(params, apiListener)
+```
+
+!!! note "Server-Side Timeout"
+    To adjust the MySQL server timeout for large queries, see __[MySQL Timeout](/server-modules/mysql/#mysql-timeout)__.

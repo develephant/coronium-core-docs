@@ -225,3 +225,19 @@ end
 
 core.data.getPage(params, apiListener)
 ```
+
+## Network Timeout
+
+Though rare, very large workloads may cause the Corona client to throw a network timeout error before you receive a reponse from the server. In these cases you can add a `timeout` parameter to the __data_params__ table.
+
+The Corona default network timeout is 30 seconds. _This is an optional parameter_.
+
+### Example
+
+```lua
+local function apiListener( evt )
+  ...
+end
+
+core.data.get({source="users", query="id1234", timeout=60}, apiListener)
+```

@@ -9,30 +9,41 @@ pages:
   - 'Server Modules':
     - 'API': 'server-modules/api.md' 
     - 'Data': 'server-modules/data.md'
+    - 'Email': 'server-modules/email.md'
     - 'Files': 'server-modules/files.md'
     - 'Mongo': 'server-modules/mongo.md'
     - 'MySQL': 'server-modules/mysql.md'
     - 'Network': 'server-modules/network.md'
+    - 'Template': 'server-modules/template.md'
     - 'Utils': 'server-modules/utils.md'
   - 'Client Guide': 'client-guide/index.md'
   - 'Client Module':
+    - 'Analytics': 'client-module/analytics.md'
     - 'API': 'client-module/api.md'
     - 'Core': 'client-module/core.md'
     - 'Data': 'client-module/data.md'
     - 'Email': 'client-module/email.md'
     - 'Files': 'client-module/files.md'
     - 'MySQL': 'client-module/mysql.md'
+    - 'Users': 'client-module/users.md'
+  - 'Users Guide':
+    - 'Logging In': 'users-guide/login.md'
+    - 'Confirmation': 'users-guide/confirmation.md'
   - 'Pages Guide':
     - 'Pages API': 'pages-guide/api.md'
     - 'Usage': 'pages-guide/usage.md'
     - 'Templates': 'pages-guide/templates.md'
     - 'Configuration': 'pages-guide/config.md'
+  - 'Webmin Guide':
+    - 'Setup/Access': 'webmin-guide/setup.md'
+    - 'Mailgun Config': 'webmin-guide/mailgun.md'
+    - 'Password': 'webmin-guide/password.md'
   - 'HTTPS / SSL': 'ssl.md'
   - 'Version Updates': 'updates.md'
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
-copyright: "&copy;2017 C. Byerley ( develephant )"
+copyright: "&copy;2017 C. Byerley (develephant) | v2.1.0"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'

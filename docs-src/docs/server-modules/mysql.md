@@ -138,6 +138,38 @@ local values = {
 values = core.mysql.escapeAll( values )
 ```
 
+### timestamp
+
+MySQL compatible UTC based timestamp.
+
+```lua
+core.mysql.timestamp()
+```
+
+### date
+
+MySQL compatible UTC based date.
+
+```lua
+core.mysql.date()
+```
+
+### localTimestamp
+
+MySQL compatible timestamp based on the local server time.
+
+```lua
+core.mysql.localTimestamp
+```
+
+### localDate
+
+MySQL compatible date based on the local server date.
+
+```lua
+core.mysql.localDate
+```
+
 ## EZ Query Methods
 
 EZ query methods provide an alternative way to construct common query types. For more complex queries, use the __core.mysql.query__ method above.
@@ -147,6 +179,8 @@ EZ query methods provide an alternative way to construct common query types. For
 
 
 ### select
+
+Select multiple records from a database table.
 
 ```lua
 core.mysql.select(db_name, select_tbl)
@@ -161,7 +195,7 @@ __Parameters__
 |Name|Description|Type|Required|
 |---|-----------|----|--------|
 |db_name|The database to run the query against.|_String_|__Y__|
-|select_tbl|The insert table options (see below).|_Table_|__Y__|
+|select_tbl|The select table options (see below).|_Table_|__Y__|
 
 __Select Table Keys__
 
@@ -228,7 +262,49 @@ else
 end
 ```
 
+### selectOne
+
+Select and return a single record from a database table.
+
+```lua
+core.mysql.selectOne(db_name, select_tbl)
+```
+
+__Returns__
+
+A single record as a __table__, or __nil__ and an error.
+
+!!! note ""
+    Unlike the __[select](#select)__ method, the result is returned as a single record as opposed to an array of records.
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|db_name|The database to run the query against.|_String_|__Y__|
+|select_tbl|The select table options (see below).|_Table_|__Y__|
+
+__Select Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_|__Y__|
+|columns|Array of columns to select as strings.|_Table_|__N__|
+
+__Example__
+
+```lua
+local record, err = core.mysql.selectOne("app", {
+  tbl = "users",
+  where = "user_id="..user_id,
+  columns = { "name" }
+})
+```
+
 ### insert
+
+Insert a single record into a database table.
 
 ```lua
 core.mysql.insert(db_name, insert_tbl)
@@ -274,7 +350,66 @@ else
 end
 ```
 
+### insertMany
+
+Insert multiple records in a database table in an optimized way.
+
+```lua
+core.mysql.insertMany(db_name, insert_tbl)
+```
+
+__Returns__
+
+The amount of records inserted as a __number__, or __nil__ and an error.
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db_name|The database to run the query against.|_String_|__Y__|
+|insert_tbl|The insert table options (see below).|_Table_|__Y__|
+
+__Insert Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|records|A table array of `values` tables. See the [insert](#insert) method above.|_Table_|__Y__|
+
+!!! note ""
+    Strings in the `values` tables will be automatically run through __core.mysql.escape__.
+
+__Example__
+
+```lua
+local toys = {
+  {
+    name = "Car",
+    color = "red"
+  },
+  {
+    name = "Teddy Bear",
+    color = "brown"
+  }
+}
+
+
+local result, err = core.mysql.insertMany("products", {
+  tbl = "toys",
+  records = toys
+})
+
+if not result then
+  core.log(err)
+else
+  -- `result` contains the total records inserted
+  core.log(result)
+end
+```
+
 ### update
+
+Update record(s) in a database table.
 
 ```lua
 core.mysql.update(db_name, update_tbl)
@@ -322,6 +457,8 @@ end
 ```
 
 ### delete
+
+Delete record(s) from a database table.
 
 ```lua
 core.mysql.delete(db_name, delete_tbl)
@@ -383,6 +520,26 @@ else
 end
 ```
 
+## MySQL Timeout
+
+For large queries you may need to adjust the timeout for the call. You can do this by passing a connection table in place of the database name and include the `timeout` parameter in milliseconds. The default is 2000 (2 seconds).
+
+### Example
+
+```lua
+local query = core.sf("SELECT * FROM orders LIMIT %d", 100)
+
+local conn_tbl = {
+  database = "clients",
+  timeout = 10000 --10 secs
+}
+
+local result, err = core.mysql.query(conn_tbl, query)
+```
+
+!!! info "EZ Query Methods"
+    You can do the same for the __[EZ Query](#ez-query-methods)__ methods. Replace the database name with a connection table as shown above.
+
 ## Remote Databases
 
 You can connect to remote MySQL databases by using a connection table in place of the database name in the __core.mysql.query__ and EZ Query methods.
@@ -396,6 +553,7 @@ __Connection Table__
 |password|The remote database password|_String_|__Y__|
 |host|The remote database host address.|_String_|__Y__|
 |port|The remote database port. Default: 3306|_Number_|__N__|
+|timeout|The timeout in milliseconds for the query. Default: 2000|_Number_|__N__|
 
 __Example__
 

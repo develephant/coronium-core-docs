@@ -1,3 +1,7 @@
+## Web Admin
+
+Access the web administration area at /coronium/admin/
+
 ## Coronium Tool
 
 A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:

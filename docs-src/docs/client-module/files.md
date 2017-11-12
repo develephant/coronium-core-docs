@@ -25,12 +25,13 @@ __Parameters__
 
 __Upload Options__
 
-The upload options table supports the following keys:
+The upload options table supports the following _optional_ keys:
 
 |Name|Description|Type|Default|
 |----|-----------|----|-------|
 |safe|Do not overwrite existing files.|_Boolean_|__false__|
 |unique|Generate a unique file name for the file.|_Boolean_|__false__|
+|timeout|Adjust the Corona client network timeout.|_Number_|__30 Secs__|
 
 __Event Response__
 
