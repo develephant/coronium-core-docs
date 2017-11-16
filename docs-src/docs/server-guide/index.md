@@ -1,6 +1,6 @@
 ## Webmin
 
-Visualize your Coronium Core server with your web browser. Learn more about the Coronium Core Webmin UI in the __[Webmin Guide](/webmin-guide/setup/)__.
+Visualize your Coronium Core server, and create custom server APIs using your web browser. Learn more about the Coronium Core Webmin UI in the __[Webmin Guide](/webmin-guide/setup/)__.
 
 ## Coronium Tool
 

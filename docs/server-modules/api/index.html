@@ -1020,8 +1020,7 @@
 <p>Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../client-module/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../client-module/mysql/">MySQL</a></strong> module for MySQL.</p>
 </div>
 <h2 id="projects">Projects</h2>
-<p>Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. </p>
-<p>Projects can also be based on a specific set of functionality, like user management, which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../client-module/core/#useproject">useProject</a> method in the client-side core module.</p>
+<p>Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API , which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../client-module/core/#useproject">useProject</a> method in the client-side core module.</p>
 <h2 id="creating-projects">Creating Projects</h2>
 <p>You create projects on the server using the Coronium command line tool, or through the Webmin project editor.</p>
 <div class="admonition tip">
@@ -1065,7 +1064,8 @@
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
   <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;coronium-server-key&gt;&quot;</span><span class="p">,</span>
-  <span class="n">project</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;&lt;application-scope&gt;&quot;</span><span class="p">,</span>
+  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
 <span class="p">})</span>
 
 <span class="kd">local</span> <span class="n">apiResponse</span><span class="p">(</span><span class="n">evt</span><span class="p">)</span>

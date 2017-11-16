@@ -73,9 +73,33 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.1.0/do/update.sh && sudo b
 
 _Coming Soon_
 
-#### Webmin HTTPS/SSL
+### 2.1.0 to 2.1.1
 
-If your 2.0.3 install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
+!!! fail "Important Note"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+The following will update your Coronium Core 2.1.0 server to version 2.1.1
+
+__Added__
+
+- Full support for multiple applications with separate scope for users and metrics.
+- Webmin "Today" view for global application usage metrics.
+
+#### DigitalOcean
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh && sudo bash ./update.sh
+```
+
+#### Amazon EC2
+
+_Coming Soon_
+
+## Webmin HTTPS/SSL
+
+If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
 
 Log in as the __coronium__ user, and from the command line, run the following, using your secure domain name:
 

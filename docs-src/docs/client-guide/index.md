@@ -34,40 +34,34 @@ You're now ready to use the __Coronium Core__ plugin.
 
 ## Plugin Overview
 
-The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
+The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, user management, and analytics module and the ability to call your own custom methods built with the server-side __[API](/server-modules/api/)__ module.
 
 !!! info "Important"
     You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on __[DigitalOcean](/server-install/digitalocean/)__ or __[Amazon EC2](/server-install/ec2/)__.
 
-Before continuing, make sure you have read through the __[Client Setup](/client-setup/)__ section.
+Before continuing, make sure you have read through the __[Installation](#installation)__ section.
 
-Coronium Core offers both client-side modules, and custom server-side api methods. In this guide we will be focused on the client-side functionality. On the client-side there are modules for data handling and file transfers, which require no server-side code.
+Coronium Core offers both client-side modules, and custom server-side api methods. In this guide we will be focused on the client-side functionality.
 
 In this example, we will use the __main.lua__ of a Corona project as a reference point, though you may require and use the client plugin in whichever file it is most useful.
 
 ## Initialization
 
-How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. Let's look at both initialization options.
+How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. 
+
+### Application Scope
+
+Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.
+
+It is important to choose a short but descriptive application scope name. ___Once the scope is set, you can not change it for that particular application___.
+
+You will provide this application scope name to the `scope` parameter of the initialzation.
+
+With that in mind, let's look at both initialization options.
 
 __Client modules only__
 
-Client-side modules include support for basic __[Mongo](/client-module/data/)__ and __[MySQL](/client-module/mysql/)__ data handling, as well as, the __[File](/client-module/files/)__ transfer module. You do not need to write any server-side code.
-
-```lua
-local core = require("plugin.coronium-core")
-
-core.init({
-  server = "https://your.coronium.host",
-  key = "<coronium-server-key>"
-})
-
-```
-
-__Server and Client modules__
-
-Using custom server-side api methods allow you to use the full __[Mongo](/server-modules/mongo/)__ and __[MySQL](/server-modules/mysql/)__ modules, as well as, any other server-side modules available. See the server-side __[API](/server-modules/api/)__ module for more information.
-
-First, make sure you have a [server-side project](/server-modules/api/) set up. 
+Client-side modules include support for basic __[Mongo](/client-module/data/)__ and __[MySQL](/client-module/mysql/)__ data handling, the __[Users](/client-module/users/)__ module for user management, an __[Analytics](/client-module/analytics/)__ module for app metrics, as well as, the __[File](/client-module/files/)__ transfer module. You do not need to write any server-side code to use these modules.
 
 ```lua
 local core = require("plugin.coronium-core")
@@ -75,7 +69,25 @@ local core = require("plugin.coronium-core")
 core.init({
   server = "https://your.coronium.host",
   key = "<coronium-server-key>",
-  project = "<project-name>",
+  scope = "<application-scope>"
+})
+
+```
+
+__Server and Client modules__
+
+Using custom server-side api methods allow you to use the full __[Mongo](/server-modules/mongo/)__ and __[MySQL](/server-modules/mysql/)__ modules, as well as, any other server-side modules available to create your own custom APIs. See the server-side __[API](/server-modules/api/)__ module for more information.
+
+First, make sure you have a [server-side project](/server-modules/api/) set up. Provide the API Project name to the `api` parameter in the initialization.
+
+```lua
+local core = require("plugin.coronium-core")
+
+core.init({
+  server = "https://your.coronium.host",
+  key = "<coronium-server-key>",
+  scope = "<application-scope>",
+  api = "<api-project-name>",
 })
 ```
 
@@ -99,7 +111,7 @@ All response events will contain either an __error__ key, or the successful resp
 
 ### error
 
-The __error__ key will always be a string with the error message, or __nil__ if no error is present. 
+The __error__ key will always be a string with the error message, or __nil__ if no error is present. If there is an error, often there will also be a __status__ key with a numeric code.
 
 ### result
 

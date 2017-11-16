@@ -10,9 +10,7 @@ A server-side api is useful for type checking, validation, and more complex data
 
 ## Projects
 
-Server-side api methods are housed in "projects" that are stored on the server. Projects allow you to seperate functionality between applications. 
-
-Projects can also be based on a specific set of functionality, like user management, which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the [useProject](/client-module/core/#useproject) method in the client-side core module.
+Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API , which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the [useProject](/client-module/core/#useproject) method in the client-side core module.
 
 ## Creating Projects
 
@@ -74,7 +72,8 @@ _Client-side example_
 core.init({
   server = "https://your.coronium.host",
   key = "<coronium-server-key>",
-  project = "default"
+  scope = "<application-scope>",
+  api = "default"
 })
 
 local apiResponse(evt)

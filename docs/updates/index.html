@@ -758,9 +758,29 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
-    Webmin HTTPS/SSL
+  <a href="#210-to-211" title="2.1.0 to 2.1.1" class="md-nav__link">
+    2.1.0 to 2.1.1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean_1" title="DigitalOcean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2_1" title="Amazon EC2" class="md-nav__link">
+    Amazon EC2
   </a>
   
 </li>
@@ -772,6 +792,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
+    Webmin HTTPS/SSL
+  </a>
   
 </li>
       
@@ -889,9 +916,29 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
-    Webmin HTTPS/SSL
+  <a href="#210-to-211" title="2.1.0 to 2.1.1" class="md-nav__link">
+    2.1.0 to 2.1.1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean_1" title="DigitalOcean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2_1" title="Amazon EC2" class="md-nav__link">
+    Amazon EC2
   </a>
   
 </li>
@@ -903,6 +950,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
+    Webmin HTTPS/SSL
+  </a>
   
 </li>
       
@@ -982,8 +1036,27 @@
 
 <h4 id="amazon-ec2">Amazon EC2</h4>
 <p><em>Coming Soon</em></p>
-<h4 id="webmin-httpsssl">Webmin HTTPS/SSL</h4>
-<p>If your 2.0.3 install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
+<h3 id="210-to-211">2.1.0 to 2.1.1</h3>
+<div class="admonition fail">
+<p class="admonition-title">Important Note</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<p>The following will update your Coronium Core 2.1.0 server to version 2.1.1</p>
+<p><strong>Added</strong></p>
+<ul>
+<li>Full support for multiple applications with separate scope for users and metrics.</li>
+<li>Webmin "Today" view for global application usage metrics.</li>
+</ul>
+<h4 id="digitalocean_1">DigitalOcean</h4>
+<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh &amp;&amp; sudo bash ./update.sh
+</pre></div>
+
+
+<h4 id="amazon-ec2_1">Amazon EC2</h4>
+<p><em>Coming Soon</em></p>
+<h2 id="webmin-httpsssl">Webmin HTTPS/SSL</h2>
+<p>If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
 <p>Log in as the <strong>coronium</strong> user, and from the command line, run the following, using your secure domain name:</p>
 <div class="codehilite"><pre><span></span>sudo webmin-apihost https://&lt;your.coronium.host&gt;
 </pre></div>

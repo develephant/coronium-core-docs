@@ -14,7 +14,8 @@ __Config Table Keys__
 |----|-----------|----|--------|
 |server|The Coronium Core server address.|_String_|__Y__|
 |key|The Coronium Core [server key](/server-guide/#server-key).|_String_|__Y__|
-|project|The project name to run api methods against.|_String_|__N__|
+|scope|A unique application name for your Corona project. See __[Application Scope](/client-guide/#application-scope)__ in the client guide.|_String_|__Y__|
+|api|The server-side API Project name to run api methods against.|_String_|__N__|
 
 __Example__
 
@@ -22,7 +23,8 @@ __Example__
 core.init({
   server = "https://<coronium-host-address>",
   key = "<coronium-server-key>",
-  project = "default"
+  scope = "Space Race",
+  api = "default"
 })
 ```
 
