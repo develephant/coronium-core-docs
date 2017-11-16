@@ -1307,7 +1307,7 @@
         },
         {
             "location": "/demo/",
-            "text": "Download\n\n\nA simple Corona demo project showing a few Coronium Core client module features is available by clicking on the link below.\n\n\nCoronium Core Demo\n\n\nUsage\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_HOST\n placeholder with your server address.\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_KEY\n placeholder with your \nserver key\n.\n\n\n\n\n\n\nRun the project using \nCorona\n, click the buttons, and view the output in the console.",
+            "text": "Download\n\n\nA simple Corona demo project showing a few Coronium Core client module features is available by clicking on the link below.\n\n\nCoronium Core Demo\n\n\nUsage\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_HOST\n placeholder with your server address.\n\n\n\n\n\n\nReplace the \nCORONIUM_SERVER_KEY\n placeholder with your \nserver key\n.\n\n\n\n\n\n\nReplace the \nAPPLICATION_SCOPE\n placeholder with your \napplication scope\n.\n\n\n\n\n\n\nRun the project using \nCorona\n, click the buttons, and view the output in the console.",
             "title": "Demo Project"
         },
         {
@@ -1317,7 +1317,7 @@
         },
         {
             "location": "/demo/#usage",
-            "text": "Replace the  CORONIUM_SERVER_HOST  placeholder with your server address.    Replace the  CORONIUM_SERVER_KEY  placeholder with your  server key .    Run the project using  Corona , click the buttons, and view the output in the console.",
+            "text": "Replace the  CORONIUM_SERVER_HOST  placeholder with your server address.    Replace the  CORONIUM_SERVER_KEY  placeholder with your  server key .    Replace the  APPLICATION_SCOPE  placeholder with your  application scope .    Run the project using  Corona , click the buttons, and view the output in the console.",
             "title": "Usage"
         },
         {

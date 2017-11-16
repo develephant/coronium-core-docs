@@ -10,4 +10,6 @@ __[Coronium Core Demo](https://coronium.nyc3.digitaloceanspaces.com/core/coroniu
 
 1. Replace the __CORONIUM_SERVER_KEY__ placeholder with your [server key](/server-guide/#server-key).
 
+1. Replace the __APPLICATION_SCOPE__ placeholder with your [application scope](/client-guide/#application-scope).
+
 1. Run the project using __Corona__, click the buttons, and view the output in the console. 
