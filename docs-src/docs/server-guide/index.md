@@ -19,10 +19,18 @@ coronium
 
 A server key is generated the __/home/coronium/config/keyfile__ file when you first install the server. You use this key when connecting with the client-side plugin.
 
-__Do not remove this file__. You should back up this file to your computer and store it some place safe.
+___Do not remove this file___. You should back up this file to your computer and store it some place safe.
 
-!!! info "Viewing the Key"
-    A quick way to view the server key is by running __coronium key__ on the command line while logged into the server.
+__Viewing the Key__
+
+While logged into the server as the __coronium__ user, enter the following on the command line:
+
+```
+coronium key
+```
+
+!!! tip "Post-Install"
+    The server key is also displayed directly after installation in the console.
 
 In the event that you need to generate a new keyfile, you can run __sudo coronium genkey__ on the command line.
 
@@ -38,7 +46,7 @@ ssh coronium@<your-instance-ip>
 ```
 
 !!! info "Viewing the Log"
-    To quickly monitor the debug (nginx) log file, enter `cclog` on the command line.
+    To quickly monitor the debug (nginx) log file, enter `cclog` on the command line. You can also view the debug log in the Webmin in the "debug log" section.
 
 Log files can be found in the __/usr/local/coronium/logs__ directory. Possible log files include _nginx.log_ and _mongo.log_.
 

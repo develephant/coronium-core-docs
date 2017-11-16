@@ -979,10 +979,16 @@
 </div>
 <h2 id="server-key">Server Key</h2>
 <p>A server key is generated the <strong>/home/coronium/config/keyfile</strong> file when you first install the server. You use this key when connecting with the client-side plugin.</p>
-<p><strong>Do not remove this file</strong>. You should back up this file to your computer and store it some place safe.</p>
-<div class="admonition info">
-<p class="admonition-title">Viewing the Key</p>
-<p>A quick way to view the server key is by running <strong>coronium key</strong> on the command line while logged into the server.</p>
+<p><strong><em>Do not remove this file</em></strong>. You should back up this file to your computer and store it some place safe.</p>
+<p><strong>Viewing the Key</strong></p>
+<p>While logged into the server as the <strong>coronium</strong> user, enter the following on the command line:</p>
+<div class="codehilite"><pre><span></span>coronium key
+</pre></div>
+
+
+<div class="admonition tip">
+<p class="admonition-title">Post-Install</p>
+<p>The server key is also displayed directly after installation in the console.</p>
 </div>
 <p>In the event that you need to generate a new keyfile, you can run <strong>sudo coronium genkey</strong> on the command line.</p>
 <div class="admonition warning">
@@ -997,7 +1003,7 @@
 
 <div class="admonition info">
 <p class="admonition-title">Viewing the Log</p>
-<p>To quickly monitor the debug (nginx) log file, enter <code>cclog</code> on the command line.</p>
+<p>To quickly monitor the debug (nginx) log file, enter <code>cclog</code> on the command line. You can also view the debug log in the Webmin in the "debug log" section.</p>
 </div>
 <p>Log files can be found in the <strong>/usr/local/coronium/logs</strong> directory. Possible log files include <em>nginx.log</em> and <em>mongo.log</em>.</p>
 <p>To watch a log file in real-time:</p>
