@@ -83,7 +83,7 @@ The following will update your Coronium Core 2.1.0 server to version 2.1.1
 __Added__
 
 - Full support for multiple applications with separate scope for users and metrics.
-- Webmin "Today" view for global application usage metrics.
+- Webmin "Today" view for global application usage metrics for the current day.
 
 #### DigitalOcean
 
