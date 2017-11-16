@@ -1,5 +1,9 @@
 ## DigitalOcean Installation
 
+__Special Note:__ Starting with Coronium Core 2.1.x an "application scope" must be provided to the initialization method. This is not currently reflected in these screencasts. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+
+---
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/t1GgTfxLgIA?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## HTTPS / SSL
