@@ -981,37 +981,74 @@
 <p>You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on <strong><a href="../server-install/digitalocean/">DigitalOcean</a></strong> or <strong><a href="../server-install/ec2/">Amazon EC2</a></strong>.</p>
 </div>
 <p>Before continuing, make sure you have read through the <strong><a href="#installation">Installation</a></strong> section.</p>
-<p>Coronium Core offers both client-side modules, and custom server-side api methods. In this guide we will be focused on the client-side functionality.</p>
 <p>In this example, we will use the <strong>main.lua</strong> of a Corona project as a reference point, though you may require and use the client plugin in whichever file it is most useful.</p>
 <h2 id="initialization">Initialization</h2>
-<p>How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. </p>
+<p>After you have required the Coronium Core plugin into your Corona project, you must initalize it using the <strong><a href="../client-module/core/">core.init</a></strong> method. You will provide the init method the following keys in a table.</p>
+<p><strong>Core Init Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>server</td>
+<td>The Coronium Core server address.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>key</td>
+<td>The Coronium Core <a href="../server-guide/#server-key">server key</a>.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>scope</td>
+<td>A unique application name for your Corona project. See <strong><a href="#application-scope">Application Scope</a></strong> below.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>api</td>
+<td>The server-side API Project name to run custom api methods against.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
 <h3 id="application-scope">Application Scope</h3>
 <p>Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.</p>
-<p>It is important to choose a short but descriptive application scope name. <strong><em>Once the scope is set, you can not change it for that particular application</em></strong>.</p>
+<p><em>It is important to choose a short but descriptive application scope name that is unique from your other application scopes.</em> </p>
+<div class="admonition danger">
+<p class="admonition-title">Don't Change The Scope!</p>
+<p><strong>Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.</strong></p>
+</div>
 <p>You will provide this application scope name to the <code>scope</code> parameter of the initialzation.</p>
-<p>With that in mind, let's look at both initialization options.</p>
-<p><strong>Client modules only</strong></p>
-<p>Client-side modules include support for basic <strong><a href="../client-module/data/">Mongo</a></strong> and <strong><a href="../client-module/mysql/">MySQL</a></strong> data handling, the <strong><a href="../client-module/users/">Users</a></strong> module for user management, an <strong><a href="../client-module/analytics/">Analytics</a></strong> module for app metrics, as well as, the <strong><a href="../client-module/files/">File</a></strong> transfer module. You do not need to write any server-side code to use these modules.</p>
+<p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
-  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;coronium-server-key&gt;&quot;</span><span class="p">,</span>
-  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;&lt;application-scope&gt;&quot;</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;03624656-ca90-11e7-b8d4-fb59abeb4c03&quot;</span><span class="p">,</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Fun Run&quot;</span>
 <span class="p">})</span>
 </pre></div>
 
 
-<p><strong>Server and Client modules</strong></p>
-<p>Using custom server-side api methods allow you to use the full <strong><a href="../server-modules/mongo/">Mongo</a></strong> and <strong><a href="../server-modules/mysql/">MySQL</a></strong> modules, as well as, any other server-side modules available to create your own custom APIs. See the server-side <strong><a href="../server-modules/api/">API</a></strong> module for more information.</p>
-<p>First, make sure you have a <a href="../server-modules/api/">server-side project</a> set up. Provide the API Project name to the <code>api</code> parameter in the initialization.</p>
+<p>To utilize custom server-side api methods, first make sure you have a <a href="../server-modules/api/">server-side project</a> set up. Provide the API Project name to the <code>api</code> parameter in the initialization. See the server-side <strong><a href="../server-modules/api/">API</a></strong> module for more information.</p>
+<p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
-  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;coronium-server-key&gt;&quot;</span><span class="p">,</span>
-  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;&lt;application-scope&gt;&quot;</span><span class="p">,</span>
-  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;&lt;api-project-name&gt;&quot;</span><span class="p">,</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;03624656-ca90-11e7-b8d4-fb59abeb4c03&quot;</span><span class="p">,</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Fun Run&quot;</span><span class="p">,</span>
+  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;funrun&quot;</span><span class="p">,</span>
 <span class="p">})</span>
 </pre></div>
 

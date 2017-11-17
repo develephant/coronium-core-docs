@@ -41,53 +41,57 @@ The Coronium Core client plugin provides an interface to your Coronium Core serv
 
 Before continuing, make sure you have read through the __[Installation](#installation)__ section.
 
-Coronium Core offers both client-side modules, and custom server-side api methods. In this guide we will be focused on the client-side functionality.
-
 In this example, we will use the __main.lua__ of a Corona project as a reference point, though you may require and use the client plugin in whichever file it is most useful.
 
 ## Initialization
 
-How you initialize the client plugin depends on whether you are using custom server-side api methods, or just the built-in client-side modules. You can use both server-side and client-side modules together. 
+After you have required the Coronium Core plugin into your Corona project, you must initalize it using the __[core.init](/client-module/core/)__ method. You will provide the init method the following keys in a table.
+
+__Core Init Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|server|The Coronium Core server address.|_String_|__Y__|
+|key|The Coronium Core [server key](/server-guide/#server-key).|_String_|__Y__|
+|scope|A unique application name for your Corona project. See __[Application Scope](#application-scope)__ below.|_String_|__Y__|
+|api|The server-side API Project name to run custom api methods against.|_String_|__N__|
 
 ### Application Scope
 
 Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.
 
-It is important to choose a short but descriptive application scope name. ___Once the scope is set, you can not change it for that particular application___.
+_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
+
+!!! danger "Don't Change The Scope!"
+    __Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.__
 
 You will provide this application scope name to the `scope` parameter of the initialzation.
 
-With that in mind, let's look at both initialization options.
-
-__Client modules only__
-
-Client-side modules include support for basic __[Mongo](/client-module/data/)__ and __[MySQL](/client-module/mysql/)__ data handling, the __[Users](/client-module/users/)__ module for user management, an __[Analytics](/client-module/analytics/)__ module for app metrics, as well as, the __[File](/client-module/files/)__ transfer module. You do not need to write any server-side code to use these modules.
+__Example__
 
 ```lua
 local core = require("plugin.coronium-core")
 
 core.init({
   server = "https://your.coronium.host",
-  key = "<coronium-server-key>",
-  scope = "<application-scope>"
+  key = "03624656-ca90-11e7-b8d4-fb59abeb4c03",
+  scope = "Fun Run"
 })
 
 ```
 
-__Server and Client modules__
+To utilize custom server-side api methods, first make sure you have a [server-side project](/server-modules/api/) set up. Provide the API Project name to the `api` parameter in the initialization. See the server-side __[API](/server-modules/api/)__ module for more information.
 
-Using custom server-side api methods allow you to use the full __[Mongo](/server-modules/mongo/)__ and __[MySQL](/server-modules/mysql/)__ modules, as well as, any other server-side modules available to create your own custom APIs. See the server-side __[API](/server-modules/api/)__ module for more information.
-
-First, make sure you have a [server-side project](/server-modules/api/) set up. Provide the API Project name to the `api` parameter in the initialization.
+__Example__
 
 ```lua
 local core = require("plugin.coronium-core")
 
 core.init({
   server = "https://your.coronium.host",
-  key = "<coronium-server-key>",
-  scope = "<application-scope>",
-  api = "<api-project-name>",
+  key = "03624656-ca90-11e7-b8d4-fb59abeb4c03",
+  scope = "Fun Run",
+  api = "funrun",
 })
 ```
 

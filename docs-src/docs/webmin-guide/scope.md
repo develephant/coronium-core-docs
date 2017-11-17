@@ -1,8 +1,11 @@
 Coronium Core supports multiple applications. Each Coronium Core based Corona application must have an "application scope" to allow for individual users and metrics. This allows you to filter users and metrics per application.
 
-The application scope is set in the __[core.init](/client-module/core/#init)__ method on the client-side in your Corona application. You simply give the `scope` key a short unique name to reference the application by.
+The application scope is set in the __[core.init](/client-module/core/#init)__ method on the client-side in your Corona application.
 
-___Scope names cannot be changed, so choose one that matches your application well and is unique from your other application scopes.___
+_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._
+
+!!! danger "Don't Change The Scope!"
+    __Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.__
 
 __Example__
 
