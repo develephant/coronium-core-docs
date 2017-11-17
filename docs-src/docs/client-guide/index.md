@@ -80,6 +80,8 @@ core.init({
 
 ```
 
+### Custom API Init
+
 To utilize custom server-side api methods, first make sure you have a [server-side project](/server-modules/api/) set up. Provide the API Project name to the `api` parameter in the initialization. See the server-side __[API](/server-modules/api/)__ module for more information.
 
 __Example__
