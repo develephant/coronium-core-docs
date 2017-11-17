@@ -17,14 +17,6 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PoxkpVwhmPE?rel=0" frameborder="0" allowfullscreen></iframe>
 
-## Server API - Part I
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/AQeHLuXv2fE?rel=0" frameborder="0" allowfullscreen></iframe>
-
-## Server API - Part II
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BLEkVZgDtG8?rel=0" frameborder="0" allowfullscreen></iframe>
-
 ## Webmin Setup
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/tLIHOw371TY" frameborder="0" allowfullscreen></iframe>
@@ -35,14 +27,6 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
     An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MudX-1JJHZ0" frameborder="0" allowfullscreen></iframe>
-
-## API Code Editor
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/viDCqRreBmg" frameborder="0" allowfullscreen></iframe>
-
-## Email Module
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ" frameborder="0" allowfullscreen></iframe>
 
 ## Creating Users
 
@@ -64,6 +48,22 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
     An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lPaGC6XCNRs" frameborder="0" allowfullscreen></iframe>
+
+## API Code Editor
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/viDCqRreBmg" frameborder="0" allowfullscreen></iframe>
+
+## Email Module
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ" frameborder="0" allowfullscreen></iframe>
+
+## Server API - Part I
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/AQeHLuXv2fE?rel=0" frameborder="0" allowfullscreen></iframe>
+
+## Server API - Part II
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BLEkVZgDtG8?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Pages API - Part I
 
