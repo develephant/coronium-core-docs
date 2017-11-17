@@ -1,6 +1,6 @@
 # ![logo](imgs/logo256.png)
 
-<h3>The ultimate cloud sidekick for your Corona apps and games.</h3>
+<h3>The ultimate cloud sidekick for your Corona apps and games</h3>
 
 ___An all-in-one Lua application server built specifically for [Corona](https://coronalabs.com/) developers.___
 
