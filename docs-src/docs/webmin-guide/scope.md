@@ -1,3 +1,6 @@
+!!! tip "Screencast Available"
+    Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
+
 Coronium Core supports multiple applications. Each Coronium Core based Corona application must have an "application scope" to allow for individual users and metrics. This allows you to filter users and metrics per application.
 
 The application scope is set in the __[core.init](/client-module/core/#init)__ method on the client-side in your Corona application.

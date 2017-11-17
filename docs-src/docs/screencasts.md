@@ -1,4 +1,4 @@
-__Important Note:__ Starting with Coronium Core 2.1.x an "application scope" must be provided to the initialization method. This is not currently reflected in these screencasts. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+__Important Note:__ Starting with Coronium Core 2.1.x an "application scope" must be provided to the initialization method. This is not currently reflected in these screencasts. Please see the __[Application Scopes](#application-scopes)__ screencast below.
 
 ---
 
@@ -13,7 +13,7 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 ## Client Plugin API
 
 !!! warning "Application Scope"
-    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see the __[Application Scopes](#application-scopes)__ screencast.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/PoxkpVwhmPE?rel=0" frameborder="0" allowfullscreen></iframe>
 
@@ -24,30 +24,34 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 ## Collecting Metrics
 
 !!! warning "Application Scope"
-    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see the __[Application Scopes](#application-scopes)__ screencast.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/MudX-1JJHZ0" frameborder="0" allowfullscreen></iframe>
 
 ## Creating Users
 
 !!! warning "Application Scope"
-    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see the __[Application Scopes](#application-scopes)__ screencast.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/YiCYjCuqh8E" frameborder="0" allowfullscreen></iframe>
 
 ## Updating Users
 
 !!! warning "Application Scope"
-    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see the __[Application Scopes](#application-scopes)__ screencast.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/6KuPSx1sAvU" frameborder="0" allowfullscreen></iframe>
 
 ## Confirming Users
 
 !!! warning "Application Scope"
-    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see __[Application Scope](/client-guide/#application-scope)__ for more information.
+    An "application scope" must now be provided to the initialization method and is not reflected in this screencast. Please see the __[Application Scopes](#application-scopes)__ screencast.
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lPaGC6XCNRs" frameborder="0" allowfullscreen></iframe>
+
+## Application Scopes
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BOZAcOD94AE" frameborder="0" allowfullscreen></iframe>
 
 ## API Code Editor
 

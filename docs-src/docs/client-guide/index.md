@@ -58,6 +58,9 @@ __Core Init Keys__
 
 ### Application Scope
 
+!!! tip "Screencast Available"
+    Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
+
 Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.
 
 _It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
