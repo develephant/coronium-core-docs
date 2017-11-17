@@ -1,4 +1,4 @@
-site_name: Coronium Core
+site_name: Coronium Core - Documentation
 pages:
   - 'Introduction': 'index.md'
   - 'Server Install':
