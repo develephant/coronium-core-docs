@@ -53,10 +53,6 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/viDCqRreBmg" frameborder="0" allowfullscreen></iframe>
 
-## Email Module
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ" frameborder="0" allowfullscreen></iframe>
-
 ## Server API - Part I
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/AQeHLuXv2fE?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -64,6 +60,10 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 ## Server API - Part II
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/BLEkVZgDtG8?rel=0" frameborder="0" allowfullscreen></iframe>
+
+## Email Module
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ" frameborder="0" allowfullscreen></iframe>
 
 ## Pages API - Part I
 

@@ -1347,7 +1347,7 @@
         },
         {
             "location": "/screencasts/",
-            "text": "Important Note:\n Starting with Coronium Core 2.1.x an \"application scope\" must be provided to the initialization method. This is not currently reflected in these screencasts. Please see \nApplication Scope\n for more information.\n\n\n\n\nDigitalOcean Installation\n\n\n\n\n\nHTTPS / SSL\n\n\n\n\n\nClient Plugin API\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nWebmin Setup\n\n\n\n\n\nCollecting Metrics\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nCreating Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nUpdating Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nConfirming Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nAPI Code Editor\n\n\n\n\n\nEmail Module\n\n\n\n\n\nServer API - Part I\n\n\n\n\n\nServer API - Part II\n\n\n\n\n\nPages API - Part I\n\n\n\n\n\nPages API - Part II\n\n\n\n\n\nDatabase Administation\n\n\n\n\n\nDevelopment Tips\n\n\n\n\n\nInternals",
+            "text": "Important Note:\n Starting with Coronium Core 2.1.x an \"application scope\" must be provided to the initialization method. This is not currently reflected in these screencasts. Please see \nApplication Scope\n for more information.\n\n\n\n\nDigitalOcean Installation\n\n\n\n\n\nHTTPS / SSL\n\n\n\n\n\nClient Plugin API\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nWebmin Setup\n\n\n\n\n\nCollecting Metrics\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nCreating Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nUpdating Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nConfirming Users\n\n\n\n\nApplication Scope\n\n\nAn \"application scope\" must now be provided to the initialization method and is not reflected in this screencast. Please see \nApplication Scope\n for more information.\n\n\n\n\n\n\n\nAPI Code Editor\n\n\n\n\n\nServer API - Part I\n\n\n\n\n\nServer API - Part II\n\n\n\n\n\nEmail Module\n\n\n\n\n\nPages API - Part I\n\n\n\n\n\nPages API - Part II\n\n\n\n\n\nDatabase Administation\n\n\n\n\n\nDevelopment Tips\n\n\n\n\n\nInternals",
             "title": "Screencasts"
         },
         {
@@ -1396,11 +1396,6 @@
             "title": "API Code Editor"
         },
         {
-            "location": "/screencasts/#email-module",
-            "text": "",
-            "title": "Email Module"
-        },
-        {
             "location": "/screencasts/#server-api-part-i",
             "text": "",
             "title": "Server API - Part I"
@@ -1409,6 +1404,11 @@
             "location": "/screencasts/#server-api-part-ii",
             "text": "",
             "title": "Server API - Part II"
+        },
+        {
+            "location": "/screencasts/#email-module",
+            "text": "",
+            "title": "Email Module"
         },
         {
             "location": "/screencasts/#pages-api-part-i",
