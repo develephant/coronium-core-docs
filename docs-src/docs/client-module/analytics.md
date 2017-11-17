@@ -1,12 +1,9 @@
-This client-side module has only a single method, but performs a number of useful actions when it is called.
+Collects various application and device metrics. Analytics are stored within application scopes. Please see __[Application Scope](/client-guide/#application-scope)__ in the __Client Guide__ for more information.
 
 !!! tip "Screencast Available"
     Learn about collecting metrics in a screencast format by __[Clicking here](/screencasts/#collecting-metrics)__.
 
-When using the __[appOpened](#appopened)__ method (see below), a number of pieces of information are collected about the environment in which the application is running in. It also tracks each time the application is accessed per device.
-
-!!! info "User Statistics"
-    For per user accesses see the client-side __[Users](/client-module/users/)__ module.
+When using the __[appOpened](#appopened)__ method (see below), a number of pieces of information are collected about the environment in which the application is running in. It also tracks each time the application is accessed per device and application scope.
 
 ### appOpened
 

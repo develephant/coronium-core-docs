@@ -71,6 +71,25 @@ Press __control-x__ to stop watching the log file.
 !!! tip
     To view all logs consolidated into one file (including the mysql.log) type __coronium logs__.
 
+## Lua Code Cache
+
+During production you should turn on the Lua code cache. You can do this using the Coronium Tool. First, log in as the __coronium__ user.
+
+_Cache on_
+
+```
+sudo coronium cache on
+```
+
+_Cache off_
+
+```
+sudo coronium cache off
+```
+
+!!! tip
+    During api development make sure to turn the Lua cache __off__ to see your changes.
+
 ## System Services
 
 When your __Coronium Core__ server starts, its monitored by a utility called __Monit__, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.

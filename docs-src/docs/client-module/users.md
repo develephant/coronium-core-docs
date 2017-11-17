@@ -1,4 +1,4 @@
-Provides methods to register, login, and track users for your applications.
+Provides methods to register, login, and track users for your applications. Users are stored within application scopes. Please see __[Application Scope](/client-guide/#application-scope)__ in the __Client Guide__ for more information.
 
 !!! tip "Screencasts Available"
     Get an overview of using the User module in a screencast format by clicking one of the following links: __[Creating Users](/screencasts/#creating-users)__, __[Updating Users](/screencasts/#updating-users)__, __[Confirming Users](/screencasts/#confirming-users)__.

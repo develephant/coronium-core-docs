@@ -1,0 +1,1 @@
+See the __[Users](/client-module/users/)__ section in the __Client Module__ documentation for information on using the API.

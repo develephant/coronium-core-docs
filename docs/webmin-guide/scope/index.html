@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server-modules/template/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/webmin-guide/scope/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Template - Coronium Core</title>
+        <title>Application Scope - Coronium Core</title>
       
     
     
@@ -80,11 +80,11 @@
             
               
                 <span class="md-header-nav__parent">
-                  Server Modules
+                  Webmin Guide
                 </span>
               
             
-            Template
+            Application Scope
           
         </span>
       </div>
@@ -231,10 +231,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       Webmin Guide
@@ -252,7 +254,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../webmin-guide/setup/" title="Setup/Access" class="md-nav__link">
+    <a href="../setup/" title="Setup/Access" class="md-nav__link">
       Setup/Access
     </a>
   </li>
@@ -262,11 +264,18 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../webmin-guide/scope/" title="Application Scope" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+    <a href="./" title="Application Scope" class="md-nav__link md-nav__link--active">
       Application Scope
     </a>
+    
   </li>
 
         
@@ -276,7 +285,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../webmin-guide/mailgun/" title="Mailgun Config" class="md-nav__link">
+    <a href="../mailgun/" title="Mailgun Config" class="md-nav__link">
       Mailgun Config
     </a>
   </li>
@@ -288,7 +297,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../webmin-guide/password/" title="Password" class="md-nav__link">
+    <a href="../password/" title="Password" class="md-nav__link">
       Password
     </a>
   </li>
@@ -483,12 +492,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
     
     <label class="md-nav__link" for="nav-7">
       Server Modules
@@ -506,7 +513,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="API" class="md-nav__link">
+    <a href="../../server-modules/api/" title="API" class="md-nav__link">
       API
     </a>
   </li>
@@ -518,7 +525,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../data/" title="Data" class="md-nav__link">
+    <a href="../../server-modules/data/" title="Data" class="md-nav__link">
       Data
     </a>
   </li>
@@ -530,7 +537,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../email/" title="Email" class="md-nav__link">
+    <a href="../../server-modules/email/" title="Email" class="md-nav__link">
       Email
     </a>
   </li>
@@ -542,7 +549,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../files/" title="Files" class="md-nav__link">
+    <a href="../../server-modules/files/" title="Files" class="md-nav__link">
       Files
     </a>
   </li>
@@ -554,7 +561,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mongo/" title="Mongo" class="md-nav__link">
+    <a href="../../server-modules/mongo/" title="Mongo" class="md-nav__link">
       Mongo
     </a>
   </li>
@@ -566,7 +573,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql/" title="MySQL" class="md-nav__link">
+    <a href="../../server-modules/mysql/" title="MySQL" class="md-nav__link">
       MySQL
     </a>
   </li>
@@ -578,7 +585,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../network/" title="Network" class="md-nav__link">
+    <a href="../../server-modules/network/" title="Network" class="md-nav__link">
       Network
     </a>
   </li>
@@ -588,43 +595,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Template
-      </label>
-    
-    <a href="./" title="Template" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../server-modules/template/" title="Template" class="md-nav__link">
       Template
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#render" title="render" class="md-nav__link">
-    render
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -634,7 +609,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../utils/" title="Utils" class="md-nav__link">
+    <a href="../../server-modules/utils/" title="Utils" class="md-nav__link">
       Utils
     </a>
   </li>
@@ -804,20 +779,6 @@
   
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#render" title="render" class="md-nav__link">
-    render
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -829,50 +790,25 @@
               
                 
                 
-                  <h1>Template</h1>
+                  <h1>Application Scope</h1>
                 
-                <div class="admonition warning">
-<p class="admonition-title">Template Storage</p>
-<p>Server-side templates are stored in the <strong>/home/coronium/templates</strong> directory.</p>
-</div>
-<p>For more information on using templates, see the <strong><a href="../../pages-guide/templates/">Templates</a></strong> section of the Pages guide.</p>
-<h3 id="render">render</h3>
-<p>Render a template based on a passed key/value table. Returns <strong>String</strong>.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_data</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tpl_file</td>
-<td>The template file to render relative to the <strong>templates</strong> directory.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>tpl_data</td>
-<td>A table of key/value pairs to populate the template file.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
+                <p>Coronium Core supports multiple applications. Each Coronium Core based Corona application must have an "application scope" to allow for individual users and metrics. This allows you to filter users and metrics per application.</p>
+<p>The application scope is set in the <strong><a href="../../client-module/core/#init">core.init</a></strong> method on the client-side in your Corona application. You simply give the <code>scope</code> key a short unique name to reference the application by.</p>
+<p><strong><em>Scope names cannot be changed, so choose one that matches your application well and is unique from your other application scopes.</em></strong></p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">compiled_str</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;common_resp.tpl&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jenny&quot;</span><span class="p">,</span>
-  <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;http://192.168.71.73&quot;</span><span class="p">,</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;03624656-ca90-11e7-b8d4-fb59abeb4c03&quot;</span><span class="p">,</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Space Race&quot;</span>
 <span class="p">})</span>
 </pre></div>
+
+
+<p>Once you have set the scope, all <strong><a href="../../client-module/users/">Users</a></strong> and <strong><a href="../../client-module/analytics/">Analytics</a></strong> module methods will be scoped to that specfic application, which you can use to filter views in the Coronium Core Webmin.</p>
+<div class="admonition note">
+<p class="admonition-title">Webmin Scope</p>
+<p>You must run at least one User or Analytics method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, refresh the Webmin in your browser.</p>
+</div>
                 
                   
                 
@@ -891,7 +827,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../network/" title="Network" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../setup/" title="Setup/Access" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -900,19 +836,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Network
+                Setup/Access
               </span>
             </div>
           </a>
         
         
-          <a href="../utils/" title="Utils" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../mailgun/" title="Mailgun Config" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Utils
+                Mailgun Config
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
