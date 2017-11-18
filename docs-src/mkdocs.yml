@@ -1,47 +1,51 @@
 site_name: Coronium Core
 pages:
   - 'Introduction': 'index.md'
-  - 'Server Install':
-    - 'DigitalOcean': 'server-install/digitalocean.md'
-    - 'Amazon EC2': 'server-install/ec2.md'
-    - 'Post Install': 'server-install/postinstall.md'
-  - 'Client Guide': 'client-guide/index.md'
-  - 'Webmin Guide':
-    - 'Setup/Access': 'webmin-guide/setup.md'
-    - 'Application Scope': 'webmin-guide/scope.md'
-    - 'Mailgun Config': 'webmin-guide/mailgun.md'
-    - 'Password': 'webmin-guide/password.md'
-  - 'Client Modules':
-    - 'Analytics': 'client-module/analytics.md'
-    - 'API': 'client-module/api.md'
-    - 'Core': 'client-module/core.md'
-    - 'Data': 'client-module/data.md'
-    - 'Email': 'client-module/email.md'
-    - 'Files': 'client-module/files.md'
-    - 'MySQL': 'client-module/mysql.md'
-    - 'Users': 'client-module/users.md'
-  - 'Users Guide':
-    - 'Users API': 'users-guide/api.md'
-    - 'Logging In': 'users-guide/login.md'
-    - 'Confirmation': 'users-guide/confirmation.md'
-  - 'Server Modules':
-    - 'API': 'server-modules/api.md' 
-    - 'Data': 'server-modules/data.md'
-    - 'Email': 'server-modules/email.md'
-    - 'Files': 'server-modules/files.md'
-    - 'Mongo': 'server-modules/mongo.md'
-    - 'MySQL': 'server-modules/mysql.md'
-    - 'Network': 'server-modules/network.md'
-    - 'Template': 'server-modules/template.md'
-    - 'Utils': 'server-modules/utils.md'
-  - 'Server Guide': 'server-guide/index.md'
-  - 'Pages Guide':
-    - 'Pages API': 'pages-guide/api.md'
-    - 'Usage': 'pages-guide/usage.md'
-    - 'Templates': 'pages-guide/templates.md'
-    - 'Configuration': 'pages-guide/config.md'
-  - 'HTTPS / SSL': 'ssl.md'
-  - 'Version Updates': 'updates.md'
+  - 'Core Server':
+    - 'Installation':
+      - 'DigitalOcean': 'server/installation/digitalocean.md'
+      - 'Amazon EC2': 'server/installation/amazon.md'
+      - 'Post Install': 'server/installation/postinstall.md'
+    - 'Webmin':
+      - 'Setup/Access': 'server/webmin/setup.md'
+      - 'Application Scope': 'server/webmin/scope.md'
+      - 'Mailgun Config': 'server/webmin/mailgun.md'
+      - 'Password': 'server/webmin/password.md'
+    - 'Guide': 
+      - 'Logging In': 'server/guide/login.md'
+      - 'Server Key': 'server/guide/key.md'
+      - 'General Usage': 'server/guide/usage.md'
+      - 'HTTPS/SSL': 'server/guide/ssl.md'
+      - 'Updating': 'server/guide/updates.md'  
+    - 'Modules':
+      - 'API': 'server/modules/api.md' 
+      - 'Data': 'server/modules/data.md'
+      - 'Email': 'server/modules/email.md'
+      - 'Files': 'server/modules/files.md'
+      - 'Mongo': 'server/modules/mongo.md'
+      - 'MySQL': 'server/modules/mysql.md'
+      - 'Network': 'server/modules/network.md'
+      - 'Pages':
+        - 'Pages API': 'server/modules/pages/api.md'
+        - 'Usage': 'server/modules/pages/usage.md'
+        - 'Templates': 'server/modules/pages/templates.md'
+        - 'Configuration': 'server/modules/pages/config.md'        
+      - 'Template': 'server/modules/template.md'
+      - 'Utils': 'server/modules/utils.md'
+  - 'Core Client':
+      - 'Usage': 'client/guide/index.md'
+      - 'Modules':
+        - 'Analytics': 'client/modules/analytics.md'
+        - 'API': 'client/modules/api.md'
+        - 'Core': 'client/modules/core.md'
+        - 'Data': 'client/modules/data.md'
+        - 'Email': 'client/modules/email.md'
+        - 'Files': 'client/modules/files.md'
+        - 'MySQL': 'client/modules/mysql.md'
+        - 'Users': 
+          - 'Users API': 'client/modules/users/api.md'
+          - 'Logging In': 'client/modules/users/login.md'
+          - 'Confirmation': 'client/modules/users/confirmation.md'
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'

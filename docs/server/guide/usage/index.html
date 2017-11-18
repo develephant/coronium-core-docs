@@ -1,0 +1,1257 @@
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/guide/usage/">
+      
+      
+      
+        <link rel="shortcut icon" href="../../../imgs/favicon.ico">
+      
+      <meta name="generator" content="mkdocs-0.16.1, mkdocs-material-1.10.0">
+    
+    
+      
+        <title>General Usage - Coronium Core</title>
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr-e826f8942a.js"></script>
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application-b6a6d08807.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-23f75ab9c7.palette.css">
+      
+    
+    
+      
+        
+        
+        
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    
+    
+    
+  </head>
+  
+  
+  
+  
+    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://develephant.github.io/coronium-core-docs" title="Coronium Core" class="md-header-nav__button md-logo">
+          
+            
+              <img src="../../../imgs/rnd-dev.png" width="24" height="24">
+            
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <span class="md-flex__ellipsis md-header-nav__title">
+          
+            
+              
+                <span class="md-header-nav__parent">
+                  Core Server
+                </span>
+              
+                <span class="md-header-nav__parent">
+                  Guide
+                </span>
+              
+            
+            General Usage
+          
+        </span>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" required placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset">&#xE5CD;</button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result" data-md-lang-search="" data-md-lang-tokenizer="[\s\-]+">
+          <div class="md-search-result__meta" data-md-lang-result-none="No matching documents" data-md-lang-result-one="1 matching document" data-md-lang-result-other="# matching documents">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <div class="md-nav__button md-logo">
+      
+        
+          <img src="../../../imgs/rnd-dev.png">
+        
+      
+    </div>
+    Coronium Core
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Core Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Core Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Installation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/digitalocean/" title="DigitalOcean" class="md-nav__link">
+      DigitalOcean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/amazon/" title="Amazon EC2" class="md-nav__link">
+      Amazon EC2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../installation/postinstall/" title="Post Install" class="md-nav__link">
+      Post Install
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Webmin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Webmin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../webmin/setup/" title="Setup/Access" class="md-nav__link">
+      Setup/Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../webmin/scope/" title="Application Scope" class="md-nav__link">
+      Application Scope
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../webmin/mailgun/" title="Mailgun Config" class="md-nav__link">
+      Mailgun Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../webmin/password/" title="Password" class="md-nav__link">
+      Password
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../login/" title="Logging In" class="md-nav__link">
+      Logging In
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../key/" title="Server Key" class="md-nav__link">
+      Server Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        General Usage
+      </label>
+    
+    <a href="./" title="General Usage" class="md-nav__link md-nav__link--active">
+      General Usage
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coronium-tool" title="Coronium Tool" class="md-nav__link">
+    Coronium Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-logs" title="Viewing Logs" class="md-nav__link">
+    Viewing Logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-services" title="System Services" class="md-nav__link">
+    System Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-directories" title="User Directories" class="md-nav__link">
+    User Directories
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-directory" title="Public Directory" class="md-nav__link">
+    Public Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
+    Database Passwords
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mongo" title="Mongo" class="md-nav__link">
+    Mongo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ssl/" title="HTTPS/SSL" class="md-nav__link">
+      HTTPS/SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../updates/" title="Updating" class="md-nav__link">
+      Updating
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/mongo/" title="Mongo" class="md-nav__link">
+      Mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+    
+    <label class="md-nav__link" for="nav-2-4-8">
+      Pages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-8">
+        Pages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/pages/api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/pages/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/pages/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/pages/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/template/" title="Template" class="md-nav__link">
+      Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/utils/" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Core Client
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Core Client
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/guide/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/analytics/" title="Analytics" class="md-nav__link">
+      Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-8" type="checkbox" id="nav-3-2-8">
+    
+    <label class="md-nav__link" for="nav-3-2-8">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-8">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/users/login/" title="Logging In" class="md-nav__link">
+      Logging In
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/users/confirmation/" title="Confirmation" class="md-nav__link">
+      Confirmation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../demo/" title="Demo Project" class="md-nav__link">
+      Demo Project
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../screencasts/" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#coronium-tool" title="Coronium Tool" class="md-nav__link">
+    Coronium Tool
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#viewing-logs" title="Viewing Logs" class="md-nav__link">
+    Viewing Logs
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#system-services" title="System Services" class="md-nav__link">
+    System Services
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#user-directories" title="User Directories" class="md-nav__link">
+    User Directories
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-directory" title="Public Directory" class="md-nav__link">
+    Public Directory
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
+    Database Passwords
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mongo" title="Mongo" class="md-nav__link">
+    Mongo
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>General Usage</h1>
+                
+                <h2 id="coronium-tool">Coronium Tool</h2>
+<div class="admonition note">
+<p>You must be logged in as the <strong>coronium</strong> user to use the command line tool.</p>
+</div>
+<p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
+<div class="codehilite"><pre><span></span>coronium
+</pre></div>
+
+
+<p>...and press the Enter key.</p>
+<h2 id="viewing-logs">Viewing Logs</h2>
+<p>To view log files, connect to the server with the <strong>coronium</strong> user.</p>
+<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<div class="admonition info">
+<p class="admonition-title">Viewing the Log</p>
+<p>To quickly monitor the debug (nginx) log file, enter <code>cclog</code> on the command line. You can also view the debug log in the Webmin in the "debug log" section.</p>
+</div>
+<p>Log files can be found in the <strong>/usr/local/coronium/logs</strong> directory. Possible log files include <em>nginx.log</em> and <em>mongo.log</em>.</p>
+<p>To watch a log file in real-time:</p>
+<div class="codehilite"><pre><span></span>tail -f /usr/local/coronium/logs/&lt;log-name&gt;.log
+</pre></div>
+
+
+<p>Press <strong>control-x</strong> to stop watching the log file.</p>
+<div class="admonition note">
+<p>The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To view all logs consolidated into one file (including the mysql.log) type <strong>coronium logs</strong>.</p>
+</div>
+<h2 id="system-services">System Services</h2>
+<p>When your <strong>Coronium Core</strong> server starts, its monitored by a utility called <strong>Monit</strong>, which makes sure that the required processes stay active. In the event that a process runs into an issue or crashes, it will be restarted shortly.</p>
+<p>In the rare case where you need to manually stop, start or restart the Coronium stack, log in using the <strong>coronium</strong> user.</p>
+<div class="codehilite"><pre><span></span>ssh coronium@&lt;your-instance-ip&gt;
+</pre></div>
+
+
+<p>To stop the Coronium stack, on the command line, enter:</p>
+<div class="codehilite"><pre><span></span>sudo coronium stop
+</pre></div>
+
+
+<p>To start the Coronium stack, use:</p>
+<div class="codehilite"><pre><span></span>sudo coronium start
+</pre></div>
+
+
+<p>To restart the Coronium stack, use:</p>
+<div class="codehilite"><pre><span></span>sudo coronium restart
+</pre></div>
+
+
+<div class="admonition caution">
+<p>You should rarely need to manually control the Coronium stack process.</p>
+</div>
+<h2 id="user-directories">User Directories</h2>
+<p>The following user directories can be found in <strong>/home/coronium</strong>. They are will not be affected in any server updates.</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>See also</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>files</td>
+<td>Holds all file uploads.</td>
+<td><a href="../../../server/modules/files/">Files</a></td>
+</tr>
+<tr>
+<td>projects</td>
+<td>Holds all the api projects.</td>
+<td><a href="../../../server/modules/api/#projects">Projects</a></td>
+</tr>
+<tr>
+<td>pages</td>
+<td>Holds all public facing web pages.</td>
+<td><a href="../../../server/modules/pages/api/">Pages</a></td>
+</tr>
+<tr>
+<td>templates</td>
+<td>Holds all templates for the server-side template module.</td>
+<td><a href="../../../server/modules/template/">Template</a></td>
+</tr>
+<tr>
+<td>config</td>
+<td>Holds all configuration files.</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="public-directory">Public Directory</h3>
+<p>If you store files in the <strong>files/public</strong> directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within <a href="../../../server/modules/pages/templates/">page templates</a>. </p>
+<div class="admonition note">
+<p>If a file with the same path exists in the <strong>pages</strong> directory, it will be served first. If a file does not exist at the path, then the <strong>files/public</strong> directory will be checked.</p>
+</div>
+<p><strong>Path Examples</strong></p>
+<p>File: <em>/home/coronium/files/public/imgs/image.png</em></p>
+<p>URL: <em>https://your.coronium.server/imgs/image.png</em></p>
+<h2 id="database-passwords">Database Passwords</h2>
+<p>If you need to change the databases passwords at any time, you can issue the following commands, and carefully follow the instructions while logged in as the <strong>coronium</strong> user:</p>
+<h3 id="mongo">Mongo</h3>
+<p>You will need to provide your current Mongo password.</p>
+<div class="codehilite"><pre><span></span>sudo mongo-updatepw
+</pre></div>
+
+
+<h3 id="mysql">MySQL</h3>
+<div class="codehilite"><pre><span></span>sudo mysql-updatepw
+</pre></div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../key/" title="Server Key" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Server Key
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../ssl/" title="HTTPS/SSL" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                HTTPS/SSL
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy;2017 C. Byerley (develephant) | v2.1.0
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org" title="MkDocs">MkDocs</a>
+        and
+        <a href="http://squidfunk.github.io/mkdocs-material/" title="Material for MkDocs">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+      <a href="https://forums.coronalabs.com/forum/643-coronium/" class="md-footer-social__link fa fa-support"></a>
+    
+      <a href="https://twitter.com/develephant" class="md-footer-social__link fa fa-twitter"></a>
+    
+      <a href="http://develephant.com" class="md-footer-social__link fa fa-globe"></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application-f3ab9e5ff8.js"></script>
+      
+      
+      <script>app.initialize({url:{base:"../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>
