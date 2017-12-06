@@ -4,7 +4,7 @@
     
     <url>
      <loc>https://develephant.github.io/coronium-core-docs/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -32,6 +32,12 @@
     <url>
      <loc>https://develephant.github.io/coronium-core-docs</loc>
      <lastmod></lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server/updates/</loc>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -41,7 +47,7 @@
         
     <url>
      <loc>https://develephant.github.io/coronium-core-docs/client/guide/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
         
@@ -51,12 +57,18 @@
      <changefreq>daily</changefreq>
     </url>
         
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/client/codes/</loc>
+     <lastmod>2017-12-06</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+        
     
 
     
     <url>
      <loc>https://develephant.github.io/coronium-core-docs/demo/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -64,7 +76,7 @@
     
     <url>
      <loc>https://develephant.github.io/coronium-core-docs/screencasts/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     
@@ -72,7 +84,7 @@
     
     <url>
      <loc>https://develephant.github.io/coronium-core-docs/about/</loc>
-     <lastmod>2017-11-19</lastmod>
+     <lastmod>2017-12-06</lastmod>
      <changefreq>daily</changefreq>
     </url>
     

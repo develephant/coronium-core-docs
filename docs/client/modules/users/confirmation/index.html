@@ -263,8 +263,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../../../server/webmin/setup/" title="Setup/Access" class="md-nav__link">
-      Setup/Access
+    <a href="../../../../server/webmin/setup/" title="Browser Access" class="md-nav__link">
+      Browser Access
     </a>
   </li>
 
@@ -373,18 +373,6 @@
   <li class="md-nav__item">
     <a href="../../../../server/guide/ssl/" title="HTTPS/SSL" class="md-nav__link">
       HTTPS/SSL
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../../../server/guide/updates/" title="Updating" class="md-nav__link">
-      Updating
     </a>
   </li>
 
@@ -598,6 +586,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/updates/" title="Updates" class="md-nav__link">
+      Updates
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -780,6 +780,30 @@
 
 
   <li class="md-nav__item">
+    <a href="../creating/" title="Creating" class="md-nav__link">
+      Creating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../updating/" title="Updating" class="md-nav__link">
+      Updating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../login/" title="Logging In" class="md-nav__link">
       Logging In
     </a>
@@ -832,6 +856,13 @@
           <li class="md-nav__item">
   <a href="#default-confirmation" title="Default Confirmation" class="md-nav__link">
     Default Confirmation
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response-event" title="Response Event" class="md-nav__link">
+    Response Event
   </a>
   
 </li>
@@ -889,6 +920,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resending-confirmation" title="Resending Confirmation" class="md-nav__link">
+    Resending Confirmation
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -905,6 +943,18 @@
         
       </ul>
     </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../codes/" title="Status Codes" class="md-nav__link">
+      Status Codes
+    </a>
   </li>
 
         
@@ -989,6 +1039,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#response-event" title="Response Event" class="md-nav__link">
+    Response Event
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1042,6 +1099,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#resending-confirmation" title="Resending Confirmation" class="md-nav__link">
+    Resending Confirmation
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1060,10 +1124,6 @@
                   <h1>Confirmation</h1>
                 
                 <p>You can <em>optionally</em> require a user to confirm their registration via email by using the email confirmation feature of the <strong>Users</strong> module.</p>
-<div class="admonition tip">
-<p class="admonition-title">Screencast Available</p>
-<p>Learn about user confirmation and custom email templates in a screencast format by <strong><a href="../../../../screencasts/#confirming-users">Clicking here</a></strong>.</p>
-</div>
 <div class="admonition warning">
 <p class="admonition-title">Mailgun Account Required</p>
 <p>A valid <strong>Mailgun</strong> account and the proper configuration must be set up to use the email confirmation feature. See the <strong><a href="../../../../server/webmin/mailgun/">Mailgun Config</a></strong> section for more information.</p>
@@ -1110,7 +1170,18 @@
 <h2 id="client-side-example">Client-Side Example</h2>
 <p>You initialize the creation and confirmation using the client-side <strong><a href="../../../../client/modules/users/api/#create">core.users.create</a></strong> method.</p>
 <h3 id="default-confirmation">Default Confirmation</h3>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">create</span><span class="p">({</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserCreate</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">confirmation</span> <span class="o">==</span> <span class="s1">&#39;pending&#39;</span> <span class="kr">then</span>
+      <span class="c1">--email was sent successfully</span>
+    <span class="kr">end</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1">-- new user id</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">create</span><span class="p">({</span>
   <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;SuperUser&quot;</span><span class="p">,</span>
   <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234abcd&quot;</span><span class="p">,</span>
   <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;newuser@somemail.com&quot;</span><span class="p">,</span>
@@ -1122,10 +1193,13 @@
 </pre></div>
 
 
-<div class="admonition info">
-<p class="admonition-title">Info</p>
-<p>Plain text passwords are hashed before being sent to the server. Do not try to hash the passwords yourself.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p>Passwords are hashed before being sent to the server. Do not try to hash the passwords yourself.</p>
 </div>
+<h3 id="response-event">Response Event</h3>
+<p>When creating a user with email confirmation, the response <strong>result</strong> will be a table containing the newly registered users <strong>user_id</strong>, and a <strong>confirmation</strong> key.</p>
+<p>The <strong>confirmation</strong> key will contain the email sent state as a string with a value of 'pending' on success, or 'failed' otherwise.</p>
 <h2 id="default-template">Default Template</h2>
 <p>By default the following email template is sent to the users email. The only required template key is the <strong>{* confirm_link *}</strong> which is replaced automatically with the proper link to confirm the user.</p>
 <div class="admonition fail">
@@ -1206,6 +1280,8 @@ Have a nice day.
 <p>To customize the landing page, you can edit the following resources.</p>
 <p>Template: <strong>/home/coronium/pages/_coronium/registration/confirmation.tpl</strong></p>
 <p>Lua Code: <strong>/home/coronium/pages/_coronium/registration/confirmation.lua</strong></p>
+<h2 id="resending-confirmation">Resending Confirmation</h2>
+<p>To resend a users confirmation email, you must first <strong><a href="../api/#login">login</a></strong> the user with their current username and password, and then call the <strong><a href="../api/#resendconfirmation">resendConfirmation</a></strong> method with the users unique identifier.</p>
                 
                   
                 
@@ -1239,13 +1315,13 @@ Have a nice day.
           </a>
         
         
-          <a href="../../../../demo/" title="Demo Project" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../../codes/" title="Status Codes" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Demo Project
+                Status Codes
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

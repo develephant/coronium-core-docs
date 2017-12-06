@@ -1,8 +1,5 @@
 You can _optionally_ require a user to confirm their registration via email by using the email confirmation feature of the __Users__ module.
 
-!!! tip "Screencast Available"
-    Learn about user confirmation and custom email templates in a screencast format by __[Clicking here](/screencasts/#confirming-users)__.
-
 !!! warning "Mailgun Account Required"
     A valid __Mailgun__ account and the proper configuration must be set up to use the email confirmation feature. See the __[Mailgun Config](/server/webmin/mailgun/)__ section for more information.
 
@@ -26,6 +23,17 @@ You initialize the creation and confirmation using the client-side __[core.users
 ### Default Confirmation
 
 ```lua
+local function onUserCreate( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    if evt.result.confirmation == 'pending' then
+      --email was sent successfully
+    end
+    print(evt.result.user_id) -- new user id
+  end
+end
+
 core.users.create({
   username = "SuperUser",
   password = "1234abcd",
@@ -37,8 +45,14 @@ core.users.create({
 }, onUserCreate)
 ```
 
-!!! info
-    Plain text passwords are hashed before being sent to the server. Do not try to hash the passwords yourself.
+!!! warning "Important"
+    Passwords are hashed before being sent to the server. Do not try to hash the passwords yourself.
+
+### Response Event
+
+When creating a user with email confirmation, the response __result__ will be a table containing the newly registered users __user_id__, and a __confirmation__ key.
+
+The __confirmation__ key will contain the email sent state as a string with a value of 'pending' on success, or 'failed' otherwise.
 
 ## Default Template
 
@@ -138,3 +152,7 @@ To customize the landing page, you can edit the following resources.
 Template: __/home/coronium/pages/_coronium/registration/confirmation.tpl__
 
 Lua Code: __/home/coronium/pages/_coronium/registration/confirmation.lua__
+
+## Resending Confirmation
+
+To resend a users confirmation email, you must first __[login](api/#login)__ the user with their current username and password, and then call the __[resendConfirmation](api/#resendconfirmation)__ method with the users unique identifier.

@@ -64,6 +64,15 @@ Once you are connected to the droplet, copy and paste the following line into th
 wget https://s3.amazonaws.com/coronium-core/do/up.sh && sudo bash up.sh
 ```
 
+### Mongo Database
+
+At the start of the installation you will be prompted to choose whether to install the __Mongo__ database. The __MySQL__ database is a mandatory installation.
+
+__It is recommended that you install the Mongo database.__
+
+!!! failure "Important"
+    If you choose to skip the Mongo installation, you will not be able to use the __[Data](/server/modules/data/)__ or __[Mongo](/server/modules/mongo/)__ modules. ___Choose wisely, as you cannot install Mongo once the server is running___.
+
 ### Database Passwords
 
 Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally. 

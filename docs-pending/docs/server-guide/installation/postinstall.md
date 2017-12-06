@@ -23,8 +23,8 @@ And then follow the prompts.
 
 To secure your Coronium Core server with HTTPS, see the __[HTTPS/SSL](/server/guide/ssl/)__ section.
 
-## Webmin Access
+## Activate Webmin
 
-To access the Coronium Core Webmin, see the __[Webmin Guide](/server/webmin/setup/)__.
+To activate the Coronium Core Webmin, see the __[Webmin Guide](/server/webmin/setup/)__ setup section.
 
 

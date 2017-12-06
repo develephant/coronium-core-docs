@@ -1,11 +1,12 @@
-Provides methods to register, login, and track users for your applications. Users are stored within application scopes. Please see __[Application Scope](/client-guide/#application-scope)__ in the __Client Guide__ for more information.
+Provides methods to register, login, and track users for your applications. 
 
-!!! tip "Screencasts Available"
-    Get an overview of using the User module in a screencast format by clicking one of the following links: __[Creating Users](/screencasts/#creating-users)__, __[Updating Users](/screencasts/#updating-users)__, __[Confirming Users](/screencasts/#confirming-users)__.
+For more detailed information on working with users, see the __[Creating](creating/)__, __[Updating](updating/)__, __[Logging In](login/)__, and __[Confirmation](confirmation/)__ sections.
 
 ### login
 
-Retrieve the users meta data, and marks a _login event_ in the __users__ database.
+Retrieves the users basic data, and marks a _login event_ in the __users__ database. 
+
+- See also: __[Logging In](login/)__ users.
 
 ```lua
 core.users.login(data_params, listener)
@@ -27,28 +28,27 @@ __Data Params__
 
 __Event Response__
 
-On success, the __result__ will hold the user object as a __table__.
+On success, the __result__ will hold a basic login object as a __table__. See the __[Logging In](login/)__ section for more details.
 
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserLogin( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result.user_id) -- result holds the user object
+    print(evt.result.user_id) -- result holds the login object
   end
 end
 
-core.users.login({username="tiny", password="abcd1234"}, apiListener)
+core.users.login({username="tiny", password="abcd1234"}, onUserLogin)
 ```
-
-!!! info ""
-    See also the __[Logging in](/client/modules/users/login/)__ section of the __Users Guide__.
 
 ### create
 
 Create a new user, and optionally request an email confirmation.
+
+- See also: __[Creating](creating/)__ users, and __[Confirmation](/client/modules/users/confirmation/)__ using email.
 
 ```lua
 core.users.create(data_params, listener)
@@ -68,38 +68,32 @@ __Data Params__
 |username|The preferred username.|_String_|__Y__|
 |password|The users password.|_String_|__Y__|
 |email|The users email. _User email is required if using email confirmation._ See `confirmation` parameter below.|_String_|__N__|
-|extra|A custom data table of key/value pairs to store with the user. Can be of type __String__ or __Number__ only.|_Table_|__N__|
-|confirmation|Parameters for _optional_ email confirmation. See the __[Confirmation](/client/modules/users/confirmation/)__ section in the __Users Guide__.|_Table_|__N__|
+|extra|A custom data table of key/value pairs to store with the user. Can be of type _String_, _Number_, or _Boolean_ only.|_Table_|__N__|
+|confirmation|Parameters for _optional_ email confirmation. See the __[Confirmation](/client/modules/users/confirmation/)__ section for detailed usage.|_Table_|__N__| 
 
-!!! warning "Extra Metadata"
-    If you use the `extra` metadata table, the values can be of type __String__ or __Number__ only. The `extra` metadata table cannot contain other tables. 
-
-!!! info
-    Plain text passwords are hashed before being sent to the server. Do not try to hash the password yourself.
+!!! warning "Important"
+    Passwords are hashed before being sent to the server. Do not try to hash the password yourself.
 
 __Event Response__
 
-On success, the __result__ will hold the created users unique identifier as a __string__.
+On success, the __result__ will hold the created users unique identifier in the __user_id__ key.
 
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserCreate( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result) -- result holds the users id
+    print(evt.result.user_id) -- holds the users id
   end
 end
 
 core.users.create({
   username="tiny", 
   password="abcd1234"
-}, apiListener)
+}, onUserCreate)
 ```
-
-!!! tip "Email Confirmation"
-    See the __[Confirmation](/client/modules/users/confirmation/)__ section in the __Users Guide__ for examples on using email confirmation.
 
 ### get
 
@@ -129,7 +123,7 @@ On success, the __result__ will hold the user object as a __table__.
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserGet( evt )
   if evt.error then
     print(evt.error)
   else
@@ -137,12 +131,14 @@ local function apiListener( evt )
   end
 end
 
-core.users.get({user_id="289bc36e-0df7-44df-99b1-a6543c6f45eb"}, apiListener)
+core.users.get({user_id="289bc36e-0df7-44df-99b1-a6543c6f45eb"}, onUserGet)
 ```
 
 ### update
 
 Update a users data in the database.
+
+- See also: __[Updating](updating/)__ users.
 
 ```lua
 core.users.update(data_params, listener)
@@ -160,10 +156,7 @@ __Data Params__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |user_id|The users unique identifier.|_String_|__Y__|
-|update|The user data to update as key/value pairs.|_Table_|__Y__|
-
-!!! warning "Extra Metadata"
-    If you use the `extra` metadata table, the values can be of type __String__ or __Number__ only. The `extra` metadata table cannot contain other tables. To remove an item from the metadata table see the __[core.users.NULL](#null)__ constant.
+|update|The user data to update as key/value pairs. See the __[Updating](/client/modules/users/updating/)__ section for detailed usage.|_Table_|__Y__|
 
 __Event Response__
 
@@ -172,7 +165,7 @@ On success, the __result__ will hold the updated user object as a __table__.
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserUpdate( evt )
   if evt.error then
     print(evt.error)
   else
@@ -184,11 +177,9 @@ core.users.update({
   user_id = "289bc36e-0df7-44df-99b1-a6543c6f45eb",
   update = {
     email = "some@email.com",
-    extra = {
-      color = "Blue"
-    }
+    password = "abcd"
   }
-}, apiListener)
+}, onUserUpdate)
 ```
 
 ### delete
@@ -214,21 +205,63 @@ __Data Params__
 
 __Event Response__
 
-On success, the __result__ will hold the records updated as a __number__. This will most always be __1__.
+On success, the __result__ will hold the records updated as a __number__. Generally a __1__ or __0__.
 
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserDelete( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result) -- 1
+    print(evt.result) -- 1 or 0
   end
 end
 
-core.users.delete({user_id="289bc36e-0df7-44df-99b1-a6543c6f45eb"}, apiListener)
+core.users.delete({user_id="289bc36e-0df7-44df-99b1-a6543c6f45eb"}, onUserDelete)
 ```
+
+### resendConfirmation
+
+Resend the user confirmation email. See __[Resending Confirmation](confirmation/#resending-confirmation)__.
+
+```lua
+core.users.resendConfirmation(data_params, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|data_params|The data parameters for the call.|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Data Params__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|user_id|The users unique identifier.|_String_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold the users unique identifier as a __string__.
+
+__Example__
+
+```lua
+local function onResend( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result) -- result holds the users id
+  end
+end
+
+core.users.resendConfirmation({
+  user_id="289bc36e-0df7-44df-99b1-a6543c6f45eb"
+}, onResend)
+```
+
 
 ## Constants
 
@@ -243,7 +276,7 @@ core.users.NULL
 __Example__
 
 ```lua
-local function apiListener( evt )
+local function onUserUpdate( evt )
   ...
 end
 
@@ -254,7 +287,7 @@ core.users.update({
       color = core.users.NULL --remove the `color` key
     }
   }
-}, apiListener)
+}, onUserUpdate)
 ```
 
 ## Viewing Users

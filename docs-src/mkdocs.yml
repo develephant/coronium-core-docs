@@ -7,7 +7,7 @@ pages:
       - 'Amazon EC2': 'server/installation/amazon.md'
       - 'Post Install': 'server/installation/postinstall.md'
     - 'Webmin':
-      - 'Setup/Access': 'server/webmin/setup.md'
+      - 'Browser Access': 'server/webmin/setup.md'
       - 'Application Scope': 'server/webmin/scope.md'
       - 'Mailgun Config': 'server/webmin/mailgun.md'
       - 'Password': 'server/webmin/password.md'
@@ -16,7 +16,6 @@ pages:
       - 'Server Key': 'server/guide/key.md'
       - 'General Usage': 'server/guide/usage.md'
       - 'HTTPS/SSL': 'server/guide/ssl.md'
-      - 'Updating': 'server/guide/updates.md'  
     - 'Modules':
       - 'API': 'server/modules/api.md' 
       - 'Data': 'server/modules/data.md'
@@ -32,6 +31,7 @@ pages:
         - 'Configuration': 'server/modules/pages/config.md'        
       - 'Template': 'server/modules/template.md'
       - 'Utils': 'server/modules/utils.md'
+    - 'Updates': 'server/updates.md'  
   - 'Core Client':
       - 'Usage': 'client/guide/index.md'
       - 'Modules':
@@ -44,8 +44,11 @@ pages:
         - 'MySQL': 'client/modules/mysql.md'
         - 'Users': 
           - 'Users API': 'client/modules/users/api.md'
+          - 'Creating': 'client/modules/users/creating.md'
+          - 'Updating': 'client/modules/users/updating.md'
           - 'Logging In': 'client/modules/users/login.md'
           - 'Confirmation': 'client/modules/users/confirmation.md'
+      - 'Status Codes': 'client/codes.md'
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'

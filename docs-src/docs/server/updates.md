@@ -100,6 +100,48 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh && sudo b
 
 _Coming Soon_
 
+### 2.1.1 to 2.2.0
+
+!!! fail "Important Note"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+The following will update your Coronium Core 2.1.1 server to version 2.2.0
+
+__Added__
+
+- __[resendConfirmation](/client/modules/users/api/#resendconfirmation)__ method added to the Users module, to resend a confirmation email.
+
+- Users "extra" metadata now supports boolean types.
+
+__Fixed__
+
+- Documentation links in the Webmin now resolve properly.
+
+__API Changes__
+
+`users.login`
+
+The client-side Users module __[login](/client/modules/users/api/#login)__ response has changed. See the __[Logging In](/client/modules/users/login/)__ section of the documentation for more information.
+
+`users.create`
+
+The client-side Users module __[create](/client/modules/users/api/#create)__ response has changed. See the __[Creating](/client/modules/users/creating/)__ users section of the documentation for more information.
+
+!!! warning
+    Do not update your Coronium Core server to this version until you have updated any code to reflect the new changes.
+
+#### DigitalOcean
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh && sudo bash ./update.sh
+```
+
+#### Amazon EC2
+
+_Coming Soon_
+
 ## Webmin HTTPS/SSL
 
 If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.

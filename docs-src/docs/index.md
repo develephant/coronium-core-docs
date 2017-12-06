@@ -11,4 +11,4 @@ Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugi
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for Corona developers.
 
 !!! note ""
-    This documentation is current for __Coronium Core 2.1.1__
+    This documentation is current for __Coronium Core 2.2.0__
