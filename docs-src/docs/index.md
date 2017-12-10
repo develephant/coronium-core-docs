@@ -10,7 +10,7 @@ Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugi
 
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for Corona developers.
 
-___Coronium Core is officially supported only on __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8)__ and AWS EC2 hosting environments. Other environments may work, but are not supported.___
+___Coronium Core is officially supported only on [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) and AWS EC2 hosting environments. Other environments may work, but are not supported.___
 
 !!! note ""
     This documentation is current for __Coronium Core 2.2.0__
