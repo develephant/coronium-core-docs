@@ -2,12 +2,9 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ---
 
-## DigitalOcean Installation
+## Quick Start / Installation
 
-!!! note
-    Mongo is no longer an optional installation choice.
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/t1GgTfxLgIA?rel=0" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/egoSVe4qAn4" frameborder="0" allowfullscreen></iframe>
 
 ## HTTPS / SSL
 
