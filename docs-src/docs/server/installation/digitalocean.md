@@ -4,7 +4,7 @@ __Coronium Core__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8
     Watch the installation instructions in a screencast format by __[Clicking here](/screencasts/#digitalocean-installation)__.
 
 !!! info "Free Hosting Credit"
-    If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit (2 free months), but it also helps support the continued development, and testing of __Coronium Core__.
+    If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit, but it also helps support the continued development, and testing of __Coronium Core__.
 
 ### Create A Droplet
 
