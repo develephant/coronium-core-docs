@@ -1,7 +1,7 @@
 ![logo-sm](imgs/logo128.png)
 
 <h3>Coronium Core</h3>
-Code and documentation ©2017 C. Byerley ( [develephant](http://develephant.com) )
+Code and documentation ©2018 C. Byerley ( [develephant](http://develephant.com) )
 
 ## Support
 
@@ -11,7 +11,7 @@ For questions, assistance, and discussions, visit the __[Coronium forum](https:/
 
 BSD 3-Clause License
 
-Copyright (c) 2017, C. Byerley
+Copyright (c) 2018, C. Byerley
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without

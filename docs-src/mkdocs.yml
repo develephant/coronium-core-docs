@@ -52,7 +52,7 @@ pages:
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
-copyright: "&copy;2017 C. Byerley (develephant) | v2.2.0"
+copyright: "&copy;2018 C. Byerley (develephant) | v2.2.0"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'
