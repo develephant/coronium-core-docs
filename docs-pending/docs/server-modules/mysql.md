@@ -304,30 +304,30 @@ local record, err = core.mysql.selectOne("app", {
 
 ### selectBatch
 
-Query multiple tables of a database and return the individual results in a keyed response.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[selectBatch](/client/modules/mysql/#selectbatch)__ client-side method.
+Perform multiple table queries against a database and return the individual results in a keyed response in an optimized way.
 
 ```lua
 core.mysql.selectBatch(db_name, batch_tbl)
 ```
 
+!!! tip
+    This method is generally more useful from the client-side. Using multiple server-side __[select](#select)__ calls provides similar performance.
+
 __Returns__
 
-A keyed __table__ with the results of each select query.
+A keyed response __table__ with the results of each select query, or __nil__ and an error.
 
 __Parameters__
 
 |Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|	The database to run the query against.|_String_|__Y__|
-|batch_tbl|A table array of EZ Query select tables, __excluding the db key__. (see [select](#select)). Each select table must also include a __key__ property for the result table (see example below).|_Table_|__Y__|
+|---|-----------|----|--------|
+|db_name|The database to run the query against.|_String_|__Y__|
+|batch_tbl|A table array of EZ Query select tables (see [select](#select)). Each select table must also include a __key__ property for the response (see example below).|_Table_|__Y__|
 
 __Example__
 
 ```lua
-local batch_select = {
+local batch_tbl = {
   {
     tbl = "products",
     where = "type='Bike'",
@@ -346,15 +346,15 @@ local batch_select = {
   }
 }
 
-local result, err = core.mysql.selectBatch("store", batch_select)
+local res, err = core.mysql.selectBatch("store", batch_tbl)
 
-if not result then
+if not res then
   core.log(err)
-else
-  core.log(result.bikes) --Array of "Bike" records
-  core.log(result.shoes) --Array of "Shoe" records
-  core.log(result.stores) --Array of 5 location records
 end
+
+core.log( res.bikes ) --Array of "Bike" records from the products table
+core.log( res.shoes ) --Array of "Shoe" records from the products table
+core.log( res.stores ) --Array of 5 records from the locations table
 ```
 
 __Query Errors__
@@ -364,17 +364,13 @@ If any of the queries in the batch result in an error, the results key for that 
 ```lua
 -- Assuming batch call as shown in the example above
 
-if not result then
-  core.log(err)
+if res.bikes.error then
+  --an error occurred on this particular query
+  core.log(res.bikes.error)
 else
-  if result.bikes.error then
-    --an error occurred on this particular query
-    core.log(result.bikes.error)
-  else
-    --loop over the records
-    for i=1, #result.bikes do
-      core.log(result.bikes[i].name)
-    end
+  --loop over the records
+  for i=1, #res.bikes do
+    core.log(res.bikes[i].name)
   end
 end
 ```
@@ -429,10 +425,7 @@ end
 
 ### insertMany
 
-Insert records into a single table of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[insertMany](/client/modules/mysql/#insertmany)__ client-side method.
+Insert multiple records in a database table in an optimized way.
 
 ```lua
 core.mysql.insertMany(db_name, insert_tbl)
@@ -440,9 +433,7 @@ core.mysql.insertMany(db_name, insert_tbl)
 
 __Returns__
 
-An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the records table that was supplied to the call.
+The amount of records inserted as a __number__, or __nil__ and an error.
 
 __Parameters__
 
@@ -464,7 +455,7 @@ __Insert Table Keys__
 __Example__
 
 ```lua
-local records_arr = {
+local toys = {
   {
     name = "Car",
     color = "red"
@@ -478,90 +469,14 @@ local records_arr = {
 
 local result, err = core.mysql.insertMany("products", {
   tbl = "toys",
-  records = records_arr
+  records = toys
 })
 
 if not result then
   core.log(err)
 else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in insert entry #"..i..": "..entry.error)
-    else
-      core.log("inserted record with id: "..entry.id.." for entry #"..i)
-    end
-  end
-end
-```
-
-### insertBatch
-
-Insert records into multiple tables of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[insertBatch](/client/modules/mysql/#insertbatch)__ client-side method.
-
-```lua
-core.mysql.insertBatch(db_name, batch_tbl)
-```
-
-__Returns__
-
-An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|	The database to run the query against.|_String_|__Y__|
-|batch_tbl|A table array of tables with the `tbl` and `values` keys from the [insert](#insert) method.|_Table_|__Y__|
-
-__Example__
-
-```lua
-local batch_insert = {
-  {
-    tbl = "shoes"
-    values = {
-      name = "Adidas",
-      size = 12
-    }
-  },
-  {
-    tbl = "toys",
-    values = {
-      name = "Car",
-      age_group = 10
-    }
-  },
-  {
-    tbl = "toys",
-    values = {
-      name = "Bear",
-      age_group = 5,
-      color = "Brown"
-    }
-  }
-}
-
-local result, err = core.mysql.insertBatch("products", batch_insert)
-
-if not result then
-  core.log(err)
-else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in insert entry #"..i..": "..entry.error)
-    else
-      core.log("inserted record with id: "..entry.id.." for entry #"..i)
-    end
-  end
+  -- `result` contains the total records inserted
+  core.log(result)
 end
 ```
 
@@ -616,141 +531,18 @@ end
 
 ### updateMany
 
-Update records in a single table of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[updateMany](/client/modules/mysql/#updatemany)__ client-side method.
+Update multiple records in an optimized way.
 
 ```lua
-core.mysql.updateMany(db_name, update_tbl)
-```
-
-__Returns__
-
-An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the update table that was supplied to the call.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|The database to run the query against.|_String_|__Y__|
-|update_tbl|The update table options (see below).|_Table_|__Y__|
-
-__Update Table Keys__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|tbl|Name of the table to operate on.|_String_|__Y__|
-|update|A table array of tables with the `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
-
-__Example__
-
-```lua
-local update_arr = {
-  {
-    values = {
-      name = "Nike"
-    },
-    where = "name='Adidas'"
-  },
-  {
-    values = {
-      cost = "1.99"
-    },
-    where = "id=3"
-  }
-}
-
-
-local result, err = core.mysql.updateMany("products", {
-  tbl = "shoes",
-  update = update_arr
-})
-
-if not result then
-  core.log(err)
-else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in update entry #"..i..": "..entry.error)
-    else
-      core.log("updated "..entry.updated.." records for entry #"..i)
-    end
-  end
-end
+core.mysql.updateMany(conn, updates_tbl)
 ```
 
 ### updateBatch
 
-Update records in multiple tables of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[updateBatch](/client/modules/mysql/#updatebatch)__ client-side method.
+Update records in multiple tables in an optimized way.
 
 ```lua
-core.mysql.updateBatch(db_name, batch_tbl)
-```
-
-__Returns__
-
-An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|	The database to run the query against.|_String_|__Y__|
-|batch_tbl|A table array of tables with the `tbl`, `values` and `where` keys from the [update](#update) method|_Table_|__Y__|
-
-__Example__
-
-```lua
-local batch_update = {
-  {
-    tbl = "shoes",
-    values = {
-      name = "Adidas"
-    },
-    where = "id=3"
-  },
-  {
-    tbl = "toys",
-    values = {
-      name = "Raggedy Ann",
-      gender = "female"
-    },
-    where = "name='Raggedy Andy'"
-  },
-  {
-    tbl = "toys",
-    values = {
-      company = "Tonka"
-    },
-    where = "id=4"
-  }
-}
-
-local result, err = core.mysql.updateBatch("products", batch_update)
-
-if not result then
-  core.log(err)
-else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in update entry #"..i..": "..entry.error)
-    else
-      core.log("updated "..entry.updated.." records for entry #"..i)
-    end
-  end
-end
+core.mysql.updateBatch(conn, batch_tbl)
 ```
 
 ### delete
@@ -815,207 +607,6 @@ else
   -- `result` contains the number of records deleted
   core.log(result)
 end
-```
-
-### deleteMany
-
-Delete records from a single table of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[deleteMany](/client/modules/mysql/#deletemany)__ client-side method.
-
-```lua
-core.mysql.deleteMany(db_name, delete_tbl)
-```
-
-__Returns__
-
-An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the update table that was supplied to the call.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|The database to run the query against.|_String_|__Y__|
-|delete_tbl|The delete table options (see below).|_Table_|__Y__|
-
-__Delete Table Keys__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|tbl|Name of the table to operate on.|_String_|__Y__|
-|delete|A table array of tables with the `where` key from the [delete](#delete) method.|_Table_|__Y__|
-
-__Example__
-
-```lua
-local delete_arr = {
-  {
-    where = "id=34"
-  },
-  {
-    where = "color='Red'"
-  }
-}
-
-
-local result, err = core.mysql.deleteMany("products", {
-  tbl = "shoes",
-  delete = delete_arr
-})
-
-if not result then
-  core.log(err)
-else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in delete entry #"..i..": "..entry.error)
-    else
-      core.log("deleted "..entry.deleted.." records for entry #"..i)
-    end
-  end
-end
-```
-
-### deleteBatch
-
-Delete records from multiple tables of a database.
-
-!!! note ""
-    This method is generally for use on the client-side. See the __[deleteBatch](/client/modules/mysql/#deletebatch)__ client-side method.
-
-```lua
-core.mysql.deleteBatch(db_name, batch_tbl)
-```
-
-__Returns__
-
-An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|	The database to run the query against.|_String_|__Y__|
-|batch_tbl|A table array of tables with the `tbl` and `where` keys from the [delete](#delete) method.|_Table_|__Y__|
-
-__Example__
-
-```lua
-local batch_delete = {
-  {
-    tbl = "toys",
-    where = "id=2"
-  },
-  {
-    tbl = "shoes",
-    where = "type='running'"
-  }
-}
-
-local result, err = core.mysql.deleteBatch("products", batch_delete)
-
-if not result then
-  core.log(err)
-else
-  for i=1, #result do
-    local entry = result[i]
-
-    if entry.error then
-      core.log("error in delete entry #"..i..": "..entry.error)
-    else
-      core.log("deleted "..entry.deleted.." records for entry #"..i)
-    end
-  end
-end
-```
-
-## Advanced Methods
-
-While the MySQL module methods above are fairly performant, they do automatically manage the database connections, and create the raw query strings, which creates a slight hit on speed.
-
-By managing the database connection directly you can get the best performance from your queries, especially if you are performing multiple queries in your API methods.
-
-!!! warning
-    Always use __dbClose__ at the end of your session, or you'll leave a connection open, using up resources.
-
-### dbConnect
-
-Create a new connection to a database.
-
-```lua
-core.mysql.dbConnect( db_name )
-```
-
-__Returns__
-
-A new database connection object, or __nil__, and an error.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_name|The database to connect to. You can also use a connection table. See the _Connection Table_ section in [Remote Databases](#remote-databases).|_String_|__Y__|
-
-__Example__
-
-```lua
-local db_conn, err = core.mysql.dbConnect("products")
-```
-
-### dbQuery
-
-Perform a query using the database connection (see __[dbConnect](#dbconnect)__). You can, and should, run multiple query calls using the same database connection.
-
-```lua
-core.mysql.dbQuery( db_connection, query_str )
-```
-
-__Returns__
-
-The query result, or __nil__, and an error. See the _Result Values_ section of the __[query](#query-q)__ method.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_connection|The database connection returned from __[dbConnect](#dbconnect)__.|_Object_|__Y__|
-|query_str|The MySQL query to send to the database.|_String_|__Y__|
-
-__Example__
-
-```lua
-local result, err = core.mysql.dbQuery(db_conn, "SELECT * FROM products;")
-```
-
-### dbClose
-
-Close a previous database connection opened with __[dbConnect](#dbconnect)__.
-
-```lua
-core.mysql.dbClose( db_connection )
-```
-
-__Returns__
-
-A truthy value on success, or __nil__, and an error.
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|db_connection|The database connection returned from __[dbConnect](#dbconnect)__.|_Object_|__Y__|
-
-__Example__
-
-```lua
-local ok, err = core.mysql.dbClose(db_conn)
 ```
 
 ## MySQL Timeout

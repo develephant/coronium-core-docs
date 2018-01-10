@@ -102,21 +102,28 @@ core.init({
 
 ## Response Events
 
-When calling a module or api method, you must supply an event listener function to recieve the response back from the server:
+When calling a module or api method, you must supply a listener function to recieve the response event back from the server:
 
 _Basic api listener_
 
 ```lua
 local function apiResponse( evt )
   if evt.error then
-    print(evt.error)
+    print(evt.error) --contains error string, if any.
   else
     --evt.result contains the server response
   end
+
+  print(evt.tt) --contains request round trip time
 end
 ```
 
-All response events will contain either an __error__ key, or the successful response in the __result__ key. Some modules may have additional event keys. See each modules documentation for event responses.
+All response events will contain either an __error__ key, or the successful response in the __result__ key.
+
+All response events contain a __tt__ key. See below for more details on this key.
+
+!!! note
+    Some modules may have additional event keys. See each modules documentation for event responses.
 
 ### error
 
@@ -125,6 +132,10 @@ The __error__ key will always be a string with the error message, or __nil__ if 
 ### result
 
 The __result__ key data depends on the module or api method. See each modules documentation to determine what the __result__ key might hold.
+
+### tt
+
+The __tt__ key allows you to see the "trip time" for the request. This is the total round trip time in milliseconds from the start of the client network request, to the final client response. 
 
 !!! tip
     To debug response events during development, see the __[core.debug](/client/modules/core/#debug)__ method.

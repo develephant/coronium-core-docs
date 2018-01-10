@@ -379,6 +379,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
+      MySQL Server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -565,6 +577,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#selectbatch" title="selectBatch" class="md-nav__link">
+    selectBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -579,6 +598,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#insertbatch" title="insertBatch" class="md-nav__link">
+    insertBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#update" title="update" class="md-nav__link">
     update
   </a>
@@ -586,8 +612,70 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#updatemany" title="updateMany" class="md-nav__link">
+    updateMany
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatebatch" title="updateBatch" class="md-nav__link">
+    updateBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletemany" title="deleteMany" class="md-nav__link">
+    deleteMany
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletebatch" title="deleteBatch" class="md-nav__link">
+    deleteBatch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-methods" title="Advanced Methods" class="md-nav__link">
+    Advanced Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbconnect" title="dbConnect" class="md-nav__link">
+    dbConnect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbquery" title="dbQuery" class="md-nav__link">
+    dbQuery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbclose" title="dbClose" class="md-nav__link">
+    dbClose
   </a>
   
 </li>
@@ -1136,6 +1224,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#selectbatch" title="selectBatch" class="md-nav__link">
+    selectBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -1150,6 +1245,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#insertbatch" title="insertBatch" class="md-nav__link">
+    insertBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#update" title="update" class="md-nav__link">
     update
   </a>
@@ -1157,8 +1259,70 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#updatemany" title="updateMany" class="md-nav__link">
+    updateMany
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatebatch" title="updateBatch" class="md-nav__link">
+    updateBatch
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletemany" title="deleteMany" class="md-nav__link">
+    deleteMany
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deletebatch" title="deleteBatch" class="md-nav__link">
+    deleteBatch
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-methods" title="Advanced Methods" class="md-nav__link">
+    Advanced Methods
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dbconnect" title="dbConnect" class="md-nav__link">
+    dbConnect
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbquery" title="dbQuery" class="md-nav__link">
+    dbQuery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dbclose" title="dbClose" class="md-nav__link">
+    dbClose
   </a>
   
 </li>
@@ -1617,6 +1781,94 @@
 </pre></div>
 
 
+<h3 id="selectbatch">selectBatch</h3>
+<p>Query multiple tables of a database and return the individual results in a keyed response.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#selectbatch">selectBatch</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectBatch</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">batch_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>A keyed <strong>table</strong> with the results of each select query.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch_tbl</td>
+<td>A table array of EZ Query select tables, <strong>excluding the db key</strong>. (see <a href="#select">select</a>). Each select table must also include a <strong>key</strong> property for the result table (see example below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">batch_select</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Bike&#39;&quot;</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;bikes&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Shoes&#39;&quot;</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;zip=93023&quot;</span><span class="p">,</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;stores&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectBatch</span><span class="p">(</span><span class="s2">&quot;store&quot;</span><span class="p">,</span> <span class="n">batch_select</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">)</span> <span class="c1">--Array of &quot;Bike&quot; records</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">shoes</span><span class="p">)</span> <span class="c1">--Array of &quot;Shoe&quot; records</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">stores</span><span class="p">)</span> <span class="c1">--Array of 5 location records</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<p><strong>Query Errors</strong></p>
+<p>If any of the queries in the batch result in an error, the results key for that particular query will contain an <strong>error</strong> key. Best practice is to check for this key before accessing the results.</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Assuming batch call as shown in the example above</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">if</span> <span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">.</span><span class="nb">error</span> <span class="kr">then</span>
+    <span class="c1">--an error occurred on this particular query</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">.</span><span class="nb">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="c1">--loop over the records</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span> <span class="kr">do</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
 <h3 id="insert">insert</h3>
 <p>Insert a single record into a database table.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">insert_tbl</span><span class="p">)</span>
@@ -1697,13 +1949,17 @@
 
 
 <h3 id="insertmany">insertMany</h3>
-<p>Insert multiple records in a database table in an optimized way.</p>
+<p>Insert records into a single table of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#insertmany">insertMany</a></strong> client-side method.</p>
+</div>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">insert_tbl</span><span class="p">)</span>
 </pre></div>
 
 
 <p><strong>Returns</strong></p>
-<p>The amount of records inserted as a <strong>number</strong>, or <strong>nil</strong> and an error.</p>
+<p>An indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the records table that was supplied to the call.</p>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1758,7 +2014,7 @@
 <p>Strings in the <code>values</code> tables will be automatically run through <strong>core.mysql.escape</strong>.</p>
 </div>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">toys</span> <span class="o">=</span> <span class="p">{</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">records_arr</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">{</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Car&quot;</span><span class="p">,</span>
     <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span>
@@ -1772,14 +2028,102 @@
 
 <span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
   <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
-  <span class="n">records</span> <span class="o">=</span> <span class="n">toys</span>
+  <span class="n">records</span> <span class="o">=</span> <span class="n">records_arr</span>
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
   <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">else</span>
-  <span class="c1">-- `result` contains the total records inserted</span>
-  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in insert entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;inserted record with id: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">id</span><span class="o">..</span><span class="s2">&quot; for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="insertbatch">insertBatch</h3>
+<p>Insert records into multiple tables of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#insertbatch">insertBatch</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertBatch</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">batch_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>An indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the batch table that was supplied to the call.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch_tbl</td>
+<td>A table array of tables with the <code>tbl</code> and <code>values</code> keys from the <a href="#insert">insert</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">batch_insert</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span><span class="p">,</span>
+      <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Car&quot;</span><span class="p">,</span>
+      <span class="n">age_group</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bear&quot;</span><span class="p">,</span>
+      <span class="n">age_group</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Brown&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertBatch</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="n">batch_insert</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in insert entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;inserted record with id: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">id</span><span class="o">..</span><span class="s2">&quot; for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
 <span class="kr">end</span>
 </pre></div>
 
@@ -1865,6 +2209,187 @@
 <span class="kr">else</span>
   <span class="c1">-- `result` contains the number of records updated</span>
   <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="updatemany">updateMany</h3>
+<p>Update records in a single table of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#updatemany">updateMany</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateMany</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">update_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>An indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the update table that was supplied to the call.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>update_tbl</td>
+<td>The update table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Update Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>update</td>
+<td>A table array of tables with the <code>values</code> and <code>where</code> keys from the <a href="#update">update</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">update_arr</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nike&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Adidas&#39;&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">cost</span> <span class="o">=</span> <span class="s2">&quot;1.99&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateMany</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+  <span class="n">update</span> <span class="o">=</span> <span class="n">update_arr</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in update entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;updated &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">updated</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="updatebatch">updateBatch</h3>
+<p>Update records in multiple tables of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#updatebatch">updateBatch</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateBatch</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">batch_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>An indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the batch table that was supplied to the call.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch_tbl</td>
+<td>A table array of tables with the <code>tbl</code>, <code>values</code> and <code>where</code> keys from the <a href="#update">update</a> method</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">batch_update</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Raggedy Ann&quot;</span><span class="p">,</span>
+      <span class="n">gender</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Raggedy Andy&#39;&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">company</span> <span class="o">=</span> <span class="s2">&quot;Tonka&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=4&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateBatch</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="n">batch_update</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in update entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;updated &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">updated</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
 <span class="kr">end</span>
 </pre></div>
 
@@ -1965,6 +2490,276 @@
   <span class="c1">-- `result` contains the number of records deleted</span>
   <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
 <span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="deletemany">deleteMany</h3>
+<p>Delete records from a single table of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#deletemany">deleteMany</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">delete_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>An indexed table array of tables containing either a <strong>deleted</strong> key; with the number of records deleted, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the update table that was supplied to the call.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>delete_tbl</td>
+<td>The delete table options (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Delete Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>A table array of tables with the <code>where</code> key from the <a href="#delete">delete</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">delete_arr</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=34&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;color=&#39;Red&#39;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+  <span class="n">delete</span> <span class="o">=</span> <span class="n">delete_arr</span>
+<span class="p">})</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in delete entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;deleted &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">deleted</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="deletebatch">deleteBatch</h3>
+<p>Delete records from multiple tables of a database.</p>
+<div class="admonition note">
+<p>This method is generally for use on the client-side. See the <strong><a href="../../../client/modules/mysql/#deletebatch">deleteBatch</a></strong> client-side method.</p>
+</div>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteBatch</span><span class="p">(</span><span class="n">db_name</span><span class="p">,</span> <span class="n">batch_tbl</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>An indexed table array of tables containing either a <strong>deleted</strong> key; with the number of records deleted, or an <strong>error</strong> key; containing the error string, or <strong>nil</strong> and an error.</p>
+<p>The result table is indexed the same order as the batch table that was supplied to the call.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch_tbl</td>
+<td>A table array of tables with the <code>tbl</code> and <code>where</code> keys from the <a href="#delete">delete</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">batch_delete</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=2&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;running&#39;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteBatch</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="n">batch_delete</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">result</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">else</span>
+  <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">result</span> <span class="kr">do</span>
+    <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+    <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;error in delete entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;deleted &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">deleted</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
+<h2 id="advanced-methods">Advanced Methods</h2>
+<p>While the MySQL module methods above are fairly performant, they do automatically manage the database connections, and create the raw query strings, which creates a slight hit on speed.</p>
+<p>By managing the database connection directly you can get the best performance from your queries, especially if you are performing multiple queries in your API methods.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Always use <strong>dbClose</strong> at the end of your session, or you'll leave a connection open, using up resources.</p>
+</div>
+<h3 id="dbconnect">dbConnect</h3>
+<p>Create a new connection to a database.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbConnect</span><span class="p">(</span> <span class="n">db_name</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>A new database connection object, or <strong>nil</strong>, and an error.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_name</td>
+<td>The database to connect to. You can also use a connection table. See the <em>Connection Table</em> section in <a href="#remote-databases">Remote Databases</a>.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">db_conn</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbConnect</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="dbquery">dbQuery</h3>
+<p>Perform a query using the database connection (see <strong><a href="#dbconnect">dbConnect</a></strong>). You can, and should, run multiple query calls using the same database connection.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbQuery</span><span class="p">(</span> <span class="n">db_connection</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>The query result, or <strong>nil</strong>, and an error. See the <em>Result Values</em> section of the <strong><a href="#query-q">query</a></strong> method.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_connection</td>
+<td>The database connection returned from <strong><a href="#dbconnect">dbConnect</a></strong>.</td>
+<td><em>Object</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>query_str</td>
+<td>The MySQL query to send to the database.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbQuery</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="s2">&quot;SELECT * FROM products;&quot;</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="dbclose">dbClose</h3>
+<p>Close a previous database connection opened with <strong><a href="#dbconnect">dbConnect</a></strong>.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbClose</span><span class="p">(</span> <span class="n">db_connection</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Returns</strong></p>
+<p>A truthy value on success, or <strong>nil</strong>, and an error.</p>
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db_connection</td>
+<td>The database connection returned from <strong><a href="#dbconnect">dbConnect</a></strong>.</td>
+<td><em>Object</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">ok</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbClose</span><span class="p">(</span><span class="n">db_conn</span><span class="p">)</span>
 </pre></div>
 
 

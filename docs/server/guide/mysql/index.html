@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/modules/template/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/guide/mysql/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Template - Coronium Core</title>
+        <title>MySQL Server - Coronium Core</title>
       
     
     
@@ -84,11 +84,11 @@
                 </span>
               
                 <span class="md-header-nav__parent">
-                  Modules
+                  Guide
                 </span>
               
             
-            Template
+            MySQL Server
           
         </span>
       </div>
@@ -316,10 +316,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
     
     <label class="md-nav__link" for="nav-2-3">
       Guide
@@ -337,7 +339,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/login/" title="Logging In" class="md-nav__link">
+    <a href="../login/" title="Logging In" class="md-nav__link">
       Logging In
     </a>
   </li>
@@ -349,7 +351,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/key/" title="Server Key" class="md-nav__link">
+    <a href="../key/" title="Server Key" class="md-nav__link">
       Server Key
     </a>
   </li>
@@ -361,7 +363,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/usage/" title="General Usage" class="md-nav__link">
+    <a href="../usage/" title="General Usage" class="md-nav__link">
       General Usage
     </a>
   </li>
@@ -373,7 +375,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/ssl/" title="HTTPS/SSL" class="md-nav__link">
+    <a href="../ssl/" title="HTTPS/SSL" class="md-nav__link">
       HTTPS/SSL
     </a>
   </li>
@@ -383,11 +385,50 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        MySQL Server
+      </label>
+    
+    <a href="./" title="MySQL Server" class="md-nav__link md-nav__link--active">
       MySQL Server
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-log" title="Error Log" class="md-nav__link">
+    Error Log
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -400,12 +441,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
     
     <label class="md-nav__link" for="nav-2-4">
       Modules
@@ -423,7 +462,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="API" class="md-nav__link">
+    <a href="../../modules/api/" title="API" class="md-nav__link">
       API
     </a>
   </li>
@@ -435,7 +474,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../data/" title="Data" class="md-nav__link">
+    <a href="../../modules/data/" title="Data" class="md-nav__link">
       Data
     </a>
   </li>
@@ -447,7 +486,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../email/" title="Email" class="md-nav__link">
+    <a href="../../modules/email/" title="Email" class="md-nav__link">
       Email
     </a>
   </li>
@@ -459,7 +498,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../files/" title="Files" class="md-nav__link">
+    <a href="../../modules/files/" title="Files" class="md-nav__link">
       Files
     </a>
   </li>
@@ -471,7 +510,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mongo/" title="Mongo" class="md-nav__link">
+    <a href="../../modules/mongo/" title="Mongo" class="md-nav__link">
       Mongo
     </a>
   </li>
@@ -483,7 +522,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../mysql/" title="MySQL" class="md-nav__link">
+    <a href="../../modules/mysql/" title="MySQL" class="md-nav__link">
       MySQL
     </a>
   </li>
@@ -495,7 +534,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../network/" title="Network" class="md-nav__link">
+    <a href="../../modules/network/" title="Network" class="md-nav__link">
       Network
     </a>
   </li>
@@ -526,7 +565,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pages/api/" title="Pages API" class="md-nav__link">
+    <a href="../../modules/pages/api/" title="Pages API" class="md-nav__link">
       Pages API
     </a>
   </li>
@@ -538,7 +577,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pages/usage/" title="Usage" class="md-nav__link">
+    <a href="../../modules/pages/usage/" title="Usage" class="md-nav__link">
       Usage
     </a>
   </li>
@@ -550,7 +589,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pages/templates/" title="Templates" class="md-nav__link">
+    <a href="../../modules/pages/templates/" title="Templates" class="md-nav__link">
       Templates
     </a>
   </li>
@@ -562,7 +601,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../pages/config/" title="Configuration" class="md-nav__link">
+    <a href="../../modules/pages/config/" title="Configuration" class="md-nav__link">
       Configuration
     </a>
   </li>
@@ -577,43 +616,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Template
-      </label>
-    
-    <a href="./" title="Template" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../../modules/template/" title="Template" class="md-nav__link">
       Template
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#render" title="render" class="md-nav__link">
-    render
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -623,7 +630,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../utils/" title="Utils" class="md-nav__link">
+    <a href="../../modules/utils/" title="Utils" class="md-nav__link">
       Utils
     </a>
   </li>
@@ -946,8 +953,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#render" title="render" class="md-nav__link">
-    render
+  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#error-log" title="Error Log" class="md-nav__link">
+    Error Log
   </a>
   
 </li>
@@ -967,50 +981,41 @@
               
                 
                 
-                  <h1>Template</h1>
+                  <h1>MySQL Server</h1>
                 
-                <div class="admonition warning">
-<p class="admonition-title">Template Storage</p>
-<p>Server-side templates are stored in the <strong>/home/coronium/templates</strong> directory. They have no relation to the <strong><a href="../../../server/modules/pages/api/">Pages</a></strong> templates.</p>
+                <h2 id="configuration-file">Configuration File</h2>
+<p>You can adjust the various MySQL server configuration settings in the <em>coronium_mysql.cnf</em> file. The file is located at:</p>
+<div class="codehilite"><pre><span></span>/etc/mysql/coronium.conf.d/coronium_mysql.cnf
+</pre></div>
+
+
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Changes to the configuration file can have adverse effects, do so at your own risk. See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL Server System Variables</a> for the available configuration options.</p>
 </div>
-<p>For detailed information on how to work with templates, see the <strong><a href="../../../server/modules/pages/templates/">Templates</a></strong> section of the Pages guide.</p>
-<h3 id="render">render</h3>
-<p>Render a template based on a passed key/value table. Returns <strong>String</strong>.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_data</span><span class="p">)</span>
+<p>This file can be edited by using the <strong>nano</strong> utility on the server:</p>
+<div class="codehilite"><pre><span></span>sudo nano /etc/mysql/coronium.conf.d/coronium_mysql.cnf
 </pre></div>
 
 
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tpl_file</td>
-<td>The template file to render relative to the <strong>templates</strong> directory.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>tpl_data</td>
-<td>A table of key/value pairs to populate the template file.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">compiled_str</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">template</span><span class="p">.</span><span class="n">render</span><span class="p">(</span><span class="s1">&#39;common_resp.tpl&#39;</span><span class="p">,</span> <span class="p">{</span>
-  <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Jenny&quot;</span><span class="p">,</span>
-  <span class="n">age</span> <span class="o">=</span> <span class="mi">23</span>
-<span class="p">})</span>
+<p>Use the arrow keys on your keyboard to move the cursor. When your updates are complete, use <strong>ctrl-x</strong> and then press <strong>y</strong> to save the file.</p>
+<p>You will need to restart the MySQL server daemon for the changes to take effect:</p>
+<div class="codehilite"><pre><span></span>sudo monit restart mysqld
 </pre></div>
+
+
+<p>Check the Coronium server status to make sure that MySQL is running:</p>
+<div class="codehilite"><pre><span></span><span class="n">coronium</span> <span class="n">status</span>
+</pre></div>
+
+
+<h2 id="error-log">Error Log</h2>
+<p>The MySQL server error log can be viewed using:</p>
+<div class="codehilite"><pre><span></span>sudo tail -f /var/log/mysql/error.log
+</pre></div>
+
+
+<p>Use <strong>ctrl-c</strong> to exit.</p>
                 
                   
                 
@@ -1029,7 +1034,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../pages/config/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../ssl/" title="HTTPS/SSL" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1038,19 +1043,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Configuration
+                HTTPS/SSL
               </span>
             </div>
           </a>
         
         
-          <a href="../utils/" title="Utils" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../modules/api/" title="API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Utils
+                API
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

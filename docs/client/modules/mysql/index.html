@@ -377,6 +377,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/guide/mysql/" title="MySQL Server" class="md-nav__link">
+      MySQL Server
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -772,6 +784,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#selectbatch" title="selectBatch" class="md-nav__link">
+    selectBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -786,6 +805,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#insertbatch" title="insertBatch" class="md-nav__link">
+    insertBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#update" title="update" class="md-nav__link">
     update
   </a>
@@ -793,8 +819,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#updatemany" title="updateMany" class="md-nav__link">
+    updateMany
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatebatch" title="updateBatch" class="md-nav__link">
+    updateBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletemany" title="deleteMany" class="md-nav__link">
+    deleteMany
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletebatch" title="deleteBatch" class="md-nav__link">
+    deleteBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimized-methods" title="Optimized Methods" class="md-nav__link">
+    Optimized Methods
   </a>
   
 </li>
@@ -1003,6 +1064,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#selectbatch" title="selectBatch" class="md-nav__link">
+    selectBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -1017,6 +1085,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#insertbatch" title="insertBatch" class="md-nav__link">
+    insertBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#update" title="update" class="md-nav__link">
     update
   </a>
@@ -1024,8 +1099,43 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#updatemany" title="updateMany" class="md-nav__link">
+    updateMany
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#updatebatch" title="updateBatch" class="md-nav__link">
+    updateBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#delete" title="delete" class="md-nav__link">
     delete
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletemany" title="deleteMany" class="md-nav__link">
+    deleteMany
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deletebatch" title="deleteBatch" class="md-nav__link">
+    deleteBatch
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#optimized-methods" title="Optimized Methods" class="md-nav__link">
+    Optimized Methods
   </a>
   
 </li>
@@ -1282,6 +1392,125 @@
 </pre></div>
 
 
+<h3 id="selectbatch">selectBatch</h3>
+<p>Query multiple tables of a database and return the individual results in a keyed response.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectBatch</span><span class="p">(</span><span class="n">batch_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_tbl</td>
+<td>The batch parameters for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch</td>
+<td>A table array of EZ Query select tables, <strong>excluding the db key</strong>. (see <a href="#select">select</a>). Each select table must also include a <strong>key</strong> property for the result response (see example below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will be a keyed <strong>table</strong> with the results of each select query.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kd">local</span> <span class="n">bikes</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span> <span class="c1">--Array of &quot;Bike&quot; records</span>
+    <span class="kd">local</span> <span class="n">shoes</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">shoes</span> <span class="c1">--Array of &quot;Shoe&quot; records</span>
+    <span class="kd">local</span> <span class="n">stores</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">stores</span> <span class="c1">--Array of 5 location records</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">batch_select</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Bike&#39;&quot;</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;bikes&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Shoes&#39;&quot;</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;zip=93023&quot;</span><span class="p">,</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;stores&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;store&quot;</span><span class="p">,</span>
+  <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_select</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectBatch</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Query Errors</strong></p>
+<p>If any of the queries in the batch result in an error, the results key for that particular query will contain an <strong>error</strong> key. Best practice is to check for this key before accessing the results.</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- Assuming batch call as shown in the example above</span>
+
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="c1">--an error occurred on this particular query</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="c1">--loop over the records</span>
+      <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span> <span class="kr">do</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span><span class="p">[</span><span class="n">i</span><span class="p">].</span><span class="n">name</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+</pre></div>
+
+
 <h3 id="insert">insert</h3>
 <p>Insert a single record into a database table.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insert</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
@@ -1372,8 +1601,8 @@
 
 
 <h3 id="insertmany">insertMany</h3>
-<p>Insert multiple records in a database table in an optimized way.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+<p>Insert records into a single table of a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="n">insert_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1389,8 +1618,8 @@
 </thead>
 <tbody>
 <tr>
-<td>query_tbl</td>
-<td>The query parameters for the call.</td>
+<td>insert_tbl</td>
+<td>The insert parameters table for the call (see below).</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1402,7 +1631,7 @@
 </tr>
 </tbody>
 </table>
-<p><strong>Query Table Keys</strong></p>
+<p><strong>Insert Table Keys</strong></p>
 <table>
 <thead>
 <tr>
@@ -1415,7 +1644,7 @@
 <tbody>
 <tr>
 <td>db</td>
-<td>The database to run the query against.</td>
+<td>The database to run the inserts against.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1427,7 +1656,7 @@
 </tr>
 <tr>
 <td>records</td>
-<td>A table array of <code>values</code> tables. See the <a href="#insert">insert</a> method above.</td>
+<td>A table array of <code>values</code> tables from the <a href="#insert">insert</a> method.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1437,13 +1666,22 @@
 <p>Strings in the <code>values</code> tables will be automatically run through the server-side <strong><a href="../../../server/modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
 </div>
 <p><strong>Event Response</strong></p>
-<p>On success, the <strong>result</strong> will contain the amount of records inserted as a <strong>number</strong>.</p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the records table that was sent to the server.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inserted:&quot;</span><span class="p">,</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">)</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in insert entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inserted record with id: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">id</span><span class="o">..</span><span class="s2">&quot; for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
@@ -1465,6 +1703,116 @@
 <span class="p">}</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertMany</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="insertbatch">insertBatch</h3>
+<p>Insert records into multiple tables of a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertBatch</span><span class="p">(</span><span class="n">batch_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_tbl</td>
+<td>The batch parameters table for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the batch against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch</td>
+<td>A table array of tables with the <code>tbl</code> and <code>values</code> keys from the <a href="#insert">insert</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the batch table that was sent to the server.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in insert entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;inserted record with id: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">id</span><span class="o">..</span><span class="s2">&quot; for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">batch_insert</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span><span class="p">,</span>
+      <span class="n">size</span> <span class="o">=</span> <span class="mi">12</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Car&quot;</span><span class="p">,</span>
+      <span class="n">age_group</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bear&quot;</span><span class="p">,</span>
+      <span class="n">age_group</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Brown&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_insert</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">insertBatch</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1563,6 +1911,223 @@
 </pre></div>
 
 
+<h3 id="updatemany">updateMany</h3>
+<p>Update records in a single table of a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateMany</span><span class="p">(</span><span class="n">update_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>update_tbl</td>
+<td>The update parameters table for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Update Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the updates against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>update</td>
+<td>A table array of tables with the <code>values</code> and <code>where</code> keys from the <a href="#update">update</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the update table that was sent to the server.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in update entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;updated &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">updated</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">update_tbl</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nike&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Adidas&#39;&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">cost</span> <span class="o">=</span> <span class="s2">&quot;1.99&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+  <span class="n">update</span> <span class="o">=</span> <span class="n">update_tbl</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateMany</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="updatebatch">updateBatch</h3>
+<p>Update records in multiple tables of a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateBatch</span><span class="p">(</span><span class="n">batch_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_tbl</td>
+<td>The batch parameters table for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the batch against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch</td>
+<td>A table array of tables with the <code>tbl</code>, <code>values</code> and <code>where</code> keys from the <a href="#update">update</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the batch table that was sent to the server.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in update entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;updated &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">updated</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">batch_update</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Raggedy Ann&quot;</span><span class="p">,</span>
+      <span class="n">gender</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Raggedy Andy&#39;&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="n">company</span> <span class="o">=</span> <span class="s2">&quot;Tonka&quot;</span>
+    <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=4&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_update</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">updateBatch</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
 <h3 id="delete">delete</h3>
 <p>Delete record(s) from a database table.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">query_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
@@ -1582,7 +2147,7 @@
 <tbody>
 <tr>
 <td>query_tbl</td>
-<td>The query parameters for the call.</td>
+<td>The query parameters table for the call (see below).</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1660,6 +2225,218 @@
 <p class="admonition-title">Tip</p>
 <p>See the server-side <strong><a href="../../../server/modules/mysql/#delete">core.mysql.delete</a></strong> method for more examples.</p>
 </div>
+<h3 id="deletemany">deleteMany</h3>
+<p>Delete records from a single table in a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="n">delete_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>delete_tbl</td>
+<td>The delete parameters table for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Delete Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the deletes against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate on.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>delete</td>
+<td>A table array of tables with the <code>where</code> key from the <a href="#delete">delete</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either a <strong>deleted</strong> key; with the number of records deleted, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the delete table that was sent to the server.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in delete entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;deleted &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">deleted</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">delete_tbl</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=34&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;color=&#39;Red&#39;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+  <span class="n">delete</span> <span class="o">=</span> <span class="n">delete_tbl</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteMany</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="deletebatch">deleteBatch</h3>
+<p>Delete records from multiple tables of a database in an optimized way.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteBatch</span><span class="p">(</span><span class="n">batch_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>batch_tbl</td>
+<td>The batch parameters table for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Batch Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the batch against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>batch</td>
+<td>A table array of tables with the <code>tbl</code> and <code>where</code> keys from the <a href="#delete">delete</a> method.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either a <strong>deleted</strong> key; with the number of records deleted, or an <strong>error</strong> key; containing the error string.</p>
+<p>The response table is indexed the same order as the batch table that was sent to the server.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="kr">do</span>
+      <span class="kd">local</span> <span class="n">entry</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+
+      <span class="kr">if</span> <span class="n">entry</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;error in delete entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="o">..</span><span class="s2">&quot;: &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+      <span class="kr">else</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;deleted &quot;</span><span class="o">..</span><span class="n">entry</span><span class="p">.</span><span class="n">deleted</span><span class="o">..</span><span class="s2">&quot; records for entry #&quot;</span><span class="o">..</span><span class="n">i</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+
+<span class="kd">local</span> <span class="n">batch_delete</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=2&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;running&#39;&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">batch</span> <span class="o">=</span> <span class="n">batch_delete</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">deleteBatch</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<h2 id="optimized-methods">Optimized Methods</h2>
+<p>When working with multiple entries per query, try to choose an optimized query method. The reason for this is due to the fact that each Coronium Client network request to the server requires opening a new database connection per call.</p>
+<p>By using the optimized query methods, the Coronium Core server can take advantage of using cached database connections, providing lower overhead and better performance.</p>
+<p>Most optimized query methods also make it easier to program your application logic, by grouping results and using less calls.</p>
+<p>The following are optimized MySQL module methods:</p>
+<ul>
+<li><code>selectBatch</code></li>
+<li><code>insertMany</code></li>
+<li><code>insertBatch</code></li>
+<li><code>updateMany</code></li>
+<li><code>updateBatch</code></li>
+<li><code>deleteMany</code></li>
+<li><code>deleteBatch</code></li>
+</ul>
 <h2 id="network-timeout">Network Timeout</h2>
 <p>Though rare, very large workloads may cause the Corona client to throw a network timeout error before you receive a reponse from the server. In these cases you can add a <code>timeout</code> parameter to the <strong>query_tbl</strong> table.</p>
 <p>The Corona default network timeout is 30 seconds. <em>This is an optional parameter</em>.</p>

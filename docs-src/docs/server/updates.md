@@ -142,6 +142,59 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh && sudo b
 
 _Coming Soon_
 
+### 2.2.0 to 2.3.0
+
+The following will update your Coronium Core 2.2.0 server to version 2.3.0
+
+__Added__
+
+  - The EZ Query MySQL module methods __selectBatch__, __insertBatch__, __updateMany__, __updateBatch__, __deleteMany__, and __deleteBatch__ have been added for optimized performance, reduced network calls, and simplification of code when working with multiple query entries; particularly on the client-side. See the client-side __[MySQL module](/client/modules/mysql/)__ documentation for more details. See also __[Optimized Methods](/client/modules/mysql/#optimized-methods)__.
+
+  - The server-side MySQL module methods __dbConnect__, __dbQuery__, and __dbClose__ have been added for advanced control over the database connection, allowing for highly performant queries. See __[Advanced Methods](/server/modules/mysql/#advanced-methods)__ for more information.
+
+  - The ability to fine tune the Coronium MySQL server configuration, which has been consolidated into a single file. See the __[Configruation File](/server/guide/mysql/#configuration-file)__ section in the MySQL server guide.
+
+  - A client-side response event key named __tt__, which shows the total trip time for the request. See __[Response Events](/client/guide/#response-events)__ for more details.
+
+  - A number of system-wide tunings for better performance for high traffic.
+
+__Fixed__
+
+  - The __insertMany__ MySQL module method now handles a single entry properly.
+
+__Updated__
+
+  - Nginx core updated to the latest version.
+  - LuaJIT core updated to the latest version.
+  - API request throttle has been slightly lowered.
+  - Webmin code editor completions for new methods.
+
+__API Changes__
+
+  - The __insertMany__ MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if _any_ of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side __[insertMany](/client/modules/mysql/#insertmany)__ or server-side __[insertMany](/server/modules/mysql/#insertmany)__ documentation for more details.
+
+#### DigitalOcean
+
+!!! fail ""
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh && sudo bash ./update.sh
+```
+
+#### Amazon EC2
+
+!!! fail ""
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
+```
+
 ## Webmin HTTPS/SSL
 
 If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.

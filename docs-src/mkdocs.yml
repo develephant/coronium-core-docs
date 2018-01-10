@@ -16,6 +16,7 @@ pages:
       - 'Server Key': 'server/guide/key.md'
       - 'General Usage': 'server/guide/usage.md'
       - 'HTTPS/SSL': 'server/guide/ssl.md'
+      - 'MySQL Server': 'server/guide/mysql.md'
     - 'Modules':
       - 'API': 'server/modules/api.md' 
       - 'Data': 'server/modules/data.md'

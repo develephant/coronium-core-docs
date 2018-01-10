@@ -120,6 +120,95 @@ local params = {
 core.mysql.selectOne(params, apiListener)
 ```
 
+### selectBatch
+
+Query multiple tables of a database and return the individual results in a keyed response.
+
+```lua
+core.mysql.selectBatch(batch_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|batch_tbl|The batch parameters for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Batch Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|db|The database to run the query against.|_String_|__Y__|
+|batch|A table array of EZ Query select tables, __excluding the db key__. (see [select](#select)). Each select table must also include a __key__ property for the result response (see example below).|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will be a keyed __table__ with the results of each select query.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    local bikes = evt.result.bikes --Array of "Bike" records
+    local shoes = evt.result.shoes --Array of "Shoe" records
+    local stores = evt.result.stores --Array of 5 location records
+  end
+end
+
+local batch_select = {
+  {
+    tbl = "products",
+    where = "type='Bike'",
+    key = "bikes"
+  },
+  {
+    tbl = "products",
+    where = "type='Shoes'",
+    key = "shoes"
+  },
+  {
+    tbl = "locations",
+    where = "zip=93023",
+    limit = 5,
+    key = "stores"
+  }
+}
+
+local params = {
+  db = "store",
+  batch = batch_select
+}
+
+core.mysql.selectBatch(params, apiListener)
+```
+
+__Query Errors__
+
+If any of the queries in the batch result in an error, the results key for that particular query will contain an __error__ key. Best practice is to check for this key before accessing the results.
+
+```lua
+-- Assuming batch call as shown in the example above
+
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    if evt.result.bikes.error then
+      --an error occurred on this particular query
+      print(evt.result.bikes.error)
+    else
+      --loop over the records
+      for i=1, #evt.result.bikes do
+        print(evt.result.bikes[i].name)
+      end
+    end
+  end
+end
+```
 
 ### insert
 
@@ -176,33 +265,35 @@ core.mysql.insert(params, apiListener)
 
 ### insertMany
 
-Insert multiple records in a database table in an optimized way.
+Insert records into a single table of a database in an optimized way.
 
 ```lua
-core.mysql.insertMany(query_tbl, listener)
+core.mysql.insertMany(insert_tbl, listener)
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|query_tbl|The query parameters for the call.|_Table_|__Y__|
+|insert_tbl|The insert parameters table for the call (see below).|_Table_|__Y__|
 |listener|The api listener callback function.|_Function_|__Y__|
 
-__Query Table Keys__
+__Insert Table Keys__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|db|The database to run the query against.|_String_|__Y__|
+|db|The database to run the inserts against.|_String_|__Y__|
 |tbl|Name of the table to operate on.|_String_|__Y__|
-|records|A table array of `values` tables. See the [insert](#insert) method above.|_Table_|__Y__|
+|records|A table array of `values` tables from the [insert](#insert) method.|_Table_|__Y__|
 
 !!! note ""
     Strings in the `values` tables will be automatically run through the server-side __[core.mysql.escape](/server/modules/mysql/#escape)__ method.
 
 __Event Response__
 
-On success, the __result__ will contain the amount of records inserted as a __number__.
+On success, the __result__ will hold an indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the records table that was sent to the server.
 
 __Example__
 
@@ -211,7 +302,15 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print("inserted:", evt.result)
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in insert entry #"..i..": "..entry.error)
+      else
+        print("inserted record with id: "..entry.id.." for entry #"..i)
+      end
+    end
   end
 end
 
@@ -233,6 +332,86 @@ local params = {
 }
 
 core.mysql.insertMany(params, apiListener)
+```
+
+### insertBatch
+
+Insert records into multiple tables of a database in an optimized way.
+
+```lua
+core.mysql.insertBatch(batch_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|batch_tbl|The batch parameters table for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Batch Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the batch against.|_String_|__Y__|
+|batch|A table array of tables with the `tbl` and `values` keys from the [insert](#insert) method.|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold an indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the batch table that was sent to the server.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in insert entry #"..i..": "..entry.error)
+      else
+        print("inserted record with id: "..entry.id.." for entry #"..i)
+      end
+    end
+  end
+end
+
+local batch_insert = {
+  {
+    tbl = "shoes"
+    values = {
+      name = "Adidas",
+      size = 12
+    }
+  },
+  {
+    tbl = "toys",
+    values = {
+      name = "Car",
+      age_group = 10
+    }
+  },
+  {
+    tbl = "toys",
+    values = {
+      name = "Bear",
+      age_group = 5,
+      color = "Brown"
+    }
+  }
+}
+
+local params = {
+  db = "products",
+  batch = batch_insert
+}
+
+core.mysql.insertBatch(params, apiListener)
 ```
 
 ### update
@@ -289,6 +468,159 @@ local params = {
 core.mysql.update(params, apiListener)
 ```
 
+### updateMany
+
+Update records in a single table of a database in an optimized way.
+
+```lua
+core.mysql.updateMany(update_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|update_tbl|The update parameters table for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Update Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the updates against.|_String_|__Y__|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|update|A table array of tables with the `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold an indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the update table that was sent to the server.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in update entry #"..i..": "..entry.error)
+      else
+        print("updated "..entry.updated.." records for entry #"..i)
+      end
+    end
+  end
+end
+
+local update_tbl = {
+  {
+    values = {
+      name = "Nike"
+    },
+    where = "name='Adidas'"
+  },
+  {
+    values = {
+      cost = "1.99"
+    },
+    where = "id=3"
+  }
+}
+
+local params = {
+  db = "products",
+  tbl = "shoes",
+  update = update_tbl
+}
+
+core.mysql.updateMany(params, apiListener)
+```
+
+### updateBatch
+
+Update records in multiple tables of a database in an optimized way.
+
+```lua
+core.mysql.updateBatch(batch_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|batch_tbl|The batch parameters table for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Batch Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the batch against.|_String_|__Y__|
+|batch|A table array of tables with the `tbl`, `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold an indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the batch table that was sent to the server.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in update entry #"..i..": "..entry.error)
+      else
+        print("updated "..entry.updated.." records for entry #"..i)
+      end
+    end
+  end
+end
+
+local batch_update = {
+  {
+    tbl = "shoes",
+    values = {
+      name = "Adidas"
+    },
+    where = "id=3"
+  },
+  {
+    tbl = "toys",
+    values = {
+      name = "Raggedy Ann",
+      gender = "female"
+    },
+    where = "name='Raggedy Andy'"
+  },
+  {
+    tbl = "toys",
+    values = {
+      company = "Tonka"
+    },
+    where = "id=4"
+  }
+}
+
+local params = {
+  db = "products",
+  batch = batch_update
+}
+
+core.mysql.updateBatch(params, apiListener)
+```
+
+
 ### delete
 
 Delete record(s) from a database table.
@@ -301,7 +633,7 @@ __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|query_tbl|The query parameters for the call.|_Table_|__Y__|
+|query_tbl|The query parameters table for the call (see below).|_Table_|__Y__|
 |listener|The api listener callback function.|_Function_|__Y__|
 
 __Query Table Keys__
@@ -342,6 +674,157 @@ core.mysql.delete(params, apiListener)
 
 !!! tip
     See the server-side __[core.mysql.delete](/server/modules/mysql/#delete)__ method for more examples.
+
+### deleteMany
+
+Delete records from a single table in a database in an optimized way.
+
+```lua
+core.mysql.deleteMany(delete_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|delete_tbl|The delete parameters table for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Delete Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the deletes against.|_String_|__Y__|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|delete|A table array of tables with the `where` key from the [delete](#delete) method.|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold an indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the delete table that was sent to the server.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in delete entry #"..i..": "..entry.error)
+      else
+        print("deleted "..entry.deleted.." records for entry #"..i)
+      end
+    end
+  end
+end
+
+local delete_tbl = {
+  {
+    where = "id=34"
+  },
+  {
+    where = "color='Red'"
+  }
+}
+
+local params = {
+  db = "products",
+  tbl = "shoes",
+  delete = delete_tbl
+}
+
+core.mysql.deleteMany(params, apiListener)
+```
+
+### deleteBatch
+
+Delete records from multiple tables of a database in an optimized way.
+
+```lua
+core.mysql.deleteBatch(batch_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|batch_tbl|The batch parameters table for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Batch Table Keys__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|db|The database to run the batch against.|_String_|__Y__|
+|batch|A table array of tables with the `tbl` and `where` keys from the [delete](#delete) method.|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will hold an indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string.
+
+The response table is indexed the same order as the batch table that was sent to the server.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    for i=1, #evt.result do
+      local entry = evt.result[i]
+
+      if entry.error then
+        print("error in delete entry #"..i..": "..entry.error)
+      else
+        print("deleted "..entry.deleted.." records for entry #"..i)
+      end
+    end
+  end
+end
+
+
+local batch_delete = {
+  {
+    tbl = "toys",
+    where = "id=2"
+  },
+  {
+    tbl = "shoes",
+    where = "type='running'"
+  }
+}
+
+local params = {
+  db = "products",
+  batch = batch_delete
+}
+
+core.mysql.deleteBatch(params, apiListener)
+```
+
+## Optimized Methods
+
+When working with multiple entries per query, try to choose an optimized query method. The reason for this is due to the fact that each Coronium Client network request to the server requires opening a new database connection per call.
+
+By using the optimized query methods, the Coronium Core server can take advantage of using cached database connections, providing lower overhead and better performance.
+
+Most optimized query methods also make it easier to program your application logic, by grouping results and using less calls.
+
+The following are optimized MySQL module methods:
+
+  - `selectBatch`
+  - `insertMany`
+  - `insertBatch`
+  - `updateMany`
+  - `updateBatch`
+  - `deleteMany`
+  - `deleteBatch`
 
 ## Network Timeout
 
