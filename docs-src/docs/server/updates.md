@@ -199,6 +199,9 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo 
 
 If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
 
+!!! important
+    If you've performed this step in a previous update, you __do not__ need to do it again, unless you are having problems accessing your Webmin.
+
 Log in as the __coronium__ user, and from the command line, run the following, using your secure domain name:
 
 ```

@@ -1420,6 +1420,10 @@
 
 <h2 id="webmin-httpsssl">Webmin HTTPS/SSL</h2>
 <p>If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you've performed this step in a previous update, you <strong>do not</strong> need to do it again, unless you are having problems accessing your Webmin.</p>
+</div>
 <p>Log in as the <strong>coronium</strong> user, and from the command line, run the following, using your secure domain name:</p>
 <div class="codehilite"><pre><span></span>sudo webmin-apihost https://&lt;your.coronium.host&gt;
 </pre></div>
