@@ -74,7 +74,7 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.1.0/do/update.sh && sudo b
 
 __Amazon EC2 Updater__
 
-_Coming Soon_
+_Available upon request._
 
 ### 2.1.0 to 2.1.1
 
@@ -98,7 +98,7 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh && sudo b
 
 __Amazon EC2 Updater__
 
-_Available by request._
+_Available upon request._
 
 ### 2.1.1 to 2.2.0
 
@@ -140,7 +140,7 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh && sudo b
 
 __Amazon EC2 Updater__
 
-_Available by request._
+_Available upon request._
 
 ### 2.2.0 to 2.3.0
 
