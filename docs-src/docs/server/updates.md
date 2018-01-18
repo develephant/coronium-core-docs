@@ -64,7 +64,7 @@ __Added__
 - Ability to adjust Corona network client-side timeout for large workloads.
 - Ability to adjust MySQL server-side timeout for large workloads.
 
-#### DigitalOcean
+__DigitalOcean Updater__
 
 Paste the following one-liner into your terminal to start the DigitalOcean update:
 
@@ -72,7 +72,7 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.1.0/do/update.sh && sudo bash ./update.sh
 ```
 
-#### Amazon EC2
+__Amazon EC2 Updater__
 
 _Coming Soon_
 
@@ -88,7 +88,7 @@ __Added__
 - Full support for multiple applications with separate scope for users and metrics.
 - Webmin "Today" view for global application usage metrics for the current day.
 
-#### DigitalOcean
+__DigitalOcean Updater__
 
 Paste the following one-liner into your terminal to start the DigitalOcean update:
 
@@ -96,9 +96,9 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh && sudo bash ./update.sh
 ```
 
-#### Amazon EC2
+__Amazon EC2 Updater__
 
-_Coming Soon_
+_Available by request._
 
 ### 2.1.1 to 2.2.0
 
@@ -130,7 +130,7 @@ The client-side Users module __[create](/client/modules/users/api/#create)__ res
 !!! warning
     Do not update your Coronium Core server to this version until you have updated any code to reflect the new changes.
 
-#### DigitalOcean
+__DigitalOcean Updater__
 
 Paste the following one-liner into your terminal to start the DigitalOcean update:
 
@@ -138,9 +138,9 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh && sudo bash ./update.sh
 ```
 
-#### Amazon EC2
+__Amazon EC2 Updater__
 
-_Coming Soon_
+_Available by request._
 
 ### 2.2.0 to 2.3.0
 
@@ -173,7 +173,7 @@ __API Changes__
 
   - The __insertMany__ MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if _any_ of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side __[insertMany](/client/modules/mysql/#insertmany)__ or server-side __[insertMany](/server/modules/mysql/#insertmany)__ documentation for more details.
 
-#### DigitalOcean
+__DigitalOcean Updater__
 
 !!! fail ""
     You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
@@ -184,7 +184,7 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh && sudo bash ./update.sh
 ```
 
-#### Amazon EC2
+__Amazon EC2 Updater__
 
 !!! fail ""
     You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
@@ -207,7 +207,7 @@ __Updated__
 
   - __core.users__ `extra` storage increased significantly.
 
-#### DigitalOcean
+__DigitalOcean Updater__
 
 !!! fail ""
     You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
@@ -218,7 +218,7 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/do/update.sh && sudo bash ./update.sh
 ```
 
-#### Amazon EC2
+__Amazon EC2 Updater__
 
 !!! fail ""
     You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
