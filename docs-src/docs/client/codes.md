@@ -28,6 +28,12 @@ end
 |701|Email could not be sent.|
 |702|Email configuration is not set or invalid.|
 
+## Database
+
+|Code|Description|
+|----|-----------|
+|901|Unauthorized database.|
+
 ## Default
 
 |Code|Description|

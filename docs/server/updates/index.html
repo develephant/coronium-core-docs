@@ -761,15 +761,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#230-to-231" title="2.3.0 to 2.3.1" class="md-nav__link">
+    2.3.0 to 2.3.1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean_4" title="DigitalOcean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2_4" title="Amazon EC2" class="md-nav__link">
+    Amazon EC2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
-    Webmin HTTPS/SSL
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1218,15 +1238,35 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#230-to-231" title="2.3.0 to 2.3.1" class="md-nav__link">
+    2.3.0 to 2.3.1
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean_4" title="DigitalOcean" class="md-nav__link">
+    DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2_4" title="Amazon EC2" class="md-nav__link">
+    Amazon EC2
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
-    Webmin HTTPS/SSL
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1418,15 +1458,45 @@
 </pre></div>
 
 
-<h2 id="webmin-httpsssl">Webmin HTTPS/SSL</h2>
-<p>If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
-<div class="admonition important">
-<p class="admonition-title">Important</p>
-<p>If you've performed this step in a previous update, you <strong>do not</strong> need to do it again, unless you are having problems accessing your Webmin.</p>
+<h3 id="230-to-231">2.3.0 to 2.3.1</h3>
+<p>The following will update your Coronium Core 2.3.0 server to version 2.3.1</p>
+<p><strong>Fixed</strong></p>
+<ul>
+<li>Locked down all module access to the administration database.</li>
+</ul>
+<p><strong>Updated</strong></p>
+<ul>
+<li><strong>core.users</strong> <code>extra</code> storage increased significantly.</li>
+</ul>
+<h4 id="digitalocean_4">DigitalOcean</h4>
+<div class="admonition fail">
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail. <em>A server reboot is recommended</em>.</p>
 </div>
-<p>Log in as the <strong>coronium</strong> user, and from the command line, run the following, using your secure domain name:</p>
-<div class="codehilite"><pre><span></span>sudo webmin-apihost https://&lt;your.coronium.host&gt;
+<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/do/update.sh &amp;&amp; sudo bash ./update.sh
 </pre></div>
+
+
+<h4 id="amazon-ec2_4">Amazon EC2</h4>
+<div class="admonition fail">
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail. <em>A server reboot is recommended</em>.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/ec2/update.sh &amp;&amp; sudo bash ./update.sh
+
+## Webmin HTTPS/SSL
+
+If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
+
+!!! important
+    If you&#39;ve performed this step in a previous update, you __do not__ need to do it again, unless you are having problems accessing your Webmin.
+
+Log in as the __coronium__ user, and from the command line, run the following, using your secure domain name:
+</pre></div>
+
+
+<p>sudo webmin-apihost https://<your.coronium.host>
+```</p>
                 
                   
                 
@@ -1482,7 +1552,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.0
+            &copy;2018 C. Byerley (develephant) | v2.3.1
           </div>
         
         powered by

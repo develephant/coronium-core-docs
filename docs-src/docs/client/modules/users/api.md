@@ -293,5 +293,3 @@ core.users.update({
 ## Viewing Users
 
 You can perform some simple administration and view user statistics in the __[Webmin](/server/webmin/setup/)__.
-
-For more complex user management, [log into your MySQL server](/server/modules/mysql/#administration) and browse the __coronium__ database.

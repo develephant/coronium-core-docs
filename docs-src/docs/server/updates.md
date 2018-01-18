@@ -195,6 +195,39 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
 ```
 
+### 2.3.0 to 2.3.1
+
+The following will update your Coronium Core 2.3.0 server to version 2.3.1
+
+__Fixed__
+
+  - Locked down all module access to the administration database.
+
+__Updated__
+
+  - __core.users__ `extra` storage increased significantly.
+
+#### DigitalOcean
+
+!!! fail ""
+    You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/do/update.sh && sudo bash ./update.sh
+```
+
+#### Amazon EC2
+
+!!! fail ""
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
+
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/ec2/update.sh && sudo bash ./update.sh
+
 ## Webmin HTTPS/SSL
 
 If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
