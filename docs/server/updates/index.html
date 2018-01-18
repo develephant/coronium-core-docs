@@ -793,6 +793,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
+    Webmin HTTPS/SSL
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1270,6 +1277,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#webmin-httpsssl" title="Webmin HTTPS/SSL" class="md-nav__link">
+    Webmin HTTPS/SSL
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1483,20 +1497,18 @@
 </div>
 <p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
 <div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/ec2/update.sh &amp;&amp; sudo bash ./update.sh
-
-## Webmin HTTPS/SSL
-
-If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.
-
-!!! important
-    If you&#39;ve performed this step in a previous update, you __do not__ need to do it again, unless you are having problems accessing your Webmin.
-
-Log in as the __coronium__ user, and from the command line, run the following, using your secure domain name:
 </pre></div>
 
 
-<p>sudo webmin-apihost https://<your.coronium.host>
-```</p>
+<h2 id="webmin-httpsssl">Webmin HTTPS/SSL</h2>
+<p>If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>If you've performed this step in a previous update, you <strong>do not</strong> need to do it again, unless you are having problems accessing your Webmin.</p>
+</div>
+<p>Log in as the <strong>coronium</strong> user, and from the command line, run the following, using your secure domain name:</p>
+<div class="codehilite"><pre><span></span>sudo webmin-apihost https://&lt;your.coronium.host&gt;
+</pre></div>
                 
                   
                 

@@ -227,6 +227,7 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/ec2/update.sh && sudo bash ./update.sh
+```
 
 ## Webmin HTTPS/SSL
 
