@@ -13,4 +13,4 @@ With the __Coronium Core__ all-in-one server, you own and control your data, wit
 ___Coronium Core is officially supported only on [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) and AWS EC2 hosting environments. Other environments may work, but are not supported.___
 
 !!! note ""
-    This documentation is current for __Coronium Core 2.3.1__
+    This documentation is current for __Coronium Core 2.3.2__

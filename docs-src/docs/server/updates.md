@@ -195,13 +195,14 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
 ```
 
-### 2.3.0 to 2.3.1
+### 2.3.0 to 2.3.2
 
-The following will update your Coronium Core 2.3.0 server to version 2.3.1
+The following will update your Coronium Core 2.3.0 or 2.3.1 server to version 2.3.2
 
 __Fixed__
 
   - Locked down all module access to the administration database.
+  - Provided enhanced security for client-side MySQL injections.
 
 __Updated__
 
@@ -215,7 +216,7 @@ __DigitalOcean Updater__
 Paste the following one-liner into your terminal to start the DigitalOcean update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/do/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh && sudo bash ./update.sh
 ```
 
 __Amazon EC2 Updater__
@@ -226,7 +227,7 @@ __Amazon EC2 Updater__
 Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.1/ec2/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh && sudo bash ./update.sh
 ```
 
 ## Webmin HTTPS/SSL
