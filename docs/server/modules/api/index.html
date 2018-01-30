@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -494,6 +494,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adding-files" title="Adding Files" class="md-nav__link">
+    Adding Files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -723,6 +730,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../utils/" title="Utils" class="md-nav__link">
       Utils
@@ -923,6 +990,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../client/modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -1095,6 +1174,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#adding-files" title="Adding Files" class="md-nav__link">
+    Adding Files
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1172,24 +1258,20 @@
                   <h1>API</h1>
                 
                 <p>The API module allows you to create server-side api methods that can be called using the client-side <a href="../../../client-module/api/">API</a> module.</p>
-<div class="admonition tip">
+<p>A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the <a href="../../../server/modules/mysql/">MySQL</a> and <a href="../../../server/modules/mongo/">Mongo</a> modules.</p>
+<div class="admonition note">
 <p class="admonition-title">Screencasts Available</p>
 <p>Get an overview of using the Server API in a screencast format. <strong><a href="../../../screencasts/#server-api-part-i">Click here for Part I</a></strong>. <strong><a href="../../../screencasts/#server-api-part-ii">Click here for Part II</a></strong>. </p>
-</div>
-<p>A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the <a href="../../../server/modules/mysql/">MySQL</a> and <a href="../../../server/modules/mongo/">Mongo</a> modules.</p>
-<div class="admonition info">
-<p class="admonition-title">Client-Side API</p>
-<p>Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../../client/modules/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../../client/modules/mysql/">MySQL</a></strong> module for MySQL.</p>
 </div>
 <h2 id="projects">Projects</h2>
 <p>Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API , which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../../client/modules/core/#useproject">useProject</a> method in the client-side core module.</p>
 <h2 id="creating-projects">Creating Projects</h2>
-<p>You create projects on the server using the Coronium command line tool, or through the Webmin project editor.</p>
-<div class="admonition tip">
-<p class="admonition-title">Webmin Project Editor</p>
-<p>You can set up your projects through your web browser using the Coronium Core Webmin. See the <strong><a href="../../../screencasts/#api-code-editor">API Code Editor</a></strong> screencast for more information.</p>
-</div>
+<p>You create projects on the server using the Coronium command line tool, or through the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> project editor.</p>
 <h3 id="add-project">Add Project</h3>
+<div class="admonition tip">
+<p class="admonition-title">Coronium Webmin</p>
+<p>You can use the browser based <strong>Coronium Webmin</strong> to create new projects through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+</div>
 <p>You will first need to log into your server using the <strong>coronium</strong> user. Once logged in, run the following to create a new project:</p>
 <div class="codehilite"><pre><span></span>sudo coronium add &lt;project-name&gt;
 </pre></div>
@@ -1199,6 +1281,10 @@
 <p>The project is stored in the <strong>/home/coronium/projects/&lt;project-name></strong> directory.</p>
 <p>At this point, you should connect to the server using SFTP and download the new project directory so that you can create the code for your api.</p>
 <h3 id="delete-project">Delete Project</h3>
+<div class="admonition tip">
+<p class="admonition-title">Coronium Webmin</p>
+<p>You can use the browser based <strong>Coronium Webmin</strong> to delete projects through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+</div>
 <p>To remove a project using the command line tool, run:</p>
 <div class="codehilite"><pre><span></span>sudo coronium del &lt;project-name&gt;
 </pre></div>
@@ -1206,8 +1292,12 @@
 
 <p>You can also delete a project by simply removing the project directory from the server.</p>
 <h2 id="project-files">Project Files</h2>
-<p>Project code is stored in the newly created project directory. The required <strong>main.lua</strong> file will be generated when using the command line tool (see above).</p>
+<p>Project code is stored in the newly created project directory. The required <strong>main.lua</strong> file will be generated when using the command line tool or Webmin. (see <strong><a href="#add-project">Add Project</a></strong> above).</p>
 <h3 id="mainlua">main.lua</h3>
+<div class="admonition tip">
+<p class="admonition-title">Coronium Webmin</p>
+<p>You can use the browser based <strong>Coronium Webmin</strong> to edit the <code>main.lua</code> and other project files using a visual code editor. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+</div>
 <p>The main.lua file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.</p>
 <p><em>main.lua example</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">-- Coronium Core API</span>
@@ -1234,10 +1324,60 @@
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
   <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">response</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">-- Jimmy</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">-- Jimmy</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">test</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jimmy&quot;</span><span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="adding-files">Adding Files</h3>
+<div class="admonition tip">
+<p class="admonition-title">Coronium Webmin</p>
+<p>You can use the browser based <strong>Coronium Webmin</strong> to add additional files to a project through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+</div>
+<p>There may be times when you would like to split up your API project code into seperate files. This can be done by simply adding a new .lua file module to the project directory and requiring it into the projects <strong>main.lua</strong> file.</p>
+<p>The important thing to know about external file modules is that they cannot return output to the client directly. <strong>Only the main.lua file can send output back down to the client.</strong></p>
+<p>Because of this it is important that you set up your external file modules properly to return results back to the <strong>main.lua</strong> file for sending results downstream.</p>
+<p><em>Example File Module</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--project/db.lua</span>
+<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="kr">function</span> <span class="nc">db</span><span class="p">.</span><span class="nf">getSomeData</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectOne</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="n">params</span><span class="p">.</span><span class="n">color</span> <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="c1">--we must return the result back to the main.lua</span>
+  <span class="kr">return</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> 
+</pre></div>
+
+
+<p><em>Example Main Lua File</em></p>
+<div class="codehilite"><pre><span></span><span class="c1">--project/main.lua</span>
+<span class="kd">local</span> <span class="n">db</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;project.db&quot;</span><span class="p">)</span>
+
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">db</span><span class="p">.</span><span class="n">getSomeData</span><span class="p">({</span><span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span><span class="p">})</span>
+
+  <span class="c1">--here we can return data to the downstream client</span>
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">res</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
 </pre></div>
 
 
@@ -1260,13 +1400,28 @@
 
 
 <h3 id="input">Input</h3>
-<p>API methods have a single parameter, which is a <strong>table</strong> of <em>input values</em> sent up from the client-side <a href="../../../client/modules/api/#api">core.api</a> method. Some methods may not need input, in which case the input parameter will be <strong>nil</strong>.</p>
+<p>Custom API methods are passed three parameters, which is a table of <strong>input</strong> values sent up from the client-side <a href="../../../client/modules/api/#api">core.api</a> method, the <strong>scope</strong> of the current client call (see <a href="../../../client/guide/#application-scope">Application Scope</a>). Some methods may not need input, in which case the input parameter will be <strong>nil</strong>.</p>
+<p>Most often you will only use the <strong>input</strong> parameter.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <strong>input</strong> parameter is supplied from the client-side call (see <a href="../../../client/modules/api/">client-side API</a>). The <strong>scope</strong> is determined internally.</p>
+</div>
 <p><em>Example</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
 
+<span class="c1">-- Input only</span>
 <span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">addUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
   <span class="kd">local</span> <span class="n">name</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span>
   <span class="kd">local</span> <span class="n">age</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">age</span>
+
+  <span class="p">...</span>
+<span class="kr">end</span>
+
+<span class="c1">-- Input and Scope</span>
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">getUser</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">getWithQuery</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">username</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span>
+  <span class="p">})</span>
 
   <span class="p">...</span>
 <span class="kr">end</span>
@@ -1308,9 +1463,15 @@
 <p><em>Example</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
 
-<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">getUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">echoName</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
   <span class="kr">if</span> <span class="ow">not</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span> <span class="kr">then</span>
-    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The user name is missing!&quot;</span><span class="p">)</span>
+    <span class="c1">-- Return error with string only:</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The name parameter is missing!&quot;</span><span class="p">)</span>
+
+    <span class="c1">-- OR</span>
+
+    <span class="c1">-- Return error with a custom status code too:</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;The name parameter is missing!&quot;</span><span class="p">,</span> <span class="mi">110</span><span class="p">)</span>
   <span class="kr">end</span>
 
   <span class="kr">return</span> <span class="s2">&quot;Hello, &quot;</span> <span class="o">..</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span>
@@ -1320,12 +1481,28 @@
 </pre></div>
 
 
+<p>Some of the built in modules return an error string <em>and</em> an error code which you can pass downstream to the client. See each modules documentation for more information.</p>
+<p><em>Example</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">getUser</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">user</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;aad3eba3-9c9c-9a1b-f236de1e3752&quot;</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">user</span> <span class="kr">then</span>
+    <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">user</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<p>When using custom error codes, make sure to check the latest reserved <strong><a href="../../../client/codes/">Status Codes</a></strong> and choose something not listed there. Custom status codes should generally be in the 100-199 range.</p>
 <h2 id="using-modules">Using Modules</h2>
 <p>Most often you will want to do something more useful than echoing data. You can use the server-side modules to add functionality to your api.</p>
-<div class="admonition tip">
-<p class="admonition-title">Client-Side API</p>
-<p>Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../../client/modules/data/">Data</a></strong> module for Mongo, and the client-side <strong><a href="../../../client/modules/mysql/">MySQL</a></strong> module for MySQL.</p>
-</div>
 <h3 id="examples">Examples</h3>
 <p><strong>List the available collections in a Mongo database:</strong></p>
 <p><em>Server-side</em></p>
@@ -1433,6 +1610,7 @@
 
 
 <div class="admonition tip">
+<p class="admonition-title">Client-Side MySQL</p>
 <p>The following example can also be done directly from the client-side <strong><a href="../../../client/modules/mysql/#insert">MySQL</a></strong> module.</p>
 </div>
 <p>Assuming we have a MySQL database properly created called "app", we can quickly insert a new record to the "users" table like so:</p>
@@ -1535,7 +1713,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

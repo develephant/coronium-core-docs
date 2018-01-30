@@ -3,7 +3,7 @@ Provides methods to manage server side files.
 !!! info "Upload / Download"
     File transfers are performed using the client-side __[Files](/client/modules/files/)__ module.
 
-!!! tip ""
+!!! tip "Using S3"
     If you'd like to transfer files using __[Amazon S3](https://aws.amazon.com/s3/)__ take a look at the __[S3 Lite](https://marketplace.coronalabs.com/plugin/s3-lite)__ plugin for Corona.
 
 ### list
@@ -114,5 +114,5 @@ __Example__
 local ok, err = core.files.rename("imgs/image001.png", "image002.png")
 ```
 
-!!! note ""
+!!! note
     This rename method will not move a file. Any path supplied to the __new_name__ parameter will be ignored.

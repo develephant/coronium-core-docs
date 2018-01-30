@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -285,9 +285,41 @@
     <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
     
     
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Application Scope
+      </label>
+    
     <a href="./" title="Application Scope" class="md-nav__link md-nav__link--active">
       Application Scope
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-scopes" title="Setting Up Scopes" class="md-nav__link">
+    Setting Up Scopes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-scopes" title="Enabling Scopes" class="md-nav__link">
+    Enabling Scopes
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
     
   </li>
 
@@ -597,6 +629,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -797,6 +889,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../client/modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -917,6 +1021,27 @@
   
   
   
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setting-up-scopes" title="Setting Up Scopes" class="md-nav__link">
+    Setting Up Scopes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enabling-scopes" title="Enabling Scopes" class="md-nav__link">
+    Enabling Scopes
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -930,11 +1055,12 @@
                 
                   <h1>Application Scope</h1>
                 
-                <div class="admonition tip">
+                <div class="admonition info">
 <p class="admonition-title">Screencast Available</p>
 <p>Learn about application scopes in a screencast format by <strong><a href="../../../screencasts/#application-scopes">Clicking here</a></strong>.</p>
 </div>
 <p>Coronium Core supports multiple applications. Each Coronium Core based Corona application must have an "application scope" to allow for individual users and metrics. This allows you to filter users and metrics per application.</p>
+<h2 id="setting-up-scopes">Setting Up Scopes</h2>
 <p>The application scope is set in the <strong><a href="../../../client/modules/core/#init">core.init</a></strong> method on the client-side in your Corona application.</p>
 <p><em>It is important to choose a short but descriptive application scope name that is unique from your other application scopes.</em></p>
 <div class="admonition danger">
@@ -951,10 +1077,8 @@
 
 
 <p>Once you have set the scope, all <strong><a href="../../../client/modules/users/users/">Users</a></strong> and <strong><a href="../../../client/modules/analytics/">Analytics</a></strong> module methods will be scoped to that specfic application, which you can use to filter views in the Coronium Core Webmin.</p>
-<div class="admonition note">
-<p class="admonition-title">Webmin Scope</p>
-<p>You must run at least one User or Analytics method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, refresh the Webmin in your browser.</p>
-</div>
+<h2 id="enabling-scopes">Enabling Scopes</h2>
+<p>You must run at least one <strong><a href="../../../client/modules/users/api/">User</a></strong> or <strong><a href="../../../client/modules/analytics/">Analytics</a></strong> method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the <strong>Update Scopes Cache</strong> option in the Webmin <strong>Config</strong> section.</p>
                 
                   
                 
@@ -1010,7 +1134,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

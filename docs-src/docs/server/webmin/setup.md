@@ -15,3 +15,5 @@ If you've secured your system using SSL (see [HTTPS/SSL](/server/guide/ssl/)), t
 You will be asked for the Webmin access credentials, the user is __cloudwebmin__. The default password is __cloudadmin__.
 
 To change the webmin password see the __[Password](/server/webmin/password/)__ section of the Webmin Guide.
+
+See the __[API Code Editor](/screencasts/#api-code-editor)__ screencast for an example of using the Webmin.

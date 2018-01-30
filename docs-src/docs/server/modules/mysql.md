@@ -1,7 +1,10 @@
 The __mysql__ module allows you to run queries against the local MySQL server instance. You can also connect to remote databases.
 
-!!! info "Database Needed"
-    Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](#administration) section for more information on connecting to your database.
+!!! warning "Database Required"
+    __Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](#administration) section for more information on connecting to your database.__
+
+!!! info "Client-Side MySQL"
+    Most data handling can be handled directly on the client-side, without the need to create a server-side api. See the client-side __[MySQL](/client/modules/mysql/)__ module.
 
 ### query | q
 
@@ -18,7 +21,7 @@ __Parameters__
 |db_name|The database name to issue commands against.|_String_|__Y__|
 |query_str|The MySQL query to send to the database.|_String_|__Y__|
 
-!!! info ""
+!!! tip "Remote Databases"
     To connect to remote databases see __[Remote Databases](#remote-databases)__.
 
 __Result Values__
@@ -41,7 +44,7 @@ _DELETE_
 
 A __number__ indicating the amount of deleted rows.
 
-!!! info ""
+!!! info "Other Commands"
     Any other commands will be returned as __table__. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 !!! tip
@@ -91,7 +94,7 @@ core.log("inserted id is: ", result)
 
 ### escape
 
-Escape a string value to be sql safe. Returns an escaped __string__.
+Escape a string value to be sql safe.
 
 ```lua
 core.mysql.escape(unescaped_str)
@@ -103,18 +106,22 @@ __Parameters__
 |----|-----------|--------|
 |unescaped_str|The __string__ value to escape.|__Y__|
 
+__Returns__
+
+A sql safe escaped __string__.
+
 __Example__
 
 ```lua
 local str = core.mysql.escape("Eat at Joe's")
 ```
 
-!!! info "Important"
-    The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query.
+!!! warning "Escaping Values"
+    The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query. __Many EZ Query methods automatically use mysql.escape on values, be sure to check the documentation for each method.__
 
 ### escapeAll
 
-Escape all string values in a table array to be sql safe. Returns __table__ array.
+Escape all string values in a table array to be sql safe.
 
 ```lua
 core.mysql.escapeAll(tbl_values)
@@ -125,6 +132,10 @@ __Parameters__
 |Name|Description|Requried|
 |----|-----------|--------|
 |tbl_values|A __table__ array of mixed value types. String values will be escaped.|__Y__|
+
+__Returns__
+
+Returns a __table__ array of the escaped string values.
 
 __Example__
 
@@ -143,32 +154,107 @@ values = core.mysql.escapeAll( values )
 MySQL compatible UTC based timestamp.
 
 ```lua
-core.mysql.timestamp()
+core.mysql.timestamp([seconds])
 ```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+UTC timestamp based on provided UNIX time. Otherwise, returns current UTC timestamp.
 
 ### date
 
 MySQL compatible UTC based date.
 
 ```lua
-core.mysql.date()
+core.mysql.date([seconds])
 ```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+UTC date based on provided UNIX time. Otherwise, returns current UTC date.
 
 ### localTimestamp
 
 MySQL compatible timestamp based on the local server time.
 
 ```lua
-core.mysql.localTimestamp()
+core.mysql.localTimestamp([seconds])
 ```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+Local timestamp based on provided UNIX time. Otherwise, returns current local timestamp.
 
 ### localDate
 
 MySQL compatible date based on the local server date.
 
 ```lua
-core.mysql.localDate()
+core.mysql.localDate([seconds])
 ```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+Local date based on provided UNIX time. Otherwise, returns current local date.
+
+### logQueries
+
+A special method that will enable the logging of the query strings output by MySQL methods (or other methods that use a database) until it is toggled off.
+
+```lua
+core.mysql.logQueries(state)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|state|Set the query logging on or off. Default is `true`.|_Boolean_|__N__|
+
+!!! warning
+    This should only be used for debugging purposes or you'll end up with a lot of log entries.
+
+__Example__
+
+```lua
+core.mysql.logQueries() --start logging queries
+
+local res, err, code = core.mysql.select("products", {
+  tbl = "toys",
+  where { id = 20 }
+})
+
+-- The following output will be added to the Coronium log file
+-- SELECT * FROM `toys` WHERE `id`=20;
+
+core.mysql.logQueries(false) --stop logging queries
+--Any MySQL methods run after will not be written to the log.
+```
+
 
 ## EZ Query Methods
 
@@ -186,10 +272,6 @@ Select multiple records from a database table.
 core.mysql.select(db_name, select_tbl)
 ```
 
-__Returns__
-
-A __table__ array of records, or __nil__ and an error.
-
 __Parameters__
 
 |Name|Description|Type|Required|
@@ -203,7 +285,7 @@ __Select Table Keys__
 |---|-----------|----|--------|
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |columns|Array of columns to select as strings.|_Table_|__N__|
-|where|Any additional WHERE clause to apply.|_String_|__N__|
+|where|Any additional WHERE clause to apply.|_String_ or _Table_|__N__|
 |orderby|The sorting attributes. See __Orderby__ below.|_Table_|__N__|
 |limit|Limit the records returned. See __Limit__ below.|_Number_ or _Table_|__N__|
 |distinct|Filter out duplicate column values. Default: false|_Boolean_|__N__|
@@ -215,6 +297,10 @@ The __orderby__ key should be a table filled with __column = direction__ pairs. 
 __Limit__
 
 To limit the rows returned, supply a __number__ value to the __limit__ key. To _offset_ the limit, supply a __table__ array of __number__ values. For example, to return rows 6-15: __limit = {5, 10}__.
+
+__Returns__
+
+A __table__ array of records, or __nil__ and an error.
 
 __Example 1__
 
@@ -243,7 +329,7 @@ __Example 2__
 local result, err = core.mysql.select("leaderboard", {
   tbl = "scores",
   columns = { "score" },
-  where = "score > 10",
+  where = "`score` > 10",
   limit = 10,
   orderby = {
     score = "DESC"
@@ -270,13 +356,6 @@ Select and return a single record from a database table.
 core.mysql.selectOne(db_name, select_tbl)
 ```
 
-__Returns__
-
-A single record as a __table__, or __nil__ and an error.
-
-!!! note ""
-    Unlike the __[select](#select)__ method, the result is returned as a single record as opposed to an array of records.
-
 __Parameters__
 
 |Name|Description|Type|Required|
@@ -289,15 +368,22 @@ __Select Table Keys__
 |Name|Description|Type|Required|
 |---|-----------|----|--------|
 |tbl|Name of the table to operate on.|_String_|__Y__|
-|where|The WHERE clause to apply.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_ or _Table_|__Y__|
 |columns|Array of columns to select as strings.|_Table_|__N__|
+
+__Returns__
+
+A single record as a __table__, or __nil__ and an error.
+
+!!! info "Special Response"
+    Unlike the __[select](#select)__ method, the result is returned as a single record as opposed to an array of records.
 
 __Example__
 
 ```lua
 local record, err = core.mysql.selectOne("app", {
   tbl = "users",
-  where = "user_id="..user_id,
+  where = { user_id = user_id },
   columns = { "name" }
 })
 ```
@@ -306,16 +392,12 @@ local record, err = core.mysql.selectOne("app", {
 
 Query multiple tables of a database and return the individual results in a keyed response.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[selectBatch](/client/modules/mysql/#selectbatch)__ client-side method.
-
 ```lua
 core.mysql.selectBatch(db_name, batch_tbl)
 ```
 
-__Returns__
-
-A keyed __table__ with the results of each select query.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[selectBatch](/client/modules/mysql/#selectbatch)__ client-side method.
 
 __Parameters__
 
@@ -324,25 +406,32 @@ __Parameters__
 |db_name|	The database to run the query against.|_String_|__Y__|
 |batch_tbl|A table array of EZ Query select tables, __excluding the db key__. (see [select](#select)). Each select table must also include a __key__ property for the result table (see example below).|_Table_|__Y__|
 
+!!! info "Special Response"
+    If a `limit` key is set to 1, the results will be a single table record, and not a table array. See [selectOne](/server/modules/mysql/#selectone).
+
+__Returns__
+
+A keyed __table__ with the results of each select query as a table array of records. If `limit` in any of the query entries is set to 1, then a single table with the record data is returned (not an array).
+
 __Example__
 
 ```lua
 local batch_select = {
   {
     tbl = "products",
-    where = "type='Bike'",
+    where = { type = 'Bike' },
     key = "bikes"
   },
   {
     tbl = "products",
-    where = "type='Shoes'",
+    where = { type = 'Shoes' },
     key = "shoes"
   },
   {
     tbl = "locations",
-    where = "zip=93023",
-    limit = 5,
-    key = "stores"
+    where = { name = "Happy Toys" },
+    limit = 1, --Return as non-array record
+    key = "store"
   }
 }
 
@@ -353,7 +442,7 @@ if not result then
 else
   core.log(result.bikes) --Array of "Bike" records
   core.log(result.shoes) --Array of "Shoe" records
-  core.log(result.stores) --Array of 5 location records
+  core.log(result.store) --Table "Store" record
 end
 ```
 
@@ -379,6 +468,129 @@ else
 end
 ```
 
+### selectMerge
+
+Select from multiple databases and tables and return the results in a keyed table.
+
+```lua
+core.mysql.selectMerge(merge_tbl)
+```
+
+!!! tip
+    This method offers optimization when used on the client-side. See the __[selectMerge](/client/modules/mysql/#selectmerge)__ client-side method.
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|merge_tbl|A table array of EZ Query select tables, with an additonal `db` key. (see [select](#select)). Each select table should also include a `key` property for the result table (see example below).|_Table_|__Y__|
+
+__Returns__
+
+A key/value based table containing the `key` names assigned in the query tables. Each key section will contain a table array of returned records. If `limit` in any of the query entries is set to 1, then a single table with the record data is returned (not an array). See also __Errors__ below.
+
+__Example__
+
+```lua
+local res, err, code = core.mysql.selectMerge({
+  {
+    db = "locations",
+    tbl = "spots",
+    key = "locs"
+  },
+  {
+    db = "products",
+    tbl = "parts",
+    where = { part_id = 20 },
+    key = "part"
+  },
+  {
+    db = "stores",
+    tbl = "toy",
+    limit = 1, --Return as non-array record
+    where = { name = "Happy Toys" },
+    key = "store"
+  }
+})
+```
+
+__Errors__
+
+If any of the database queries fail, the successful queries will still be returned in their respective key names. On failed queries, the result will also contain an `errors` key, containing a table array describing any errors.
+
+__Example Response__
+
+```text
+{
+  errors = {
+    {
+      db = products
+      error = Table 'products.parts' doesn't exist
+      index = 2
+      status = 1146
+    }
+  },
+  locs = {
+    {
+      id = 1
+      latitude = 80
+      longitude = 200
+      user_id = "d23b8738-4d28-41ed-a967-98e83e855a38"
+    },
+    {
+      id = 3
+      latitude = -64
+      longitude = 200
+      user_id = "d23b8738-4d28-41ed-a967-98e83e855a39"
+    }
+  },
+  store = {
+    name = "Happy Toys",
+    city = "San Diego"
+  }
+}
+```
+
+### selectCount
+
+Get a record count based on passed in query.
+
+```lua
+core.mysql.selectCount(db_name, count_tbl)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|db_name|The database to run the count query against.|_String_|__Y__|
+|count_tbl|The count table options (see below).|_Table_|__Y__|
+
+__Count Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|tbl|Name of the table to operate on.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_ or _Table_|__N__|
+|column|The column to use as the counting key. Defaults to "id".|_String_|__N__|
+
+If the `where` key is not included, the result is the total records in the provided table.
+
+__Returns__
+
+The amount of records counted as a __number__, or __nil__, error, and error code.
+
+__Example__
+
+```lua
+local count, err = core.mysql.selectCount("products", {
+  tbl = "toys",
+  where = { color = "Red" }
+})
+
+core.log("Total red toys "..count)
+```
+
 ### insert
 
 Insert a single record into a database table.
@@ -386,10 +598,6 @@ Insert a single record into a database table.
 ```lua
 core.mysql.insert(db_name, insert_tbl)
 ```
-
-__Returns__
-
-The record id as a __number__, or __nil__ and an error.
 
 __Parameters__
 
@@ -405,8 +613,12 @@ __Insert Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 
-!!! note ""
-    Strings in the __values__ table will be automatically run through __core.mysql.escape__.
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+The record id as a __number__, or __nil__ and an error.
 
 __Example__
 
@@ -431,18 +643,12 @@ end
 
 Insert records into a single table of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[insertMany](/client/modules/mysql/#insertmany)__ client-side method.
-
 ```lua
 core.mysql.insertMany(db_name, insert_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the records table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[insertMany](/client/modules/mysql/#insertmany)__ client-side method.
 
 __Parameters__
 
@@ -458,8 +664,14 @@ __Insert Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |records|A table array of `values` tables. See the [insert](#insert) method above.|_Table_|__Y__|
 
-!!! note ""
-    Strings in the `values` tables will be automatically run through __core.mysql.escape__.
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the records table that was supplied to the call.
 
 __Example__
 
@@ -500,18 +712,12 @@ end
 
 Insert records into multiple tables of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[insertBatch](/client/modules/mysql/#insertbatch)__ client-side method.
-
 ```lua
 core.mysql.insertBatch(db_name, batch_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[insertBatch](/client/modules/mysql/#insertbatch)__ client-side method.
 
 __Parameters__
 
@@ -519,6 +725,15 @@ __Parameters__
 |----|-----------|----|--------|
 |db_name|	The database to run the query against.|_String_|__Y__|
 |batch_tbl|A table array of tables with the `tbl` and `values` keys from the [insert](#insert) method.|_Table_|__Y__|
+
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+An indexed table array of tables containing either an __id__ key; with the id of the newly created record, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the batch table that was supplied to the call.
 
 __Example__
 
@@ -573,10 +788,6 @@ Update record(s) in a database table.
 core.mysql.update(db_name, update_tbl)
 ```
 
-__Returns__
-
-The __number__ of records updated, or __nil__ and an error.
-
 __Parameters__
 
 |Name|Description|Type|Required|
@@ -590,10 +801,14 @@ __Update Table Parameters__
 |----|-----------|----|--------|
 |tbl|The name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
-|where|Where the columns should be updated.|_String_|__N__|
+|where|Where the columns should be updated.|_String_ or _Table_|__N__|
 
-!!! note ""
-    Strings in the __values__ table will be automatically run through __core.mysql.escape__.
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+The __number__ of records updated, or __nil__ and an error.
 
 __Example__
 
@@ -603,7 +818,7 @@ local result, err = core.mysql.update("leaderboard", {
   values = {
     score = 230
   },
-  where = "id=20"
+  where = { id = 20 }
 })
 
 if not result then
@@ -618,18 +833,12 @@ end
 
 Update records in a single table of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[updateMany](/client/modules/mysql/#updatemany)__ client-side method.
-
 ```lua
 core.mysql.updateMany(db_name, update_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the update table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[updateMany](/client/modules/mysql/#updatemany)__ client-side method.
 
 __Parameters__
 
@@ -645,6 +854,15 @@ __Update Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |update|A table array of tables with the `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
 
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the update table that was supplied to the call.
+
 __Example__
 
 ```lua
@@ -653,13 +871,13 @@ local update_arr = {
     values = {
       name = "Nike"
     },
-    where = "name='Adidas'"
+    where = { name="Adidas" }
   },
   {
     values = {
       cost = "1.99"
     },
-    where = "id=3"
+    where = { id = 3 }
   }
 }
 
@@ -688,18 +906,12 @@ end
 
 Update records in multiple tables of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[updateBatch](/client/modules/mysql/#updatebatch)__ client-side method.
-
 ```lua
 core.mysql.updateBatch(db_name, batch_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[updateBatch](/client/modules/mysql/#updatebatch)__ client-side method.
 
 __Parameters__
 
@@ -707,6 +919,15 @@ __Parameters__
 |----|-----------|----|--------|
 |db_name|	The database to run the query against.|_String_|__Y__|
 |batch_tbl|A table array of tables with the `tbl`, `values` and `where` keys from the [update](#update) method|_Table_|__Y__|
+
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+__Returns__
+
+An indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the batch table that was supplied to the call.
 
 __Example__
 
@@ -717,7 +938,7 @@ local batch_update = {
     values = {
       name = "Adidas"
     },
-    where = "id=3"
+    where = { id = 3 }
   },
   {
     tbl = "toys",
@@ -725,14 +946,14 @@ local batch_update = {
       name = "Raggedy Ann",
       gender = "female"
     },
-    where = "name='Raggedy Andy'"
+    where = { name = "Raggedy Andy" }
   },
   {
     tbl = "toys",
     values = {
       company = "Tonka"
     },
-    where = "id=4"
+    where = { id = 4 }
   }
 }
 
@@ -761,10 +982,6 @@ Delete record(s) from a database table.
 core.mysql.delete(db_name, delete_tbl)
 ```
 
-__Returns__
-
-The __number__ of records deleted, or __nil__ and an error.
-
 __Parameters__
 
 |Name|Description|Type|Required|
@@ -777,11 +994,15 @@ __Delete Table Keys__
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |tbl|The name of the table to operate on.|_String_|__Y__|
-|where|A WHERE clause to limit deletions to.|_String_|__N__|
+|where|A WHERE clause to limit deletions to.|_String_ or _Table_|__N__|
 |force|Disables safety check for missing __where__ key.|_Boolean_|__N__|
 
-!!! info "Important"
+!!! info "Force Delete"
     To run the delete command without a __where__ clause, you must set __force__ to true.
+
+__Returns__
+
+The __number__ of records deleted, or __nil__ and an error.
 
 __Example__
 
@@ -790,7 +1011,7 @@ _Delete using a __where__ clause_
 ```lua
 local result, err = core.mysql.delete("leaderboard", {
   tbl = "scores",
-  where = "score < 10"
+  where = "`score` < 10"
 })
 
 if not result then
@@ -821,18 +1042,12 @@ end
 
 Delete records from a single table of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[deleteMany](/client/modules/mysql/#deletemany)__ client-side method.
-
 ```lua
 core.mysql.deleteMany(db_name, delete_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the update table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[deleteMany](/client/modules/mysql/#deletemany)__ client-side method.
 
 __Parameters__
 
@@ -848,15 +1063,21 @@ __Delete Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |delete|A table array of tables with the `where` key from the [delete](#delete) method.|_Table_|__Y__|
 
+__Returns__
+
+An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the update table that was supplied to the call.
+
 __Example__
 
 ```lua
 local delete_arr = {
   {
-    where = "id=34"
+    where = { id = 34 }
   },
   {
-    where = "color='Red'"
+    where = { color= "Red" }
   }
 }
 
@@ -885,18 +1106,12 @@ end
 
 Delete records from multiple tables of a database.
 
-!!! note ""
-    This method is generally for use on the client-side. See the __[deleteBatch](/client/modules/mysql/#deletebatch)__ client-side method.
-
 ```lua
 core.mysql.deleteBatch(db_name, batch_tbl)
 ```
 
-__Returns__
-
-An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
-
-The result table is indexed the same order as the batch table that was supplied to the call.
+!!! tip
+    This method offers optimization when used on the client-side. See the __[deleteBatch](/client/modules/mysql/#deletebatch)__ client-side method.
 
 __Parameters__
 
@@ -905,17 +1120,23 @@ __Parameters__
 |db_name|	The database to run the query against.|_String_|__Y__|
 |batch_tbl|A table array of tables with the `tbl` and `where` keys from the [delete](#delete) method.|_Table_|__Y__|
 
+__Returns__
+
+An indexed table array of tables containing either a __deleted__ key; with the number of records deleted, or an __error__ key; containing the error string, or __nil__ and an error.
+
+The result table is indexed the same order as the batch table that was supplied to the call.
+
 __Example__
 
 ```lua
 local batch_delete = {
   {
     tbl = "toys",
-    where = "id=2"
+    where = { id = 2 }
   },
   {
     tbl = "shoes",
-    where = "type='running'"
+    where = { kind = "running" }
   }
 }
 
@@ -936,13 +1157,98 @@ else
 end
 ```
 
+## The WHERE Key
+
+Many of the MySQL (and other) modules use a `where` key to specify the "WHERE" clause for a database query. Depending on what data type and structure you provide this key, a couple different things can happen automagically.
+
+### String Based
+
+When passing a string to the `where` key, you are on your own to create a valid MySQL query string. The query string is interpreted as-is. 
+
+You never include the literal "WHERE" in the `where` key value.
+
+__Examples__
+
+```text
+where = "`color`='Red'"
+```
+
+```text
+where = "`kind`='Truck' AND `color`='Red'"
+```
+
+```text
+where = "`kind`='Truck' OR `kind`='Car'"
+```
+
+### Table Based
+
+The advantage of using a table based `where` key is that all of the values are properly formatted to make a valid and type-safe MySQL query.
+
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+To reproduce the three string based examples above as table based:
+
+```lua
+where = { color = "Red" }
+```
+
+```lua
+where = { kind = "Truck", color = "Red" } --AND
+```
+
+```lua
+where = { kind = { "Truck", "Car" } } --OR
+```
+
+__Ordered Table Queries__
+
+With "ordered" query tables you can replicate some more complex queries:
+
+```text
+where = "`color='Red' AND `model`='Ford' AND kind='Truck' OR kind='Car'"
+```
+
+To reproduce the query above, put the entries in a table array (order matters):
+
+```lua
+where = {
+  { color = "Red", model = "Ford" },
+  { kind = { "Truck", "Car" } }
+}
+```
+
+For an all OR query like:
+
+```text
+where = "`color='Red' OR `model`='Ford' OR kind='Truck' OR kind='Car'"
+```
+
+You can use an ordered table with a single entry:
+
+```lua
+where = {
+  { color = { "Red" }, model = { "Ford" }, kind = { "Truck", "Car" } }
+}
+```
+
+At this time multiple entries in an "ordered" `where` table are combined using 'AND', which may cause problems with more complicated queries, so you'll need to fall back to the string method.
+
+Table type queries also do not support conditionals, so the following cannot be replicated with a table based query:
+
+```text
+where = "`score` > 100"
+```
+
+
 ## Advanced Methods
 
 While the MySQL module methods above are fairly performant, they do automatically manage the database connections, and create the raw query strings, which creates a slight hit on speed.
 
 By managing the database connection directly you can get the best performance from your queries, especially if you are performing multiple queries in your API methods.
 
-!!! warning
+!!! warning "Closing Connections"
     Always use __dbClose__ at the end of your session, or you'll leave a connection open, using up resources.
 
 ### dbConnect
@@ -1070,7 +1376,7 @@ local results, err = core.mysql.query(conn_tbl, query_str)
 
 You can and should manage your MySQL databases using a standalone tool. Below are some free resources for managing MySQL databases.
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn more about database administration in a screencast format by __[Clicking here](/screencasts/#database-administation)__.
 
 - [SequelPro](https://sequelpro.com/download) (OSX)

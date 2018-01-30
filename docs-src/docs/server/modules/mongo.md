@@ -1,7 +1,7 @@
 !!! tldr "Important Note"
     The Mongo module has most, but not all, functionality of the full client. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
-!!! tip
+!!! info "Client-Side Data"
     For simple data manipulation using Mongo, take a look at the __[Data](/server/modules/data/)__ module.
 
 ## core.mongo
@@ -52,7 +52,7 @@ Close the database connection.
 db:close()
 ```
 
-!!! note ""
+!!! warning "Close Connections"
     To keep memory usage down, you should always close the database connection when finished.
 
 ### collection
@@ -144,7 +144,7 @@ doc.name = "Nancy"
 local id, err = coll:save(doc)
 ```
 
-!!! note ""
+!!! note
     This method is the same as setting __upsert=true__ when using the __update__ method.
 
 ### insert
@@ -251,7 +251,7 @@ local cursor = coll:find({ age = {["$gt"] = 20}, name = "Tina" })
 ```
 
 
-!!! tip
+!!! tldr "Chainable Cursors"
     This method returns a __cursor__ object which is chainable. For example, to return all documents found by the query in one call: `local docs = coll:find( query ):all()`
 
 __See also__
@@ -563,7 +563,7 @@ local cur, err = users:aggregate({
 
 _Output aggregation results to a collection instead of a cursor_
 
-!!! note ""
+!!! warning "Important"
     The __$out__ key must be the last step in the pipeline. Creates and returns a new collection.
 
 ```lua
@@ -598,7 +598,7 @@ Return document(s) based on the previous cursor options. Returns a __table__ arr
 cursor:all()
 ```
 
-!!! info "Important"
+!!! warning "Important"
     Always call this method last (or in a chain), to retrieve the documents from the cursor.
 
 __Parameters__
@@ -857,7 +857,7 @@ coll:update(<queryOrId>, {
 
 You can and should manage your Mongo databases using a standalone tool. Below are some free resources for managing Mongo databases.
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn more about database administration in a screencast format by __[Clicking here](/screencasts/#database-administation)__.
 
 - [MongoBooster](https://mongobooster.com/downloads)

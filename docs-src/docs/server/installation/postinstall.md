@@ -2,8 +2,8 @@
 
 The default password for a fresh install is: __cloudadmin__.
 
-!!! warning "Important Note"
-    You should change the default password after the install.
+!!! danger "Change The Password"
+    __You should change the default password after the install.__
     
 Log in with the __coronium__ user:
 

@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -586,6 +586,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -792,6 +852,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -841,6 +913,13 @@
         <li class="md-nav__item">
   <a href="#login-object" title="Login Object" class="md-nav__link">
     Login Object
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#oauth-login" title="OAuth Login" class="md-nav__link">
+    OAuth Login
   </a>
   
 </li>
@@ -996,6 +1075,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#oauth-login" title="OAuth Login" class="md-nav__link">
+    OAuth Login
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#checking-state" title="Checking State" class="md-nav__link">
     Checking State
   </a>
@@ -1082,8 +1168,18 @@
 <td><em>String</em> or <em>Nil</em></td>
 </tr>
 <tr>
+<td>group</td>
+<td>The user group this user belongs to, if any.</td>
+<td><em>String</em></td>
+</tr>
+<tr>
 <td>extra</td>
 <td>Any extra meta data associated with the user, if any.</td>
+<td><em>Table</em> or <em>Nil</em></td>
+</tr>
+<tr>
+<td>oauth</td>
+<td>If logged in using an OAuth provider, will contain provider information.</td>
 <td><em>Table</em> or <em>Nil</em></td>
 </tr>
 <tr>
@@ -1124,6 +1220,56 @@
 </pre></div>
 
 
+<h2 id="oauth-login">OAuth Login</h2>
+<p>If you want to login a user that you have linked with an OAuth provider, you can log them in with different parameters. See <strong><a href="../../../../client/modules/users/oauth/#addauthprovider">addAuthProvider</a></strong> for information on adding a provider.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserLogin</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1">--result is a login object</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
+  <span class="n">client_id</span> <span class="o">=</span> <span class="s2">&quot;fb-id-1234abcd&quot;</span><span class="p">,</span>
+  <span class="n">provider</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">FACEBOOK</span>
+<span class="p">},</span> <span class="n">onUserLogin</span><span class="p">)</span>
+</pre></div>
+
+
+<p>On a successful login, you will have a additional key in the user record called <code>oauth</code> with the provider information as a <strong>table</strong>.</p>
+<p>The <code>oauth</code> table will contain the following keys:</p>
+<ul>
+<li><code>client_id</code> (<em>string</em>)</li>
+<li><code>access_token</code> (<em>string</em>)</li>
+<li><code>access_token_expiry</code> (<em>number</em>)</li>
+<li><code>access_token_expired</code> (<em>boolean</em>)</li>
+<li><code>provider</code> (<em>string</em>)</li>
+</ul>
+<p>The access token expiration is calculated on the server-side. You can check if the access token is expired on login like so:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">onLogIn</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kd">local</span> <span class="n">user</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span>
+
+    <span class="kr">if</span> <span class="n">user</span><span class="p">.</span><span class="n">oauth</span><span class="p">.</span><span class="n">access_token_expired</span> <span class="kr">then</span>
+      <span class="c1">--token expired</span>
+    <span class="kr">else</span>
+      <span class="c1">--token valid</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
+  <span class="n">client_id</span> <span class="o">=</span> <span class="s2">&quot;fb-id-1234abcd&quot;</span><span class="p">,</span>
+  <span class="n">provider</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">FACEBOOK</span>
+<span class="p">},</span> <span class="n">onLogIn</span><span class="p">)</span>
+</pre></div>
+
+
+<p>See also the <strong><a href="../../../../client/modules/users/oauth/#accesstokenexpired">accessTokenExpired</a></strong> and <strong><a href="../../../../client/modules/users/oauth/#updatetokenexpiry">updateTokenExpiry</a></strong> methods.</p>
 <h2 id="checking-state">Checking State</h2>
 <p>Using the various "state" keys returned with the login object, you can determine the status of a user and make decisions in your application logic accordingly. </p>
 <h3 id="validated">validated</h3>
@@ -1250,7 +1396,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

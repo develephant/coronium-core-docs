@@ -3,7 +3,7 @@ Secure your __Coronium Core__ server by utilizing the free SSL certificate servi
 !!! warning
     Setting up a secure Coronium Core server is not a trivial process, so be sure to read through _all_ of the steps before starting, and then follow them carefully.
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn how to set up HTTPS in a screencast format by __[Clicking here](/screencasts/#https-ssl)__.
 
 ## Overview
@@ -34,7 +34,7 @@ You will need to point your domain to the DigitalOcean nameservers. The process 
 
 _Instructions for setting nameservers on GoDaddy can be found [here](https://www.godaddy.com/help/set-custom-nameservers-for-domains-registered-with-godaddy-12317)._
 
-!!! warning "Important"
+!!! warning "Droplet Required"
     __Spin up a Coronium Core droplet as outlined in the [DigitalOcean Installation](/server-install/digitalocean/) section before continuing.__
 
 1\. In the DigitalOcean control panel, click the __Networking__ link at the top:
@@ -66,7 +66,7 @@ You can check the progress using a site like [whatsmydns](https://www.whatsmydns
 
 ## Let's Encrypt
 
-!!! Danger
+!!! Danger "Active Domain Required"
     ___Do not continue with this guide until you have an active domain name for your Coronium Core server that you can reach through your web browser.___
 
 To move your Coronium Core server over to HTTPS, perform the following steps:
@@ -83,7 +83,7 @@ If you have not changed the password yet, the default is __cloudadmin__. You may
 
 2\. Copy and paste the following on the command line to run the Coronium Core SSL updater:
 
-!!! warning
+!!! warning "Configuration Changes"
     At this point make sure you're ready to move over to HTTPS. The following process will permanently modify your configuration settings.
 
 ```
@@ -96,7 +96,7 @@ You will then be propted for the _hostname_, a _fully qualified domain name_, an
 
 As stated earlier, you should have created a 3rd level domain, for example: __coronium.<domain\>.com__. Using the example, when entering the requested information, it might look like:
 
-!!! note
+!!! note "Input Issues"
     Make sure to hit the _delete_ key a few times before entering values. If the update returns a confirmation instantly, then a space in the data is the most likely reason. If this happens, start again at step 2 above.
 
 _Enter a hostname:_ __coronium__
@@ -107,12 +107,12 @@ _Enter an email:_ __you@your-email.com__
 
 Be sure to replace the information with your own answers.
 
-!!! warning
-    Make sure to triple check your information. If not, then you might not be issued a certificate.
+!!! danger "Check Your Information"
+    __Make sure to triple check your information. If not, then you might not be issued a certificate.__
 
 After receiving your secure certificate, the script will exit and your Coronium Core server will be accesible using __https__. 
 
-!!! tip
+!!! tldr "Server Reboot"
     It's generally a good idea to reboot the server instance by entering __sudo reboot -h__ on the command line. Wait a minute, and then check to make sure the server is running again.
 
 Be sure to update the __host__ in the client configuration (in the Corona project):

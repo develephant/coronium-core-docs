@@ -1,6 +1,6 @@
 ## Coronium Tool
 
-!!! note ""
+!!! note
     You must be logged in as the __coronium__ user to use the command line tool.
 
 A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:
@@ -32,7 +32,7 @@ tail -f /usr/local/coronium/logs/<log-name>.log
 
 Press __control-x__ to stop watching the log file.
 
-!!! note ""
+!!! note "Log File Rotation"
     The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.
 
 !!! tip
@@ -66,7 +66,7 @@ To restart the Coronium stack, use:
 sudo coronium restart
 ```
 
-!!! caution ""
+!!! caution
     You should rarely need to manually control the Coronium stack process.
 
 
@@ -86,7 +86,7 @@ The following user directories can be found in __/home/coronium__. They are will
 
 If you store files in the __files/public__ directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within [page templates](/server/modules/pages/templates/). 
 
-!!! note ""
+!!! tldr "File Selection"
     If a file with the same path exists in the __pages__ directory, it will be served first. If a file does not exist at the path, then the __files/public__ directory will be checked.
 
 __Path Examples__

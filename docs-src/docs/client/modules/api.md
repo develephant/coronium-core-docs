@@ -1,6 +1,6 @@
 Provides access to your server-side project api methods. To learn how to create server-side api methods, see the server-side __[API](/server/modules/api/)__ module.
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn how to use the Client API in a screencast format by __[Clicking here](/screencasts/#client-plugin-api)__.
 
 Use the __[core.init](/client/modules/core/#init)__ method to set the server-side project to call the methods against.

@@ -41,7 +41,7 @@ end
 core.data.get({source="users", query="id1234"}, apiListener)
 ```
 
-!!! tip ""
+!!! info "Multiple Objects"
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
 ### save
@@ -99,7 +99,7 @@ core.data.save({source="users", data=dataObj}, apiListener)
 
 _Updating an existing object_
 
-!!! info ""
+!!! info
     To update an existing object, first retrieve it using __core.data.get__.
 
 ```lua
@@ -140,7 +140,7 @@ __Data Params__
 |id|The data object id string.|_String_|__Y__|
 |db|A specific database. Default: "_app".|_String_|__N__|
 
-!!! info ""
+!!! info "Object IDs"
     You can get an object id from any data object. See the __core.data.get__ example above.
 
 __Event Response__

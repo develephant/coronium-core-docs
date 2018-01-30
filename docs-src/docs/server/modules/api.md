@@ -1,12 +1,9 @@
 The API module allows you to create server-side api methods that can be called using the client-side [API](/client-module/api/) module.
 
-!!! tip "Screencasts Available"
-    Get an overview of using the Server API in a screencast format. __[Click here for Part I](/screencasts/#server-api-part-i)__. __[Click here for Part II](/screencasts/#server-api-part-ii)__. 
-
 A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the [MySQL](/server/modules/mysql/) and [Mongo](/server/modules/mongo/) modules.
 
-!!! info "Client-Side API"
-    Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side __[Data](/client/modules/data/)__ module for Mongo, and the client-side __[MySQL](/client/modules/mysql/)__ module for MySQL.
+!!! note "Screencasts Available"
+    Get an overview of using the Server API in a screencast format. __[Click here for Part I](/screencasts/#server-api-part-i)__. __[Click here for Part II](/screencasts/#server-api-part-ii)__. 
 
 ## Projects
 
@@ -14,12 +11,12 @@ Server-side api methods are housed in "API Projects" that are stored on the serv
 
 ## Creating Projects
 
-You create projects on the server using the Coronium command line tool, or through the Webmin project editor.
-
-!!! tip "Webmin Project Editor"
-    You can set up your projects through your web browser using the Coronium Core Webmin. See the __[API Code Editor](/screencasts/#api-code-editor)__ screencast for more information.
+You create projects on the server using the Coronium command line tool, or through the __[Webmin](/server/webmin/setup/)__ project editor.
 
 ### Add Project
+
+!!! tip "Coronium Webmin"
+    You can use the browser based __Coronium Webmin__ to create new projects through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
 
 You will first need to log into your server using the __coronium__ user. Once logged in, run the following to create a new project:
 
@@ -35,6 +32,9 @@ At this point, you should connect to the server using SFTP and download the new 
 
 ### Delete Project
 
+!!! tip "Coronium Webmin"
+    You can use the browser based __Coronium Webmin__ to delete projects through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
+
 To remove a project using the command line tool, run:
 
 ```
@@ -45,9 +45,12 @@ You can also delete a project by simply removing the project directory from the 
 
 ## Project Files
 
-Project code is stored in the newly created project directory. The required __main.lua__ file will be generated when using the command line tool (see above).
+Project code is stored in the newly created project directory. The required __main.lua__ file will be generated when using the command line tool or Webmin. (see __[Add Project](#add-project)__ above).
 
 ### main.lua
+
+!!! tip "Coronium Webmin"
+    You can use the browser based __Coronium Webmin__ to edit the `main.lua` and other project files using a visual code editor. See __[Webmin](/server/webmin/setup/)__ for more information.
 
 The main.lua file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.
 
@@ -80,10 +83,65 @@ local apiResponse(evt)
   if evt.error then
     print(evt.error)
   else
-    print(evt.response.name) -- Jimmy
+    print(evt.result.name) -- Jimmy
   end
 end
 core.api.test({name="Jimmy"}, apiResponse)
+```
+
+### Adding Files
+
+!!! tip "Coronium Webmin"
+    You can use the browser based __Coronium Webmin__ to add additional files to a project through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
+
+There may be times when you would like to split up your API project code into seperate files. This can be done by simply adding a new .lua file module to the project directory and requiring it into the projects __main.lua__ file.
+
+The important thing to know about external file modules is that they cannot return output to the client directly. __Only the main.lua file can send output back down to the client.__
+
+Because of this it is important that you set up your external file modules properly to return results back to the __main.lua__ file for sending results downstream.
+
+_Example File Module_
+
+```lua
+--project/db.lua
+local db = {}
+
+function db.getSomeData(params)
+
+  local res, err = core.mysql.selectOne("products", {
+    tbl = "toys",
+    where = { color = params.color }
+  })
+
+  --we must return the result back to the main.lua
+  return res, err
+
+end
+
+return 
+```
+
+_Example Main Lua File_
+
+```lua
+--project/main.lua
+local db = require("project.db")
+
+local api = core.api()
+
+function api.doSomething(input)
+
+  local res, err = db.getSomeData({color = "Red"})
+
+  --here we can return data to the downstream client
+  if not res then
+    return core.error(err)
+  end
+
+  return res
+end
+
+return api
 ```
 
 ## core.api
@@ -110,16 +168,31 @@ return api
 
 ### Input
 
-API methods have a single parameter, which is a __table__ of _input values_ sent up from the client-side [core.api](/client/modules/api/#api) method. Some methods may not need input, in which case the input parameter will be __nil__.
+Custom API methods are passed three parameters, which is a table of __input__ values sent up from the client-side [core.api](/client/modules/api/#api) method, the __scope__ of the current client call (see [Application Scope](/client/guide/#application-scope)). Some methods may not need input, in which case the input parameter will be __nil__.
+
+Most often you will only use the __input__ parameter.
+
+!!! note
+    The __input__ parameter is supplied from the client-side call (see [client-side API](/client/modules/api/)). The __scope__ is determined internally.
 
 _Example_
 
 ```lua
 local api = core.api()
 
+-- Input only
 function api.addUser(input)
   local name = input.name
   local age = input.age
+
+  ...
+end
+
+-- Input and Scope
+function api.getUser(input, scope)
+  local res, err = core.users.getWithQuery(scope, {
+    username = input.name
+  })
 
   ...
 end
@@ -170,9 +243,15 @@ _Example_
 ```lua
 local api = core.api()
 
-function api.getUser(input)
+function api.echoName(input)
   if not input.name then
-    return core.error("The user name is missing!")
+    -- Return error with string only:
+    return core.error("The name parameter is missing!")
+
+    -- OR
+
+    -- Return error with a custom status code too:
+    return core.error("The name parameter is missing!", 110)
   end
 
   return "Hello, " .. input.name
@@ -181,12 +260,32 @@ end
 return api
 ```
 
+Some of the built in modules return an error string _and_ an error code which you can pass downstream to the client. See each modules documentation for more information.
+
+_Example_
+
+```lua
+local api = core.api()
+
+function api.getUser(input)
+
+  local user, err, code = core.users.get("aad3eba3-9c9c-9a1b-f236de1e3752")
+
+  if not user then
+    return core.error(err, code)
+  end
+
+  return user
+end
+
+return api
+```
+
+When using custom error codes, make sure to check the latest reserved __[Status Codes](/client/codes/)__ and choose something not listed there. Custom status codes should generally be in the 100-199 range.
+
 ## Using Modules
 
 Most often you will want to do something more useful than echoing data. You can use the server-side modules to add functionality to your api.
-
-!!! tip "Client-Side API"
-    Most data handling can be facilitated directly on the client-side, without the need to create a server-side api. See the client-side __[Data](/client/modules/data/)__ module for Mongo, and the client-side __[MySQL](/client/modules/mysql/)__ module for MySQL.
 
 ### Examples
 
@@ -302,7 +401,7 @@ end
 core.api.queryUser({id=20}, apiResponse)
 ```
 
-!!! tip ""
+!!! tip "Client-Side MySQL"
     The following example can also be done directly from the client-side __[MySQL](/client/modules/mysql/#insert)__ module.
 
 Assuming we have a MySQL database properly created called "app", we can quickly insert a new record to the "users" table like so:

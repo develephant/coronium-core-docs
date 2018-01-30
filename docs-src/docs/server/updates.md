@@ -17,10 +17,8 @@ Listed below are one-liners specific to the versions for updating. Make sure to 
 
 ### 2.0.2 to 2.0.3
 
-!!! fail "Important Note"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-The following will update your Coronium Core 2.0.2 server to version 2.0.3
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Fixed__
 
@@ -32,22 +30,10 @@ __Added__
 - Pages `status` convienence method added to quickly return a status code other than 200.
 - Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
 
-Paste the following one-liner into your terminal to start the update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh && sudo bash ./update.sh
-```
-
-__When the update is finished reboot the server using `sudo reboot -h`.__
-
-Once the reboot has finished you can log in with the __coronium__ user to verify the server is updated by running the `coronium status` command.
-
 ### 2.0.3 to 2.1.0
 
-!!! fail "Important Note"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-The following will update your Coronium Core 2.0.3 server to version 2.1.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -64,48 +50,20 @@ __Added__
 - Ability to adjust Corona network client-side timeout for large workloads.
 - Ability to adjust MySQL server-side timeout for large workloads.
 
-__DigitalOcean Updater__
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.1.0/do/update.sh && sudo bash ./update.sh
-```
-
-__Amazon EC2 Updater__
-
-_Available upon request._
-
 ### 2.1.0 to 2.1.1
 
-!!! fail "Important Note"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-The following will update your Coronium Core 2.1.0 server to version 2.1.1
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
 - Full support for multiple applications with separate scope for users and metrics.
 - Webmin "Today" view for global application usage metrics for the current day.
 
-__DigitalOcean Updater__
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh && sudo bash ./update.sh
-```
-
-__Amazon EC2 Updater__
-
-_Available upon request._
-
 ### 2.1.1 to 2.2.0
 
-!!! fail "Important Note"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-The following will update your Coronium Core 2.1.1 server to version 2.2.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -126,21 +84,6 @@ The client-side Users module __[login](/client/modules/users/api/#login)__ respo
 `users.create`
 
 The client-side Users module __[create](/client/modules/users/api/#create)__ response has changed. See the __[Creating](/client/modules/users/creating/)__ users section of the documentation for more information.
-
-!!! warning
-    Do not update your Coronium Core server to this version until you have updated any code to reflect the new changes.
-
-__DigitalOcean Updater__
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh && sudo bash ./update.sh
-```
-
-__Amazon EC2 Updater__
-
-_Available upon request._
 
 ### 2.2.0 to 2.3.0
 
@@ -228,6 +171,96 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh && sudo bash ./update.sh
+```
+
+### 2.3.2 to 2.4.0
+
+The following will update your Coronium Core 2.3.2 server to version 2.4.0
+
+__Added__
+
+  - Server-side __[Users](/server/modules/users/api/)__ module, allowing for custom user logic and types. Includes new methods __[getGroup](/server/modules/users/api/#getgroup)__, __[getWithQuery](/server/modules/users/api/#getwithquery)__, and __[getAndMerge](/server/modules/users/api/#getandmerge)__ for advanced user queries, record associations, and more.
+  
+  - Server-side and client-side __[OAuth API](/server/modules/users/oauth/)__ which is a __Users__ module extension to support OAuth client IDs, access tokens, and expirys from Facebook login, Google sign-in, etc.
+
+  - MySQL module EZ Query method __mysql.selectMerge__ to select from multiple databases and tables in a single call. See the client-side __[selectMerge](/client/modules/mysql/#selectmerge)__ or server-side __[selectMerge](/server/modules/mysql/#selectmerge)__ documentation for more details. 
+
+  - MySQL module EZ Query method __mysql.selectCount__ to get records counts based on queries. See the client-side __[selectCount](/client/modules/mysql/#selectcount)__ or server-side __[selectCount](/server/modules/mysql/#selectcount)__ documentation for more details. 
+
+  - Server-side MySQL module __[time based methods](/server/modules/mysql/#timestamp)__ can now accept a UNIX timestamp for conversion.
+
+  - Server-side MySQL module __[logQueries](/server/modules/mysql/#logqueries)__ method to enable logging of the raw queries being created under the hood for debugging purposes.
+
+  - Modules that accept a `where` key can now benefit from a new special table type clause. See __[The WHERE Key](/server/modules/mysql/#the-where-key)__ for more information.
+
+  - A new field in the __Users__ module called `group` to help partition your users within a scope.
+
+  - A new incoming parameter `scope` for use in custom server-side API methods (see __[Input](/server/modules/api/#input)__).
+
+  - Logging is now split into _api_, _pages_, and _nginx_ logs for less noise and more specificality.
+
+  - Lots of new and revised documentation.
+
+__Fixed__
+
+  - Users module `Field 'extra' doesn't have a default value` error.
+
+  - Administration database collation type inconsistencies.
+
+  - Trigger privilege unavailable for external MySQL admin clients.
+
+__Updated__
+
+  - Client connection count increased significantly.
+
+  - Almost all server-side methods now support error, and error status codes that can be returned to the client. See __[Status Codes](/client/codes/)__.
+
+__API Changes__
+
+  - __mysql.selectBatch__ `key` parameter is now optional per entry. If not specified the table name will be used instead. Be sure to provide a `key` if multiple entries use the same table.
+
+  - __mysql.selectBatch__ now returns a single record (similar to __mysql.selectOne__) if the `limit` for an entry is set to 1.
+
+__Webmin Update 1.2__
+
+  - Now supports multi-file server-side API projects.
+  
+  - New Webmin settings area in the __Config__ section.
+
+  - Log viewer updated to view newly split log files. 
+
+  - Log displays with (optional) colorized output. Increased line output.
+
+  - Dark theme now available for the code editor.
+
+  - New user keys `oauth` and `group` added to the user details page.
+
+  - Filter by group added to the user search page.
+
+  - Code editor completions for all new methods.
+
+  - Lots of updates and fixes both under and over the hood.
+
+__DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do/update.sh && sudo bash ./update.sh
+```
+
+__Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2/update.sh && sudo bash ./update.sh
 ```
 
 ## Webmin HTTPS/SSL

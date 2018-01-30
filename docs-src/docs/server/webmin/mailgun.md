@@ -1,4 +1,4 @@
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn how to set up the __Mailgun__ settings in a screencast format by __[Clicking here](/screencasts/#email-module)__.
 
 If you're planning on using either the client or server-side __Email__ module or requiring your users to confirm registration by email with the __Users__ module, then you will need a valid __[Mailgun](https://mailgun.com)__ account.

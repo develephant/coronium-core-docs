@@ -1,7 +1,9 @@
-!!! tip "Screencast Available"
+!!! info "Screencast Available"
     Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
 
 Coronium Core supports multiple applications. Each Coronium Core based Corona application must have an "application scope" to allow for individual users and metrics. This allows you to filter users and metrics per application.
+
+## Setting Up Scopes
 
 The application scope is set in the __[core.init](/client/modules/core/#init)__ method on the client-side in your Corona application.
 
@@ -22,5 +24,6 @@ core.init({
 
 Once you have set the scope, all __[Users](/client/modules/users/users/)__ and __[Analytics](/client/modules/analytics/)__ module methods will be scoped to that specfic application, which you can use to filter views in the Coronium Core Webmin.
 
-!!! note "Webmin Scope"
-    You must run at least one User or Analytics method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, refresh the Webmin in your browser.
+## Enabling Scopes
+
+You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the __Update Scopes Cache__ option in the Webmin __Config__ section.

@@ -2,47 +2,7 @@ Provides methods to register, login, and track users for your applications.
 
 For more detailed information on working with users, see the __[Creating](creating/)__, __[Updating](updating/)__, __[Logging In](login/)__, and __[Confirmation](confirmation/)__ sections.
 
-### login
-
-Retrieves the users basic data, and marks a _login event_ in the __users__ database. 
-
-- See also: __[Logging In](login/)__ users.
-
-```lua
-core.users.login(data_params, listener)
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|data_params|The data parameters for the call.|_Table_|__Y__|
-|listener|The api listener callback function.|_Function_|__Y__|
-
-__Data Params__
-
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|username|The registered username.|_String_|__Y__|
-|password|The users password.|_String_|__Y__|
-
-__Event Response__
-
-On success, the __result__ will hold a basic login object as a __table__. See the __[Logging In](login/)__ section for more details.
-
-__Example__
-
-```lua
-local function onUserLogin( evt )
-  if evt.error then
-    print(evt.error)
-  else
-    print(evt.result.user_id) -- result holds the login object
-  end
-end
-
-core.users.login({username="tiny", password="abcd1234"}, onUserLogin)
-```
+See also the __[OAuth API](/client/modules/users/oauth/)__ for managing users with OAuth capabilities.
 
 ### create
 
@@ -68,11 +28,15 @@ __Data Params__
 |username|The preferred username.|_String_|__Y__|
 |password|The users password.|_String_|__Y__|
 |email|The users email. _User email is required if using email confirmation._ See `confirmation` parameter below.|_String_|__N__|
+|group|A custom string used to partition this user within the scope.|_String_|__N__|
 |extra|A custom data table of key/value pairs to store with the user. Can be of type _String_, _Number_, or _Boolean_ only.|_Table_|__N__|
 |confirmation|Parameters for _optional_ email confirmation. See the __[Confirmation](/client/modules/users/confirmation/)__ section for detailed usage.|_Table_|__N__| 
 
 !!! warning "Important"
     Passwords are hashed before being sent to the server. Do not try to hash the password yourself.
+
+!!! info "OAuth Users"
+    To add OAuth provider information to a user, see the __[addAuthProvider](/client/modules/users/oauth/#addauthprovider)__ method.
 
 __Event Response__
 
@@ -93,6 +57,51 @@ core.users.create({
   username="tiny", 
   password="abcd1234"
 }, onUserCreate)
+```
+
+### login
+
+Retrieves the users basic data, and marks a _login event_ in the __users__ database. 
+
+- See also: __[Logging In](login/)__ users, and __[OAuth Login](/client/modules/users/login/#oauth-login)__.
+
+```lua
+core.users.login(data_params, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|data_params|The data parameters for the call.|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Data Params__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|username|The registered username.|_String_|__Y__|
+|password|The users password.|_String_|__Y__|
+
+!!! info "OAuth Login Parameters"
+    To log in a user with an OAuth provider, see __[OAuth Login](/client/modules/users/login/#oauth-login)__.
+
+__Event Response__
+
+On success, the __result__ will hold a basic login object as a __table__. See the __[Logging In](login/)__ section for more details.
+
+__Example__
+
+```lua
+local function onUserLogin( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.user_id) -- result holds the login object
+  end
+end
+
+core.users.login({username="tiny", password="abcd1234"}, onUserLogin)
 ```
 
 ### get
@@ -158,6 +167,9 @@ __Data Params__
 |user_id|The users unique identifier.|_String_|__Y__|
 |update|The user data to update as key/value pairs. See the __[Updating](/client/modules/users/updating/)__ section for detailed usage.|_Table_|__Y__|
 
+!!! info "OAuth Users"
+    To update a users OAuth provider information, see the __[updateAuthProvider](/client/modules/users/oauth/#updateauthprovider)__ method.
+
 __Event Response__
 
 On success, the __result__ will hold the updated user object as a __table__.
@@ -203,9 +215,12 @@ __Data Params__
 |----|-----------|----|--------|
 |user_id|The users unique identifier.|_String_|__Y__|
 
+!!! info "OAuth Users"
+    To delete a users OAuth provider information, see the __[removeAuthProvider](/client/modules/users/oauth/#removeauthprovider)__ method.
+
 __Event Response__
 
-On success, the __result__ will hold the records updated as a __number__. Generally a __1__ or __0__.
+On success, the __result__ will hold the records removed as a __number__. Generally a __1__ or __0__.
 
 __Example__
 

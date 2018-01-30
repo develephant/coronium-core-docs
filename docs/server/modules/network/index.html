@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -677,6 +677,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../utils/" title="Utils" class="md-nav__link">
       Utils
@@ -867,6 +927,18 @@
   <li class="md-nav__item">
     <a href="../../../client/modules/users/api/" title="Users API" class="md-nav__link">
       Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
     </a>
   </li>
 
@@ -1185,11 +1257,11 @@
 <span class="p">})</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;body&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;status&quot;</span><span class="p">,</span> <span class="n">resp</span><span class="p">.</span><span class="n">status</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1227,10 +1299,10 @@
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://google.com&quot;</span><span class="p">)</span>
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1276,18 +1348,18 @@
 
 <span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="s2">&quot;https://post.com/submit&quot;</span><span class="p">,</span> <span class="n">body</span><span class="p">)</span>
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
 </pre></div>
 
 
 <p>See also: <a href="#form-example">Form Example</a></p>
 <h3 id="getjson">getJson</h3>
 <p>Specialized method that sends a "GET" request to an endpoint that responds with JSON. On success, returns the decoded JSON result as a <strong>table</strong>. Otherwise, <strong>nil</strong> and an error.</p>
-<div class="admonition note">
-<p class="admonition-title">Usage Note</p>
+<div class="admonition info">
+<p class="admonition-title">Special Response</p>
 <p>This method returns a Lua table with the decoded JSON response, not the JSON string.</p>
 </div>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="n">url</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
@@ -1323,17 +1395,17 @@
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="s2">&quot;https://getjson.com&quot;</span><span class="p">)</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">some_key</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">some_key</span><span class="p">)</span>
 </pre></div>
 
 
 <h3 id="postjson">postJson</h3>
 <p>Specialized method that sends a "POST" request to an endpoint that expects JSON. On success, returns the result as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
-<div class="admonition note">
-<p class="admonition-title">Usage Note</p>
+<div class="admonition info">
+<p class="admonition-title">Special Response</p>
 <p>This method takes a Lua table and JSON-encodes it. Do not pass a raw JSON string.</p>
 </div>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">postJson</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
@@ -1380,10 +1452,10 @@
 <span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">postJson</span><span class="p">(</span><span class="s2">&quot;https://postjson.com&quot;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
 
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
 <span class="kr">end</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
+<span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">resp</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1489,7 +1561,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

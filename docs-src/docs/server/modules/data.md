@@ -1,6 +1,7 @@
 The __data__ module provides a simple interface to the underlying Mongo database. It is meant for basic tasks. See the [Mongo](/server/modules/mongo/) module if you require more advanced usage.
 
-You can access this module directly from the client-side using the client __[Data](/client/modules/data/)__ module.
+!!! info "Client-Side Data"
+    Most data handling can be handled directly on the client-side, without the need to create a server-side api. See the client-side the __[Data](/client/modules/data/)__ module.
 
 ## core.data
 
@@ -10,16 +11,16 @@ To perform any of the object methods, you need a reference to the __data__ modul
 core.data(source_name[, db_name])
 ```
 
-__Returns__
-
-A source object, or __nil__ and an error.
-
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |source_name|The source name to use for the objects.|_String_|__Y__|
 |db_name|Set a specific database. Default: "_app"|_String_|__N__|
+
+__Returns__
+
+A source object, or __nil__ and an error.
 
 __Example__
 
@@ -47,7 +48,7 @@ __Example__
 local obj, err = users:get("id1234")
 ```
 
-!!! tip ""
+!!! tip
     To retrieve multiple data objects, see the __[getPage](#getpage)__ method.
 
 ### save

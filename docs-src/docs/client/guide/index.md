@@ -36,8 +36,8 @@ You're now ready to use the __Coronium Core__ plugin.
 
 The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, user management, and analytics module and the ability to call your own custom methods built with the server-side __[API](/server/modules/api/)__ module.
 
-!!! info "Important"
-    You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on __[DigitalOcean](/server/installation/digitalocean/)__ or __[Amazon EC2](/server/installation/amazon/)__.
+!!! warning "Coronium Core Required"
+    You will need a running __Coronium Core__ server before being able to utilize the client plugin. You can install the server on __[DigitalOcean](/server/installation/digitalocean/)__ or __[Amazon EC2](/server/installation/amazon/)__.
 
 Before continuing, make sure you have read through the __[Installation](#installation)__ section.
 
@@ -58,7 +58,7 @@ __Core Init Keys__
 
 ### Application Scope
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
 
 Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.
@@ -82,6 +82,10 @@ core.init({
 })
 
 ```
+
+### Enabling Scopes
+
+You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the __Update Scopes Cache__ option in the Webmin __Config__ section.
 
 ### Custom API Init
 
@@ -111,7 +115,7 @@ local function apiResponse( evt )
   if evt.error then
     print(evt.error) --contains error string, if any.
   else
-    --evt.result contains the server response
+    local res = evt.result --evt.result contains the server response
   end
 
   print(evt.tt) --contains request round trip time
@@ -122,7 +126,7 @@ All response events will contain either an __error__ key, or the successful resp
 
 All response events contain a __tt__ key. See below for more details on this key.
 
-!!! note
+!!! tldr "Event Keys"
     Some modules may have additional event keys. See each modules documentation for event responses.
 
 ### error
@@ -137,18 +141,51 @@ The __result__ key data depends on the module or api method. See each modules do
 
 The __tt__ key allows you to see the "trip time" for the request. This is the total round trip time in milliseconds from the start of the client network request, to the final client response. 
 
-!!! tip
-    To debug response events during development, see the __[core.debug](/client/modules/core/#debug)__ method.
+!!! tip "Debug Responses"
+    To debug response events during development, use the __[core.debug](/client/modules/core/#debug)__ method (see below).
+
+## Debug Responses
+
+Sometimes it can be nice to see the full response (including errors) without have to write the full logic in the event listener.
+
+To make this simpler, you can use the `core.debug` method.
+
+__Example__
+
+```lua
+local function apiResponse( evt )
+  core.debug( evt )
+end
+
+core.users.login({
+  username = 'Wordy',
+  password = '1234'
+}, apiResponse)
+```
+
+The following will be output to the __Corona__ console:
+
+```text
+result:
+  active: true
+  email: sleeptankxyz@gmail.com
+  group: foodies
+  scope: Space Race
+  user_id: c369637a-cb27-44ee-aeaf-ca263daa49d5
+  username: Wordy
+  validated: true
+  tt: 64.401
+```
 
 ## API Methods
 
 Depending on the module you are addressing, use the following namespaces on the __core__ object.
 
 ```lua
---Client Side Module
+--Standard Client Side Module Methods
 core.<module>.<method>([input_params,] listener)
 
---Server Side API Methods
+--Custom Server Side API Methods
 core.api.<method>([input_params,] listener)
 ```
 
@@ -199,5 +236,4 @@ end
 core.api.echo({name="Jimmy"}, apiResponse)
 ```
 
-!!! tip ""
-    See each client-side module documentation for full usage instructions and examples.
+See each client-side module documentation for full usage instructions and examples.

@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -650,6 +650,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -850,6 +910,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../client/modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -1026,15 +1098,15 @@
                   <h1>DigitalOcean</h1>
                 
                 <p><strong>Coronium Core</strong> runs best on a <strong><a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> Ubuntu 16.04</strong> droplet.</p>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">Screencast Available</p>
 <p>Watch the installation instructions in a screencast format by <strong><a href="../../../screencasts/#digitalocean-installation">Clicking here</a></strong>.</p>
 </div>
-<div class="admonition info">
-<p class="admonition-title">Free Hosting Credit</p>
+<h3 id="create-a-droplet">Create A Droplet</h3>
+<div class="admonition tldr">
+<p class="admonition-title">Free Droplets</p>
 <p>If you're new to <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> please consider signing up with <strong><a href="https://m.do.co/c/cddeeddbbdb8">this link</a></strong>. Not only will you receive a $10 credit, but it also helps support the continued development, and testing of <strong>Coronium Core</strong>.</p>
 </div>
-<h3 id="create-a-droplet">Create A Droplet</h3>
 <p>Once you log into your <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> account, click the <strong>Create</strong> button and select <strong>Droplets</strong> from the menu.</p>
 <p><img alt="step1" src="../../../imgs/step01.png" /></p>
 <p>On the next screen, first select a <strong>Ubuntu 16.04</strong> droplet distribution.</p>
@@ -1045,7 +1117,8 @@
 <p><img alt="step4" src="../../../imgs/step04.png" /></p>
 <p>Select your SSH profile to attach to the droplet.</p>
 <p><img alt="step5" src="../../../imgs/step05.png" /></p>
-<div class="admonition caution">
+<div class="admonition tldr">
+<p class="admonition-title">Password Option</p>
 <p>There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing <strong>Coronium Core</strong>, though I wouldn't recommend it. You can learn more about generating SSH keys for <a href="https://m.do.co/c/cddeeddbbdb8">DigitalOcean</a> here: <a href="https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets">Creating SSH Keys</a>.</p>
 </div>
 <p>Now give your droplet a hostname.</p>
@@ -1073,7 +1146,8 @@
 
 <h3 id="database-passwords">Database Passwords</h3>
 <p>Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally. </p>
-<div class="admonition info">
+<div class="admonition tldr">
+<p class="admonition-title">Changing Passwords</p>
 <p>If you need to change the passwords later see <strong><a href="../../../server/guide/usage/#database-passwords">Database Passswords</a></strong> in the server guide.</p>
 </div>
 <h3 id="server-key">Server Key</h3>
@@ -1135,7 +1209,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

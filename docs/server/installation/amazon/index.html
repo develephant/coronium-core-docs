@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -650,6 +650,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -850,6 +910,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../client/modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -1027,7 +1099,7 @@
                 
                 <p><strong>Coronium Core</strong> server is eligible for the EC2 free tier using Amazon Web Services.</p>
 <div class="admonition warning">
-<p class="admonition-title">Important Note</p>
+<p class="admonition-title">AWS Experience Required</p>
 <p>This guide assumes that you have an active AWS account, and are familiar with managing EC2 instances.</p>
 </div>
 <h3 id="create-an-instance">Create An Instance</h3>
@@ -1103,7 +1175,8 @@
 
 <h3 id="database-passwords">Database Passwords</h3>
 <p>Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.</p>
-<div class="admonition info">
+<div class="admonition tldr">
+<p class="admonition-title">Changing Passwords</p>
 <p>If you need to change the passwords later see <strong><a href="../../../server/guide/usage/#database-passwords">Database Passswords</a></strong> in the server guide.</p>
 </div>
 <h3 id="server-key">Server Key</h3>
@@ -1165,7 +1238,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

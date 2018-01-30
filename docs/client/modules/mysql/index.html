@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -586,6 +586,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -791,6 +851,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#selectmerge" title="selectMerge" class="md-nav__link">
+    selectMerge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selectcount" title="selectCount" class="md-nav__link">
+    selectCount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -850,6 +924,33 @@
   <a href="#deletebatch" title="deleteBatch" class="md-nav__link">
     deleteBatch
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-where-key" title="The WHERE Key" class="md-nav__link">
+    The WHERE Key
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-based" title="String Based" class="md-nav__link">
+    String Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-based" title="Table Based" class="md-nav__link">
+    Table Based
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -916,6 +1017,18 @@
   <li class="md-nav__item">
     <a href="../users/api/" title="Users API" class="md-nav__link">
       Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
     </a>
   </li>
 
@@ -1071,6 +1184,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#selectmerge" title="selectMerge" class="md-nav__link">
+    selectMerge
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#selectcount" title="selectCount" class="md-nav__link">
+    selectCount
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#insert" title="insert" class="md-nav__link">
     insert
   </a>
@@ -1134,6 +1261,33 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#the-where-key" title="The WHERE Key" class="md-nav__link">
+    The WHERE Key
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#string-based" title="String Based" class="md-nav__link">
+    String Based
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#table-based" title="Table Based" class="md-nav__link">
+    Table Based
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#optimized-methods" title="Optimized Methods" class="md-nav__link">
     Optimized Methods
   </a>
@@ -1178,9 +1332,9 @@
                   <h1>MySQL</h1>
                 
                 <p>Provides a client-side api to the <a href="../../../server/modules/mysql/#ez-query-methods">EZ query methods</a> of the server-side MySQL module. For more complex data handling, you must provide an <strong><a href="../../../server/modules/api/">api</a></strong> on the server-side.</p>
-<div class="admonition info">
-<p class="admonition-title">Database Needed</p>
-<p>Before you can use the MySQL module, you will need to create a MySQL database. See the <a href="../../../server/modules/mysql/#administration">Administration</a> section for more information on connecting to your database.</p>
+<div class="admonition warning">
+<p class="admonition-title">Database Required</p>
+<p><strong>Before you can use the MySQL module, you will need to create a MySQL database. See the <a href="../../../server/modules/mysql/#administration">Administration</a> section for more information on connecting to your database.</strong></p>
 </div>
 <h3 id="select">select</h3>
 <p>Select multiple records from a database table.</p>
@@ -1245,7 +1399,7 @@
 <tr>
 <td>where</td>
 <td>Any additional WHERE clause to apply.</td>
-<td><em>String</em></td>
+<td><em>String</em> or <em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 <tr>
@@ -1295,8 +1449,8 @@
 </pre></div>
 
 
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
+<div class="admonition tldr">
+<p class="admonition-title">More Examples</p>
 <p>See the server-side <strong><a href="../../../server/modules/mysql/#select">core.mysql.select</a></strong> method for more examples.</p>
 </div>
 <h3 id="selectone">selectOne</h3>
@@ -1356,7 +1510,7 @@
 <tr>
 <td>where</td>
 <td>The WHERE clause to apply.</td>
-<td><em>String</em></td>
+<td><em>String</em> or <em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
@@ -1369,7 +1523,8 @@
 </table>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will contain a <strong>table</strong>.</p>
-<div class="admonition note">
+<div class="admonition info">
+<p class="admonition-title">Special Response</p>
 <p>Unlike the <strong><a href="#select">select</a></strong> method, the result is returned as a single record as opposed to an array of records.</p>
 </div>
 <p><strong>Example</strong></p>
@@ -1384,7 +1539,7 @@
 <span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
   <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-  <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;user_id=20&quot;</span><span class="p">,</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">user_id</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">},</span>
   <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;name&quot;</span> <span class="p">}</span>
 <span class="p">}</span>
 
@@ -1449,7 +1604,7 @@
 </tbody>
 </table>
 <p><strong>Event Response</strong></p>
-<p>On success, the <strong>result</strong> will be a keyed <strong>table</strong> with the results of each select query.</p>
+<p>On success, the <strong>result</strong> will be a keyed <strong>table</strong> with the results of each select query as a table array of records. If <code>limit</code> in any of the query entries is set to 1, then a single table with the record data is returned (not an array).</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
@@ -1457,26 +1612,26 @@
   <span class="kr">else</span>
     <span class="kd">local</span> <span class="n">bikes</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">bikes</span> <span class="c1">--Array of &quot;Bike&quot; records</span>
     <span class="kd">local</span> <span class="n">shoes</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">shoes</span> <span class="c1">--Array of &quot;Shoe&quot; records</span>
-    <span class="kd">local</span> <span class="n">stores</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">stores</span> <span class="c1">--Array of 5 location records</span>
+    <span class="kd">local</span> <span class="n">store</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">store</span> <span class="c1">--Table &quot;Store&quot; record</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
 
 <span class="kd">local</span> <span class="n">batch_select</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Bike&#39;&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;Bike&quot;</span> <span class="p">},</span>
     <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;bikes&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;Shoes&#39;&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;Shoes&quot;</span> <span class="p">},</span>
     <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;zip=93023&quot;</span><span class="p">,</span>
-    <span class="n">limit</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
-    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;stores&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Happy Toys&quot;</span> <span class="p">},</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">--Return as non-array record</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;store&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -1508,6 +1663,213 @@
     <span class="kr">end</span>
   <span class="kr">end</span>
 <span class="kr">end</span>
+</pre></div>
+
+
+<h3 id="selectmerge">selectMerge</h3>
+<p>Select from multiple databases and tables and return the results in a keyed table.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectMerge</span><span class="p">(</span><span class="n">merge_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>merge_tbl</td>
+<td>The merge parameters for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Merge Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>merge</td>
+<td>A table array of EZ Query select tables. (see <a href="#select">select</a>). Each select table should also include a <code>key</code> property for the result table (see example below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will be a keyed <strong>table</strong> with the results of each select query. If <code>limit</code> in any of the query entries is set to 1, then a single table with the record data is returned (not an array). See <strong>Errors</strong> below.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kd">local</span> <span class="n">locs</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">locs</span>
+
+    <span class="c1">--check for errors</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">errors</span> <span class="kr">then</span>
+      <span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">evt</span><span class="p">.</span><span class="n">results</span><span class="p">.</span><span class="n">errors</span> <span class="kr">do</span>
+        <span class="kd">local</span> <span class="n">err_tbl</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">results</span><span class="p">.</span><span class="nb">error</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">err_tbl</span><span class="p">.</span><span class="n">db</span><span class="p">,</span> <span class="n">err_tbl</span><span class="p">.</span><span class="n">error</span><span class="p">,</span> <span class="n">err_tbl</span><span class="p">.</span><span class="n">index</span><span class="p">)</span>
+      <span class="kr">end</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kd">local</span> <span class="n">merge_dbs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;locations&quot;</span><span class="p">,</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;spots&quot;</span><span class="p">,</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;locs&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;parts&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">part_id</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">},</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;part&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;stores&quot;</span><span class="p">,</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toy&quot;</span><span class="p">,</span>
+    <span class="n">limit</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="c1">--Return as non-array record</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Happy Toys&quot;</span> <span class="p">},</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;store&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectMerge</span><span class="p">({</span> <span class="n">merge</span> <span class="o">=</span> <span class="n">merge_dbs</span> <span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Errors</strong></p>
+<p>If any of the database queries fail, the successful queries will still be returned in their respective key names. On failed queries, the result will also contain an <code>errors</code> key, containing a table array describing any errors.</p>
+<p><strong>Example Debug Response</strong></p>
+<div class="codehilite"><pre><span></span>result:
+  errors:
+  1:
+    db: products
+    error: Table &#39;products.parts&#39; doesn&#39;t exist
+    index: 2
+    status: 1146
+  locs:
+  1:
+    id: 1
+    latitude: 80
+    longitude: 200
+    user_id: d23b8738-4d28-41ed-a967-98e83e855a38
+  2:
+    id: 3
+    latitude: -64
+    longitude: 200
+    user_id: d23b8738-4d28-41ed-a967-98e83e855a39
+  store:
+    name = Happy Toys
+    city = San Diego
+</pre></div>
+
+
+<h3 id="selectcount">selectCount</h3>
+<p>Get a record count based on passed in query.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectCount</span><span class="p">(</span><span class="n">count_tbl</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>count_tbl</td>
+<td>The count parameters for the call (see below).</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Count Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>db</td>
+<td>The database to run the count query against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>tbl</td>
+<td>Name of the table to operate with.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>where</td>
+<td>The WHERE clause to apply.</td>
+<td><em>String</em> or <em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>column</td>
+<td>The column to use as the counting key. Defaults to "id".</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p>If the <code>where</code> key is not included, the result is the total records in the provided table.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiListener</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="kd">local</span> <span class="n">count</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">count</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Total red toys:&quot;</span><span class="p">,</span> <span class="n">count</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectCount</span><span class="p">({</span>
+  <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;products&quot;</span><span class="p">,</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span> <span class="p">}</span>
+<span class="p">},</span> <span class="n">apiListener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1573,8 +1935,9 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../../server/modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
 </div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will contain the inserted record id as a <strong>number</strong>.</p>
@@ -1662,8 +2025,9 @@
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p>Strings in the <code>values</code> tables will be automatically run through the server-side <strong><a href="../../../server/modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
 </div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string.</p>
@@ -1762,6 +2126,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>id</strong> key; with the id of the newly created record, or an <strong>error</strong> key; containing the error string.</p>
 <p>The response table is indexed the same order as the batch table that was sent to the server.</p>
@@ -1879,13 +2247,14 @@
 <tr>
 <td>where</td>
 <td>Where the columns should be updated.</td>
-<td><em>String</em></td>
+<td><em>String</em> or <em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
-<div class="admonition note">
-<p>Strings in the <strong>values</strong> table will be automatically run through the server-side <strong><a href="../../../server/modules/mysql/#escape">core.mysql.escape</a></strong> method.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
 </div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will contain the amount of records updated as a <strong>number</strong>.</p>
@@ -1904,7 +2273,7 @@
   <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
     <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Paco&quot;</span>
   <span class="p">},</span>
-  <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Bobby&#39;&quot;</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Bobby&quot;</span> <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
@@ -1973,6 +2342,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string.</p>
 <p>The response table is indexed the same order as the update table that was sent to the server.</p>
@@ -1998,13 +2371,13 @@
     <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
       <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Nike&quot;</span>
     <span class="p">},</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Adidas&#39;&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span> <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
       <span class="n">cost</span> <span class="o">=</span> <span class="s2">&quot;1.99&quot;</span>
     <span class="p">},</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2074,6 +2447,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>Strings in the <code>values</code> tables are run through the <a href="../../../server/modules/mysql/#escape">mysql.escape</a> method. Do not double-escape values.</strong></p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold an indexed table array of tables containing either an <strong>updated</strong> key; with the number of records updated, or an <strong>error</strong> key; containing the error string.</p>
 <p>The response table is indexed the same order as the batch table that was sent to the server.</p>
@@ -2100,7 +2477,7 @@
     <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
       <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Adidas&quot;</span>
     <span class="p">},</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=3&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">3</span> <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
@@ -2108,14 +2485,14 @@
       <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Raggedy Ann&quot;</span><span class="p">,</span>
       <span class="n">gender</span> <span class="o">=</span> <span class="s2">&quot;female&quot;</span>
     <span class="p">},</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;name=&#39;Raggedy Andy&#39;&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Raggedy Andy&quot;</span> <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
     <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
       <span class="n">company</span> <span class="o">=</span> <span class="s2">&quot;Tonka&quot;</span>
     <span class="p">},</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=4&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">4</span> <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2185,7 +2562,7 @@
 <tr>
 <td>where</td>
 <td>A WHERE clause to limit deletions to.</td>
-<td><em>String</em></td>
+<td><em>String</em> or <em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 <tr>
@@ -2197,8 +2574,8 @@
 </tbody>
 </table>
 <div class="admonition info">
-<p class="admonition-title">Important</p>
-<p>To run the delete command without a <strong>where</strong> clause, you must set <strong>force</strong> to true.</p>
+<p class="admonition-title">Force Delete</p>
+<p><strong>To run the delete command without a </strong>where<strong> clause, you must set </strong>force<strong> to true.</strong></p>
 </div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will contain the amount of records deleted as a <strong>number</strong>.</p>
@@ -2214,7 +2591,7 @@
 <span class="kd">local</span> <span class="n">params</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">db</span> <span class="o">=</span> <span class="s2">&quot;app&quot;</span><span class="p">,</span>
   <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;users&quot;</span><span class="p">,</span>
-  <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=10&quot;</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">}</span>
 <span class="p">}</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">apiListener</span><span class="p">)</span>
@@ -2309,10 +2686,10 @@
 
 <span class="kd">local</span> <span class="n">delete_tbl</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">{</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=34&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">34</span> <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;color=&#39;Red&#39;&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span> <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2406,11 +2783,11 @@
 <span class="kd">local</span> <span class="n">batch_delete</span> <span class="o">=</span> <span class="p">{</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;id=2&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">}</span>
   <span class="p">},</span>
   <span class="p">{</span>
     <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;shoes&quot;</span><span class="p">,</span>
-    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;type=&#39;running&#39;&quot;</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;running&quot;</span> <span class="p">}</span>
   <span class="p">}</span>
 <span class="p">}</span>
 
@@ -2423,6 +2800,75 @@
 </pre></div>
 
 
+<h2 id="the-where-key">The WHERE Key</h2>
+<p>Many of the MySQL (and other) modules use a <code>where</code> key to specify the "WHERE" clause for a database query. Depending on what data type and structure you provide this key, a couple different things can happen automagically.</p>
+<h3 id="string-based">String Based</h3>
+<p>When passing a string to the <code>where</code> key, you are on your own to create a valid MySQL query string. The query string is interpreted as-is. </p>
+<p>You never include the literal "WHERE" in the <code>where</code> key value.</p>
+<p><strong>Examples</strong></p>
+<div class="codehilite"><pre><span></span>where = &quot;`color`=&#39;Red&#39;&quot;
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>where = &quot;`kind`=&#39;Truck&#39; AND `color`=&#39;Red&#39;&quot;
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span>where = &quot;`kind`=&#39;Truck&#39; OR `kind`=&#39;Car&#39;&quot;
+</pre></div>
+
+
+<h3 id="table-based">Table Based</h3>
+<p>The advantage of using a table based <code>where</code> key is that all of the values are properly formatted to make a valid and type-safe MySQL query.</p>
+<div class="admonition warning">
+<p class="admonition-title">Important</p>
+<p><strong>String values are automatically run through <code>mysql.escape</code>. Do not double-escape values.</strong></p>
+</div>
+<p>To reproduce the three string based examples above as table based:</p>
+<div class="codehilite"><pre><span></span><span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span> <span class="p">}</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">kind</span> <span class="o">=</span> <span class="s2">&quot;Truck&quot;</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span> <span class="p">}</span> <span class="c1">--AND</span>
+</pre></div>
+
+
+<div class="codehilite"><pre><span></span><span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">kind</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Truck&quot;</span><span class="p">,</span> <span class="s2">&quot;Car&quot;</span> <span class="p">}</span> <span class="p">}</span> <span class="c1">--OR</span>
+</pre></div>
+
+
+<p><strong>Ordered Table Queries</strong></p>
+<p>With "ordered" query tables you can replicate some more complex queries:</p>
+<div class="codehilite"><pre><span></span>where = &quot;`color=&#39;Red&#39; AND `model`=&#39;Ford&#39; AND kind=&#39;Truck&#39; OR kind=&#39;Car&#39;&quot;
+</pre></div>
+
+
+<p>To reproduce the query above, put the entries in a table array (order matters):</p>
+<div class="codehilite"><pre><span></span><span class="n">where</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;Red&quot;</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="s2">&quot;Ford&quot;</span> <span class="p">},</span>
+  <span class="p">{</span> <span class="n">kind</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Truck&quot;</span><span class="p">,</span> <span class="s2">&quot;Car&quot;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>For an all OR query like:</p>
+<div class="codehilite"><pre><span></span>where = &quot;`color=&#39;Red&#39; OR `model`=&#39;Ford&#39; OR kind=&#39;Truck&#39; OR kind=&#39;Car&#39;&quot;
+</pre></div>
+
+
+<p>You can use an ordered table with a single entry:</p>
+<div class="codehilite"><pre><span></span><span class="n">where</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Red&quot;</span> <span class="p">},</span> <span class="n">model</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Ford&quot;</span> <span class="p">},</span> <span class="n">kind</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;Truck&quot;</span><span class="p">,</span> <span class="s2">&quot;Car&quot;</span> <span class="p">}</span> <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>At this time multiple entries in an "ordered" <code>where</code> table are combined using 'AND', which may cause problems with more complicated queries, so you'll need to fall back to the string method.</p>
+<p>Table type queries also do not support conditionals, so the following cannot be replicated with a table based query:</p>
+<div class="codehilite"><pre><span></span>where = &quot;`score` &gt; 100&quot;
+</pre></div>
+
+
 <h2 id="optimized-methods">Optimized Methods</h2>
 <p>When working with multiple entries per query, try to choose an optimized query method. The reason for this is due to the fact that each Coronium Client network request to the server requires opening a new database connection per call.</p>
 <p>By using the optimized query methods, the Coronium Core server can take advantage of using cached database connections, providing lower overhead and better performance.</p>
@@ -2430,6 +2876,7 @@
 <p>The following are optimized MySQL module methods:</p>
 <ul>
 <li><code>selectBatch</code></li>
+<li><code>selectMerge</code></li>
 <li><code>insertMany</code></li>
 <li><code>insertBatch</code></li>
 <li><code>updateMany</code></li>
@@ -2514,7 +2961,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

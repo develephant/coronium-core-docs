@@ -31,6 +31,10 @@ pages:
         - 'Templates': 'server/modules/pages/templates.md'
         - 'Configuration': 'server/modules/pages/config.md'        
       - 'Template': 'server/modules/template.md'
+      - 'Users': 
+        - 'Users API': 'server/modules/users/api.md'
+        - 'OAuth API': 'server/modules/users/oauth.md'
+        - 'OAuth Users': 'server/modules/users/oauthusers.md'
       - 'Utils': 'server/modules/utils.md'
     - 'Updates': 'server/updates.md'  
   - 'Core Client':
@@ -45,6 +49,7 @@ pages:
         - 'MySQL': 'client/modules/mysql.md'
         - 'Users': 
           - 'Users API': 'client/modules/users/api.md'
+          - 'OAuth API': 'client/modules/users/oauth.md'
           - 'Creating': 'client/modules/users/creating.md'
           - 'Updating': 'client/modules/users/updating.md'
           - 'Logging In': 'client/modules/users/login.md'
@@ -53,7 +58,7 @@ pages:
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
-copyright: "&copy;2018 C. Byerley (develephant) | v2.3.2"
+copyright: "&copy;2018 C. Byerley (develephant) | v2.4.0"
 theme: material
 site_url: https://develephant.github.io/coronium-core-docs
 site_favicon: 'imgs/favicon.ico'
@@ -68,8 +73,8 @@ extra:
     - type: 'globe'
       link: 'http://develephant.com'
   palette:
-    primary: 'blue-grey'
-    accent: 'teal'
+    primary: 'blue'
+    accent: 'deep-orange'
 markdown_extensions:
   - admonition
   - codehilite

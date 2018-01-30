@@ -1,6 +1,6 @@
 __Coronium Core__ server is eligible for the EC2 free tier using Amazon Web Services.
 
-!!! warning "Important Note"
+!!! warning "AWS Experience Required"
     This guide assumes that you have an active AWS account, and are familiar with managing EC2 instances.
 
 ### Create An Instance
@@ -48,7 +48,7 @@ wget https://s3.amazonaws.com/coronium-core/ec2/up.sh && sudo bash up.sh
 
 Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.
 
-!!! info ""
+!!! tldr "Changing Passwords"
     If you need to change the passwords later see __[Database Passswords](/server/guide/usage/#database-passwords)__ in the server guide.
 
 ### Server Key

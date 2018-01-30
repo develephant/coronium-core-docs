@@ -11,7 +11,9 @@ On a successful log in, the __result__ will hold a basic login object as a __tab
 |active|Whether the user is in an active state.|_Boolean_|
 |confirmation|If using email confirmation, will hold sent status.|_String_ or _Nil_|
 |email|The email address associated with the user, if any.|_String_ or _Nil_|
+|group|The user group this user belongs to, if any.|_String_|
 |extra|Any extra meta data associated with the user, if any.|_Table_ or _Nil_|
+|oauth|If logged in using an OAuth provider, will contain provider information.|_Table_ or _Nil_|
 |scope|The application scope for this user.|_String_|
 |user_id|The users unique identifier.|_String_|
 |username|The users chosen username.|_String_|
@@ -33,6 +35,62 @@ core.users.login({
   password = "1234"
 }, onUserLogin)
 ```
+
+## OAuth Login
+
+If you want to login a user that you have linked with an OAuth provider, you can log them in with different parameters. See __[addAuthProvider](/client/modules/users/oauth/#addauthprovider)__ for information on adding a provider.
+
+__Example__
+
+```lua
+local function onUserLogin( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.user_id) --result is a login object
+  end
+end
+
+core.users.login({
+  client_id = "fb-id-1234abcd",
+  provider = core.FACEBOOK
+}, onUserLogin)
+```
+
+On a successful login, you will have a additional key in the user record called `oauth` with the provider information as a __table__.
+
+The `oauth` table will contain the following keys:
+
+  - `client_id` (_string_)
+  - `access_token` (_string_)
+  - `access_token_expiry` (_number_)
+  - `access_token_expired` (_boolean_)
+  - `provider` (_string_)
+
+The access token expiration is calculated on the server-side. You can check if the access token is expired on login like so:
+
+```lua
+local onLogIn( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    local user = evt.result
+
+    if user.oauth.access_token_expired then
+      --token expired
+    else
+      --token valid
+    end
+  end
+end
+
+core.users.login({
+  client_id = "fb-id-1234abcd",
+  provider = core.FACEBOOK
+}, onLogIn)
+```
+
+See also the __[accessTokenExpired](/client/modules/users/oauth/#accesstokenexpired)__ and __[updateTokenExpiry](/client/modules/users/oauth/#updatetokenexpiry)__ methods.
 
 ## Checking State
 

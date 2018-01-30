@@ -44,11 +44,11 @@ local resp, err = core.network.request("https://google.com", {
 })
 
 if not resp then
-  print(err)
+  core.log(err)
 end
 
-print("body", resp.body)
-print("status", resp.status)
+core.log("body", resp.body)
+core.log("status", resp.status)
 ```
 
 ### get
@@ -71,10 +71,10 @@ __Example__
 ```lua
 local resp, err = core.network.get("https://google.com")
 if not resp then
-  print(err)
+  core.log(err)
 end
 
-print(resp)
+core.log(resp)
 ```
 
 ### post
@@ -100,10 +100,10 @@ local body = "Here is some text I am posting."
 
 local resp, err = core.network.post("https://post.com/submit", body)
 if not resp then
-  print(err)
+  core.log(err)
 end
 
-print(resp)
+core.log(resp)
 ```
 
 See also: [Form Example](#form-example)
@@ -112,7 +112,7 @@ See also: [Form Example](#form-example)
 
 Specialized method that sends a "GET" request to an endpoint that responds with JSON. On success, returns the decoded JSON result as a __table__. Otherwise, __nil__ and an error.
 
-!!! note "Usage Note"
+!!! info "Special Response"
     This method returns a Lua table with the decoded JSON response, not the JSON string.
 
 ```lua
@@ -132,17 +132,17 @@ __Example__
 local resp, err = core.network.getJson("https://getjson.com")
 
 if not resp then
-  print(err)
+  core.log(err)
 end
 
-print(resp.some_key)
+core.log(resp.some_key)
 ```
 
 ### postJson
 
 Specialized method that sends a "POST" request to an endpoint that expects JSON. On success, returns the result as a __string__. Otherwise, __nil__ and an error.
 
-!!! note "Usage Note"
+!!! info "Special Response"
     This method takes a Lua table and JSON-encodes it. Do not pass a raw JSON string.
 
 ```lua
@@ -168,10 +168,10 @@ local data = {
 local resp, err = core.network.postJson("https://postjson.com", data)
 
 if not resp then
-  print(err)
+  core.log(err)
 end
 
-print(resp)
+core.log(resp)
 ```
 
 ### encode

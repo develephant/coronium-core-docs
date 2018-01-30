@@ -1,12 +1,12 @@
 __Coronium Core__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8) Ubuntu 16.04__ droplet.
 
-!!! tip "Screencast Available"
+!!! note "Screencast Available"
     Watch the installation instructions in a screencast format by __[Clicking here](/screencasts/#digitalocean-installation)__.
 
-!!! info "Free Hosting Credit"
-    If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit, but it also helps support the continued development, and testing of __Coronium Core__.
-
 ### Create A Droplet
+
+!!! tldr "Free Droplets"
+    If you're new to [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) please consider signing up with __[this link](https://m.do.co/c/cddeeddbbdb8)__. Not only will you receive a $10 credit, but it also helps support the continued development, and testing of __Coronium Core__.
 
 Once you log into your [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) account, click the __Create__ button and select __Droplets__ from the menu.
 
@@ -28,7 +28,7 @@ Select your SSH profile to attach to the droplet.
 
 ![step5](/imgs/step05.png)
 
-!!! caution ""
+!!! tldr "Password Option"
     There is an option where you can use a password instead of an SSH key, which may be easier if you're only testing __Coronium Core__, though I wouldn't recommend it. You can learn more about generating SSH keys for [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) here: [Creating SSH Keys](https://www.digitalocean.com/community/tutorials/how-to-use-ssh-keys-with-digitalocean-droplets).
 
 Now give your droplet a hostname.
@@ -68,7 +68,7 @@ wget https://s3.amazonaws.com/coronium-core/do/up.sh && sudo bash up.sh
 
 Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally. 
 
-!!! info ""
+!!! tldr "Changing Passwords"
     If you need to change the passwords later see __[Database Passswords](/server/guide/usage/#database-passwords)__ in the server guide.
 
 ### Server Key

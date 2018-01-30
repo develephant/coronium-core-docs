@@ -6,8 +6,8 @@ You can adjust the various MySQL server configuration settings in the _coronium_
 /etc/mysql/coronium.conf.d/coronium_mysql.cnf
 ```
 
-!!! warning
-    Changes to the configuration file can have adverse effects, do so at your own risk. See [MySQL Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) for the available configuration options.
+!!! danger "Configuration Changes"
+    __Changes to the configuration file can have adverse effects, do so at your own risk. See [MySQL Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) for the available configuration options.__
 
 This file can be edited by using the __nano__ utility on the server:
 

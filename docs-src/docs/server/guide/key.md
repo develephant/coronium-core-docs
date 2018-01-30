@@ -10,7 +10,7 @@ While logged into the server as the __coronium__ user, enter the following on th
 coronium key
 ```
 
-!!! tip "Post-Install"
+!!! info "Post-Install"
     The server key is also displayed directly after installation in the console.
 
 In the event that you need to generate a new keyfile, you can run __sudo coronium genkey__ on the command line.

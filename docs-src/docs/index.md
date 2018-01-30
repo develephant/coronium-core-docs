@@ -6,6 +6,8 @@ ___An all-in-one Lua application server built specifically for [Corona](https://
 
 Extend your applications into the cloud with Mongo and MySQL databases, secure file transfers and storage, dynamic public facing web pages, user management, analytics, email, and more; all customizable using a ridiculously simple Lua based api.
 
+Coronium Core includes a fully visual browser based "Webmin" to view statistics, work with users, manage API projects, and edit code with a robust code editor, and more.
+
 Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugin/coronium-core)__ for most tasks without ever writing a line of code on the server. When you need to take it to the next level, create custom server-side apis with Lua for complex data driven applications.
 
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for Corona developers.
@@ -13,4 +15,4 @@ With the __Coronium Core__ all-in-one server, you own and control your data, wit
 ___Coronium Core is officially supported only on [DigitalOcean](https://m.do.co/c/cddeeddbbdb8) and AWS EC2 hosting environments. Other environments may work, but are not supported.___
 
 !!! note ""
-    This documentation is current for __Coronium Core 2.3.2__
+    This documentation is current for __Coronium Core 2.4.0__

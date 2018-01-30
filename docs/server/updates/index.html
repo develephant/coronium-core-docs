@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -584,6 +584,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -684,6 +744,13 @@
           <li class="md-nav__item">
   <a href="#230-to-232" title="2.3.0 to 2.3.2" class="md-nav__link">
     2.3.0 to 2.3.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#232-to-240" title="2.3.2 to 2.4.0" class="md-nav__link">
+    2.3.2 to 2.4.0
   </a>
   
 </li>
@@ -885,6 +952,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../client/modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -1072,6 +1151,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#232-to-240" title="2.3.2 to 2.4.0" class="md-nav__link">
+    2.3.2 to 2.4.0
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1113,11 +1199,10 @@
 <h2 id="select-an-update">Select an update</h2>
 <p>Listed below are one-liners specific to the versions for updating. Make sure to select the proper update based on your current version.</p>
 <h3 id="202-to-203">2.0.2 to 2.0.3</h3>
-<div class="admonition fail">
-<p class="admonition-title">Important Note</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
 </div>
-<p>The following will update your Coronium Core 2.0.2 server to version 2.0.3</p>
 <p><strong>Fixed</strong></p>
 <ul>
 <li>Temp cache body file now works properly for large payloads.</li>
@@ -1128,19 +1213,11 @@
 <li>Pages <code>status</code> convienence method added to quickly return a status code other than 200.</li>
 <li>Server <code>coronium.body.conf</code> file which can be used to adjust the body cache for servers with large memory allocations.</li>
 </ul>
-<p>Paste the following one-liner into your terminal to start the update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.0.3/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><strong>When the update is finished reboot the server using <code>sudo reboot -h</code>.</strong></p>
-<p>Once the reboot has finished you can log in with the <strong>coronium</strong> user to verify the server is updated by running the <code>coronium status</code> command.</p>
 <h3 id="203-to-210">2.0.3 to 2.1.0</h3>
-<div class="admonition fail">
-<p class="admonition-title">Important Note</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
 </div>
-<p>The following will update your Coronium Core 2.0.3 server to version 2.1.0</p>
 <p><strong>Added</strong></p>
 <ul>
 <li>Browser based web admin for informational data in regards to app usage, users, device metrics, minor administration, and more.</li>
@@ -1156,39 +1233,21 @@
 <li>Ability to adjust Corona network client-side timeout for large workloads.</li>
 <li>Ability to adjust MySQL server-side timeout for large workloads.</li>
 </ul>
-<p><strong>DigitalOcean Updater</strong></p>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.1.0/do/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><strong>Amazon EC2 Updater</strong></p>
-<p><em>Available upon request.</em></p>
 <h3 id="210-to-211">2.1.0 to 2.1.1</h3>
-<div class="admonition fail">
-<p class="admonition-title">Important Note</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
 </div>
-<p>The following will update your Coronium Core 2.1.0 server to version 2.1.1</p>
 <p><strong>Added</strong></p>
 <ul>
 <li>Full support for multiple applications with separate scope for users and metrics.</li>
 <li>Webmin "Today" view for global application usage metrics for the current day.</li>
 </ul>
-<p><strong>DigitalOcean Updater</strong></p>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.1.1/do/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><strong>Amazon EC2 Updater</strong></p>
-<p><em>Available upon request.</em></p>
 <h3 id="211-to-220">2.1.1 to 2.2.0</h3>
-<div class="admonition fail">
-<p class="admonition-title">Important Note</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
 </div>
-<p>The following will update your Coronium Core 2.1.1 server to version 2.2.0</p>
 <p><strong>Added</strong></p>
 <ul>
 <li>
@@ -1207,18 +1266,6 @@
 <p>The client-side Users module <strong><a href="../../client/modules/users/api/#login">login</a></strong> response has changed. See the <strong><a href="../../client/modules/users/login/">Logging In</a></strong> section of the documentation for more information.</p>
 <p><code>users.create</code></p>
 <p>The client-side Users module <strong><a href="../../client/modules/users/api/#create">create</a></strong> response has changed. See the <strong><a href="../../client/modules/users/creating/">Creating</a></strong> users section of the documentation for more information.</p>
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>Do not update your Coronium Core server to this version until you have updated any code to reflect the new changes.</p>
-</div>
-<p><strong>DigitalOcean Updater</strong></p>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.2.0/do/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><strong>Amazon EC2 Updater</strong></p>
-<p><em>Available upon request.</em></p>
 <h3 id="220-to-230">2.2.0 to 2.3.0</h3>
 <p>The following will update your Coronium Core 2.2.0 server to version 2.3.0</p>
 <p><strong>Added</strong></p>
@@ -1301,6 +1348,124 @@
 </pre></div>
 
 
+<h3 id="232-to-240">2.3.2 to 2.4.0</h3>
+<p>The following will update your Coronium Core 2.3.2 server to version 2.4.0</p>
+<p><strong>Added</strong></p>
+<ul>
+<li>
+<p>Server-side <strong><a href="../../server/modules/users/api/">Users</a></strong> module, allowing for custom user logic and types. Includes new methods <strong><a href="../../server/modules/users/api/#getgroup">getGroup</a></strong>, <strong><a href="../../server/modules/users/api/#getwithquery">getWithQuery</a></strong>, and <strong><a href="../../server/modules/users/api/#getandmerge">getAndMerge</a></strong> for advanced user queries, record associations, and more.</p>
+</li>
+<li>
+<p>Server-side and client-side <strong><a href="../../server/modules/users/oauth/">OAuth API</a></strong> which is a <strong>Users</strong> module extension to support OAuth client IDs, access tokens, and expirys from Facebook login, Google sign-in, etc.</p>
+</li>
+<li>
+<p>MySQL module EZ Query method <strong>mysql.selectMerge</strong> to select from multiple databases and tables in a single call. See the client-side <strong><a href="../../client/modules/mysql/#selectmerge">selectMerge</a></strong> or server-side <strong><a href="../../server/modules/mysql/#selectmerge">selectMerge</a></strong> documentation for more details. </p>
+</li>
+<li>
+<p>MySQL module EZ Query method <strong>mysql.selectCount</strong> to get records counts based on queries. See the client-side <strong><a href="../../client/modules/mysql/#selectcount">selectCount</a></strong> or server-side <strong><a href="../../server/modules/mysql/#selectcount">selectCount</a></strong> documentation for more details. </p>
+</li>
+<li>
+<p>Server-side MySQL module <strong><a href="../../server/modules/mysql/#timestamp">time based methods</a></strong> can now accept a UNIX timestamp for conversion.</p>
+</li>
+<li>
+<p>Server-side MySQL module <strong><a href="../../server/modules/mysql/#logqueries">logQueries</a></strong> method to enable logging of the raw queries being created under the hood for debugging purposes.</p>
+</li>
+<li>
+<p>Modules that accept a <code>where</code> key can now benefit from a new special table type clause. See <strong><a href="../../server/modules/mysql/#the-where-key">The WHERE Key</a></strong> for more information.</p>
+</li>
+<li>
+<p>A new field in the <strong>Users</strong> module called <code>group</code> to help partition your users within a scope.</p>
+</li>
+<li>
+<p>A new incoming parameter <code>scope</code> for use in custom server-side API methods (see <strong><a href="../../server/modules/api/#input">Input</a></strong>).</p>
+</li>
+<li>
+<p>Logging is now split into <em>api</em>, <em>pages</em>, and <em>nginx</em> logs for less noise and more specificality.</p>
+</li>
+<li>
+<p>Lots of new and revised documentation.</p>
+</li>
+</ul>
+<p><strong>Fixed</strong></p>
+<ul>
+<li>
+<p>Users module <code>Field 'extra' doesn't have a default value</code> error.</p>
+</li>
+<li>
+<p>Administration database collation type inconsistencies.</p>
+</li>
+<li>
+<p>Trigger privilege unavailable for external MySQL admin clients.</p>
+</li>
+</ul>
+<p><strong>Updated</strong></p>
+<ul>
+<li>
+<p>Client connection count increased significantly.</p>
+</li>
+<li>
+<p>Almost all server-side methods now support error, and error status codes that can be returned to the client. See <strong><a href="../../client/codes/">Status Codes</a></strong>.</p>
+</li>
+</ul>
+<p><strong>API Changes</strong></p>
+<ul>
+<li>
+<p><strong>mysql.selectBatch</strong> <code>key</code> parameter is now optional per entry. If not specified the table name will be used instead. Be sure to provide a <code>key</code> if multiple entries use the same table.</p>
+</li>
+<li>
+<p><strong>mysql.selectBatch</strong> now returns a single record (similar to <strong>mysql.selectOne</strong>) if the <code>limit</code> for an entry is set to 1.</p>
+</li>
+</ul>
+<p><strong>Webmin Update 1.2</strong></p>
+<ul>
+<li>
+<p>Now supports multi-file server-side API projects.</p>
+</li>
+<li>
+<p>New Webmin settings area in the <strong>Config</strong> section.</p>
+</li>
+<li>
+<p>Log viewer updated to view newly split log files. </p>
+</li>
+<li>
+<p>Log displays with (optional) colorized output. Increased line output.</p>
+</li>
+<li>
+<p>Dark theme now available for the code editor.</p>
+</li>
+<li>
+<p>New user keys <code>oauth</code> and <code>group</code> added to the user details page.</p>
+</li>
+<li>
+<p>Filter by group added to the user search page.</p>
+</li>
+<li>
+<p>Code editor completions for all new methods.</p>
+</li>
+<li>
+<p>Lots of updates and fixes both under and over the hood.</p>
+</li>
+</ul>
+<p><strong>DigitalOcean Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Root User Required</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do/update.sh &amp;&amp; sudo bash ./update.sh
+</pre></div>
+
+
+<p><strong>Amazon EC2 Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Ubuntu User Required</p>
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2/update.sh &amp;&amp; sudo bash ./update.sh
+</pre></div>
+
+
 <h2 id="webmin-httpsssl">Webmin HTTPS/SSL</h2>
 <p>If your Coronium Core install was setup with HTTPS/SSL support, you will need to update the Webmin API host to work over HTTPS/SSL as well.</p>
 <div class="admonition important">
@@ -1365,7 +1530,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

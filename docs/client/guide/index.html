@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -582,6 +582,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -690,6 +750,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#enabling-scopes" title="Enabling Scopes" class="md-nav__link">
+    Enabling Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-api-init" title="Custom API Init" class="md-nav__link">
     Custom API Init
   </a>
@@ -732,6 +799,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-responses" title="Debug Responses" class="md-nav__link">
+    Debug Responses
+  </a>
   
 </li>
       
@@ -881,6 +955,18 @@
   <li class="md-nav__item">
     <a href="../modules/users/api/" title="Users API" class="md-nav__link">
       Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
     </a>
   </li>
 
@@ -1044,6 +1130,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#enabling-scopes" title="Enabling Scopes" class="md-nav__link">
+    Enabling Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-api-init" title="Custom API Init" class="md-nav__link">
     Custom API Init
   </a>
@@ -1086,6 +1179,13 @@
         
       </ul>
     </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debug-responses" title="Debug Responses" class="md-nav__link">
+    Debug Responses
+  </a>
   
 </li>
       
@@ -1142,9 +1242,9 @@
 <p>You're now ready to use the <strong>Coronium Core</strong> plugin.</p>
 <h2 id="plugin-overview">Plugin Overview</h2>
 <p>The Coronium Core client plugin provides an interface to your Coronium Core server. The client contains various data modules, a file transfer module, user management, and analytics module and the ability to call your own custom methods built with the server-side <strong><a href="../../server/modules/api/">API</a></strong> module.</p>
-<div class="admonition info">
-<p class="admonition-title">Important</p>
-<p>You will need a running Coronium Core server before being able to utilize the client plugin. You can install the server on <strong><a href="../../server/installation/digitalocean/">DigitalOcean</a></strong> or <strong><a href="../../server/installation/amazon/">Amazon EC2</a></strong>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Coronium Core Required</p>
+<p>You will need a running <strong>Coronium Core</strong> server before being able to utilize the client plugin. You can install the server on <strong><a href="../../server/installation/digitalocean/">DigitalOcean</a></strong> or <strong><a href="../../server/installation/amazon/">Amazon EC2</a></strong>.</p>
 </div>
 <p>Before continuing, make sure you have read through the <strong><a href="#installation">Installation</a></strong> section.</p>
 <p>In this example, we will use the <strong>main.lua</strong> of a Corona project as a reference point, though you may require and use the client plugin in whichever file it is most useful.</p>
@@ -1188,7 +1288,7 @@
 </tbody>
 </table>
 <h3 id="application-scope">Application Scope</h3>
-<div class="admonition tip">
+<div class="admonition note">
 <p class="admonition-title">Screencast Available</p>
 <p>Learn about application scopes in a screencast format by <strong><a href="../../screencasts/#application-scopes">Clicking here</a></strong>.</p>
 </div>
@@ -1210,6 +1310,8 @@
 </pre></div>
 
 
+<h3 id="enabling-scopes">Enabling Scopes</h3>
+<p>You must run at least one <strong><a href="../../client/modules/users/api/">User</a></strong> or <strong><a href="../../client/modules/analytics/">Analytics</a></strong> method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the <strong>Update Scopes Cache</strong> option in the Webmin <strong>Config</strong> section.</p>
 <h3 id="custom-api-init">Custom API Init</h3>
 <p>To utilize custom server-side api methods, first make sure you have a <a href="../../server/modules/api/">server-side project</a> set up. Provide the API Project name to the <code>api</code> parameter in the initialization. See the server-side <strong><a href="../../server/modules/api/">API</a></strong> module for more information.</p>
 <p><strong>Example</strong></p>
@@ -1231,7 +1333,7 @@
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span> <span class="c1">--contains error string, if any.</span>
   <span class="kr">else</span>
-    <span class="c1">--evt.result contains the server response</span>
+    <span class="kd">local</span> <span class="n">res</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="c1">--evt.result contains the server response</span>
   <span class="kr">end</span>
 
   <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">tt</span><span class="p">)</span> <span class="c1">--contains request round trip time</span>
@@ -1241,8 +1343,8 @@
 
 <p>All response events will contain either an <strong>error</strong> key, or the successful response in the <strong>result</strong> key.</p>
 <p>All response events contain a <strong>tt</strong> key. See below for more details on this key.</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
+<div class="admonition tldr">
+<p class="admonition-title">Event Keys</p>
 <p>Some modules may have additional event keys. See each modules documentation for event responses.</p>
 </div>
 <h3 id="error">error</h3>
@@ -1252,15 +1354,43 @@
 <h3 id="tt">tt</h3>
 <p>The <strong>tt</strong> key allows you to see the "trip time" for the request. This is the total round trip time in milliseconds from the start of the client network request, to the final client response. </p>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>To debug response events during development, see the <strong><a href="../../client/modules/core/#debug">core.debug</a></strong> method.</p>
+<p class="admonition-title">Debug Responses</p>
+<p>To debug response events during development, use the <strong><a href="../../client/modules/core/#debug">core.debug</a></strong> method (see below).</p>
 </div>
+<h2 id="debug-responses">Debug Responses</h2>
+<p>Sometimes it can be nice to see the full response (including errors) without have to write the full logic in the event listener.</p>
+<p>To make this simpler, you can use the <code>core.debug</code> method.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
+  <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;Wordy&#39;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;1234&#39;</span>
+<span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
+</pre></div>
+
+
+<p>The following will be output to the <strong>Corona</strong> console:</p>
+<div class="codehilite"><pre><span></span>result:
+  active: true
+  email: sleeptankxyz@gmail.com
+  group: foodies
+  scope: Space Race
+  user_id: c369637a-cb27-44ee-aeaf-ca263daa49d5
+  username: Wordy
+  validated: true
+  tt: 64.401
+</pre></div>
+
+
 <h2 id="api-methods">API Methods</h2>
 <p>Depending on the module you are addressing, use the following namespaces on the <strong>core</strong> object.</p>
-<div class="codehilite"><pre><span></span><span class="c1">--Client Side Module</span>
+<div class="codehilite"><pre><span></span><span class="c1">--Standard Client Side Module Methods</span>
 <span class="n">core</span><span class="p">.</span><span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span><span class="p">.</span><span class="o">&lt;</span><span class="n">method</span><span class="o">&gt;</span><span class="p">([</span><span class="n">input_params</span><span class="p">,]</span> <span class="n">listener</span><span class="p">)</span>
 
-<span class="c1">--Server Side API Methods</span>
+<span class="c1">--Custom Server Side API Methods</span>
 <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">method</span><span class="o">&gt;</span><span class="p">([</span><span class="n">input_params</span><span class="p">,]</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
@@ -1328,9 +1458,7 @@
 </pre></div>
 
 
-<div class="admonition tip">
 <p>See each client-side module documentation for full usage instructions and examples.</p>
-</div>
                 
                   
                 
@@ -1386,7 +1514,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

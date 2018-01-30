@@ -5,11 +5,15 @@ To update a users data, you must pass a __user_id__ and an __update__ table with
 
 The following keys can be updated on the users record:
 
-- username
-- password
-- email
-- extra
-- active
+- `username` (_string_)
+- `password` (_string_)
+- `email` (_string_)
+- `group` (_string_)
+- `extra` (_table_)
+- `active` (_boolean_)
+
+!!! info "OAuth Users"
+    To update a users OAuth provider information, see the __[updateAuthProvider](/client/modules/users/oauth/#updateauthprovider)__ method.
 
 __Example__
 

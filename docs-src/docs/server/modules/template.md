@@ -1,4 +1,4 @@
-!!! warning "Template Storage"
+!!! tldr "Template Storage"
     Server-side templates are stored in the __/home/coronium/templates__ directory. They have no relation to the __[Pages](/server/modules/pages/api/)__ templates.
 
 For detailed information on how to work with templates, see the __[Templates](/server/modules/pages/templates/)__ section of the Pages guide.

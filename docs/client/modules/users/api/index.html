@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -586,6 +586,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -803,15 +863,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#login" title="login" class="md-nav__link">
-    login
+  <a href="#create" title="create" class="md-nav__link">
+    create
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create" title="create" class="md-nav__link">
-    create
+  <a href="#login" title="login" class="md-nav__link">
+    login
   </a>
   
 </li>
@@ -877,6 +937,18 @@
   
 </nav>
     
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
   </li>
 
         
@@ -1010,15 +1082,15 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#login" title="login" class="md-nav__link">
-    login
+  <a href="#create" title="create" class="md-nav__link">
+    create
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#create" title="create" class="md-nav__link">
-    create
+  <a href="#login" title="login" class="md-nav__link">
+    login
   </a>
   
 </li>
@@ -1097,80 +1169,7 @@
                 
                 <p>Provides methods to register, login, and track users for your applications. </p>
 <p>For more detailed information on working with users, see the <strong><a href="../creating/">Creating</a></strong>, <strong><a href="../updating/">Updating</a></strong>, <strong><a href="../login/">Logging In</a></strong>, and <strong><a href="../confirmation/">Confirmation</a></strong> sections.</p>
-<h3 id="login">login</h3>
-<p>Retrieves the users basic data, and marks a <em>login event</em> in the <strong>users</strong> database. </p>
-<ul>
-<li>See also: <strong><a href="../login/">Logging In</a></strong> users.</li>
-</ul>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>data_params</td>
-<td>The data parameters for the call.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>listener</td>
-<td>The api listener callback function.</td>
-<td><em>Function</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Data Params</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>username</td>
-<td>The registered username.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>password</td>
-<td>The users password.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Event Response</strong></p>
-<p>On success, the <strong>result</strong> will hold a basic login object as a <strong>table</strong>. See the <strong><a href="../login/">Logging In</a></strong> section for more details.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserLogin</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
-  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1">-- result holds the login object</span>
-  <span class="kr">end</span>
-<span class="kr">end</span>
-
-<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;tiny&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;abcd1234&quot;</span><span class="p">},</span> <span class="n">onUserLogin</span><span class="p">)</span>
-</pre></div>
-
-
+<p>See also the <strong><a href="../../../../client/modules/users/oauth/">OAuth API</a></strong> for managing users with OAuth capabilities.</p>
 <h3 id="create">create</h3>
 <p>Create a new user, and optionally request an email confirmation.</p>
 <ul>
@@ -1235,6 +1234,12 @@
 <td><strong>N</strong></td>
 </tr>
 <tr>
+<td>group</td>
+<td>A custom string used to partition this user within the scope.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
 <td>extra</td>
 <td>A custom data table of key/value pairs to store with the user. Can be of type <em>String</em>, <em>Number</em>, or <em>Boolean</em> only.</td>
 <td><em>Table</em></td>
@@ -1252,6 +1257,10 @@
 <p class="admonition-title">Important</p>
 <p>Passwords are hashed before being sent to the server. Do not try to hash the password yourself.</p>
 </div>
+<div class="admonition info">
+<p class="admonition-title">OAuth Users</p>
+<p>To add OAuth provider information to a user, see the <strong><a href="../../../../client/modules/users/oauth/#addauthprovider">addAuthProvider</a></strong> method.</p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold the created users unique identifier in the <strong>user_id</strong> key.</p>
 <p><strong>Example</strong></p>
@@ -1267,6 +1276,84 @@
   <span class="n">username</span><span class="o">=</span><span class="s2">&quot;tiny&quot;</span><span class="p">,</span> 
   <span class="n">password</span><span class="o">=</span><span class="s2">&quot;abcd1234&quot;</span>
 <span class="p">},</span> <span class="n">onUserCreate</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="login">login</h3>
+<p>Retrieves the users basic data, and marks a <em>login event</em> in the <strong>users</strong> database. </p>
+<ul>
+<li>See also: <strong><a href="../login/">Logging In</a></strong> users, and <strong><a href="../../../../client/modules/users/login/#oauth-login">OAuth Login</a></strong>.</li>
+</ul>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">(</span><span class="n">data_params</span><span class="p">,</span> <span class="n">listener</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>data_params</td>
+<td>The data parameters for the call.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>listener</td>
+<td>The api listener callback function.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Data Params</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>username</td>
+<td>The registered username.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>password</td>
+<td>The users password.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition info">
+<p class="admonition-title">OAuth Login Parameters</p>
+<p>To log in a user with an OAuth provider, see <strong><a href="../../../../client/modules/users/login/#oauth-login">OAuth Login</a></strong>.</p>
+</div>
+<p><strong>Event Response</strong></p>
+<p>On success, the <strong>result</strong> will hold a basic login object as a <strong>table</strong>. See the <strong><a href="../login/">Logging In</a></strong> section for more details.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserLogin</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1">-- result holds the login object</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;tiny&quot;</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="s2">&quot;abcd1234&quot;</span><span class="p">},</span> <span class="n">onUserLogin</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1394,6 +1481,10 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">OAuth Users</p>
+<p>To update a users OAuth provider information, see the <strong><a href="../../../../client/modules/users/oauth/#updateauthprovider">updateAuthProvider</a></strong> method.</p>
+</div>
 <p><strong>Event Response</strong></p>
 <p>On success, the <strong>result</strong> will hold the updated user object as a <strong>table</strong>.</p>
 <p><strong>Example</strong></p>
@@ -1465,8 +1556,12 @@
 </tr>
 </tbody>
 </table>
+<div class="admonition info">
+<p class="admonition-title">OAuth Users</p>
+<p>To delete a users OAuth provider information, see the <strong><a href="../../../../client/modules/users/oauth/#removeauthprovider">removeAuthProvider</a></strong> method.</p>
+</div>
 <p><strong>Event Response</strong></p>
-<p>On success, the <strong>result</strong> will hold the records updated as a <strong>number</strong>. Generally a <strong>1</strong> or <strong>0</strong>.</p>
+<p>On success, the <strong>result</strong> will hold the records removed as a <strong>number</strong>. Generally a <strong>1</strong> or <strong>0</strong>.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserDelete</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
@@ -1605,13 +1700,13 @@
           </a>
         
         
-          <a href="../creating/" title="Creating" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../oauth/" title="OAuth API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Creating
+                OAuth API
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1627,7 +1722,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

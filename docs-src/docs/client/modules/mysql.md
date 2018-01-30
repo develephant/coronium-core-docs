@@ -1,7 +1,7 @@
 Provides a client-side api to the [EZ query methods](/server/modules/mysql/#ez-query-methods) of the server-side MySQL module. For more complex data handling, you must provide an __[api](/server/modules/api/)__ on the server-side.
 
-!!! info "Database Needed"
-    Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](/server/modules/mysql/#administration) section for more information on connecting to your database.
+!!! warning "Database Required"
+    __Before you can use the MySQL module, you will need to create a MySQL database. See the [Administration](/server/modules/mysql/#administration) section for more information on connecting to your database.__
 
 ### select
 
@@ -25,7 +25,7 @@ __Query Table Keys__
 |db|The database to run the query against.|_String_|__Y__|
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |columns|Array of columns to select as strings.|_Table_|__N__|
-|where|Any additional WHERE clause to apply.|_String_|__N__|
+|where|Any additional WHERE clause to apply.|_String_ or _Table_|__N__|
 |orderby|The sorting attributes. See __Orderby__ below.|_Table_|__N__|
 |limit|Limit the records returned. See __Limit__ below.|_Number_ or _Table_|__N__|
 |distinct|Filter out duplicate column values. Default: false|_Boolean_|__N__|
@@ -65,7 +65,7 @@ local params = {
 core.mysql.select(params, apiListener)
 ```
 
-!!! tip
+!!! tldr "More Examples"
     See the server-side __[core.mysql.select](/server/modules/mysql/#select)__ method for more examples.
 
 ### selectOne
@@ -89,14 +89,14 @@ __Query Table Keys__
 |---|-----------|----|--------|
 |db|The database to run the query against.|_String_|__Y__|
 |tbl|Name of the table to operate on.|_String_|__Y__|
-|where|The WHERE clause to apply.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_ or _Table_|__Y__|
 |columns|Array of columns to select as strings.|_Table_|__N__|
 
 __Event Response__
 
 On success, the __result__ will contain a __table__.
 
-!!! note ""
+!!! info "Special Response"
     Unlike the __[select](#select)__ method, the result is returned as a single record as opposed to an array of records.
 
 __Example__
@@ -113,7 +113,7 @@ end
 local params = {
   db = "app",
   tbl = "users",
-  where = "user_id=20",
+  where = { user_id = 20 },
   columns = { "name" }
 }
 
@@ -144,7 +144,7 @@ __Batch Table Keys__
 
 __Event Response__
 
-On success, the __result__ will be a keyed __table__ with the results of each select query.
+On success, the __result__ will be a keyed __table__ with the results of each select query as a table array of records. If `limit` in any of the query entries is set to 1, then a single table with the record data is returned (not an array).
 
 __Example__
 
@@ -155,26 +155,26 @@ local function apiListener( evt )
   else
     local bikes = evt.result.bikes --Array of "Bike" records
     local shoes = evt.result.shoes --Array of "Shoe" records
-    local stores = evt.result.stores --Array of 5 location records
+    local store = evt.result.store --Table "Store" record
   end
 end
 
 local batch_select = {
   {
     tbl = "products",
-    where = "type='Bike'",
+    where = { type = "Bike" },
     key = "bikes"
   },
   {
     tbl = "products",
-    where = "type='Shoes'",
+    where = { type = "Shoes" },
     key = "shoes"
   },
   {
     tbl = "locations",
-    where = "zip=93023",
-    limit = 5,
-    key = "stores"
+    where = { name = "Happy Toys" },
+    limit = 1, --Return as non-array record
+    key = "store"
   }
 }
 
@@ -210,6 +210,148 @@ local function apiListener( evt )
 end
 ```
 
+### selectMerge
+
+Select from multiple databases and tables and return the results in a keyed table.
+
+```lua
+core.mysql.selectMerge(merge_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|merge_tbl|The merge parameters for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Merge Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|merge|A table array of EZ Query select tables. (see [select](#select)). Each select table should also include a `key` property for the result table (see example below).|_Table_|__Y__|
+
+__Event Response__
+
+On success, the __result__ will be a keyed __table__ with the results of each select query. If `limit` in any of the query entries is set to 1, then a single table with the record data is returned (not an array). See __Errors__ below.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    local locs = evt.result.locs
+
+    --check for errors
+    if evt.result.errors then
+      for i=1, #evt.results.errors do
+        local err_tbl = evt.results.error[i]
+        print(err_tbl.db, err_tbl.error, err_tbl.index)
+      end
+    end
+  end
+end
+
+local merge_dbs = {
+  {
+    db = "locations",
+    tbl = "spots",
+    key = "locs"
+  },
+  {
+    db = "products",
+    tbl = "parts",
+    where = { part_id = 20 },
+    key = "part"
+  },
+  {
+    db = "stores",
+    tbl = "toy",
+    limit = 1, --Return as non-array record
+    where = { name = "Happy Toys" },
+    key = "store"
+  }
+}
+
+core.mysql.selectMerge({ merge = merge_dbs }, apiListener)
+```
+
+__Errors__
+
+If any of the database queries fail, the successful queries will still be returned in their respective key names. On failed queries, the result will also contain an `errors` key, containing a table array describing any errors.
+
+__Example Debug Response__
+
+```text
+result:
+  errors:
+  1:
+    db: products
+    error: Table 'products.parts' doesn't exist
+    index: 2
+    status: 1146
+  locs:
+  1:
+    id: 1
+    latitude: 80
+    longitude: 200
+    user_id: d23b8738-4d28-41ed-a967-98e83e855a38
+  2:
+    id: 3
+    latitude: -64
+    longitude: 200
+    user_id: d23b8738-4d28-41ed-a967-98e83e855a39
+  store:
+    name = Happy Toys
+    city = San Diego
+```
+
+### selectCount
+
+Get a record count based on passed in query.
+
+```lua
+core.mysql.selectCount(count_tbl, listener)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|count_tbl|The count parameters for the call (see below).|_Table_|__Y__|
+|listener|The api listener callback function.|_Function_|__Y__|
+
+__Count Table Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|db|The database to run the count query against.|_String_|__Y__|
+|tbl|Name of the table to operate with.|_String_|__Y__|
+|where|The WHERE clause to apply.|_String_ or _Table_|__N__|
+|column|The column to use as the counting key. Defaults to "id".|_String_|__N__|
+
+If the `where` key is not included, the result is the total records in the provided table.
+
+__Example__
+
+```lua
+local function apiListener( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    local count = evt.result.count
+    print("Total red toys:", count)
+end
+
+core.mysql.selectCount({
+  db = "products",
+  tbl = "toys",
+  where = { color = "Red" }
+}, apiListener)
+```
+
 ### insert
 
 Insert a single record into a database table.
@@ -233,8 +375,8 @@ __Query Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
 
-!!! note ""
-    Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server/modules/mysql/#escape)__ method.
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
 
 __Event Response__
 
@@ -286,8 +428,8 @@ __Insert Table Keys__
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |records|A table array of `values` tables from the [insert](#insert) method.|_Table_|__Y__|
 
-!!! note ""
-    Strings in the `values` tables will be automatically run through the server-side __[core.mysql.escape](/server/modules/mysql/#escape)__ method.
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
 
 __Event Response__
 
@@ -355,6 +497,9 @@ __Batch Table Keys__
 |----|-----------|----|--------|
 |db|The database to run the batch against.|_String_|__Y__|
 |batch|A table array of tables with the `tbl` and `values` keys from the [insert](#insert) method.|_Table_|__Y__|
+
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
 
 __Event Response__
 
@@ -436,10 +581,10 @@ __Query Table Keys__
 |db|The database to run the query against.|_String_|__Y__|
 |tbl|The name of the table to operate on.|_String_|__Y__|
 |values|A table of __column = value__ pairs.|_Table_|__Y__|
-|where|Where the columns should be updated.|_String_|__N__|
+|where|Where the columns should be updated.|_String_ or _Table_|__N__|
 
-!!! note ""
-    Strings in the __values__ table will be automatically run through the server-side __[core.mysql.escape](/server/modules/mysql/#escape)__ method.
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
 
 __Event Response__
 
@@ -462,7 +607,7 @@ local params = {
   values = {
     name = "Paco"
   },
-  where = "name='Bobby'"
+  where = { name = "Bobby" }
 }
 
 core.mysql.update(params, apiListener)
@@ -490,6 +635,9 @@ __Update Table Keys__
 |db|The database to run the updates against.|_String_|__Y__|
 |tbl|Name of the table to operate on.|_String_|__Y__|
 |update|A table array of tables with the `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
+
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
 
 __Event Response__
 
@@ -521,13 +669,13 @@ local update_tbl = {
     values = {
       name = "Nike"
     },
-    where = "name='Adidas'"
+    where = { name = "Adidas" }
   },
   {
     values = {
       cost = "1.99"
     },
-    where = "id=3"
+    where = { id = 3 }
   }
 }
 
@@ -562,6 +710,9 @@ __Batch Table Keys__
 |db|The database to run the batch against.|_String_|__Y__|
 |batch|A table array of tables with the `tbl`, `values` and `where` keys from the [update](#update) method.|_Table_|__Y__|
 
+!!! warning "Important"
+    __Strings in the `values` tables are run through the [mysql.escape](/server/modules/mysql/#escape) method. Do not double-escape values.__
+
 __Event Response__
 
 On success, the __result__ will hold an indexed table array of tables containing either an __updated__ key; with the number of records updated, or an __error__ key; containing the error string.
@@ -593,7 +744,7 @@ local batch_update = {
     values = {
       name = "Adidas"
     },
-    where = "id=3"
+    where = { id = 3 }
   },
   {
     tbl = "toys",
@@ -601,14 +752,14 @@ local batch_update = {
       name = "Raggedy Ann",
       gender = "female"
     },
-    where = "name='Raggedy Andy'"
+    where = { name = "Raggedy Andy" }
   },
   {
     tbl = "toys",
     values = {
       company = "Tonka"
     },
-    where = "id=4"
+    where = { id = 4 }
   }
 }
 
@@ -619,7 +770,6 @@ local params = {
 
 core.mysql.updateBatch(params, apiListener)
 ```
-
 
 ### delete
 
@@ -642,11 +792,11 @@ __Query Table Keys__
 |----|-----------|----|--------|
 |db|The database to run the query against.|_String_|__Y__|
 |tbl|The name of the table to operate on.|_String_|__Y__|
-|where|A WHERE clause to limit deletions to.|_String_|__N__|
+|where|A WHERE clause to limit deletions to.|_String_ or _Table_|__N__|
 |force|Disables safety check for missing __where__ key.|_Boolean_|__N__|
 
-!!! info "Important"
-    To run the delete command without a __where__ clause, you must set __force__ to true.
+!!! info "Force Delete"
+    __To run the delete command without a __where__ clause, you must set __force__ to true.__
 
 __Event Response__
 
@@ -666,7 +816,7 @@ end
 local params = {
   db = "app",
   tbl = "users",
-  where = "id=10"
+  where = { id = 10 }
 }
 
 core.mysql.delete(params, apiListener)
@@ -725,10 +875,10 @@ end
 
 local delete_tbl = {
   {
-    where = "id=34"
+    where = { id = 34 }
   },
   {
-    where = "color='Red'"
+    where = { color = "Red" }
   }
 }
 
@@ -792,11 +942,11 @@ end
 local batch_delete = {
   {
     tbl = "toys",
-    where = "id=2"
+    where = { id = 2 }
   },
   {
     tbl = "shoes",
-    where = "type='running'"
+    where = { type = "running" }
   }
 }
 
@@ -806,6 +956,90 @@ local params = {
 }
 
 core.mysql.deleteBatch(params, apiListener)
+```
+
+## The WHERE Key
+
+Many of the MySQL (and other) modules use a `where` key to specify the "WHERE" clause for a database query. Depending on what data type and structure you provide this key, a couple different things can happen automagically.
+
+### String Based
+
+When passing a string to the `where` key, you are on your own to create a valid MySQL query string. The query string is interpreted as-is. 
+
+You never include the literal "WHERE" in the `where` key value.
+
+__Examples__
+
+```text
+where = "`color`='Red'"
+```
+
+```text
+where = "`kind`='Truck' AND `color`='Red'"
+```
+
+```text
+where = "`kind`='Truck' OR `kind`='Car'"
+```
+
+### Table Based
+
+The advantage of using a table based `where` key is that all of the values are properly formatted to make a valid and type-safe MySQL query.
+
+!!! warning "Important"
+    __String values are automatically run through `mysql.escape`. Do not double-escape values.__
+
+To reproduce the three string based examples above as table based:
+
+```lua
+where = { color = "Red" }
+```
+
+```lua
+where = { kind = "Truck", color = "Red" } --AND
+```
+
+```lua
+where = { kind = { "Truck", "Car" } } --OR
+```
+
+__Ordered Table Queries__
+
+With "ordered" query tables you can replicate some more complex queries:
+
+```text
+where = "`color='Red' AND `model`='Ford' AND kind='Truck' OR kind='Car'"
+```
+
+To reproduce the query above, put the entries in a table array (order matters):
+
+```lua
+where = {
+  { color = "Red", model = "Ford" },
+  { kind = { "Truck", "Car" } }
+}
+```
+
+For an all OR query like:
+
+```text
+where = "`color='Red' OR `model`='Ford' OR kind='Truck' OR kind='Car'"
+```
+
+You can use an ordered table with a single entry:
+
+```lua
+where = {
+  { color = { "Red" }, model = { "Ford" }, kind = { "Truck", "Car" } }
+}
+```
+
+At this time multiple entries in an "ordered" `where` table are combined using 'AND', which may cause problems with more complicated queries, so you'll need to fall back to the string method.
+
+Table type queries also do not support conditionals, so the following cannot be replicated with a table based query:
+
+```text
+where = "`score` > 100"
 ```
 
 ## Optimized Methods
@@ -819,6 +1053,7 @@ Most optimized query methods also make it easier to program your application log
 The following are optimized MySQL module methods:
 
   - `selectBatch`
+  - `selectMerge`
   - `insertMany`
   - `insertBatch`
   - `updateMany`

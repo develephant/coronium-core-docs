@@ -28,7 +28,7 @@ core.init({
 })
 ```
 
-!!! tip ""
+!!! tldr "Initialization"
     For detailed initialization instructions, see the __[Initialization](/client/guide/#initialization)__ section of the __Client Guide__.
 
 ### useProject

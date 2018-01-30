@@ -1,27 +1,18 @@
 Send email messages using the __[Mailgun](https://mailgun.com)__ messaging service.
 
-!!! tip "Screencast Available"
-    Learn about sending email in a screencast format by __[Clicking here](/screencasts/#email-module)__.
-
 !!! warning "Mailgun Account Required"
-    A valid __Mailgun__ account and the proper configuration must be set up to use the __email__ module. See the __[Configuration](#configuration)__ section below.
+    A valid __Mailgun__ account and the proper configuration must be set up to use the __email__ module. See the __[Configuration](#configuration)__ section below. The __Mailgun__ messaging service allows you to send up to 10,000 free email messages a month.
 
-!!! info ""
-    The __Mailgun__ messaging service allows you to send up to 10,000 free email messages a month.
+!!! note "Screencast Available"
+    Learn about sending email in a screencast format by __[Clicking here](/screencasts/#email-module)__.
 
 ### new
 
 Create a new email message object.
 
-__Syntax__
-
 ```lua
 core.email.new([key][, domain])
 ```
-
-__Returns__
-
-A new email message object based on the __Mailgun__ credentials.
 
 __Parameters__
 
@@ -32,6 +23,10 @@ __Parameters__
 
 !!! info "Default Credentials"
     If you have already set your __Mailgun__ credentials using the __[Webmin](/server/webmin/setup/)__ then these will be used by default, and you do not need to include the `key` and `domain` arguments.
+
+__Returns__
+
+A new email message object based on the __Mailgun__ credentials.
 
 __Example__
 
@@ -44,8 +39,6 @@ local msg = core.email.new()
 ### to
 
 The address(es) to send the message to. Multiple values must be seperated by a comma. ___This is a required value___.
-
-__Syntax__
 
 ```lua
 msg:to( address[, addressN] )
@@ -79,8 +72,6 @@ msg:to("user1@email.com", "Jim <user2@email.com>")
 
 The message sender address. ___This is a required value___.
 
-__Syntax__
-
 ```lua
 msg:from( address )
 ```
@@ -100,8 +91,6 @@ msg:from("sender@email.com")
 ### cc
 
 The address(es) to "cc" the message to. Multiple values must be seperated by a comma.
-
-__Syntax__
 
 ```lua
 msg:cc( address[, addressN] )
@@ -135,8 +124,6 @@ msg:cc("user1@email.com", "Jim <user2@email.com>")
 
 The address(es) to "bcc" the message to. Multiple values must be seperated by a comma.
 
-__Syntax__
-
 ```lua
 msg:bcc( address[, addressN] )
 ```
@@ -169,8 +156,6 @@ msg:bcc("user1@email.com", "Jim <user2@email.com>")
 
 Sets a specific reply-to address. If not set, the sender address is the default.
 
-__Syntax__
-
 ```lua
 msg:replyTo( address )
 ```
@@ -190,8 +175,6 @@ msg:replyTo("Support <support@email.com>")
 ### subject
 
 The subject line for the email. The default is "(no subject)" if not provided.
-
-__Syntax__
 
 ```lua
 msg:subject( subject_str )
@@ -213,8 +196,6 @@ msg:subject("A Super Email")
 
 The plain text version of the message body.
 
-__Syntax__
-
 ```lua
 msg:text( message_str )
 ```
@@ -234,8 +215,6 @@ msg:text("Here is your plain information.")
 ### html
 
 The html version of the message body.
-
-__Syntax__
 
 ```lua
 msg:html( message_html )
@@ -257,8 +236,6 @@ msg:html("Here is your <b>bold</b> information.")
 
 Sets a specific tag for the email. Can be used for tracking in Mailgun.
 
-__Syntax__
-
 ```lua
 msg:tag( tag_str )
 ```
@@ -278,8 +255,6 @@ msg:tag("appuser")
 ### requireTls
 
 Force Mailgun to use TLS when sending the message. Defaults to _false_.
-
-__Syntax__
 
 ```lua
 msg:requireTls( bool )
@@ -301,8 +276,6 @@ msg:requireTls(true)
 
 Skip certificate verification when using TLS. Defaults to _false_.
 
-__Syntax__
-
 ```lua
 msg:skipVerification( bool )
 ```
@@ -323,8 +296,6 @@ msg:skipVerification(true)
 
 Used for debugging in Mailgun. Defaults to _false_.
 
-__Syntax__
-
 ```lua
 msg:testMode( bool )
 ```
@@ -344,8 +315,6 @@ msg:testMode(true)
 ### send
 
 Send the final message via Mailgun.
-
-__Syntax__
 
 ```lua
 msg:send()

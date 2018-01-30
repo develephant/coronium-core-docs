@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -586,6 +586,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -790,6 +850,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -839,6 +911,47 @@
           <li class="md-nav__item">
   <a href="#response-event" title="Response Event" class="md-nav__link">
     Response Event
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#with-oauth-provider" title="With OAuth Provider" class="md-nav__link">
+    With OAuth Provider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devices-as-users" title="Devices As Users" class="md-nav__link">
+    Devices As Users
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-a-device" title="Register a Device" class="md-nav__link">
+    Register a Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side-usage" title="Client Side Usage" class="md-nav__link">
+    Client Side Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-udid" title="Android UDID" class="md-nav__link">
+    Android UDID
   </a>
   
 </li>
@@ -1008,6 +1121,47 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#with-oauth-provider" title="With OAuth Provider" class="md-nav__link">
+    With OAuth Provider
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devices-as-users" title="Devices As Users" class="md-nav__link">
+    Devices As Users
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#register-a-device" title="Register a Device" class="md-nav__link">
+    Register a Device
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#client-side-usage" title="Client Side Usage" class="md-nav__link">
+    Client Side Usage
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-udid" title="Android UDID" class="md-nav__link">
+    Android UDID
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
       
       
     </ul>
@@ -1025,7 +1179,8 @@
                 
                   <h1>Creating</h1>
                 
-                <h2 id="basic">Basic</h2>
+                <p>What follows are a number of different user creation styles and example code.</p>
+<h2 id="basic">Basic</h2>
 <p>To create a user without email confirmation, a minimum of a <strong>username</strong> and <strong>password</strong> is required.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserCreate</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
@@ -1110,6 +1265,157 @@
 <h3 id="response-event">Response Event</h3>
 <p>When creating a user with email confirmation, the response <strong>result</strong> will be a table containing the newly registered users <strong>user_id</strong>, and a <strong>confirmation</strong> key.</p>
 <p>The <strong>confirmation</strong> key will contain the email sent state as a string with a value of 'pending' on success, or 'failed' otherwise.</p>
+<h2 id="with-oauth-provider">With OAuth Provider</h2>
+<p>You can add OAuth provider information (using the Facebook login for example) after the user has been created, by using the <strong><a href="../../../../client/modules/users/oauth/#addauthprovider">addAuthProvider</a></strong> method.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="c1">-- First gather the client_id, access_token, etc. from the Facebook login.</span>
+
+<span class="c1">--A method to call after user has been created</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">addOAuthInfo</span><span class="p">(</span><span class="n">user_id</span><span class="p">)</span>
+
+  <span class="c1">--== Link auth provider to the user</span>
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">onAuthAdded</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+    <span class="kr">else</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Auth provider has been added!&quot;</span><span class="p">)</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+
+  <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">addAuthProvider</span><span class="p">({</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">FACEBOOK</span><span class="p">,</span>
+    <span class="n">client_id</span> <span class="o">=</span> <span class="n">fb</span><span class="p">.</span><span class="n">client_id</span><span class="p">,</span>
+    <span class="n">access_token</span> <span class="o">=</span> <span class="n">fb</span><span class="p">.</span><span class="n">access_token</span><span class="p">,</span>
+    <span class="n">access_token_expiry</span> <span class="o">=</span> <span class="n">fb</span><span class="p">.</span><span class="n">access_token_expiration</span>
+  <span class="p">},</span> <span class="n">onAuthAdded</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="c1">--== Create the user</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserCreated</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="c1">--we have a successful user creation</span>
+    <span class="n">addOAuthInfo</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">create</span><span class="p">({</span>
+  <span class="n">username</span> <span class="o">=</span> <span class="s1">&#39;Timmy&#39;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s1">&#39;1234&#39;</span><span class="p">,</span>
+  <span class="n">email</span> <span class="o">=</span> <span class="s1">&#39;my@email.com&#39;</span><span class="p">,</span>
+  <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;cadets&#39;</span><span class="p">,</span>
+  <span class="n">extra</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;blue&#39;</span>
+  <span class="p">}</span>
+<span class="p">},</span> <span class="n">onUserCreated</span><span class="p">)</span>
+</pre></div>
+
+
+<p>You can now log in the user normally, with <code>username</code> and <code>password</code> or using the OAuth information (see <strong><a href="../../../../client/modules/users/login/#oauth-login">OAuth Login</a></strong>).</p>
+<h2 id="devices-as-users">Devices As Users</h2>
+<p>If you don't plan on having traditional users for your app, there is still an interesting use case for using the actual device as the user. This allows one to capture additional statistics that can be viewed in the <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong>.</p>
+<p>While the <strong><a href="../../../../client/modules/analytics/#appopened">appOpened</a></strong> analytics method tracks each time an application is opened on a device, it doesn't capture how many unique devices are actually running the app. </p>
+<p>By co-opting the user system, we can track how many unique devices have "joined" your app, as well as, how many times a specific device has "logged" in to your app.</p>
+<p>This also opens up the ability to store meta data specific to a device "user", or provide time limited "tokens" that can trigger special events.</p>
+<h3 id="register-a-device">Register a Device</h3>
+<p>To use a device as a user, we can use the <strong><a href="https://docs.coronalabs.com/plugin/openudid/index.html">OpenUDID Plugin</a></strong> provided freely by <strong>Corona</strong> for iOS. </p>
+<p>For Android we can use the Corona method <code>system.getInfo("deviceID")</code> (see below for how to get a consistent <a href="#android-udid">Android UDID</a>). We then use the device ID as our OAuth client ID. </p>
+<p>We'll also need to create a server-side API method to login/register the device from the client-side. See the server-side <strong><a href="../../../../server/modules/api/">API</a></strong> documentation for more information on creating server-side APIs.</p>
+<p><strong>Server-Side API Module</strong></p>
+<p>The following module and method will attempt to login the "device" or register it into the user system.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">checkInDevice</span><span class="p">(</span><span class="n">input</span><span class="p">,</span> <span class="n">scope</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">udid</span> <span class="o">=</span> <span class="n">input</span><span class="p">.</span><span class="n">udid</span>
+  <span class="kd">local</span> <span class="n">user_id</span> <span class="o">=</span> <span class="kc">nil</span>
+
+  <span class="c1">--first check if a device ID exists by trying to log in</span>
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
+    <span class="n">client_id</span> <span class="o">=</span> <span class="n">udid</span><span class="p">,</span>
+    <span class="n">provider</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">OPENUDID</span><span class="p">,</span>
+    <span class="n">scope</span> <span class="o">=</span> <span class="n">scope</span>
+  <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="kr">then</span>
+    <span class="c1">--a &quot;user&quot; with this udid does not</span>
+    <span class="c1">--exist, so create an anonymous one</span>
+    <span class="n">user_id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">register</span><span class="p">(</span><span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">scope</span><span class="p">,</span> <span class="p">{</span>
+      <span class="n">meta</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">device_id</span> <span class="o">=</span> <span class="n">udid</span><span class="p">,</span>
+        <span class="n">group</span> <span class="o">=</span> <span class="s1">&#39;device&#39;</span><span class="p">,</span>
+        <span class="n">login</span> <span class="o">=</span> <span class="kc">true</span> <span class="c1">--mark this as a login event also</span>
+      <span class="p">}</span>
+    <span class="p">})</span>
+    <span class="c1">--check for error</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">user_id</span> <span class="kr">then</span>
+      <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="c1">--link the device &quot;user&quot; to an OPENUDID auth provider</span>
+    <span class="kd">local</span> <span class="n">oauth</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">addAuthProvider</span><span class="p">(</span><span class="n">user_id</span><span class="p">,</span> <span class="n">core</span><span class="p">.</span><span class="n">OPENUDID</span><span class="p">,</span> <span class="p">{</span>
+      <span class="n">client_id</span> <span class="o">=</span> <span class="n">udid</span>
+    <span class="p">})</span>
+    <span class="c1">--check for error</span>
+    <span class="kr">if</span> <span class="ow">not</span> <span class="n">oauth</span> <span class="kr">then</span>
+      <span class="kr">return</span> <span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="kr">end</span>
+
+    <span class="c1">--device &quot;user&quot; has been registered, pass a creation flag</span>
+    <span class="kr">return</span> <span class="s2">&quot;created&quot;</span>
+
+  <span class="kr">else</span>
+    <span class="c1">--OR we successfully logged in, pass back the device &quot;user&quot; data</span>
+    <span class="kr">return</span> <span class="n">res</span>
+  <span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
+</pre></div>
+
+
+<h3 id="client-side-usage">Client Side Usage</h3>
+<p>Now each time our application opens we call the <code>checkInDevice</code> server-side method at which point we will start to gather statistics about each device "join" and "login" events that can be viewed in the <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong>.</p>
+<div class="codehilite"><pre><span></span><span class="c1">-- require the OpenUDID plugin</span>
+<span class="kd">local</span> <span class="n">openudid</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.openudid&quot;</span><span class="p">)</span>
+<span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
+
+<span class="c1">--========================================</span>
+<span class="c1">--== Coronium intialization goes here</span>
+<span class="c1">--========================================</span>
+
+<span class="kd">local</span> <span class="n">udid</span>
+<span class="kd">local</span> <span class="n">platform</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">getInfo</span><span class="p">(</span><span class="s2">&quot;platform&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;ios&#39;</span> <span class="kr">then</span>
+  <span class="n">udid</span> <span class="o">=</span> <span class="n">openudid</span><span class="p">.</span><span class="n">getValue</span><span class="p">()</span>
+<span class="kr">elseif</span> <span class="n">platform</span> <span class="o">==</span> <span class="s1">&#39;android&#39;</span> <span class="kr">then</span>
+  <span class="n">udid</span> <span class="o">=</span> <span class="n">system</span><span class="p">.</span><span class="n">getInfo</span><span class="p">(</span><span class="s2">&quot;deviceID&quot;</span><span class="p">)</span> <span class="c1">--== See Android UDID notes below</span>
+<span class="kr">end</span>
+
+<span class="c1">--== Set up the response listener</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onDeviceCheckIn</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Device checked in&quot;</span><span class="p">)</span>
+    <span class="c1">--optionally get the device record</span>
+    <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span> <span class="o">~=</span> <span class="s2">&quot;created&quot;</span> <span class="kr">then</span>
+      <span class="kd">local</span> <span class="n">device_record</span> <span class="o">=</span> <span class="n">evt</span><span class="p">.</span><span class="n">result</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">--== Check-in the device</span>
+<span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">checkInDevice</span><span class="p">({</span>
+  <span class="n">udid</span> <span class="o">=</span> <span class="n">udid</span>
+<span class="p">},</span> <span class="n">onDeviceCheckIn</span><span class="p">)</span>
+</pre></div>
+
+
+<p>See also <strong><a href="../../../../client/guide/#custom-api-init">Custom API Init</a></strong>.</p>
+<h3 id="android-udid">Android UDID</h3>
+<p>To make sure you get a consistent Android UDID see the <strong><a href="https://docs.coronalabs.com/api/library/system/getInfo.html#deviceid">system.getInfo("deviceID")</a></strong> Corona documentation on the subject.</p>
                 
                   
                 
@@ -1128,7 +1434,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../api/" title="Users API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../oauth/" title="OAuth API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1137,7 +1443,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Users API
+                OAuth API
               </span>
             </div>
           </a>
@@ -1165,7 +1471,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

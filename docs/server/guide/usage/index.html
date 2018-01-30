@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -683,6 +683,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -873,6 +933,18 @@
   <li class="md-nav__item">
     <a href="../../../client/modules/users/api/" title="Users API" class="md-nav__link">
       Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
     </a>
   </li>
 
@@ -1093,6 +1165,7 @@
                 
                 <h2 id="coronium-tool">Coronium Tool</h2>
 <div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>You must be logged in as the <strong>coronium</strong> user to use the command line tool.</p>
 </div>
 <p>A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:</p>
@@ -1119,6 +1192,7 @@
 
 <p>Press <strong>control-x</strong> to stop watching the log file.</p>
 <div class="admonition note">
+<p class="admonition-title">Log File Rotation</p>
 <p>The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.</p>
 </div>
 <div class="admonition tip">
@@ -1148,6 +1222,7 @@
 
 
 <div class="admonition caution">
+<p class="admonition-title">Caution</p>
 <p>You should rarely need to manually control the Coronium stack process.</p>
 </div>
 <h2 id="user-directories">User Directories</h2>
@@ -1190,7 +1265,8 @@
 </table>
 <h3 id="public-directory">Public Directory</h3>
 <p>If you store files in the <strong>files/public</strong> directory they are accessible via the browser, which makes them insecure by nature. A common use case for storing files in the public directory is for displaying them within <a href="../../../server/modules/pages/templates/">page templates</a>. </p>
-<div class="admonition note">
+<div class="admonition tldr">
+<p class="admonition-title">File Selection</p>
 <p>If a file with the same path exists in the <strong>pages</strong> directory, it will be served first. If a file does not exist at the path, then the <strong>files/public</strong> directory will be checked.</p>
 </div>
 <p><strong>Path Examples</strong></p>
@@ -1262,7 +1338,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by

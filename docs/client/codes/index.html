@@ -47,7 +47,7 @@
   
   
   
-    <body data-md-color-primary="blue-grey" data-md-color-accent="teal">
+    <body data-md-color-primary="blue" data-md-color-accent="deep-orange">
   
     <svg class="md-svg">
       <defs>
@@ -582,6 +582,66 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+    
+    <label class="md-nav__link" for="nav-2-4-10">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-10">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../../server/modules/utils/" title="Utils" class="md-nav__link">
       Utils
@@ -784,6 +844,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../modules/users/creating/" title="Creating" class="md-nav__link">
       Creating
     </a>
@@ -865,29 +937,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#modules" title="Modules" class="md-nav__link">
+    Modules
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#users" title="Users" class="md-nav__link">
     Users
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#email" title="Email" class="md-nav__link">
     Email
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#database" title="Database" class="md-nav__link">
-    Database
+        
+          <li class="md-nav__item">
+  <a href="#general" title="General" class="md-nav__link">
+    General
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#default" title="Default" class="md-nav__link">
-    Default
+  <a href="#custom-status-codes" title="Custom Status Codes" class="md-nav__link">
+    Custom Status Codes
   </a>
   
 </li>
@@ -961,29 +1053,49 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#modules" title="Modules" class="md-nav__link">
+    Modules
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
   <a href="#users" title="Users" class="md-nav__link">
     Users
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
+        
+          <li class="md-nav__item">
   <a href="#email" title="Email" class="md-nav__link">
     Email
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#database" title="Database" class="md-nav__link">
-    Database
+        
+          <li class="md-nav__item">
+  <a href="#general" title="General" class="md-nav__link">
+    General
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mysql" title="MySQL" class="md-nav__link">
+    MySQL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#default" title="Default" class="md-nav__link">
-    Default
+  <a href="#custom-status-codes" title="Custom Status Codes" class="md-nav__link">
+    Custom Status Codes
   </a>
   
 </li>
@@ -1005,9 +1117,11 @@
                 
                   <h1>Status Codes</h1>
                 
-                <p>You can use error status codes to help your application deals with errors. The <strong>status</strong> code, if any, can be found in the error response event. Not all errors will return status codes. The default status of an error is -1.</p>
+                <p>Error <strong>status</strong> codes can help you shape your application logic. The status code, if any, can be found in the response event when an error occurs, in the event <code>status</code> key.</p>
+<p>Not all module methods return status codes. The default status of an error is -1.</p>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="c1">-- client-side response listener</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">onResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">status</span><span class="p">)</span> <span class="c1">-- error status code</span>
   <span class="kr">else</span>
@@ -1017,7 +1131,8 @@
 </pre></div>
 
 
-<h2 id="users">Users</h2>
+<h2 id="modules">Modules</h2>
+<h3 id="users">Users</h3>
 <table>
 <thead>
 <tr>
@@ -1039,12 +1154,24 @@
 <td>Registered User could not be found.</td>
 </tr>
 <tr>
+<td>605</td>
+<td>User requires server-side login.</td>
+</tr>
+<tr>
 <td>614</td>
 <td>Pending User could not be found.</td>
 </tr>
+<tr>
+<td>620</td>
+<td>OAuth provider already exists for user.</td>
+</tr>
+<tr>
+<td>624</td>
+<td>OAuth provider does not exist for user.</td>
+</tr>
 </tbody>
 </table>
-<h2 id="email">Email</h2>
+<h3 id="email">Email</h3>
 <table>
 <thead>
 <tr>
@@ -1063,7 +1190,50 @@
 </tr>
 </tbody>
 </table>
-<h2 id="database">Database</h2>
+<h3 id="general">General</h3>
+<table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>800</td>
+<td>Result was invalid.</td>
+</tr>
+<tr>
+<td>801</td>
+<td>Mismatched parameter type.</td>
+</tr>
+<tr>
+<td>804</td>
+<td>Required parameter is missing.</td>
+</tr>
+<tr>
+<td>810</td>
+<td>General API error.</td>
+</tr>
+<tr>
+<td>815</td>
+<td>General Network error.</td>
+</tr>
+<tr>
+<td>820</td>
+<td>General IO error.</td>
+</tr>
+<tr>
+<td>830</td>
+<td>JSON decode failed.</td>
+</tr>
+<tr>
+<td>831</td>
+<td>JSON encode failed.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mysql">MySQL</h3>
 <table>
 <thead>
 <tr>
@@ -1078,21 +1248,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="default">Default</h2>
-<table>
-<thead>
-<tr>
-<th>Code</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>-1</td>
-<td>Catch all error status code.</td>
-</tr>
-</tbody>
-</table>
+<h2 id="custom-status-codes">Custom Status Codes</h2>
+<p>If you are using a your own <a href="../../server/modules/api/">server-side API</a>, you can pass a custom status code using the <strong><a href="../../server/modules/api/#errors">core.error</a></strong> method.</p>
                 
                   
                 
@@ -1148,7 +1305,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | v2.3.2
+            &copy;2018 C. Byerley (develephant) | v2.4.0
           </div>
         
         powered by
