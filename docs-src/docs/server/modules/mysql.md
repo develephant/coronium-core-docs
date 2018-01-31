@@ -1383,3 +1383,11 @@ You can and should manage your MySQL databases using a standalone tool. Below ar
 - [HeidiSQL](https://www.heidisql.com/download.php) (Windows)
 
 To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.
+
+### Password Update
+
+To change your MySQL password log in your Coronium Core server and run:
+
+```sh
+sudo mysql-updatepw
+```

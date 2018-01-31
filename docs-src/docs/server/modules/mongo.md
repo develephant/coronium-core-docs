@@ -864,3 +864,11 @@ You can and should manage your Mongo databases using a standalone tool. Below ar
 - [Studio 3T](https://studio3t.com/download/)
 
 To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.
+
+### Password Update
+
+To change your MySQL password log in your Coronium Core server and run:
+
+```sh
+sudo mongo-updatepw
+```
