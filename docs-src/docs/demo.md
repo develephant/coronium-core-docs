@@ -2,7 +2,7 @@
 
 A simple Corona demo project showing a few Coronium Core client module features is available by clicking on the link below.
 
-__[Coronium Core Demo](https://coronium.nyc3.digitaloceanspaces.com/core/coronium-demo.zip)__
+__[Coronium Core Demo](https://s3.amazonaws.com/coronium-core/demo/coronium-demo.zip)__
 
 ## Usage
 
