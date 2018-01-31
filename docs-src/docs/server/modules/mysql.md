@@ -1386,7 +1386,7 @@ To connect to the MySQL database, use the host address of the server, and the pa
 
 ### Password Update
 
-To change your MySQL password log in your Coronium Core server and run:
+To change your MySQL password log in your Coronium Core server as and run:
 
 ```sh
 sudo mysql-updatepw
