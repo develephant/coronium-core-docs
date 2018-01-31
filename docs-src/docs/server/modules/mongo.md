@@ -867,7 +867,7 @@ To connect to the Mongo database, use the host address of the server, and the pa
 
 ### Password Update
 
-To change your MySQL password log in your Coronium Core server and run:
+To change your Mongo password log in your Coronium Core server and run:
 
 ```sh
 sudo mongo-updatepw
