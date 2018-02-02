@@ -961,26 +961,6 @@
             "title": "Asynchrous Request"
         },
         {
-            "location": "/server/modules/pages/config/",
-            "text": "Validation\n\n\nTo use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.\n\n\nCreate the script\n\n\nFirst make sure your Coronium Core server is running, and then create a new Corona project with the \nCoronium Core plugin\n.\n\n\nAdd the following code to the \nmain.lua\n, after the \ninitialzation\n code:\n\n\ncore\n.\npages\n.\ngenerateAuth\n(\nfunction\n(\nevt\n)\n\n  \ncore\n.\ndebug\n(\nevt\n)\n\n\nend\n)\n\n\n\n\n\n\nRun the script\n\n\nRun the Corona project. If all goes well, you should see \nresult: true\n output to the Corona console.\n\n\nYour Pages module is now validated, you don't need to run this code again for this Coronium Core server instance.\n\n\n\n\nImportant\n\n\nIf you reinstall or move your \nCoronium Core\n server you will need to revalidate.",
-            "title": "Configuration"
-        },
-        {
-            "location": "/server/modules/pages/config/#validation",
-            "text": "To use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.",
-            "title": "Validation"
-        },
-        {
-            "location": "/server/modules/pages/config/#create-the-script",
-            "text": "First make sure your Coronium Core server is running, and then create a new Corona project with the  Coronium Core plugin .  Add the following code to the  main.lua , after the  initialzation  code:  core . pages . generateAuth ( function ( evt ) \n   core . debug ( evt )  end )",
-            "title": "Create the script"
-        },
-        {
-            "location": "/server/modules/pages/config/#run-the-script",
-            "text": "Run the Corona project. If all goes well, you should see  result: true  output to the Corona console.  Your Pages module is now validated, you don't need to run this code again for this Coronium Core server instance.   Important  If you reinstall or move your  Coronium Core  server you will need to revalidate.",
-            "title": "Run the script"
-        },
-        {
             "location": "/server/modules/pages/ajax/",
             "text": "The following explains how to access data in an asynchronous manner via AJAX using the Pages module.\n\n\nPage Response Module\n\n\nYou will need to create a \"response\" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.\n\n\n\n\nServer-side Modules\n\n\nFor more advanced use cases you can access your custom server-side API modules in the response methods using \npage.callApi\n.\n\n\n\n\nDirectory Structure\n\n\npages/\n  mypage.html\n  pageapi.lua\n\n\n\n\n\nIn the \npageapi.lua\n we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the \npage.form\n object when using the POST method.\n\n\n\n\nPOST Method\n\n\nFor ease of use, you should always make your AJAX calls using the POST method.\n\n\n\n\npageapi.lua\n\n\nlocal\n \npage\n \n=\n \ncore\n.\npages\n.\nnew\n()\n\n\n\n--=============================================================================\n\n\n--== Response Methods\n\n\n--=============================================================================\n\n\nlocal\n \nfunction\n \ngetTimestamp\n(\ninput\n)\n\n\n  \nlocal\n \nres\n,\n \nerr\n \n=\n \ncore\n.\nmysql\n.\ntimestamp\n(\ninput\n.\ntime\n)\n\n\n  \nif\n \nnot\n \nres\n \nthen\n\n    \n-- Something went wrong, send 500 error\n\n    \npage\n.\nresponse\n(\n\"Error\"\n,\n \nnil\n,\n \nnil\n,\n \n500\n)\n\n  \nelse\n\n    \n-- JSON encode result, and respond as JSON type\n\n    \nlocal\n \nresult\n \n=\n \ncore\n.\njson\n.\nencode\n({\n \ntimestamp\n \n=\n \nres\n \n})\n\n    \npage\n.\nresponse\n(\nresult\n,\n \nnil\n,\n \npage\n.\nJSON\n)\n\n  \nend\n\n\nend\n\n\n\n--=============================================================================\n\n\n--== Handle incoming request\n\n\n--=============================================================================\n\n\n\nlocal\n \naction\n\n\n\n--== Incoming values are in the `page.form` object\n\n\nif\n \npage\n.\nform\n \nthen\n\n  \n-- The `action` is a value we pass from the AJAX call\n\n  \naction\n \n=\n \npage\n.\nform\n.\naction\n\n\nend\n\n\n\n--== Drive application logic based on `action`\n\n\nif\n \naction\n \n==\n \n'get-timestamp'\n \nthen\n\n\n  \n-- Call our response method created above\n\n  \n-- and pass the `page.form` object\n\n  \ngetTimestamp\n(\npage\n.\nform\n)\n\n\n\nelseif\n \naction\n \n==\n \n'some-other-action'\n \nthen\n\n  \n--== You can add additional logic using `elseif`\n\n\nelse\n\n  \n-- No `action` or unknown\n\n  \npage\n.\nresponse\n(\n\"Bad Action\"\n,\n \nnil\n,\n \nnil\n,\n \n500\n)\n\n\nend\n\n\n\n\n\n\nExamples\n\n\nXMLHttpRequest\n\n\n<!DOCTYPE html>\n\n\n<\nhtml\n>\n\n\n<\nbody\n>\n\n  \n<\nh1\n>\nThe XMLHttpRequest Object\n</\nh1\n>\n\n\n  \n<\ndiv\n \nid\n=\n\"demo\"\n>\n\n\n    \n<!-- Post to `pageapi`, no .lua extension -->\n\n    \n<\nbutton\n \ntype\n=\n\"button\"\n\n    \nonclick\n=\n\"loadDoc('pageapi', myFunction)\"\n>\nGet MySQL Timestamp\n    \n</\nbutton\n>\n\n\n  \n</\ndiv\n>\n\n\n  \n<\nscript\n>\n\n    \nfunction\n \nloadDoc\n(\nurl\n,\n \ncFunction\n)\n \n{\n\n      \n//Get UNIX time\n\n      \nvar\n \ntime\n \n=\n \nMath\n.\nfloor\n(\nDate\n.\nnow\n()\n \n/\n \n1000\n);\n\n\n      \nvar\n \nxhttp\n;\n\n\n      \nxhttp\n=\nnew\n \nXMLHttpRequest\n();\n\n\n      \nxhttp\n.\nonreadystatechange\n \n=\n \nfunction\n()\n \n{\n\n        \nif\n \n(\nthis\n.\nreadyState\n \n==\n \n4\n \n&&\n \nthis\n.\nstatus\n \n==\n \n200\n)\n \n{\n\n          \ncFunction\n(\nthis\n);\n\n        \n}\n\n      \n};\n\n\n      \nxhttp\n.\nopen\n(\n\"POST\"\n,\n \nurl\n,\n \ntrue\n);\n\n\n      \n//Set `action` and `time` parameters here\n\n      \nxhttp\n.\nsend\n(\n\"action=get-timestamp&time=\"\n+\ntime\n);\n\n    \n}\n\n\n    \nfunction\n \nmyFunction\n(\nxhttp\n)\n \n{\n\n      \ndocument\n.\ngetElementById\n(\n\"demo\"\n).\ninnerHTML\n \n=\n \n      \nJSON\n.\nparse\n(\nxhttp\n.\nresponseText\n).\ntimestamp\n;\n\n    \n}\n\n  \n</\nscript\n>\n\n\n</\nbody\n>\n\n\n</\nhtml\n>\n\n\n\n\n\n\nQwest Library\n\n\nI personally prefer using the \nqwest\n library, as it uses JSON natively, making it easier to work with.\n\n\n<!DOCTYPE html>\n\n\n<\nhtml\n>\n\n\n<\nhead\n>\n\n\n<\nscript\n \nsrc\n=\n\"https://cdnjs.cloudflare.com/ajax/libs/qwest/4.5.0/qwest.min.js\"\n></\nscript\n>\n\n\n</\nhead\n>\n\n  \n<\nbody\n>\n\n\n  \n<\nh1\n>\nThe Qwest Library\n</\nh1\n>\n\n\n  \n<\ndiv\n \nid\n=\n\"demo\"\n>\n\n    \n<\nbutton\n \ntype\n=\n\"button\"\n \nonclick\n=\n\"loadDoc()\"\n>\nGet MySQL Timestamp\n</\nbutton\n>\n\n  \n</\ndiv\n>\n\n\n  \n<\nscript\n>\n\n    \nfunction\n \nloadDoc\n()\n \n{\n\n      \n//Post to `pageapi`, no .lua extension\n\n      \nqwest\n.\npost\n(\n'pageapi'\n,\n \n{\n\n        \n//Set `action` and `time` values here\n\n        \naction\n:\n \n'get-timestamp'\n,\n\n        \ntime\n:\n \nMath\n.\nfloor\n(\nDate\n.\nnow\n()\n \n/\n \n1000\n)\n\n     \n})\n\n     \n.\nthen\n(\nfunction\n(\nxhr\n,\n \nresponse\n)\n \n{\n\n        \ndocument\n.\ngetElementById\n(\n\"demo\"\n).\ninnerHTML\n \n=\n \nresponse\n.\ntimestamp\n;\n\n     \n})\n\n     \n.\ncatch\n(\nfunction\n(\ne\n,\n \nxhr\n,\n \nresponse\n)\n \n{\n\n        \n// Process the error\n\n     \n});\n\n    \n}\n\n  \n</\nscript\n>\n\n\n  \n</\nbody\n>\n\n\n</\nhtml\n>\n\n\n\n\n\n\nExample Files\n\n\nYou can download these example files by \nclicking here\n.",
             "title": "Using AJAX"
@@ -1014,6 +994,26 @@
             "location": "/server/modules/pages/ajax/#example-files",
             "text": "You can download these example files by  clicking here .",
             "title": "Example Files"
+        },
+        {
+            "location": "/server/modules/pages/config/",
+            "text": "Validation\n\n\nTo use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.\n\n\nCreate the script\n\n\nFirst make sure your Coronium Core server is running, and then create a new Corona project with the \nCoronium Core plugin\n.\n\n\nAdd the following code to the \nmain.lua\n, after the \ninitialzation\n code:\n\n\ncore\n.\npages\n.\ngenerateAuth\n(\nfunction\n(\nevt\n)\n\n  \ncore\n.\ndebug\n(\nevt\n)\n\n\nend\n)\n\n\n\n\n\n\nRun the script\n\n\nRun the Corona project. If all goes well, you should see \nresult: true\n output to the Corona console.\n\n\nYour Pages module is now validated, you don't need to run this code again for this Coronium Core server instance.\n\n\n\n\nImportant\n\n\nIf you reinstall or move your \nCoronium Core\n server you will need to revalidate.",
+            "title": "Configuration"
+        },
+        {
+            "location": "/server/modules/pages/config/#validation",
+            "text": "To use Coronium Pages you will need to validate the server module against your Coronium Core plugin. This is a one-time process, and is done using a quick call through a Corona project.",
+            "title": "Validation"
+        },
+        {
+            "location": "/server/modules/pages/config/#create-the-script",
+            "text": "First make sure your Coronium Core server is running, and then create a new Corona project with the  Coronium Core plugin .  Add the following code to the  main.lua , after the  initialzation  code:  core . pages . generateAuth ( function ( evt ) \n   core . debug ( evt )  end )",
+            "title": "Create the script"
+        },
+        {
+            "location": "/server/modules/pages/config/#run-the-script",
+            "text": "Run the Corona project. If all goes well, you should see  result: true  output to the Corona console.  Your Pages module is now validated, you don't need to run this code again for this Coronium Core server instance.   Important  If you reinstall or move your  Coronium Core  server you will need to revalidate.",
+            "title": "Run the script"
         },
         {
             "location": "/server/modules/template/",
