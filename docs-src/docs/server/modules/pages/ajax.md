@@ -4,9 +4,6 @@ The following explains how to access data in an asynchronous manner via AJAX usi
 
 You will need to create a "response" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.
 
-!!! info "Server-side Modules"
-    For more advanced use cases you can access your custom server-side API modules in the response methods using __[page.callApi](/server/modules/pages/api/#callapi)__.
-
 __Directory Structure__
 
 ```text
@@ -69,6 +66,9 @@ else
 end
 
 ```
+
+!!! info "Server-side Modules"
+    For more advanced use cases you can access your custom server-side API modules in the response methods using __[page.callApi](/server/modules/pages/api/#callapi)__.
 
 ## Examples
 

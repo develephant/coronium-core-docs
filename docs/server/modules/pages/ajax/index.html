@@ -1152,10 +1152,6 @@
                 <p>The following explains how to access data in an asynchronous manner via AJAX using the Pages module.</p>
 <h2 id="page-response-module">Page Response Module</h2>
 <p>You will need to create a "response" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.</p>
-<div class="admonition info">
-<p class="admonition-title">Server-side Modules</p>
-<p>For more advanced use cases you can access your custom server-side API modules in the response methods using <strong><a href="../../../../server/modules/pages/api/#callapi">page.callApi</a></strong>.</p>
-</div>
 <p><strong>Directory Structure</strong></p>
 <div class="codehilite"><pre><span></span>pages/
   mypage.html
@@ -1216,6 +1212,10 @@
 </pre></div>
 
 
+<div class="admonition info">
+<p class="admonition-title">Server-side Modules</p>
+<p>For more advanced use cases you can access your custom server-side API modules in the response methods using <strong><a href="../../../../server/modules/pages/api/#callapi">page.callApi</a></strong>.</p>
+</div>
 <h2 id="examples">Examples</h2>
 <h3 id="xmlhttprequest">XMLHttpRequest</h3>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
