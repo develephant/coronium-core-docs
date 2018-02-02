@@ -8,7 +8,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/modules/pages/api/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/modules/pages/ajax/">
       
       
       
@@ -18,7 +18,7 @@
     
     
       
-        <title>Pages API - Coronium Core</title>
+        <title>Using AJAX - Coronium Core</title>
       
     
     
@@ -88,7 +88,7 @@
                 </span>
               
             
-            Pages API
+            Using AJAX
           
         </span>
       </div>
@@ -526,78 +526,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Pages API
-      </label>
-    
-    <a href="./" title="Pages API" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../api/" title="Pages API" class="md-nav__link">
       Pages API
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#new" title="new" class="md-nav__link">
-    new
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#response" title="response" class="md-nav__link">
-    response
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#template" title="template" class="md-nav__link">
-    template
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#redirect" title="redirect" class="md-nav__link">
-    redirect
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status" title="status" class="md-nav__link">
-    status
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#callapi" title="callApi" class="md-nav__link">
-    callApi
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -641,11 +574,90 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../ajax/" title="Using AJAX" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Using AJAX
+      </label>
+    
+    <a href="./" title="Using AJAX" class="md-nav__link md-nav__link--active">
       Using AJAX
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#page-response-module" title="Page Response Module" class="md-nav__link">
+    Page Response Module
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pageapilua" title="pageapi.lua" class="md-nav__link">
+    pageapi.lua
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xmlhttprequest" title="XMLHttpRequest" class="md-nav__link">
+    XMLHttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qwest-library" title="Qwest Library" class="md-nav__link">
+    Qwest Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-files" title="Example Files" class="md-nav__link">
+    Example Files
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -1067,43 +1079,55 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#new" title="new" class="md-nav__link">
-    new
+  <a href="#page-response-module" title="Page Response Module" class="md-nav__link">
+    Page Response Module
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pageapilua" title="pageapi.lua" class="md-nav__link">
+    pageapi.lua
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#response" title="response" class="md-nav__link">
-    response
+  <a href="#examples" title="Examples" class="md-nav__link">
+    Examples
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#xmlhttprequest" title="XMLHttpRequest" class="md-nav__link">
+    XMLHttpRequest
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qwest-library" title="Qwest Library" class="md-nav__link">
+    Qwest Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template" title="template" class="md-nav__link">
-    template
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#redirect" title="redirect" class="md-nav__link">
-    redirect
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#status" title="status" class="md-nav__link">
-    status
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#callapi" title="callApi" class="md-nav__link">
-    callApi
+  <a href="#example-files" title="Example Files" class="md-nav__link">
+    Example Files
   </a>
   
 </li>
@@ -1123,353 +1147,161 @@
               
                 
                 
-                  <h1>Pages API</h1>
+                  <h1>Using AJAX</h1>
                 
-                <p>Provides methods to handle web based requests, and issue responses. For full usage instructions see the <strong><a href="../../../../server/modules/pages/usage/">Usage</a></strong> section.</p>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p><strong>See the</strong> <strong><a href="../../../../server/modules/pages/config/">Configuration</a></strong> <strong>section before attempting to use pages.</strong></p>
+                <p>The following explains how to access data in an asynchronous manner via AJAX using the Pages module.</p>
+<h2 id="page-response-module">Page Response Module</h2>
+<p>You will need to create a "response" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.</p>
+<div class="admonition info">
+<p class="admonition-title">Server-side Modules</p>
+<p>For more advanced use cases you can access your custom server-side API modules in the response methods using <strong><a href="../../../../server/modules/pages/api/#callapi">page.callApi</a></strong>.</p>
 </div>
-<div class="admonition tip">
-<p class="admonition-title">Screencasts Available</p>
-<p>Get an overview of using the Pages API in a screencast format. <strong><a href="../../../../screencasts/#pages-api-part-i">Click here for Part I</a></strong>. <strong><a href="../../../../screencasts/#pages-api-part-ii">Click here for Part II</a></strong>.</p>
-</div>
-<h3 id="new">new</h3>
-<p>Creates a new <strong>pages</strong> object instance.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
+<p><strong>Directory Structure</strong></p>
+<div class="codehilite"><pre><span></span>pages/
+  mypage.html
+  pageapi.lua
 </pre></div>
 
 
-<p><strong>Parameters</strong></p>
-<p>This method has no required parameters.</p>
-<p><strong>Properties</strong></p>
-<p>A <strong>pages</strong> object instance may contain the following properties.</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hasQuery</td>
-<td>If the request contains a query string.</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>hasForm</td>
-<td>If the request body is a form.</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>hasBody</td>
-<td>If the request contains body data.</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>isGet</td>
-<td>If the request is of type "GET".</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>isPost</td>
-<td>If the request is of type "POST".</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>isAjax</td>
-<td>If the request is an ajax style request.</td>
-<td><em>Boolean</em></td>
-</tr>
-<tr>
-<td>query</td>
-<td>The request query string as key/value pairs.</td>
-<td><em>Table</em></td>
-</tr>
-<tr>
-<td>form</td>
-<td>Contains the form data as key/value pairs.</td>
-<td><em>Table</em></td>
-</tr>
-<tr>
-<td>body</td>
-<td>If not a form, will contain string body, if any.</td>
-<td><em>String</em></td>
-</tr>
-<tr>
-<td>method</td>
-<td>The request method. Will be "GET" or "POST".</td>
-<td><em>String</em></td>
-</tr>
-<tr>
-<td>headers</td>
-<td>The request headers as key/value pairs.</td>
-<td><em>Table</em></td>
-</tr>
-<tr>
-<td>path</td>
-<td>The uri request path.</td>
-<td><em>String</em></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Constants</strong></p>
-<p>The <strong>pages</strong> object has the following constants available.</p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Value</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>GET</td>
-<td>The GET HTTP method.</td>
-<td>"GET"</td>
-</tr>
-<tr>
-<td>POST</td>
-<td>The POST HTTP method.</td>
-<td>"POST"</td>
-</tr>
-<tr>
-<td>HTML</td>
-<td>The HTML content type.</td>
-<td>"text/html"</td>
-</tr>
-<tr>
-<td>JSON</td>
-<td>The JSON content type.</td>
-<td>"application/json"</td>
-</tr>
-<tr>
-<td>TEXT</td>
-<td>The plain text content type.</td>
-<td>"text/plain"</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
+<p>In the <code>pageapi.lua</code> we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the <code>page.form</code> object when using the POST method.</p>
+<div class="admonition note">
+<p class="admonition-title">POST Method</p>
+<p>For ease of use, you should always make your AJAX calls using the POST method.</p>
+</div>
+<h3 id="pageapilua">pageapi.lua</h3>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
+
+<span class="c1">--=============================================================================</span>
+<span class="c1">--== Response Methods</span>
+<span class="c1">--=============================================================================</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">getTimestamp</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">time</span><span class="p">)</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="kr">then</span>
+    <span class="c1">-- Something went wrong, send 500 error</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="c1">-- JSON encode result, and respond as JSON type</span>
+    <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">({</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">res</span> <span class="p">})</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="c1">--=============================================================================</span>
+<span class="c1">--== Handle incoming request</span>
+<span class="c1">--=============================================================================</span>
+
+<span class="kd">local</span> <span class="n">action</span>
+
+<span class="c1">--== Incoming values are in the `page.form` object</span>
+<span class="kr">if</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span> <span class="kr">then</span>
+  <span class="c1">-- The `action` is a value we pass from the AJAX call</span>
+  <span class="n">action</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">action</span>
+<span class="kr">end</span>
+
+<span class="c1">--== Drive application logic based on `action`</span>
+<span class="kr">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;get-timestamp&#39;</span> <span class="kr">then</span>
+
+  <span class="c1">-- Call our response method created above</span>
+  <span class="c1">-- and pass the `page.form` object</span>
+  <span class="n">getTimestamp</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">)</span>
+
+<span class="kr">elseif</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;some-other-action&#39;</span> <span class="kr">then</span>
+  <span class="c1">--== You can add additional logic using `elseif`</span>
+<span class="kr">else</span>
+  <span class="c1">-- No `action` or unknown</span>
+  <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Bad Action&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+<span class="kr">end</span>
 </pre></div>
 
 
-<h3 id="response">response</h3>
-<p>Sends the configured response back to the client browser. </p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">][,</span> <span class="n">content</span><span class="p">][,</span> <span class="n">status</span><span class="p">])</span>
+<h2 id="examples">Examples</h2>
+<h3 id="xmlhttprequest">XMLHttpRequest</h3>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>The XMLHttpRequest Object<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demo&quot;</span><span class="p">&gt;</span>
+
+    <span class="c">&lt;!-- Post to `pageapi`, no .lua extension --&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+    <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;loadDoc(&#39;pageapi&#39;, myFunction)&quot;</span><span class="p">&gt;</span>Get MySQL Timestamp
+    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">loadDoc</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">cFunction</span><span class="p">)</span> <span class="p">{</span>
+      <span class="c1">//Get UNIX time</span>
+      <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+
+      <span class="kd">var</span> <span class="nx">xhttp</span><span class="p">;</span>
+
+      <span class="nx">xhttp</span><span class="o">=</span><span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+
+      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+          <span class="nx">cFunction</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="p">}</span>
+      <span class="p">};</span>
+
+      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+
+      <span class="c1">//Set `action` and `time` parameters here</span>
+      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;action=get-timestamp&amp;time=&quot;</span><span class="o">+</span><span class="nx">time</span><span class="p">);</span>
+    <span class="p">}</span>
+
+    <span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> 
+      <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">).</span><span class="nx">timestamp</span><span class="p">;</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>body</td>
-<td>The data to output to the client browser.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>headers</td>
-<td>Additional headers to send to the client browser.</td>
-<td><em>Table</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>content</td>
-<td>The content-type to output to the client browser.</td>
-<td><em><a href="../../../../server/modules/pages/usage/#responses">Const</a></em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>status</td>
-<td>Numerical http status code to output to the client browser.</td>
-<td><em>Number</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>One this method is called, the response phase will end. You cannot issue a <a href="#result">redirect</a> or <a href="#status">status</a> after calling this method.</p>
-</div>
-<div class="admonition info">
-<p>For more detailed examples see the <strong><a href="../../../../server/modules/pages/usage/">Usage</a></strong> section.</p>
-</div>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Hello There&quot;</span><span class="p">)</span>
+<h3 id="qwest-library">Qwest Library</h3>
+<p>I personally prefer using the <strong><a href="https://github.com/pyrsmk/qwest">qwest</a></strong> library, as it uses JSON natively, making it easier to work with.</p>
+<div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;https://cdnjs.cloudflare.com/ajax/libs/qwest/4.5.0/qwest.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>The Qwest Library<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demo&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span> <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;loadDoc()&quot;</span><span class="p">&gt;</span>Get MySQL Timestamp<span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+    <span class="kd">function</span> <span class="nx">loadDoc</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">//Post to `pageapi`, no .lua extension</span>
+      <span class="nx">qwest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;pageapi&#39;</span><span class="p">,</span> <span class="p">{</span>
+        <span class="c1">//Set `action` and `time` values here</span>
+        <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;get-timestamp&#39;</span><span class="p">,</span>
+        <span class="nx">time</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+     <span class="p">})</span>
+     <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">xhr</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> <span class="nx">response</span><span class="p">.</span><span class="nx">timestamp</span><span class="p">;</span>
+     <span class="p">})</span>
+     <span class="p">.</span><span class="k">catch</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">xhr</span><span class="p">,</span> <span class="nx">response</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">// Process the error</span>
+     <span class="p">});</span>
+    <span class="p">}</span>
+  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
-<h3 id="template">template</h3>
-<p>Compiles a template file with the supplied values. Returns <strong>string</strong> body, or nil and error.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="n">tpl_file</span><span class="p">,</span> <span class="n">tpl_values</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>tpl_file</td>
-<td>The template file name.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>tpl_values</td>
-<td>Values for the template.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition info">
-<p>For detailed template usage information see the <strong><a href="../../../../server/modules/pages/templates/">Templates</a></strong> section.</p>
-</div>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">template</span><span class="p">(</span><span class="s2">&quot;greeting.tpl&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
-</pre></div>
-
-
-<h3 id="redirect">redirect</h3>
-<p>Redirect the client browser to a different location.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="n">uri</span><span class="p">[,</span> <span class="n">isPerm</span><span class="p">])</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uri</td>
-<td>The address to redirect the client browser to.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>isPerm</td>
-<td>Whether this is a premanent redirect. Default: <strong>false</strong></td>
-<td><em>Boolean</em></td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>One this method is called, the response phase will end. You cannot issue a <a href="#response">response</a> or <a href="#status">status</a> after calling this method.</p>
-</div>
-<div class="admonition tip">
-<p>The uri can be a remote address, for example: <em>https://google.com</em></p>
-</div>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">page</span><span class="p">.</span><span class="n">redirect</span><span class="p">(</span><span class="s2">&quot;/anotherpage&quot;</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="status">status</h3>
-<p>End the response by sending an HTTP status code to the client browser.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="n">code</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>code</td>
-<td>HTTP numerical status code (<a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">reference</a>).</td>
-<td><em>Number</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<div class="admonition warning">
-<p class="admonition-title">Important</p>
-<p>One this method is called, the response phase will end. You cannot issue a <a href="#response">response</a> or <a href="#result">redirect</a> after calling this method.</p>
-</div>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="c1">--send `Unauthorized` status</span>
-<span class="n">page</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="mi">401</span><span class="p">)</span>
-</pre></div>
-
-
-<h3 id="callapi">callApi</h3>
-<p>Call a method on a project api endpoint that was built using the <strong><a href="../../../../server/modules/api/#coreapi">core.api</a></strong>.</p>
-<div class="codehilite"><pre><span></span><span class="o">&lt;</span><span class="n">page</span><span class="o">-</span><span class="n">object</span><span class="o">&gt;</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="n">project</span><span class="p">,</span> <span class="n">action</span><span class="p">,</span> <span class="n">data_params</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>project</td>
-<td>The name of the api project.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>action</td>
-<td>The name of the api method to call.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>data_params</td>
-<td>Values to pass to the api method.</td>
-<td><em>Table</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">callApi</span><span class="p">(</span><span class="s2">&quot;default&quot;</span><span class="p">,</span> <span class="s2">&quot;test&quot;</span><span class="p">,</span> <span class="p">{</span><span class="n">greet</span><span class="o">=</span><span class="s2">&quot;Hello!&quot;</span><span class="p">})</span>
-</pre></div>
+<h2 id="example-files">Example Files</h2>
+<p>You can download these example files by <strong><a href="https://s3.amazonaws.com/coronium-core/examples/ajax-pages.zip">clicking here</a></strong>.</p>
                 
                   
                 
@@ -1488,7 +1320,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../network/" title="Network" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../config/" title="Configuration" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1497,19 +1329,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Network
+                Configuration
               </span>
             </div>
           </a>
         
         
-          <a href="../usage/" title="Usage" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../template/" title="Template" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Usage
+                Template
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">

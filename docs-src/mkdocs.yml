@@ -29,7 +29,8 @@ pages:
         - 'Pages API': 'server/modules/pages/api.md'
         - 'Usage': 'server/modules/pages/usage.md'
         - 'Templates': 'server/modules/pages/templates.md'
-        - 'Configuration': 'server/modules/pages/config.md'        
+        - 'Configuration': 'server/modules/pages/config.md'
+        - 'Using AJAX': 'server/modules/pages/ajax.md'
       - 'Template': 'server/modules/template.md'
       - 'Users': 
         - 'Users API': 'server/modules/users/api.md'
