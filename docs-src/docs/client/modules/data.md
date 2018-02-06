@@ -34,7 +34,7 @@ local function apiListener( evt )
   if evt.error then
     print(evt.error)
   else
-    print(evt.result.<key>) -- result holds the data object
+    core.debug(evt.result) -- result holds the data object
   end
 end
 

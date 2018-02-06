@@ -249,7 +249,7 @@ __DigitalOcean Updater__
 Paste the following one-liner into your terminal to start the DigitalOcean update:
 
 ```
-wget http://update.coroniumcore.com/v2.4.0/do/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do.sh && sudo bash do.sh
 ```
 
 __Amazon EC2 Updater__
@@ -260,7 +260,7 @@ __Amazon EC2 Updater__
 Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
-wget http://update.coroniumcore.com/v2.4.0/ec2/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2.sh && sudo bash ec2.sh
 ```
 
 ## Webmin HTTPS/SSL
