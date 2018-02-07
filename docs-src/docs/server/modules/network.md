@@ -74,7 +74,7 @@ if not resp then
   core.log(err)
 end
 
-core.log(resp)
+core.log(resp.body)
 ```
 
 ### post
@@ -103,7 +103,7 @@ if not resp then
   core.log(err)
 end
 
-core.log(resp)
+core.log(resp.body)
 ```
 
 See also: [Form Example](#form-example)
@@ -171,7 +171,7 @@ if not resp then
   core.log(err)
 end
 
-core.log(resp)
+core.log(resp.body)
 ```
 
 ### encode
