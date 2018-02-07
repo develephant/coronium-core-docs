@@ -289,9 +289,9 @@ __Webmin 1.3.0__
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
 !!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
+    You must be logged in as the __root__ user to run the updater or it may fail.
 
-Paste the following one-liner into your terminal to start the DigitalOcean update:
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
@@ -300,9 +300,9 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
 
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
