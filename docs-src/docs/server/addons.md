@@ -8,7 +8,7 @@ Installs the PHP-FPM 7.x executable.
 
 Place `.php` files in the __/home/coronium/php__ directory via SFTP as the __coronium__ user.
 
-PHP is only accessable internally via server-side API using the `core.run` method.
+PHP is only accessable internally via server-side API using the `core.run` or `core.network.request` methods.
 
 ### Installation
 
@@ -44,7 +44,7 @@ end
 return api
 ```
 
-Using `core.network`
+Using `core.network.request`
 
 ```lua
 local api = core.api()

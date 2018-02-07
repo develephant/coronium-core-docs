@@ -1182,7 +1182,7 @@
 <h2 id="php-fpm"><i class="fab fa-php"></i> PHP-FPM</h2>
 <p>Installs the PHP-FPM 7.x executable. </p>
 <p>Place <code>.php</code> files in the <strong>/home/coronium/php</strong> directory via SFTP as the <strong>coronium</strong> user.</p>
-<p>PHP is only accessable internally via server-side API using the <code>core.run</code> method.</p>
+<p>PHP is only accessable internally via server-side API using the <code>core.run</code> or <code>core.network.request</code> methods.</p>
 <h3 id="installation">Installation</h3>
 <div class="admonition danger">
 <p class="admonition-title">Root User Required</p>
@@ -1214,7 +1214,7 @@
 </pre></div>
 
 
-<p>Using <code>core.network</code></p>
+<p>Using <code>core.network.request</code></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
 
 <span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">phpinfo</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
