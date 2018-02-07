@@ -38,6 +38,7 @@ pages:
         - 'OAuth Users': 'server/modules/users/oauthusers.md'
       - 'Utils': 'server/modules/utils.md'
     - 'Updates': 'server/updates.md'  
+    - 'Add-ons': 'server/addons.md'
   - 'Core Client':
       - 'Usage': 'client/guide/index.md'
       - 'Modules':
@@ -59,23 +60,29 @@ pages:
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
-copyright: "&copy;2018 C. Byerley (develephant) | v2.4.0"
-theme: material
-site_url: https://develephant.github.io/coronium-core-docs
-site_favicon: 'imgs/favicon.ico'
-site_dir: ../docs
-extra:
-  logo: 'imgs/rnd-dev.png'
-  social:
-    - type: 'support'
-      link: 'https://forums.coronalabs.com/forum/643-coronium/'
-    - type: 'twitter'
-      link: 'https://twitter.com/develephant'
-    - type: 'globe'
-      link: 'http://develephant.com'
+copyright: "&copy;2018 C. Byerley (develephant)"
+theme: 
+  name: 'material'
+  favicon: 'imgs/favicon.ico'
   palette:
     primary: 'blue'
     accent: 'deep-orange'
+  logo: 'imgs/rnd-dev.png'
+  custom_dir: 'custom_theme'
+  feature:
+    tabs: false
+site_url: https://develephant.github.io/coronium-core-docs
+site_dir: ../docs
+extra:
+  social:
+    - type: 'far fa-life-ring'
+      link: 'https://forums.coronalabs.com/forum/643-coronium/'
+    - type: 'fab fa-twitter'
+      link: 'https://twitter.com/develephant'
+    - type: 'fas fa-globe'
+      link: 'http://develephant.com'
+  version: 'v2.4.1'
 markdown_extensions:
   - admonition
-  - codehilite
+  - codehilite:
+      guess_lang: false

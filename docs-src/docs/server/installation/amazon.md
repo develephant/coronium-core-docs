@@ -1,3 +1,5 @@
+# <i class="fab fa-amazon"></i> Amazon EC2
+
 __Coronium Core__ server is eligible for the EC2 free tier using Amazon Web Services.
 
 !!! warning "AWS Experience Required"

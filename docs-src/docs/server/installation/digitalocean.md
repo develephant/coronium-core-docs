@@ -1,3 +1,5 @@
+# <i class="fab fa-digital-ocean"></i> DigitalOcean
+
 __Coronium Core__ runs best on a __[DigitalOcean](https://m.do.co/c/cddeeddbbdb8) Ubuntu 16.04__ droplet.
 
 !!! note "Screencast Available"

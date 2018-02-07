@@ -151,7 +151,7 @@ __Updated__
 
   - __core.users__ `extra` storage increased significantly.
 
-__DigitalOcean Updater__
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
 !!! fail ""
     You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
@@ -162,7 +162,7 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh && sudo bash ./update.sh
 ```
 
-__Amazon EC2 Updater__
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! fail ""
     You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
@@ -241,7 +241,7 @@ __Webmin Update 1.2__
 
   - Lots of updates and fixes both under and over the hood.
 
-__DigitalOcean Updater__
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
 !!! danger "Root User Required"
     You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
@@ -252,7 +252,7 @@ Paste the following one-liner into your terminal to start the DigitalOcean updat
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do.sh && sudo bash do.sh
 ```
 
-__Amazon EC2 Updater__
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
     You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
@@ -261,6 +261,51 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2.sh && sudo bash ec2.sh
+```
+
+### 2.4.0 to 2.4.1
+
+The following will update your Coronium Core 2.4.0 server to version 2.4.1
+
+__Added__
+
+  - Userland __nginx__ config directories for server add-ons (like PHP, etc).
+  - Safety to make sure an update is applicable to the installed version.
+  - _Using AJAX with the Pages API_ in the [documentation](/server/modules/pages/ajax/).
+
+__Updated__
+
+  - __Nginx__ config updated for better throughput at high loads.
+
+__Webmin 1.3.0__
+
+ - New __System__ section added to show general system information.
+ - New version alert added to show when a new version is available.
+ - Safety to make sure unsaved code is not lost before leaving the code editor.
+ - Unsaved code is automatically saved if the editor is left idle for more than 60 seconds.
+ - You can now download a .zip archive of your current API projects in the __System__ section.
+ - Various cosmetic changes and updates.
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
+```
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
+
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
 ```
 
 ## Webmin HTTPS/SSL

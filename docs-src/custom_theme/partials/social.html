@@ -1,0 +1,7 @@
+{% if config.extra.social %}
+  <div class="md-footer-social">
+    {% for social in config.extra.social %}
+      <a href="{{ social.link }}" class="md-footer-social__link"><i class="{{ social.type }}"></i></a>
+    {% endfor %}
+  </div>
+{% endif %}
