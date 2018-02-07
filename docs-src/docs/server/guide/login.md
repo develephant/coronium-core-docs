@@ -1,6 +1,6 @@
-To log into your Coronium Core server, Using a terminal/shell of your choice, SSH in with the __coronium__ user.
+To log in to your Coronium Core server, using a terminal/shell of your choice, SSH with the __coronium__ user.
 
-```
+```text
 ssh coronium@<server-ip-or-domain>
 ```
 

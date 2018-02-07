@@ -2,175 +2,53 @@ It's a good idea to keep your Coronium Core server up to date with the latest re
 
 ## Check your version
 
-Using the [Coronium Tool](/server/guide/usage/#coronium-tool), check the current version by running `coronium status` on the command line.
-
-!!! tip "Webmin"
-    You can also check the version using the __[Webmin](/server/webmin/setup/)__ by viewing the "config" section.
-
-## Log in as root
-
-You must log in as the __root__ user to perform an update on the server.
+Check your current version using the __[Webmin](/server/webmin/setup/)__ and viewing the __System__ section.
 
 ## Select an update
 
-Listed below are one-liners specific to the versions for updating. Make sure to select the proper update based on your current version.
+### 2.4.0 to 2.4.1
 
-### 2.0.2 to 2.0.3
-
-!!! info "Availability Notice"
-    This version/update is no longer supported, but is available by request.
-
-__Fixed__
-
-- Temp cache body file now works properly for large payloads.
-- Pages `response` method returns a status properly when provided.
+The following will update your Coronium Core 2.4.0 server to version 2.4.1
 
 __Added__
 
-- Pages `status` convienence method added to quickly return a status code other than 200.
-- Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
-
-### 2.0.3 to 2.1.0
-
-!!! info "Availability Notice"
-    This version/update is no longer supported, but is available by request.
-
-__Added__
-
-- Browser based web admin for informational data in regards to app usage, users, device metrics, minor administration, and more.
-- Browser based code editor for building server-side project APIs.
-- Client-side Users module for user registration, login tracking, and optional customizable email confirmations.
-- Client-side Analytics module to collect usage statistics and device metrics.
-- Server-side Email module for sending email via Mailgun.
-- Server-side Template module for resuable customized output.
-- CORS support for the Pages module.
-- MySQL EZ Query method `selectOne` added for simple single record retrieval.
-- MySQL EZ Query method `insertMany` added for optimized multi-record insertion.
-- Various date and time utility methods for the MySQL module.
-- Ability to adjust Corona network client-side timeout for large workloads.
-- Ability to adjust MySQL server-side timeout for large workloads.
-
-### 2.1.0 to 2.1.1
-
-!!! info "Availability Notice"
-    This version/update is no longer supported, but is available by request.
-
-__Added__
-
-- Full support for multiple applications with separate scope for users and metrics.
-- Webmin "Today" view for global application usage metrics for the current day.
-
-### 2.1.1 to 2.2.0
-
-!!! info "Availability Notice"
-    This version/update is no longer supported, but is available by request.
-
-__Added__
-
-- __[resendConfirmation](/client/modules/users/api/#resendconfirmation)__ method added to the Users module, to resend a confirmation email.
-
-- Users "extra" metadata now supports boolean types.
-
-__Fixed__
-
-- Documentation links in the Webmin now resolve properly.
-
-__API Changes__
-
-`users.login`
-
-The client-side Users module __[login](/client/modules/users/api/#login)__ response has changed. See the __[Logging In](/client/modules/users/login/)__ section of the documentation for more information.
-
-`users.create`
-
-The client-side Users module __[create](/client/modules/users/api/#create)__ response has changed. See the __[Creating](/client/modules/users/creating/)__ users section of the documentation for more information.
-
-### 2.2.0 to 2.3.0
-
-The following will update your Coronium Core 2.2.0 server to version 2.3.0
-
-__Added__
-
-  - The EZ Query MySQL module methods __selectBatch__, __insertBatch__, __updateMany__, __updateBatch__, __deleteMany__, and __deleteBatch__ have been added for optimized performance, reduced network calls, and simplification of code when working with multiple query entries; particularly on the client-side. See the client-side __[MySQL module](/client/modules/mysql/)__ documentation for more details. See also __[Optimized Methods](/client/modules/mysql/#optimized-methods)__.
-
-  - The server-side MySQL module methods __dbConnect__, __dbQuery__, and __dbClose__ have been added for advanced control over the database connection, allowing for highly performant queries. See __[Advanced Methods](/server/modules/mysql/#advanced-methods)__ for more information.
-
-  - The ability to fine tune the Coronium MySQL server configuration, which has been consolidated into a single file. See the __[Configruation File](/server/guide/mysql/#configuration-file)__ section in the MySQL server guide.
-
-  - A client-side response event key named __tt__, which shows the total trip time for the request. See __[Response Events](/client/guide/#response-events)__ for more details.
-
-  - A number of system-wide tunings for better performance for high traffic.
-
-__Fixed__
-
-  - The __insertMany__ MySQL module method now handles a single entry properly.
+  - Userland __nginx__ config directories for server add-ons (like PHP, etc).
+  - Safety to make sure an update is applicable to the installed version.
+  - _Using AJAX with the Pages API_ in the [documentation](/server/modules/pages/ajax/).
 
 __Updated__
 
-  - Nginx core updated to the latest version.
-  - LuaJIT core updated to the latest version.
-  - API request throttle has been slightly lowered.
-  - Webmin code editor completions for new methods.
+  - __Nginx__ config updated for better throughput at high loads.
 
-__API Changes__
+__Webmin 1.3.0__
 
-  - The __insertMany__ MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if _any_ of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side __[insertMany](/client/modules/mysql/#insertmany)__ or server-side __[insertMany](/server/modules/mysql/#insertmany)__ documentation for more details.
-
-__DigitalOcean Updater__
-
-!!! fail ""
-    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh && sudo bash ./update.sh
-```
-
-__Amazon EC2 Updater__
-
-!!! fail ""
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
-```
-
-### 2.3.0 to 2.3.2
-
-The following will update your Coronium Core 2.3.0 or 2.3.1 server to version 2.3.2
-
-__Fixed__
-
-  - Locked down all module access to the administration database.
-  - Provided enhanced security for client-side MySQL injections.
-
-__Updated__
-
-  - __core.users__ `extra` storage increased significantly.
+ - New __System__ section added to show general system information.
+ - New version alert added to show when a new version is available.
+ - Safety to make sure unsaved code is not lost before leaving the code editor.
+ - Unsaved code is automatically saved if the editor is left idle for more than 60 seconds.
+ - You can now download a .zip archive of your current API projects in the __System__ section.
+ - Various cosmetic changes and updates.
 
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
-!!! fail ""
-    You must be logged in as the __root__ user to run the updater or it may fail. _A server reboot is recommended_.
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
 
-Paste the following one-liner into your terminal to start the DigitalOcean update:
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
 ```
 
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
-!!! fail ""
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. _A server reboot is recommended_.
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
 
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh && sudo bash ./update.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
 ```
 
 ### 2.3.2 to 2.4.0
@@ -263,50 +141,164 @@ Paste the following one-liner into your terminal to start the Amazon EC2 update:
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2.sh && sudo bash ec2.sh
 ```
 
-### 2.4.0 to 2.4.1
+### 2.3.0 to 2.3.2
 
-The following will update your Coronium Core 2.4.0 server to version 2.4.1
+The following will update your Coronium Core 2.3.0 or 2.3.1 server to version 2.3.2
 
-__Added__
+__Fixed__
 
-  - Userland __nginx__ config directories for server add-ons (like PHP, etc).
-  - Safety to make sure an update is applicable to the installed version.
-  - _Using AJAX with the Pages API_ in the [documentation](/server/modules/pages/ajax/).
+  - Locked down all module access to the administration database.
+  - Provided enhanced security for client-side MySQL injections.
 
 __Updated__
 
-  - __Nginx__ config updated for better throughput at high loads.
-
-__Webmin 1.3.0__
-
- - New __System__ section added to show general system information.
- - New version alert added to show when a new version is available.
- - Safety to make sure unsaved code is not lost before leaving the code editor.
- - Unsaved code is automatically saved if the editor is left idle for more than 60 seconds.
- - You can now download a .zip archive of your current API projects in the __System__ section.
- - Various cosmetic changes and updates.
+  - __core.users__ `extra` storage increased significantly.
 
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
 !!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
+    You must be logged in as the __root__ user to run the updater or it may fail. A server reboot is recommended.
 
-Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+Paste the following one-liner into your terminal to start the DigitalOcean update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh && sudo bash ./update.sh
 ```
 
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. A server reboot is recommended.
 
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh && sudo bash ./update.sh
 ```
+
+### 2.2.0 to 2.3.0
+
+The following will update your Coronium Core 2.2.0 server to version 2.3.0
+
+__Added__
+
+  - The EZ Query MySQL module methods __selectBatch__, __insertBatch__, __updateMany__, __updateBatch__, __deleteMany__, and __deleteBatch__ have been added for optimized performance, reduced network calls, and simplification of code when working with multiple query entries; particularly on the client-side. See the client-side __[MySQL module](/client/modules/mysql/)__ documentation for more details. See also __[Optimized Methods](/client/modules/mysql/#optimized-methods)__.
+
+  - The server-side MySQL module methods __dbConnect__, __dbQuery__, and __dbClose__ have been added for advanced control over the database connection, allowing for highly performant queries. See __[Advanced Methods](/server/modules/mysql/#advanced-methods)__ for more information.
+
+  - The ability to fine tune the Coronium MySQL server configuration, which has been consolidated into a single file. See the __[Configruation File](/server/guide/mysql/#configuration-file)__ section in the MySQL server guide.
+
+  - A client-side response event key named __tt__, which shows the total trip time for the request. See __[Response Events](/client/guide/#response-events)__ for more details.
+
+  - A number of system-wide tunings for better performance for high traffic.
+
+__Fixed__
+
+  - The __insertMany__ MySQL module method now handles a single entry properly.
+
+__Updated__
+
+  - Nginx core updated to the latest version.
+  - LuaJIT core updated to the latest version.
+  - API request throttle has been slightly lowered.
+  - Webmin code editor completions for new methods.
+
+__API Changes__
+
+  - The __insertMany__ MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if _any_ of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side __[insertMany](/client/modules/mysql/#insertmany)__ or server-side __[insertMany](/server/modules/mysql/#insertmany)__ documentation for more details.
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the DigitalOcean update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh && sudo bash ./update.sh
+```
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the Amazon EC2 update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
+```
+
+### 2.1.1 to 2.2.0
+
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
+
+__Added__
+
+- __[resendConfirmation](/client/modules/users/api/#resendconfirmation)__ method added to the Users module, to resend a confirmation email.
+
+- Users "extra" metadata now supports boolean types.
+
+__Fixed__
+
+- Documentation links in the Webmin now resolve properly.
+
+__API Changes__
+
+`users.login`
+
+The client-side Users module __[login](/client/modules/users/api/#login)__ response has changed. See the __[Logging In](/client/modules/users/login/)__ section of the documentation for more information.
+
+`users.create`
+
+The client-side Users module __[create](/client/modules/users/api/#create)__ response has changed. See the __[Creating](/client/modules/users/creating/)__ users section of the documentation for more information.
+
+### 2.1.0 to 2.1.1
+
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
+
+__Added__
+
+- Full support for multiple applications with separate scope for users and metrics.
+- Webmin "Today" view for global application usage metrics for the current day.
+
+### 2.0.3 to 2.1.0
+
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
+
+__Added__
+
+- Browser based web admin for informational data in regards to app usage, users, device metrics, minor administration, and more.
+- Browser based code editor for building server-side project APIs.
+- Client-side Users module for user registration, login tracking, and optional customizable email confirmations.
+- Client-side Analytics module to collect usage statistics and device metrics.
+- Server-side Email module for sending email via Mailgun.
+- Server-side Template module for resuable customized output.
+- CORS support for the Pages module.
+- MySQL EZ Query method `selectOne` added for simple single record retrieval.
+- MySQL EZ Query method `insertMany` added for optimized multi-record insertion.
+- Various date and time utility methods for the MySQL module.
+- Ability to adjust Corona network client-side timeout for large workloads.
+- Ability to adjust MySQL server-side timeout for large workloads.
+
+
+### 2.0.2 to 2.0.3
+
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
+
+__Fixed__
+
+- Temp cache body file now works properly for large payloads.
+- Pages `response` method returns a status properly when provided.
+
+__Added__
+
+- Pages `status` convienence method added to quickly return a status code other than 200.
+- Server `coronium.body.conf` file which can be used to adjust the body cache for servers with large memory allocations.
 
 ## Webmin HTTPS/SSL
 

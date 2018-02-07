@@ -1,7 +1,10 @@
+## Coronium Webmin
+
+Use the Coronium __[Webmin](/server/webmin/setup/)__ to view and control many aspects of your Coronium Core server through a web browser.
+
 ## Coronium Tool
 
-!!! note
-    You must be logged in as the __coronium__ user to use the command line tool.
+The Coronium tool is accessable via SSH. You must be logged in as the __coronium__ user to use the command line tool.
 
 A command line tool is available on the server to handle a few common operations. To see available options, on the command line, type:
 
@@ -13,16 +16,21 @@ coronium
 
 ## Viewing Logs
 
-To view log files, connect to the server with the __coronium__ user.
+### Webmin
+
+Using the __[Webmin](/server/webmin/setup/)__ go to the __Log Viewer__ section and select a log to view.
+
+### SSH
+
+To view log files via SSH, connect to the server with the __coronium__ user.
 
 ```
 ssh coronium@<your-instance-ip>
 ```
 
-!!! info "Viewing the Log"
-    To quickly monitor the debug (nginx) log file, enter `cclog` on the command line. You can also view the debug log in the Webmin in the "debug log" section.
+To quickly monitor the debug log file, enter `cclog` on the command line.
 
-Log files can be found in the __/usr/local/coronium/logs__ directory. Possible log files include _nginx.log_ and _mongo.log_.
+Log files can be found in the __/usr/local/coronium/logs__ directory.
 
 To watch a log file in real-time:
 
@@ -34,9 +42,6 @@ Press __control-x__ to stop watching the log file.
 
 !!! note "Log File Rotation"
     The log files are managed automatically, and will be "rotated" once they exceed a certain size limit.
-
-!!! tip
-    To view all logs consolidated into one file (including the mysql.log) type __coronium logs__.
 
 ## System Services
 
