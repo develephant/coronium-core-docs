@@ -4,11 +4,7 @@ ___All add-ons are unsupported beyond installation.___
 
 ## <i class="fab fa-php"></i> PHP-FPM
 
-Installs the PHP-FPM 7.x executable. 
-
-Place `.php` files in the __/home/coronium/php__ directory via SFTP as the __coronium__ user.
-
-PHP is only accessable internally via server-side API using the `core.run` or `core.network.request` methods.
+Installs the PHP-FPM 7.x executable and some standard packages. 
 
 ### Installation
 
@@ -22,6 +18,10 @@ wget https://s3.amazonaws.com/coronium-core-addons/php/php.sh && sudo bash php.s
 ```
 
 ### Usage
+
+Place `.php` files in the __/home/coronium/php__ directory via SFTP as the __coronium__ user.
+
+PHP is only accessable internally via server-side API using the `core.run` or `core.network.request` methods.
 
 Using `core.run`
 

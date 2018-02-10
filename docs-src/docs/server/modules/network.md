@@ -53,7 +53,7 @@ core.log("status", resp.status)
 
 ### get
 
-Convenience method for a "GET" request. On success, returns response body as a __string__. Otherwise, __nil__ and an error.
+Convenience method for a "GET" request. On success, returns response object as a __table__ (see [network.request](#request)). Otherwise, __nil__ and an error.
 
 ```lua
 core.network.get(url[, headers])
@@ -79,7 +79,7 @@ core.log(resp.body)
 
 ### post
 
-Convenience method for a "POST" request. On success, returns response body as a __string__. Otherwise, __nil__ and an error.
+Convenience method for a "POST" request. On success, returns response object as a __table__ (see [network.request](#request)). Otherwise, __nil__ and an error.
 
 ```lua
 core.network.post(url, body[, headers])

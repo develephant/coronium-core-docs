@@ -6,6 +6,42 @@ Check your current version using the __[Webmin](/server/webmin/setup/)__ and vie
 
 ## Select an update
 
+### 2.4.1 to 2.4.2
+
+The following will update your Coronium Core 2.4.1 server to version 2.4.2
+
+__Fixed__
+
+  - Using the Lua `print()` command should no longer cause log file corruption. In general __[core.log]()__ is the recommended way to print to the log file.
+
+__API Changes__
+
+  - Server-side __[network.get]()__ previously returned only the response body. It now correctly returns a response object similar to __[network.request]()__.
+
+  - Server-side __[network.post]()__ previously returned only the response body. It now correctly returns a response object similar to __[network.request]()__.
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.2/do.sh && sudo bash do.sh
+```
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.4.2/ec2.sh && sudo bash ec2.sh
+```
+
 ### 2.4.0 to 2.4.1
 
 The following will update your Coronium Core 2.4.0 server to version 2.4.1
