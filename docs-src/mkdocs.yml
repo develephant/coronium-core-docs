@@ -16,12 +16,15 @@ pages:
       - 'Server Key': 'server/guide/key.md'
       - 'General Usage': 'server/guide/usage.md'
       - 'HTTPS/SSL': 'server/guide/ssl.md'
-      - 'MySQL Server': 'server/guide/mysql.md'
+      - 'Lifecycle/Context': 'server/guide/lifecycle.md'
     - 'Modules':
       - 'API': 'server/modules/api.md' 
       - 'Data': 'server/modules/data.md'
       - 'Email': 'server/modules/email.md'
       - 'Files': 'server/modules/files.md'
+      - 'Jobs':
+          - 'Jobs API': 'server/modules/jobs/api.md'
+          - 'Jobs Guide': 'server/modules/jobs/guide.md'
       - 'Mongo': 'server/modules/mongo.md'
       - 'MySQL': 'server/modules/mysql.md'
       - 'Network': 'server/modules/network.md'
@@ -32,6 +35,7 @@ pages:
         - 'Using AJAX': 'server/modules/pages/ajax.md'
         - 'Configuration': 'server/modules/pages/config.md'
       - 'Template': 'server/modules/template.md'
+      - 'Timer': 'server/modules/timer.md'
       - 'Users': 
         - 'Users API': 'server/modules/users/api.md'
         - 'OAuth API': 'server/modules/users/oauth.md'
@@ -81,7 +85,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.4.1'
+  version: 'v2.5.0'
 markdown_extensions:
   - admonition
   - codehilite:

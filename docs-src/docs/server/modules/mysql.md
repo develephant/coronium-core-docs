@@ -1157,6 +1157,22 @@ else
 end
 ```
 
+## MySQL NULL Type
+
+When using the EZ Query methods, you can set a column value to a valid MySQL `NULL` type by passing a string value set to 'NULL'. This only works if the column allows `NULL` values.
+
+__Example__
+
+```lua
+local res, err, code = core.mysql.update("products", {
+  tbl = "toys",
+  values = {
+    color = 'NULL'
+  },
+  where = { color = "red" }
+})
+```
+
 ## The WHERE Key
 
 Many of the MySQL (and other) modules use a `where` key to specify the "WHERE" clause for a database query. Depending on what data type and structure you provide this key, a couple different things can happen automagically.
@@ -1240,7 +1256,6 @@ Table type queries also do not support conditionals, so the following cannot be 
 ```text
 where = "`score` > 100"
 ```
-
 
 ## Advanced Methods
 
@@ -1383,6 +1398,47 @@ You can and should manage your MySQL databases using a standalone tool. Below ar
 - [HeidiSQL](https://www.heidisql.com/download.php) (Windows)
 
 To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.
+
+### Configuration File
+
+You can adjust the various MySQL server configuration settings in the _coronium_mysql.cnf_ file. The file is located at:
+
+```bash
+/etc/mysql/coronium.conf.d/coronium_mysql.cnf
+```
+
+!!! danger "Configuration Changes"
+    __Changes to the configuration file can have adverse effects, do so at your own risk. See [MySQL Server System Variables](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html) for the available configuration options.__
+
+This file can be edited by using the __nano__ utility on the server:
+
+```bash
+sudo nano /etc/mysql/coronium.conf.d/coronium_mysql.cnf
+```
+
+Use the arrow keys on your keyboard to move the cursor. When your updates are complete, use __ctrl-x__ and then press __y__ to save the file.
+
+You will need to restart the MySQL server daemon for the changes to take effect:
+
+```bash
+sudo monit restart mysqld
+```
+
+Check the Coronium server status to make sure that MySQL is running:
+
+```lua
+coronium status
+```
+
+### Viewing Error Log
+
+The MySQL server error log can be viewed using:
+
+```bash
+sudo tail -f /var/log/mysql/error.log
+```
+
+Use __ctrl-c__ to exit.
 
 ### Password Update
 

@@ -11,7 +11,7 @@
       <meta http-equiv="x-ua-compatible" content="ie=edge">
       
       
-        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/guide/mysql/">
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/modules/timer/">
       
       
       
@@ -38,7 +38,7 @@
     
     
       
-        <title>MySQL Server - Coronium Core</title>
+        <title>Timer - Coronium Core</title>
       
     
     
@@ -76,7 +76,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#configuration-file" tabindex="1" class="md-skip">
+      <a href="#timer" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -102,7 +102,7 @@
                 Coronium Core
               </span>
               <span class="md-header-nav__topic">
-                MySQL Server
+                Timer
               </span>
             
           
@@ -336,12 +336,10 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
     
     <label class="md-nav__link" for="nav-2-3">
       Guide
@@ -359,7 +357,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../login/" title="Logging In" class="md-nav__link">
+    <a href="../../guide/login/" title="Logging In" class="md-nav__link">
       Logging In
     </a>
   </li>
@@ -371,7 +369,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../key/" title="Server Key" class="md-nav__link">
+    <a href="../../guide/key/" title="Server Key" class="md-nav__link">
       Server Key
     </a>
   </li>
@@ -383,7 +381,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../usage/" title="General Usage" class="md-nav__link">
+    <a href="../../guide/usage/" title="General Usage" class="md-nav__link">
       General Usage
     </a>
   </li>
@@ -395,7 +393,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../ssl/" title="HTTPS/SSL" class="md-nav__link">
+    <a href="../../guide/ssl/" title="HTTPS/SSL" class="md-nav__link">
       HTTPS/SSL
     </a>
   </li>
@@ -405,50 +403,11 @@
           
           
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        MySQL Server
-      </label>
-    
-    <a href="./" title="MySQL Server" class="md-nav__link md-nav__link--active">
-      MySQL Server
+  <li class="md-nav__item">
+    <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
-    Configuration File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-log" title="Error Log" class="md-nav__link">
-    Error Log
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -461,10 +420,12 @@
           
           
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
     
     <label class="md-nav__link" for="nav-2-4">
       Modules
@@ -482,7 +443,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/api/" title="API" class="md-nav__link">
+    <a href="../api/" title="API" class="md-nav__link">
       API
     </a>
   </li>
@@ -494,7 +455,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/data/" title="Data" class="md-nav__link">
+    <a href="../data/" title="Data" class="md-nav__link">
       Data
     </a>
   </li>
@@ -506,7 +467,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/email/" title="Email" class="md-nav__link">
+    <a href="../email/" title="Email" class="md-nav__link">
       Email
     </a>
   </li>
@@ -518,7 +479,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/files/" title="Files" class="md-nav__link">
+    <a href="../files/" title="Files" class="md-nav__link">
       Files
     </a>
   </li>
@@ -529,8 +490,56 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5">
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
-    <a href="../../modules/mongo/" title="Mongo" class="md-nav__link">
+    <a href="../jobs/api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/guide/" title="Jobs Guide" class="md-nav__link">
+      Jobs Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../mongo/" title="Mongo" class="md-nav__link">
       Mongo
     </a>
   </li>
@@ -542,7 +551,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/mysql/" title="MySQL" class="md-nav__link">
+    <a href="../mysql/" title="MySQL" class="md-nav__link">
       MySQL
     </a>
   </li>
@@ -554,7 +563,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/network/" title="Network" class="md-nav__link">
+    <a href="../network/" title="Network" class="md-nav__link">
       Network
     </a>
   </li>
@@ -567,13 +576,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
     
-    <label class="md-nav__link" for="nav-2-4-8">
+    <label class="md-nav__link" for="nav-2-4-9">
       Pages
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-8">
+      <label class="md-nav__title" for="nav-2-4-9">
         Pages
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -585,7 +594,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/pages/api/" title="Pages API" class="md-nav__link">
+    <a href="../pages/api/" title="Pages API" class="md-nav__link">
       Pages API
     </a>
   </li>
@@ -597,7 +606,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/pages/usage/" title="Usage" class="md-nav__link">
+    <a href="../pages/usage/" title="Usage" class="md-nav__link">
       Usage
     </a>
   </li>
@@ -609,7 +618,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/pages/templates/" title="Templates" class="md-nav__link">
+    <a href="../pages/templates/" title="Templates" class="md-nav__link">
       Templates
     </a>
   </li>
@@ -621,7 +630,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/pages/ajax/" title="Using AJAX" class="md-nav__link">
+    <a href="../pages/ajax/" title="Using AJAX" class="md-nav__link">
       Using AJAX
     </a>
   </li>
@@ -633,7 +642,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/pages/config/" title="Configuration" class="md-nav__link">
+    <a href="../pages/config/" title="Configuration" class="md-nav__link">
       Configuration
     </a>
   </li>
@@ -650,9 +659,53 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/template/" title="Template" class="md-nav__link">
+    <a href="../template/" title="Template" class="md-nav__link">
       Template
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Timer
+      </label>
+    
+    <a href="./" title="Timer" class="md-nav__link md-nav__link--active">
+      Timer
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#timer" title="timer" class="md-nav__link">
+    timer
+  </a>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -663,13 +716,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
     
-    <label class="md-nav__link" for="nav-2-4-10">
+    <label class="md-nav__link" for="nav-2-4-12">
       Users
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-10">
+      <label class="md-nav__title" for="nav-2-4-12">
         Users
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -681,7 +734,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/users/api/" title="Users API" class="md-nav__link">
+    <a href="../users/api/" title="Users API" class="md-nav__link">
       Users API
     </a>
   </li>
@@ -693,7 +746,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/users/oauth/" title="OAuth API" class="md-nav__link">
+    <a href="../users/oauth/" title="OAuth API" class="md-nav__link">
       OAuth API
     </a>
   </li>
@@ -705,7 +758,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
+    <a href="../users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
     </a>
   </li>
@@ -722,7 +775,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../modules/utils/" title="Utils" class="md-nav__link">
+    <a href="../utils/" title="Utils" class="md-nav__link">
       Utils
     </a>
   </li>
@@ -1069,15 +1122,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
-    Configuration File
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#error-log" title="Error Log" class="md-nav__link">
-    Error Log
+  <a href="#timer" title="timer" class="md-nav__link">
+    timer
   </a>
   
 </li>
@@ -1097,41 +1143,149 @@
               
                 
                 
-                  <h1>MySQL Server</h1>
+                  <h1>Timer</h1>
                 
-                <h2 id="configuration-file">Configuration File</h2>
-<p>You can adjust the various MySQL server configuration settings in the <em>coronium_mysql.cnf</em> file. The file is located at:</p>
-<div class="codehilite"><pre><span></span>/etc/mysql/coronium.conf.d/coronium_mysql.cnf
+                <div style="color:Tomato"><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="/server/guide/lifecycle/">Lifecycle/Context</a> section to understand how timers work.</div>
+
+<p>Timers take up a client connection from your total pool of connections. They also take up memory for as long as they are active. Be careful when using timers, and make sure you have control over it or it could run forever using up resources.</p>
+<h2 id="timer">timer</h2>
+<p>Creates a timer that will call a function on expiration, or in a recurring fashion.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">timer</span><span class="p">(</span><span class="n">seconds</span><span class="p">,</span> <span class="n">callback</span><span class="p">[,</span> <span class="n">recurring</span><span class="p">][,</span> <span class="n">extra_args</span><span class="p">])</span>
 </pre></div>
 
 
-<div class="admonition danger">
-<p class="admonition-title">Configuration Changes</p>
-<p><strong>Changes to the configuration file can have adverse effects, do so at your own risk. See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL Server System Variables</a> for the available configuration options.</strong></p>
-</div>
-<p>This file can be edited by using the <strong>nano</strong> utility on the server:</p>
-<div class="codehilite"><pre><span></span>sudo nano /etc/mysql/coronium.conf.d/coronium_mysql.cnf
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seconds</td>
+<td>The amount of seconds before the callback is triggered.</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>callback</td>
+<td>The callback function to call on timer expiry.</td>
+<td><em>Function</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>recurring</td>
+<td>Whether this timer loops. Required if passing arguments.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>extra_args</td>
+<td>Any extra arguments to pass to the timer callback.</td>
+<td><em>Various</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>A timer <strong>object</strong>, or <strong>nil</strong>, and an error.</p>
+<p><strong>Examples</strong></p>
+<p>Timers run in their own context outside of the client request. For example, the timer callback shown below will <strong><em>not</em></strong> actually send anything back to the client. Instead the timer is started in its own context and the method immediately returns <code>true</code>.</p>
+<div style="color:Tomato"><i class="fas fa-exclamation-circle"></i> Be aware that anytime you call the <code>doSomething</code> method you will create a new timer.</div>
+
+<div class="codehilite"><pre><span></span><span class="c1">--This example will not work!</span>
+<span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">timer_cb</span><span class="p">()</span>
+    <span class="c1">--this won&#39;t return data to the client</span>
+    <span class="kr">return</span> <span class="p">{</span><span class="n">some</span><span class="o">=</span><span class="n">data</span><span class="p">}</span>
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">t</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">timer_cb</span><span class="p">)</span>
+
+  <span class="c1">--returns immediately</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
 </pre></div>
 
 
-<p>Use the arrow keys on your keyboard to move the cursor. When your updates are complete, use <strong>ctrl-x</strong> and then press <strong>y</strong> to save the file.</p>
-<p>You will need to restart the MySQL server daemon for the changes to take effect:</p>
-<div class="codehilite"><pre><span></span>sudo monit restart mysqld
+<p>You can however use just about anything else included in the <strong>core</strong> server-side api:</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">timer_cb</span><span class="p">()</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;I&#39;m 5 seconds late to the party!&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">t</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">timer_cb</span><span class="p">)</span>
+
+  <span class="c1">--returns immediately</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
 </pre></div>
 
 
-<p>Check the Coronium server status to make sure that MySQL is running:</p>
-<div class="codehilite"><pre><span></span><span class="n">coronium</span> <span class="n">status</span>
+<p>You can also pass in parameters that the callback can use on expiry.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">timer_cb</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">name</span><span class="o">..</span><span class="s2">&quot; was here 5 seconds ago!&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kd">local</span> <span class="n">t</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">timer_cb</span><span class="p">,</span> <span class="kc">false</span><span class="p">,</span> <span class="n">input</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+
+  <span class="c1">--returns immediately</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
 </pre></div>
 
 
-<h2 id="error-log">Error Log</h2>
-<p>The MySQL server error log can be viewed using:</p>
-<div class="codehilite"><pre><span></span>sudo tail -f /var/log/mysql/error.log
+<p>You can set up recurring timers, but you should make sure you have a way to stop them at a specific point or they run forever. </p>
+<p>To stop a recurring timer use the <code>timer_obj:cancel()</code> method (see example below). </p>
+<p>If you need a timer that runs indefinitely it's better to use <strong><a href="../../../server/modules/jobs/guide/">Jobs</a></strong>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">api</span><span class="p">.</span><span class="nf">doSomething</span><span class="p">()</span>
+
+  <span class="c1">--this example uses upvalues</span>
+  <span class="c1">--which is legal for the timer</span>
+  <span class="kd">local</span> <span class="n">t</span><span class="p">,</span> <span class="n">err</span>
+  <span class="kd">local</span> <span class="n">cnt</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="kd">local</span> <span class="n">max_runs</span> <span class="o">=</span> <span class="mi">5</span>
+
+  <span class="kd">local</span> <span class="kr">function</span> <span class="nf">timer_cb</span><span class="p">()</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;This is callback #&quot;</span><span class="o">..</span><span class="n">cnt</span><span class="p">)</span>
+
+    <span class="n">cnt</span> <span class="o">=</span> <span class="n">cnt</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="kr">if</span> <span class="n">cnt</span> <span class="o">&gt;</span> <span class="n">max_runs</span> <span class="kr">then</span>
+      <span class="n">t</span><span class="p">:</span><span class="n">cancel</span><span class="p">()</span> <span class="c1">--cancel the timer</span>
+    <span class="kr">end</span>
+  <span class="kr">end</span>
+
+  <span class="c1">--repeats every 5 seconds until canceled</span>
+  <span class="n">t</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">timer</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">timer_cb</span><span class="p">,</span> <span class="kc">true</span><span class="p">)</span>
+
+  <span class="c1">--returns immediately</span>
+  <span class="kr">return</span> <span class="kc">true</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">api</span>
 </pre></div>
-
-
-<p>Use <strong>ctrl-c</strong> to exit.</p>
                 
                   
                 
@@ -1150,7 +1304,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../ssl/" title="HTTPS/SSL" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../template/" title="Template" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1159,19 +1313,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                HTTPS/SSL
+                Template
               </span>
             </div>
           </a>
         
         
-          <a href="../../modules/api/" title="API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../users/api/" title="Users API" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                API
+                Users API
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1187,7 +1341,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.4.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
           </div>
         
         powered by

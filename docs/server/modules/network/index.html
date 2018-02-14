@@ -405,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
-      MySQL Server
+    <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
     </a>
   </li>
 
@@ -482,6 +482,54 @@
     <a href="../files/" title="Files" class="md-nav__link">
       Files
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5">
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/guide/" title="Jobs Guide" class="md-nav__link">
+      Jobs Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -573,6 +621,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pipeline" title="pipeline" class="md-nav__link">
+    pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#encode" title="encode" class="md-nav__link">
     encode
   </a>
@@ -615,13 +670,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
     
-    <label class="md-nav__link" for="nav-2-4-8">
+    <label class="md-nav__link" for="nav-2-4-9">
       Pages
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-8">
+      <label class="md-nav__title" for="nav-2-4-9">
         Pages
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -709,15 +764,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../timer/" title="Timer" class="md-nav__link">
+      Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
     
-    <label class="md-nav__link" for="nav-2-4-10">
+    <label class="md-nav__link" for="nav-2-4-12">
       Users
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-10">
+      <label class="md-nav__title" for="nav-2-4-12">
         Users
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1152,6 +1219,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#pipeline" title="pipeline" class="md-nav__link">
+    pipeline
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#encode" title="encode" class="md-nav__link">
     encode
   </a>
@@ -1197,7 +1271,7 @@
                 
                 <p>Make external HTTP network requests and retrieve the results.</p>
 <h3 id="request">request</h3>
-<p>Send a network request. On success, returns a <strong>table</strong> with response keys (see below). Otherwise, <strong>nil</strong> and an error.</p>
+<p>Send a network request to an external host address.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">request</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
 </pre></div>
 
@@ -1221,7 +1295,7 @@
 </tr>
 <tr>
 <td>params</td>
-<td>A table of options for the request.</td>
+<td>A table of options for the request. See <strong>Params Table Keys</strong> below.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1246,13 +1320,13 @@
 </tr>
 <tr>
 <td>headers</td>
-<td>A table of headers to send with request.</td>
+<td>A table of headers to send with the request.</td>
 <td><em>Table</em></td>
 <td><strong>N</strong></td>
 </tr>
 <tr>
 <td>body</td>
-<td>A string body to send with request.</td>
+<td>A string body to send with a "POST" request.</td>
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
@@ -1264,6 +1338,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Returns</strong></p>
+<p>On success, returns a <strong>table</strong> with response keys (see below). Otherwise, <strong>nil</strong> and an error.</p>
 <p><strong>Response Table Keys</strong></p>
 <table>
 <thead>
@@ -1310,7 +1386,7 @@
 
 
 <h3 id="get">get</h3>
-<p>Convenience method for a "GET" request. On success, returns response object as a <strong>table</strong> (see <a href="#request">network.request</a>). Otherwise, <strong>nil</strong> and an error.</p>
+<p>Convenience method for a "GET" request.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
 </pre></div>
 
@@ -1340,6 +1416,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Returns</strong></p>
+<p>On success, returns a response object as a <strong>table</strong> (see <a href="#request">network.request</a>). Otherwise, <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://google.com&quot;</span><span class="p">)</span>
 <span class="kr">if</span> <span class="ow">not</span> <span class="n">resp</span> <span class="kr">then</span>
@@ -1351,7 +1429,7 @@
 
 
 <h3 id="post">post</h3>
-<p>Convenience method for a "POST" request. On success, returns response object as a <strong>table</strong> (see <a href="#request">network.request</a>). Otherwise, <strong>nil</strong> and an error.</p>
+<p>Convenience method for a "POST" request. </p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">body</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
 </pre></div>
 
@@ -1387,6 +1465,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Returns</strong></p>
+<p>On success, returns a response object as a <strong>table</strong> (see <a href="#request">network.request</a>). Otherwise, <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;Here is some text I am posting.&quot;</span>
 
@@ -1401,15 +1481,15 @@
 
 <p>See also: <a href="#form-example">Form Example</a></p>
 <h3 id="getjson">getJson</h3>
-<p>Specialized method that sends a "GET" request to an endpoint that responds with JSON. On success, returns the decoded JSON result as a <strong>table</strong>. Otherwise, <strong>nil</strong> and an error.</p>
-<div class="admonition info">
-<p class="admonition-title">Special Response</p>
-<p>This method returns a Lua table with the decoded JSON response, not the JSON string.</p>
-</div>
+<p>Specialized method that sends a "GET" request to an endpoint that responds with JSON. </p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="n">url</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
 </pre></div>
 
 
+<div class="admonition info">
+<p class="admonition-title">Special Response</p>
+<p>This method returns a Lua table with the decoded JSON response, not the JSON string.</p>
+</div>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1435,6 +1515,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Returns</strong></p>
+<p>On success, returns the decoded JSON result as a <strong>table</strong>. Otherwise, <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">resp</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="s2">&quot;https://getjson.com&quot;</span><span class="p">)</span>
 
@@ -1447,15 +1529,15 @@
 
 
 <h3 id="postjson">postJson</h3>
-<p>Specialized method that sends a "POST" request to an endpoint that expects JSON. On success, returns the result as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
-<div class="admonition info">
-<p class="admonition-title">Special Response</p>
-<p>This method takes a Lua table and JSON-encodes it. Do not pass a raw JSON string.</p>
-</div>
+<p>Specialized method that sends a "POST" request to an endpoint that expects JSON.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">postJson</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">tbl</span><span class="p">[,</span> <span class="n">headers</span><span class="p">])</span>
 </pre></div>
 
 
+<div class="admonition info">
+<p class="admonition-title">Special Response</p>
+<p>This method takes a Lua table and JSON-encodes it. Do not pass a raw JSON string.</p>
+</div>
 <p><strong>Parameters</strong></p>
 <table>
 <thead>
@@ -1487,6 +1569,8 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Returns</strong></p>
+<p>On success, returns the result as a <strong>string</strong>. Otherwise, <strong>nil</strong> and an error.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">name</span> <span class="o">=</span> <span class="s2">&quot;Tim&quot;</span><span class="p">,</span>
@@ -1500,6 +1584,139 @@
 <span class="kr">end</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">resp</span><span class="p">.</span><span class="n">body</span><span class="p">)</span>
+</pre></div>
+
+
+<h3 id="pipeline">pipeline</h3>
+<p>Run a sequential set of network requests against a specific host address.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">pipeline</span><span class="p">(</span><span class="n">requests</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>requests</td>
+<td>A table array of request tables. See <strong>Request Table Keys</strong> below.</td>
+<td><em>Table</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>url</td>
+<td>The url endpoint for to run the requests against.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Request Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>path</td>
+<td>The endpoint for the request. This is joined with the <code>url</code> provided.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>method</td>
+<td>The HTTP method for the request. Defaults to "GET"</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>A table of headers to send with the request.</td>
+<td><em>Table</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>body</td>
+<td>A string body to send with a "POST" request.</td>
+<td><em>String</em></td>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td>ssl_verify</td>
+<td>Verify SSL cert matches hostname.</td>
+<td><em>Boolean</em></td>
+<td><strong>N</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>On success, a <strong>table</strong> array of response tables (see below), or <strong>nil</strong>, and an error.</p>
+<p><strong>Response Table Keys</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>body</td>
+<td>The response body returned by the request, if any.</td>
+<td><em>String</em></td>
+</tr>
+<tr>
+<td>headers</td>
+<td>A table of response headers from the request.</td>
+<td><em>Table</em></td>
+</tr>
+<tr>
+<td>status</td>
+<td>The HTTP response status of the request.</td>
+<td><em>Number</em></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">reqs</span> <span class="o">=</span> <span class="p">{</span>
+  <span class="p">{</span>
+    <span class="c1">--defaults to &quot;GET&quot;</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/page1.html&quot;</span>
+  <span class="p">},</span>
+  <span class="p">{</span>
+    <span class="n">path</span> <span class="o">=</span> <span class="s2">&quot;/page2.html&quot;</span><span class="p">,</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="s2">&quot;POST&quot;</span><span class="p">,</span>
+    <span class="n">body</span> <span class="o">=</span> <span class="s2">&quot;{</span><span class="se">\&quot;</span><span class="s2">name</span><span class="se">\&quot;</span><span class="s2">:</span><span class="se">\&quot;</span><span class="s2">JSON</span><span class="se">\&quot;</span><span class="s2">}&quot;</span><span class="p">,</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="p">[</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;application/json&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">local</span> <span class="n">responses</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">pipeline</span><span class="p">(</span><span class="n">reqs</span><span class="p">,</span> <span class="s2">&quot;http://somesite.com&quot;</span><span class="p">)</span>
+
+<span class="kr">if</span> <span class="ow">not</span> <span class="n">responses</span> <span class="kr">then</span>
+  <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+<span class="kr">end</span>
+
+<span class="kr">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">#</span><span class="n">responses</span> <span class="kr">do</span>
+  <span class="kr">if</span> <span class="n">responses</span><span class="p">[</span><span class="n">r</span><span class="p">].</span><span class="n">status</span> <span class="o">==</span> <span class="mi">200</span> <span class="kr">then</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">responses</span><span class="p">[</span><span class="n">r</span><span class="p">].</span><span class="n">body</span><span class="p">)</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
 </pre></div>
 
 
@@ -1605,7 +1822,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.4.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
           </div>
         
         powered by

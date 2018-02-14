@@ -1,0 +1,1824 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+      
+        <link rel="canonical" href="https://develephant.github.io/coronium-core-docs/server/modules/jobs/guide/">
+      
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../../imgs/favicon.ico">
+      <meta name="generator" content="mkdocs-0.17.2, mkdocs-material-2.6.0">
+    
+    
+      
+        <title>Jobs Guide - Coronium Core</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../assets/stylesheets/application.aa3de92b.css">
+      
+        <link rel="stylesheet" href="../../../../assets/stylesheets/application-palette.792431c1.css">
+      
+    
+    
+      <script src="../../../../assets/javascripts/modernizr.1aa3b519.js"></script>
+    
+    
+      
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+      <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet" >
+    
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue" data-md-color-accent="deep-orange">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="drawer">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
+    <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
+    
+      <a href="#management" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="https://develephant.github.io/coronium-core-docs" title="Coronium Core" class="md-header-nav__button md-logo">
+          
+            <img src="../../../../imgs/rnd-dev.png" width="24" height="24">
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            
+              <span class="md-header-nav__topic">
+                Coronium Core
+              </span>
+              <span class="md-header-nav__topic">
+                Jobs Guide
+              </span>
+            
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          
+            <label class="md-icon md-icon--search md-header-nav__button" for="search"></label>
+            
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+          
+        
+      </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+      <main class="md-main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="drawer">
+    <span class="md-nav__button md-logo">
+      
+        <img src="../../../../imgs/rnd-dev.png" width="24" height="24">
+      
+    </span>
+    Coronium Core
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../.." title="Introduction" class="md-nav__link">
+      Introduction
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      Core Server
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        Core Server
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1">
+    
+    <label class="md-nav__link" for="nav-2-1">
+      Installation
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-1">
+        Installation
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation/digitalocean/" title="DigitalOcean" class="md-nav__link">
+      DigitalOcean
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation/amazon/" title="Amazon EC2" class="md-nav__link">
+      Amazon EC2
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../installation/postinstall/" title="Post Install" class="md-nav__link">
+      Post Install
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2">
+    
+    <label class="md-nav__link" for="nav-2-2">
+      Webmin
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-2">
+        Webmin
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../webmin/setup/" title="Browser Access" class="md-nav__link">
+      Browser Access
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../webmin/scope/" title="Application Scope" class="md-nav__link">
+      Application Scope
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../webmin/mailgun/" title="Mailgun Config" class="md-nav__link">
+      Mailgun Config
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../webmin/password/" title="Password" class="md-nav__link">
+      Password
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-3" type="checkbox" id="nav-2-3">
+    
+    <label class="md-nav__link" for="nav-2-3">
+      Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-3">
+        Guide
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/login/" title="Logging In" class="md-nav__link">
+      Logging In
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/key/" title="Server Key" class="md-nav__link">
+      Server Key
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/usage/" title="General Usage" class="md-nav__link">
+      General Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/ssl/" title="HTTPS/SSL" class="md-nav__link">
+      HTTPS/SSL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4" type="checkbox" id="nav-2-4" checked>
+    
+    <label class="md-nav__link" for="nav-2-4">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-2-4">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5" checked>
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="toc">
+        Jobs Guide
+      </label>
+    
+    <a href="./" title="Jobs Guide" class="md-nav__link md-nav__link--active">
+      Jobs Guide
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#management" title="Management" class="md-nav__link">
+    Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-jobs" title="Viewing Jobs" class="md-nav__link">
+    Viewing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-jobs" title="Creating Jobs" class="md-nav__link">
+    Creating Jobs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-once" title="Run Once" class="md-nav__link">
+    Run Once
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-jobs" title="Editing Jobs" class="md-nav__link">
+    Editing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-jobs" title="Removing Jobs" class="md-nav__link">
+    Removing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reloading-jobs" title="Reloading Jobs" class="md-nav__link">
+    Reloading Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-status" title="Job Status" class="md-nav__link">
+    Job Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-errors" title="Job Errors" class="md-nav__link">
+    Job Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-jobs" title="Writing Jobs" class="md-nav__link">
+    Writing Jobs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-job-code" title="Creating Job Code" class="md-nav__link">
+    Creating Job Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-template" title="Job Template" class="md-nav__link">
+    Job Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-returns" title="Job Returns" class="md-nav__link">
+    Job Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-helpers" title="Job Helpers" class="md-nav__link">
+    Job Helpers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-job-code" title="Editing Job Code" class="md-nav__link">
+    Editing Job Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-code" title="Example Code" class="md-nav__link">
+    Example Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recurring" title="Recurring" class="md-nav__link">
+    Recurring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep-job" title="Sleep Job" class="md-nav__link">
+    Sleep Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-job" title="Stop Job" class="md-nav__link">
+    Stop Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-job" title="Exit Job" class="md-nav__link">
+    Exit Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-once-job" title="Run Once Job" class="md-nav__link">
+    Run Once Job
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mongo/" title="Mongo" class="md-nav__link">
+      Mongo
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../network/" title="Network" class="md-nav__link">
+      Network
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
+    
+    <label class="md-nav__link" for="nav-2-4-9">
+      Pages
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-9">
+        Pages
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages/api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages/usage/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages/templates/" title="Templates" class="md-nav__link">
+      Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages/ajax/" title="Using AJAX" class="md-nav__link">
+      Using AJAX
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../pages/config/" title="Configuration" class="md-nav__link">
+      Configuration
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../template/" title="Template" class="md-nav__link">
+      Template
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../timer/" title="Timer" class="md-nav__link">
+      Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
+    
+    <label class="md-nav__link" for="nav-2-4-12">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-12">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/oauthusers/" title="OAuth Users" class="md-nav__link">
+      OAuth Users
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../utils/" title="Utils" class="md-nav__link">
+      Utils
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../updates/" title="Updates" class="md-nav__link">
+      Updates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../addons/" title="Add-ons" class="md-nav__link">
+      Add-ons
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Core Client
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Core Client
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/guide/" title="Usage" class="md-nav__link">
+      Usage
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      Modules
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        Modules
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/analytics/" title="Analytics" class="md-nav__link">
+      Analytics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/api/" title="API" class="md-nav__link">
+      API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/core/" title="Core" class="md-nav__link">
+      Core
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/data/" title="Data" class="md-nav__link">
+      Data
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/email/" title="Email" class="md-nav__link">
+      Email
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/files/" title="Files" class="md-nav__link">
+      Files
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/mysql/" title="MySQL" class="md-nav__link">
+      MySQL
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2-8" type="checkbox" id="nav-3-2-8">
+    
+    <label class="md-nav__link" for="nav-3-2-8">
+      Users
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-3-2-8">
+        Users
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/api/" title="Users API" class="md-nav__link">
+      Users API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/oauth/" title="OAuth API" class="md-nav__link">
+      OAuth API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/creating/" title="Creating" class="md-nav__link">
+      Creating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/updating/" title="Updating" class="md-nav__link">
+      Updating
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/login/" title="Logging In" class="md-nav__link">
+      Logging In
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/modules/users/confirmation/" title="Confirmation" class="md-nav__link">
+      Confirmation
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../client/codes/" title="Status Codes" class="md-nav__link">
+      Status Codes
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../demo/" title="Demo Project" class="md-nav__link">
+      Demo Project
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../screencasts/" title="Screencasts" class="md-nav__link">
+      Screencasts
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="../../../../about/" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#management" title="Management" class="md-nav__link">
+    Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#viewing-jobs" title="Viewing Jobs" class="md-nav__link">
+    Viewing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-jobs" title="Creating Jobs" class="md-nav__link">
+    Creating Jobs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#run-once" title="Run Once" class="md-nav__link">
+    Run Once
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-jobs" title="Editing Jobs" class="md-nav__link">
+    Editing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-jobs" title="Removing Jobs" class="md-nav__link">
+    Removing Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#reloading-jobs" title="Reloading Jobs" class="md-nav__link">
+    Reloading Jobs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-status" title="Job Status" class="md-nav__link">
+    Job Status
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-errors" title="Job Errors" class="md-nav__link">
+    Job Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#writing-jobs" title="Writing Jobs" class="md-nav__link">
+    Writing Jobs
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-job-code" title="Creating Job Code" class="md-nav__link">
+    Creating Job Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#job-template" title="Job Template" class="md-nav__link">
+    Job Template
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-returns" title="Job Returns" class="md-nav__link">
+    Job Returns
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#job-helpers" title="Job Helpers" class="md-nav__link">
+    Job Helpers
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#editing-job-code" title="Editing Job Code" class="md-nav__link">
+    Editing Job Code
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#example-code" title="Example Code" class="md-nav__link">
+    Example Code
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#recurring" title="Recurring" class="md-nav__link">
+    Recurring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep-job" title="Sleep Job" class="md-nav__link">
+    Sleep Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stop-job" title="Stop Job" class="md-nav__link">
+    Stop Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#exit-job" title="Exit Job" class="md-nav__link">
+    Exit Job
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#run-once-job" title="Run Once Job" class="md-nav__link">
+    Run Once Job
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                  <h1>Jobs Guide</h1>
+                
+                <p>The server-side <strong><a href="../../../../server/modules/jobs/api/">Jobs API</a></strong> and service allows you to run code periodically in the background for a variety of use cases. A number of different Job types can be scheduled.</p>
+<p>By their nature, Jobs are imperfect due to the fact that the can only run when there are free cycles during the execution tasks the server is currently handling, like client requests.</p>
+<p>For the most part Jobs run as close to their intervals as possible, with a variance of about 10 seconds in the worst case scenarios.</p>
+<h2 id="management">Management</h2>
+<p>All Job management is done using the Coronium Core <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong> in the <strong>Jobs</strong> section.</p>
+<h3 id="viewing-jobs">Viewing Jobs</h3>
+<p>To view all current Jobs available to the Jobs Service, navigate to the <strong>Jobs</strong> section. You will be presented with a list of Jobs, including information such as the current status, last run time, and other information.</p>
+<h3 id="creating-jobs">Creating Jobs</h3>
+<p>Jobs are created in the <strong>Jobs</strong> section. To create a new Job, navigate to the <strong>Jobs</strong> section and click the <strong>New Job</strong> button. Enter the requested information in the Job creation form. There is ample help and validation feedback directly on the form.</p>
+<p>When you are done inputing your Job information, click the <strong>Create</strong> button. You will then be redirected to the Job code editor to create your Job code. See <strong><a href="#writing-jobs">Writing Jobs</a></strong>.</p>
+<h4 id="run-once">Run Once</h4>
+<p>When creating a Job, you have the option of setting it to <strong>Run Once</strong>. This marks the Job so that it will only run one time on the booting of the Coronium Core server (after its initial interval). These can be useful for Jobs that only need to run once during the lifetime of the Coronium Core service. They will not run again on a service <strong><a href="#reloading-jobs">reload</a></strong>.</p>
+<h3 id="editing-jobs">Editing Jobs</h3>
+<p>To edit an existing Job, navigate to the <strong>Jobs</strong> section. On the Job listing, click any Job name to edit the Job using the form presented.</p>
+<p>When you are done editing your Job, click the <strong>Update</strong> button. See also <strong><a href="#reloading-jobs">Reloading Jobs</a></strong>.</p>
+<p>To edit your Job code see <strong><a href="#editing-job-code">Editing Job Code</a></strong>.</p>
+<h3 id="removing-jobs">Removing Jobs</h3>
+<p>To remove a Job from the service, enter the Job editing mode (see <strong><a href="#editing-jobs">Editing Jobs</a></strong> above). Click the <strong>Delete</strong> button, and then confirm the Job removal. </p>
+<div style="color:Tomato; font-weight:bold"><i class="fas fa-bolt"></i> This is a destructive action, and cannot be undone.</div>
+
+<h3 id="reloading-jobs">Reloading Jobs</h3>
+<p>After adding or editing Job details, you will need to reload the Job service. In the <strong>Jobs</strong> section, click the <strong>Reload</strong> button to start the reload process.</p>
+<p>You may need to wait for up to 60 seconds for the Job service to reload. While you're waiting, the service status will change to "Reloading". Once the reload process is complete, the status will return to "Running".</p>
+<p>Jobs that have aleady been running will not have their interval reset. For example, let's assume a Job is set to run every 120 seconds, and a reload is issued at 60 seconds in. On reload, that Job will retain its remaining run time, in this case 60 seconds.</p>
+<h3 id="job-status">Job Status</h3>
+<p>In the <strong>Jobs</strong> section, you will see various status icons in the Job listing depending on how the Job was returned (see <strong><a href="#job-returns">Job Returns</a></strong> below).</p>
+<p>The following table describes the various status icons, and the return that initiates them. In the Jobs listing, you can hover your mouse over any icon to see more information.</p>
+<table>
+<thead>
+<tr>
+<th>Status Icon</th>
+<th>Status Description</th>
+<th>Return Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><i style="color:LimeGreen" class="fas fa-check fa-lg"></i></td>
+<td>Is active and recurring or active and waiting to run.</td>
+<td><strong>job.OK</strong></td>
+</tr>
+<tr>
+<td><i style="color:LimeGreen" class="fas fa-hourglass-end fa-lg"></i></td>
+<td>Is active and will run again 24 hours after its last run.</td>
+<td><strong>job.SLEEP</strong></td>
+</tr>
+<tr>
+<td><i style="color:Gold" class="fas fa-sync-alt fa-lg"></i></td>
+<td>Is active but will <em>not</em> run again until a reload event is issued.</td>
+<td><strong>job.STOP</strong></td>
+</tr>
+<tr>
+<td><i style="color:Tomato" class="fas fa-ban fa-lg"></i></td>
+<td>Is <em>not</em> active, and will <em>not</em> run until reactivated manually.</td>
+<td><strong>job.EXIT</strong></td>
+</tr>
+<tr>
+<td><i style="color:LimeGreen" class="fas fa-hourglass-start fa-lg"></i></td>
+<td>This Job has been marked as <strong>Run Once</strong> but has <em>not</em> run yet.</td>
+<td>See <strong><a href="#run-once">Run Once</a></strong></td>
+</tr>
+<tr>
+<td><i style="color:Grey" class="fas fa-coffee fa-lg"></i></td>
+<td>This Job has <strong>Run Once</strong> and will not run until a service reboot.</td>
+<td>See <strong><a href="#run-once">Run Once</a></strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="job-errors">Job Errors</h3>
+<p>If any critical errors occur, or the Job file cannot be found when a Job is run, it will automatically be set to a deactivated state and will not run again until manually reactivated and a <strong><a href="#reloading-jobs">reload</a></strong> is issued.</p>
+<h2 id="writing-jobs">Writing Jobs</h2>
+<p>Once you've created a Job (see <strong><a href=""></a></strong>) you will be taken to the Job code editor to add your Job code.</p>
+<p><strong>All core modules are available for use in Job files.</strong> It is not possible to return responses to clients from Jobs (see <strong><a href="../../../../server/guide/lifecycle/">Lifecycle/Context</a></strong>).</p>
+<h3 id="creating-job-code">Creating Job Code</h3>
+<p>Once you have created your Job, you will be taken to the code editor and presented with a Job template.</p>
+<h4 id="job-template">Job Template</h4>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+  <span class="c1">--== Place your job code here</span>
+
+  <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">OK</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<p>All of your Job code must be placed in the <code>job.run()</code> method to be run. When your Job work code is finished you must then <strong>return</strong> a valid Job status type (see below). </p>
+<div style="color:Tomato; font-weight:bold"><i class="fas fa-bolt"></i> Failure to return a valid Job status will deactivate the Job when run.</div>
+
+<h4 id="job-returns">Job Returns</h4>
+<p>Job returns determine how your Job will operate on its next run. The most common return is <strong><a href="">job.OK</a></strong> which keeps a job running in a recurring fashion.</p>
+<p>To understand what each return type does, see the <strong><a href="../../../../server/modules/jobs/api/#return">Return</a></strong> section of the <strong>Jobs API</strong>.</p>
+<h4 id="job-helpers">Job Helpers</h4>
+<p>Helpers are a group of methods that return the current minute, hour, day, etc. to help fine tune when your Job runs. To learn more about each helper see the <strong><a href="../../../../server/modules/jobs/api/#helpers">Helpers</a></strong> section of the <strong>Jobs API</strong>.</p>
+<p><strong>Helper Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">job</span><span class="p">.</span><span class="n">day</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Fri&quot;</span> <span class="kr">then</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="s2">&quot;Do some Friday work&quot;</span><span class="p">)</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">SLEEP</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<p>In the example above we use the <strong><a href="../../../../server/modules/jobs/api/#jobsleep">job.SLEEP</a></strong> return since we only need to check for a day on a daily basis.</p>
+<p>Because Job intervals are imperfect, some helper types work better with certain return types. For instance, you may have unpredictable results when using the <strong><a href="../../../../server/modules/jobs/api/#jobminute">job.minute</a></strong> or <strong><a href="../../../../server/modules/jobs/api/#jobhour">job.hour</a></strong> helper with the <strong><a href="../../../../server/modules/jobs/api/#jobsleep">job.SLEEP</a></strong> return.</p>
+<p>Instead create a recurring Job that runs at least every 30 seconds to check for <strong>minute</strong> resolutions, or a Job every 30 minutes to check an <strong>hour</strong> resolution. You would want to use the <strong><a href="../../../../server/modules/jobs/api/#jobok">job.OK</a></strong> return in these situations.</p>
+<h3 id="editing-job-code">Editing Job Code</h3>
+<p>To edit existing Job code, navigate to the <strong>Jobs</strong> section, and click any of the links in the <strong>File Path</strong> column. This will take you to the Job code editor with the requested Job code loaded into the editor.</p>
+<p>Once you've edited your code be sure to save it. While not required, you should issue a <strong><a href="#reloading-jobs">reload</a></strong> when finished.</p>
+<h2 id="example-code">Example Code</h2>
+<p>After creating your Job (see <strong><a href="#creating-jobs">Creating Jobs</a></strong>) you can regulate them by the return status in your code.</p>
+<h3 id="recurring">Recurring</h3>
+<p>This Job will keep running at its set interval by returning <strong><a href="../../../../server/modules/jobs/api/#jobok">job.OK</a></strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="c1">--check stock</span>
+  <span class="kd">local</span> <span class="n">bikes</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectOne</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;stock&quot;</span> <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;Red Bikes&quot;</span> <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="c1">--update status</span>
+  <span class="kr">if</span> <span class="n">bikes</span><span class="p">.</span><span class="n">stock</span> <span class="o">==</span> <span class="mi">0</span> <span class="kr">then</span>
+    <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+      <span class="n">values</span> <span class="o">=</span> <span class="p">{</span> <span class="n">out_of_stock</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">},</span>
+      <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">id</span> <span class="o">=</span> <span class="n">bikes</span><span class="p">.</span><span class="n">id</span> <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">OK</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<h3 id="sleep-job">Sleep Job</h3>
+<p>This Job will stop special sales on Sundays. Checks the day every 24 hours using <strong><a href="../../../../server/modules/jobs/api/#jobsleep">job.SLEEP</a></strong>.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="kr">if</span> <span class="n">job</span><span class="p">.</span><span class="n">day</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Sun&quot;</span> <span class="kr">then</span>
+    <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;shop&quot;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+      <span class="n">values</span> <span class="o">=</span> <span class="p">{</span> <span class="n">no_specials</span> <span class="o">=</span> <span class="kc">true</span> <span class="p">},</span>
+      <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">no_specials</span> <span class="o">=</span> <span class="kc">false</span> <span class="p">}</span>
+    <span class="p">})</span>
+  <span class="kr">end</span>
+
+  <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">SLEEP</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<h3 id="stop-job">Stop Job</h3>
+<p>This Job will send daily sales reports during January. And return <strong><a href="../../../../server/modules/jobs/api/#jobstop">job.STOP</a></strong> otherwise.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectOne</span><span class="p">(</span><span class="s2">&quot;shop&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;status&quot;</span><span class="p">,</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">{</span> <span class="n">sales_total</span> <span class="p">},</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">month</span> <span class="o">=</span> <span class="s2">&quot;Jan&quot;</span> <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="n">job</span><span class="p">.</span><span class="n">month</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;Jan&quot;</span> <span class="kr">then</span>
+    <span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
+    <span class="n">msg</span><span class="p">:</span><span class="n">to</span><span class="p">(</span><span class="s2">&quot;boss@work.com&quot;</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">:</span><span class="n">from</span><span class="p">(</span><span class="s2">&quot;job@work.com&quot;</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">:</span><span class="n">subject</span><span class="p">(</span><span class="s2">&quot;January Daily&quot;</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">:</span><span class="n">body</span><span class="p">(</span><span class="s2">&quot;Sales today were: $&quot;</span><span class="o">..</span><span class="n">res</span><span class="p">.</span><span class="n">sales_total</span><span class="p">)</span>
+    <span class="n">msg</span><span class="p">:</span><span class="n">send</span><span class="p">()</span>
+
+    <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">SLEEP</span>
+  <span class="kr">else</span>
+    <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">STOP</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<h3 id="exit-job">Exit Job</h3>
+<p>This Job will deactivate returning <strong><a href="../../../../server/modules/jobs/api/#jobexit">job.EXIT</a></strong> if an error occurs with the query.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">selectOne</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+    <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+    <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="nb">type</span> <span class="o">=</span> <span class="s2">&quot;blender&quot;</span> <span class="p">}</span>
+  <span class="p">})</span>
+
+  <span class="kr">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="kr">then</span>
+    <span class="n">core</span><span class="p">.</span><span class="n">log</span><span class="p">(</span><span class="n">err</span><span class="p">)</span>
+    <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">EXIT</span>
+  <span class="kr">else</span>
+    <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">OK</span>
+  <span class="kr">end</span>
+
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+
+
+<h3 id="run-once-job">Run Once Job</h3>
+<p>This Job will run once. The proper return type is <strong><a href="../../../../server/modules/jobs/api/#jobok">job.OK</a></strong> for <strong><a href="#run-once">Run Once</a></strong> jobs.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">job</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">job</span><span class="p">()</span>
+
+<span class="kr">function</span> <span class="nc">job</span><span class="p">.</span><span class="nf">run</span><span class="p">()</span>
+
+  <span class="kd">local</span> <span class="n">config_tbl</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">network</span><span class="p">.</span><span class="n">getJson</span><span class="p">(</span><span class="s2">&quot;https://some.json-config.com&quot;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">config</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">data</span><span class="p">(</span><span class="s1">&#39;config&#39;</span><span class="p">)</span>
+
+  <span class="kd">local</span> <span class="n">id</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">config</span><span class="p">:</span><span class="n">save</span><span class="p">(</span><span class="n">config_tbl</span><span class="p">)</span>
+
+  <span class="kr">return</span> <span class="n">job</span><span class="p">.</span><span class="n">OK</span>
+<span class="kr">end</span>
+
+<span class="kr">return</span> <span class="n">job</span>
+</pre></div>
+                
+                  
+                
+              
+              
+                
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../api/" title="Jobs API" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Jobs API
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../mongo/" title="Mongo" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Mongo
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+          <div class="md-footer-copyright__highlight">
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+          </div>
+        
+        powered by
+        <a href="http://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+        
+  <div class="md-footer-social">
+    
+      <a href="https://forums.coronalabs.com/forum/643-coronium/" class="md-footer-social__link"><i class="far fa-life-ring"></i></a>
+    
+      <a href="https://twitter.com/develephant" class="md-footer-social__link"><i class="fab fa-twitter"></i></a>
+    
+      <a href="http://develephant.com" class="md-footer-social__link"><i class="fas fa-globe"></i></a>
+    
+  </div>
+
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../../assets/javascripts/application.62cfdabc.js"></script>
+      
+      <script>app.initialize({version:"0.17.2",url:{base:"../../../.."}})</script>
+      
+    
+    
+      
+    
+  </body>
+</html>

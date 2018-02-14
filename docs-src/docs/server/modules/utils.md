@@ -168,6 +168,30 @@ local uuid = core.uuid()
 -- `uuid` will contain something like "1f0af2fa-8b06-4605-bace-e13a85aa36d5"
 ```
 
+### sleep
+
+Pause processing for a certain amount of seconds. Useful in looping situations.
+
+```lua
+core.sleep(seconds)
+```
+
+__Parameters__
+
+|Name|Description|Default|Requried|
+|----|-----------|-------|--------|
+|seconds|The amount of seconds to sleep.|_Number_|Y|
+
+__Example__
+
+```lua
+for i=1, 20 do
+  --do some work
+
+  core.sleep(2) --wait 2 seconds
+end
+```
+
 ### countryCode
 
 Two letter country code based on the request IP. Can only be called in a __core.api__ method.

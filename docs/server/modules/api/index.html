@@ -405,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
-      MySQL Server
+    <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
     </a>
   </li>
 
@@ -548,6 +548,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coreerror" title="core.error" class="md-nav__link">
+    core.error
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#errors" title="Errors" class="md-nav__link">
     Errors
@@ -630,6 +643,54 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5">
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/guide/" title="Jobs Guide" class="md-nav__link">
+      Jobs Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../mongo/" title="Mongo" class="md-nav__link">
       Mongo
@@ -668,13 +729,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
     
-    <label class="md-nav__link" for="nav-2-4-8">
+    <label class="md-nav__link" for="nav-2-4-9">
       Pages
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-8">
+      <label class="md-nav__title" for="nav-2-4-9">
         Pages
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -762,15 +823,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../timer/" title="Timer" class="md-nav__link">
+      Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
     
-    <label class="md-nav__link" for="nav-2-4-10">
+    <label class="md-nav__link" for="nav-2-4-12">
       Users
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-10">
+      <label class="md-nav__title" for="nav-2-4-12">
         Users
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1252,6 +1325,19 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#coreerror" title="core.error" class="md-nav__link">
+    core.error
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#errors" title="Errors" class="md-nav__link">
     Errors
@@ -1497,12 +1583,14 @@
 
 
 <p>To learn how to consume the response on the client, see the client-side <strong><a href="../../../client/modules/api/">API</a></strong> module.</p>
-<h3 id="errors">Errors</h3>
-<p>At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a <strong>core.error</strong> response object. This will be interpeted by the client as an error event.</p>
+<h2 id="coreerror">core.error</h2>
+<p>Return an error response object to the client.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">error</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">code</span><span class="p">)</span>
 </pre></div>
 
 
+<h3 id="errors">Errors</h3>
+<p>At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a <strong>core.error</strong> response object. This will be interpeted by the client as an error event.</p>
 <p>The <strong>core.error</strong> object requires a <strong>string</strong> message parameter, and an optional <strong>number</strong> based error code.</p>
 <p><em>Example</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
@@ -1720,7 +1808,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../guide/mysql/" title="MySQL Server" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1729,7 +1817,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                MySQL Server
+                Lifecycle/Context
               </span>
             </div>
           </a>
@@ -1757,7 +1845,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.4.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
           </div>
         
         powered by

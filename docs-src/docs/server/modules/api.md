@@ -228,13 +228,17 @@ return api
 
 To learn how to consume the response on the client, see the client-side __[API](/client/modules/api/)__ module.
 
-### Errors
+## core.error
 
-At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a __core.error__ response object. This will be interpeted by the client as an error event.
+Return an error response object to the client.
 
 ```lua
 core.error(message, code)
 ```
+
+### Errors
+
+At times you may want to indicate to the client that an error has taken place in the server-side api operation. To do this, you return a __core.error__ response object. This will be interpeted by the client as an error event.
 
 The __core.error__ object requires a __string__ message parameter, and an optional __number__ based error code.
 

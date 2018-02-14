@@ -405,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
-      MySQL Server
+    <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
     </a>
   </li>
 
@@ -490,6 +490,54 @@
           
 
 
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5">
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/guide/" title="Jobs Guide" class="md-nav__link">
+      Jobs Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item">
     <a href="../mongo/" title="Mongo" class="md-nav__link">
       Mongo
@@ -528,13 +576,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
     
-    <label class="md-nav__link" for="nav-2-4-8">
+    <label class="md-nav__link" for="nav-2-4-9">
       Pages
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-8">
+      <label class="md-nav__title" for="nav-2-4-9">
         Pages
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -622,15 +670,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../timer/" title="Timer" class="md-nav__link">
+      Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
     
-    <label class="md-nav__link" for="nav-2-4-10">
+    <label class="md-nav__link" for="nav-2-4-12">
       Users
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-10">
+      <label class="md-nav__title" for="nav-2-4-12">
         Users
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -750,6 +810,13 @@
         <li class="md-nav__item">
   <a href="#uuid" title="uuid" class="md-nav__link">
     uuid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sleep" title="sleep" class="md-nav__link">
+    sleep
   </a>
   
 </li>
@@ -1167,6 +1234,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#sleep" title="sleep" class="md-nav__link">
+    sleep
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#countrycode" title="countryCode" class="md-nav__link">
     countryCode
   </a>
@@ -1408,6 +1482,40 @@
 </pre></div>
 
 
+<h3 id="sleep">sleep</h3>
+<p>Pause processing for a certain amount of seconds. Useful in looping situations.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Default</th>
+<th>Requried</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>seconds</td>
+<td>The amount of seconds to sleep.</td>
+<td><em>Number</em></td>
+<td>Y</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kr">for</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span> <span class="kr">do</span>
+  <span class="c1">--do some work</span>
+
+  <span class="n">core</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c1">--wait 2 seconds</span>
+<span class="kr">end</span>
+</pre></div>
+
+
 <h3 id="countrycode">countryCode</h3>
 <p>Two letter country code based on the request IP. Can only be called in a <strong>core.api</strong> method.</p>
 <p><strong>Example</strong></p>
@@ -1512,7 +1620,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.4.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
           </div>
         
         powered by

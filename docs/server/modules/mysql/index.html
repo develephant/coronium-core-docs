@@ -405,8 +405,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../guide/mysql/" title="MySQL Server" class="md-nav__link">
-      MySQL Server
+    <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-nav__link">
+      Lifecycle/Context
     </a>
   </li>
 
@@ -482,6 +482,54 @@
     <a href="../files/" title="Files" class="md-nav__link">
       Files
     </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-5" type="checkbox" id="nav-2-4-5">
+    
+    <label class="md-nav__link" for="nav-2-4-5">
+      Jobs
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
+      <label class="md-nav__title" for="nav-2-4-5">
+        Jobs
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/api/" title="Jobs API" class="md-nav__link">
+      Jobs API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../jobs/guide/" title="Jobs Guide" class="md-nav__link">
+      Jobs Guide
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
         
@@ -693,6 +741,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mysql-null-type" title="MySQL NULL Type" class="md-nav__link">
+    MySQL NULL Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-where-key" title="The WHERE Key" class="md-nav__link">
     The WHERE Key
   </a>
@@ -789,6 +844,20 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-error-log" title="Viewing Error Log" class="md-nav__link">
+    Viewing Error Log
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#password-update" title="Password Update" class="md-nav__link">
     Password Update
   </a>
@@ -828,13 +897,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-8" type="checkbox" id="nav-2-4-8">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-9" type="checkbox" id="nav-2-4-9">
     
-    <label class="md-nav__link" for="nav-2-4-8">
+    <label class="md-nav__link" for="nav-2-4-9">
       Pages
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-8">
+      <label class="md-nav__title" for="nav-2-4-9">
         Pages
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -922,15 +991,27 @@
           
 
 
+  <li class="md-nav__item">
+    <a href="../timer/" title="Timer" class="md-nav__link">
+      Timer
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-10" type="checkbox" id="nav-2-4-10">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2-4-12" type="checkbox" id="nav-2-4-12">
     
-    <label class="md-nav__link" for="nav-2-4-10">
+    <label class="md-nav__link" for="nav-2-4-12">
       Users
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="3">
-      <label class="md-nav__title" for="nav-2-4-10">
+      <label class="md-nav__title" for="nav-2-4-12">
         Users
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1497,6 +1578,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#mysql-null-type" title="MySQL NULL Type" class="md-nav__link">
+    MySQL NULL Type
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#the-where-key" title="The WHERE Key" class="md-nav__link">
     The WHERE Key
   </a>
@@ -1591,6 +1679,20 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#configuration-file" title="Configuration File" class="md-nav__link">
+    Configuration File
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#viewing-error-log" title="Viewing Error Log" class="md-nav__link">
+    Viewing Error Log
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#password-update" title="Password Update" class="md-nav__link">
@@ -3222,6 +3324,19 @@
 </pre></div>
 
 
+<h2 id="mysql-null-type">MySQL NULL Type</h2>
+<p>When using the EZ Query methods, you can set a column value to a valid MySQL <code>NULL</code> type by passing a string value set to 'NULL'. This only works if the column allows <code>NULL</code> values.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span><span class="p">,</span> <span class="n">code</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">update</span><span class="p">(</span><span class="s2">&quot;products&quot;</span><span class="p">,</span> <span class="p">{</span>
+  <span class="n">tbl</span> <span class="o">=</span> <span class="s2">&quot;toys&quot;</span><span class="p">,</span>
+  <span class="n">values</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;NULL&#39;</span>
+  <span class="p">},</span>
+  <span class="n">where</span> <span class="o">=</span> <span class="p">{</span> <span class="n">color</span> <span class="o">=</span> <span class="s2">&quot;red&quot;</span> <span class="p">}</span>
+<span class="p">})</span>
+</pre></div>
+
+
 <h2 id="the-where-key">The WHERE Key</h2>
 <p>Many of the MySQL (and other) modules use a <code>where</code> key to specify the "WHERE" clause for a database query. Depending on what data type and structure you provide this key, a couple different things can happen automagically.</p>
 <h3 id="string-based">String Based</h3>
@@ -3492,6 +3607,39 @@
 <li><a href="https://www.heidisql.com/download.php">HeidiSQL</a> (Windows)</li>
 </ul>
 <p>To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
+<h3 id="configuration-file">Configuration File</h3>
+<p>You can adjust the various MySQL server configuration settings in the <em>coronium_mysql.cnf</em> file. The file is located at:</p>
+<div class="codehilite"><pre><span></span>/etc/mysql/coronium.conf.d/coronium_mysql.cnf
+</pre></div>
+
+
+<div class="admonition danger">
+<p class="admonition-title">Configuration Changes</p>
+<p><strong>Changes to the configuration file can have adverse effects, do so at your own risk. See <a href="https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html">MySQL Server System Variables</a> for the available configuration options.</strong></p>
+</div>
+<p>This file can be edited by using the <strong>nano</strong> utility on the server:</p>
+<div class="codehilite"><pre><span></span>sudo nano /etc/mysql/coronium.conf.d/coronium_mysql.cnf
+</pre></div>
+
+
+<p>Use the arrow keys on your keyboard to move the cursor. When your updates are complete, use <strong>ctrl-x</strong> and then press <strong>y</strong> to save the file.</p>
+<p>You will need to restart the MySQL server daemon for the changes to take effect:</p>
+<div class="codehilite"><pre><span></span>sudo monit restart mysqld
+</pre></div>
+
+
+<p>Check the Coronium server status to make sure that MySQL is running:</p>
+<div class="codehilite"><pre><span></span><span class="n">coronium</span> <span class="n">status</span>
+</pre></div>
+
+
+<h3 id="viewing-error-log">Viewing Error Log</h3>
+<p>The MySQL server error log can be viewed using:</p>
+<div class="codehilite"><pre><span></span>sudo tail -f /var/log/mysql/error.log
+</pre></div>
+
+
+<p>Use <strong>ctrl-c</strong> to exit.</p>
 <h3 id="password-update">Password Update</h3>
 <p>To change your MySQL password log in your Coronium Core server as and run:</p>
 <div class="codehilite"><pre><span></span>sudo mysql-updatepw
@@ -3551,7 +3699,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.4.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
           </div>
         
         powered by

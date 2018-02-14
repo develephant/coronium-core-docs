@@ -6,19 +6,47 @@ Check your current version using the __[Webmin](/server/webmin/setup/)__ and vie
 
 ## Select an update
 
-### 2.4.1 to 2.4.2
+### 2.4.1 to 2.5.0
 
-The following will update your Coronium Core 2.4.1 server to version 2.4.2
+The following will update your Coronium Core 2.4.1 server to version 2.5.0
+
+__Added__
+
+  - Server-side __[Jobs API](/server/modules/jobs/api/)__ and service allowing you to run code periodically in the background for a variety of use cases. See the __[Jobs Guide](/server/modules/jobs/guide/)__ for full usage information.
+
+  - A server-side utility method __[core.sleep](/server/modules/utils/#sleep)__ that allows one to pause code execution for a duration of time. Useful for tight work loops.
+
+  - Server-side __[core.timer](/server/modules/timer/)__ method for single-use or recurring timers.
+
+  - Server-side __[network.pipeline](/server/modules/network/#pipeline)__ method added to make sequential network calls to a host.
+
+  - Ability to set a MySQL column to a valid `NULL` value when using the WHERE table syntax (see [here](/server/modules/mysql/#mysql-null-type)).
+
+  - Updated documentation for all new additions.
 
 __Fixed__
 
-  - Using the Lua `print()` command should no longer cause log file corruption. In general __[core.log]()__ is the recommended way to print to the log file.
+  - An edge case that could cause a log file to stop loading properly in the Log Viewer.
+
+  - __[mysql.selectCount](/server/modules/mysql/#selectcount)__ returning a string type as opposed to a number.
 
 __API Changes__
 
   - Server-side __[network.get]()__ previously returned only the response body. It now correctly returns a response object similar to __[network.request]()__.
 
   - Server-side __[network.post]()__ previously returned only the response body. It now correctly returns a response object similar to __[network.request]()__.
+
+__Webmin 1.4.0__
+
+  - __[Jobs](/server/modules/jobs/api/)__ section has been added to create, manage, and edit Jobs and the Job Service.
+
+  - You can now manage log files in the __System__ section.
+
+  - Optional auto-reload added when viewing log files.
+
+  - Server key moved back to the __Config__ section.
+
+  - More clean up, tweaks, and fixes.
 
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
@@ -28,7 +56,7 @@ __API Changes__
 Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.2/do.sh && sudo bash do.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/do.sh && sudo bash do.sh
 ```
 
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
@@ -39,7 +67,7 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.4.2/do.sh && sudo bash do.
 Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
 
 ```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.2/ec2.sh && sudo bash ec2.sh
+wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/ec2.sh && sudo bash ec2.sh
 ```
 
 ### 2.4.0 to 2.4.1
