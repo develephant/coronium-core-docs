@@ -126,7 +126,7 @@ core.api.getCars({name="red car"}, onResponse)
 
 ## Overview
 
-Extend your applications into the cloud with Mongo and MySQL databases, secure file transfers and storage, dynamic public facing web pages, user management, analytics, email, and more; all scripted using a ridiculously simple Lua based api.
+Extend your applications into the cloud with Mongo and MySQL databases, user management, analytics, recurring jobs, secure file transfers and storage, dynamic public facing web pages, email, and more; all scripted using a ridiculously simple Lua based api.
 
 __Coronium Core__ includes a fully visual browser based "Webmin" to view statistics, app analytics, work with users, manage API projects, monitor your system, edit code with a robust code editor, and more.
 
