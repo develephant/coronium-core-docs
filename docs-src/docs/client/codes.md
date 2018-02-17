@@ -55,12 +55,12 @@ end
 |----|-----------|
 |901|Unauthorized database.|
 
-### Application Scopes
+### Scopes
 
 |Code|Description|
 |----|-----------|
-|1000|Application Scope name already exists.|
-|1004|ApplicationScope was not found.|
+|1000|Scope name already exists.|
+|1004|Scope was not found.|
 
 ## Custom Status Codes
 
