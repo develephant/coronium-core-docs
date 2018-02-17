@@ -200,7 +200,7 @@ local user, err, code = core.users.login({
 
 ### update
 
-Update a user in the Coronium user system. If you do not have a `user_id`, first use the __[users.fetch](#fetch)__ method to get one.
+Update a user in the Coronium user system. If you do not have a `user_id`, first use the __[users.getWithQuery](#getwithquery)__ method to get one.
 
 ```lua
 core.users.update(user_id, update_params)
@@ -292,7 +292,7 @@ The `extra` table for the record will now be:
 
 ### delete
 
-Remove a user from the Coronium user system. If you do not have a `user_id`, first use the __[users.fetch](#fetch)__ method to get one.
+Remove a user from the Coronium user system. If you do not have a `user_id`, first use the __[users.getWithQuery](#getwithquery)__ method to get one.
 
 ```lua
 core.users.delete(user_id)
@@ -477,3 +477,4 @@ local users, err, code = core.users.getAndMerge("aad3eba3...", {
   }
 })
 ```
+

@@ -55,6 +55,13 @@ end
 |----|-----------|
 |901|Unauthorized database.|
 
+### Application Scopes
+
+|Code|Description|
+|----|-----------|
+|1000|Application Scope name already exists.|
+|1004|ApplicationScope was not found.|
+
 ## Custom Status Codes
 
 If you are using a your own [server-side API](/server/modules/api/), you can pass a custom status code using the __[core.error](/server/modules/api/#errors)__ method.
