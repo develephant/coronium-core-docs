@@ -1,4 +1,4 @@
-<div style="color:Tomato"><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="/coronium-core-docs/server/modules/timer/">Lifecycle/Context</a> section to understand how timers work.</div>
+<div style="color:Tomato"><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="/coronium-core-docs/server/guide/lifecycle/">Lifecycle/Context</a> section to understand how timers work.</div>
 
 Timers take up a client connection from your total pool of connections. They also take up memory for as long as they are active. Be careful when using timers, and make sure you have control over it or it could run forever using up resources.
 
