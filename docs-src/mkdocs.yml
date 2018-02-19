@@ -40,6 +40,7 @@ pages:
         - 'Users API': 'server/modules/users/api.md'
         - 'OAuth API': 'server/modules/users/oauth.md'
         - 'OAuth Users': 'server/modules/users/oauthusers.md'
+        - 'Password Reset': 'server/modules/users/passwordreset.md'
       - 'Utils': 'server/modules/utils.md'
     - 'Updates': 'server/updates.md'  
     - 'Add-ons': 'server/addons.md'

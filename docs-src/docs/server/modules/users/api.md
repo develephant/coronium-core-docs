@@ -478,3 +478,12 @@ local users, err, code = core.users.getAndMerge("aad3eba3...", {
 })
 ```
 
+### sendPasswordReset
+
+Send an email to a user with a special link to reset the users password.
+
+```lua
+core.users.sendPasswordReset(to_email, scope, options)
+```
+
+See the __[Password Reset](/server/modules/users/passwordreset/)__ section for detailed information.
