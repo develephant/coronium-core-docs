@@ -5,6 +5,6 @@ If you're planning on using either the client or server-side __Email__ module or
 
 Once you have your account set-up you will need to provide your _Sending Domain_ and _Secret API Key_ from Mailgun to your Coronium Core system.
 
-Using the __[Webmin](/server/webmin/setup/)__, navigate to the __Config__ section and enter the requested information in the __Mailgun Settings__ area. Click the __update__ button to add your credentials.
+Using the __[Webmin](/server/webmin/setup/)__, navigate to the __Configuration__ section and enter the requested information under the __Mailgun__ tab. Click the __Update__ button to add your credentials.
 
-You can now use the __Email__ module, and confirm user registrations with the client-side __Users__ module via email.
+You can now use the __Email__ module, confirm user registrations, and send password resets with both the client-side and server-side __Users__ module.

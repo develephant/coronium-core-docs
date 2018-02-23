@@ -1,10 +1,88 @@
 It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.
 
-## Check your version
-
-Check your current version using the __[Webmin](/server/webmin/setup/)__ and viewing the __System__ section.
-
 ## Select an update
+
+### 2.5.0 to 2.6.0
+
+The following will update your Coronium Core 2.5.0 server to version 2.6.0
+
+<div style="color:Tomato"><strong><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="#260-update">Critical Update Notes</a> before installing this update.</strong></div>
+
+__Added__
+
+ - Password reset link that can be sent to a user with an email address using the server-side __[users.sendPasswordResetLink](/server/modules/users/api/#sendpasswordresetlink)__ method, allowing a user to reset their password via online form. Supports custom email template messaging. See also the __[Password Reset](/server/modules/users/passwordreset/)__ guide. 
+
+ - __[Scope Permissions](/client/guide/#scope-permissions)__ for additional security, allowing a developer to control what client-side actions are allowed.
+
+ - Server-side __[users.sendConfirmationLink](/server/modules/users/api/#sendconfirmationlink)__ to send a confirmation email for server-side created users. See also the __[Confirmations](/server/modules/users/confirmations/)__ guide. 
+
+ - Server-side utility method __[core.md5](/server/modules/utils/#md5)__ which creates an MD5 digest of the given string.
+
+ - Server-side command line tool to __[disable/enable MongoDB](/server/guide/mongo/)__ to gain some additional system resources in the event a developer is not using any MongoDB related functionality.
+
+ - A bunch of new and updated documentation.
+
+__Updated__
+
+ - Client-side __[users.login](/client/modules/users/api/#login)__ method to support login by __email__ _or_ __username__.
+
+ - Server-side __[users.getWithQuery](/server/modules/users/api/#getwithquery)__ to query against a hashed password.
+
+ - Coronium Core Corona Plugin to support version 2.6.0 or better servers.
+
+__Fixed__
+
+ - Archive projects action in the __System Info__ section not downloading.
+
+ - Server-side __[users.getWithQuery](/server/modules/users/api/#getwithquery)__ only working with the `active` key set.
+
+ - User confirmation email send incorrectly reporting "failed" status.
+
+ - Various minor issues.
+
+__API Changes__
+
+  - The client-side __[core.init](/client/modules/core/#init)__ method now requires a `version` parameter. See __[Initialization](/client/guide/#initialization)__.
+
+__Webmin 2.0.0__
+
+- New __Scopes__ section for viewing, and managing [Scope Permissions](/client/guide/#scope-permissions).
+
+- _Auto Scroll Log_ option added to the __Configuration__ section.
+
+- Code completions updated for new methods.
+
+- Tons of tweaks, fixes, reorganization, and visual updates
+
+<div style="color:Tomato"><strong><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="#260-update">Critical Update Notes</a> before installing this update.</strong></div>
+
+<br/>
+
+_Note: Close any open Webmin browser windows before updating._
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.0/do.sh && sudo bash do.sh
+```
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.0/ec2.sh && sudo bash ec2.sh
+```
+
+<br/>
 
 ### 2.4.1 to 2.5.0
 
@@ -40,13 +118,15 @@ __Webmin 1.4.0__
 
   - __[Jobs](/server/modules/jobs/api/)__ section has been added to create, manage, and edit Jobs and the Job Service.
 
-  - You can now manage log files in the __System__ section.
+  - You can now manage log files in the __System Info__ section.
 
   - Optional auto-reload added when viewing log files.
 
-  - Server key moved back to the __Config__ section.
+  - Server key moved back to the __Configuration__ section.
 
   - More clean up, tweaks, and fixes.
+
+<br/>
 
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
@@ -69,6 +149,8 @@ Paste the following one-liner into your terminal to start the __Amazon EC2__ upd
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/ec2.sh && sudo bash ec2.sh
 ```
+
+<br/>
 
 ### 2.4.0 to 2.4.1
 
@@ -377,3 +459,45 @@ Log in as the __coronium__ user, and from the command line, run the following, u
 sudo webmin-apihost https://<your.coronium.host>
 ```
 
+## Critical Update Notes
+
+### 2.6.0 Update
+
+Coronium Core version 2.6.0 introduces some major architectural changes to the underlying system to lay the groundwork for some current and future enhancements.
+
+If at all possible it is reccomended to [run a fresh install](/server/installation/digitalocean/) and import your data and projects. If this is not an option, be sure to carefully read the notes that follow so your update will go smoothly.
+
+__Live Apps__
+
+If you currently have live apps running on v2.5.0 you can still update your server, but you will be unable to use any of the new features until you redeploy your application with the new Coronium Core Plugin set to version 2 (see [core.init](/client/modules/core/#init)). All of the following information needs to be understood as well before updating.
+
+__Users Data__
+
+Version 2.6.0 now supports [logins by email address](/client/modules/users/api/#login). ___This means that no two users in the same scope can have the same email address in the Users system___.
+
+If you currently have users in the same scope with the same email address, certain functionality like __[users.sendPasswordReset](/server/modules/users/api/#sendpasswordreset)__, as well as, logging in by email address, will not work properly.  Other validation issues will also arise. 
+
+___You will need to clean up Users that have this issue before updating___. If you have questions on how to do this, visit the [support forum](https://forums.coronalabs.com/forum/643-coronium/).
+
+__Scopes__
+
+With the addition of [Scope Permissions](/client/guide/#scope-permissions), scopes are being more fully intergrated into the Webmin system. 
+
+When you first update, you will need to visit the __Scopes__ section in the Webmin and click the __Update Cache__ button to import your current scopes. You will then be able to edit permissions on them, if needed.
+
+More enhancements to scopes management are coming in future updates.
+
+__Plugin Version__
+
+Because the Corona plugin system does not support multiple plugin versions internally, you must now supply a `version` parameter to the client-side __[core.init](/client/modules/core/#init)__ method. 
+
+For server features included in v2.6.0 or better, you must set the plugin version number to __2__.
+
+```lua
+core.init({
+  version = 2,
+  server = "https://<coronium-host-address>",
+  key = "<coronium-server-key>",
+  scope = "Space Race"
+})
+```

@@ -403,6 +403,7 @@ __Query Table Keys__
 |email|The users email address.|_String_|__N__|
 |group|The group name to search within.|_String_|__N__|
 |username|The users username.|_String_|__N__|
+|password|A hashed password (see also [hashPassword](#hashpassword)).|_String_|__N__|
 |orderby|The sorting attributes. See __Orderby__ below.|_Table_|__N__|
 |limit|Limit the records returned. See __Limit__ below.|_Number_ or _Table_|__N__|
 
@@ -415,7 +416,7 @@ The `orderby` key should be a table filled with column = direction pairs. The di
 
 __Limit__
 
-To limit the rows returned, supply a number value to the `limit` keyy. To offset the limit, supply a table array of number values. For example, to return rows 6-15, then `limit = {5, 10}`.
+To limit the rows returned, supply a number value to the `limit` key. To offset the limit, supply a table array of number values. For example, to return rows 6-15, then `limit = {5, 10}`.
 
 
 __Returns__
@@ -478,12 +479,124 @@ local users, err, code = core.users.getAndMerge("aad3eba3...", {
 })
 ```
 
-### sendPasswordReset
+### sendConfirmationLink
 
-Send an email to a user with a special link to reset the users password.
+Send an email to a newly registered user to confirm their email address. See also __[Confirmations](/server/modules/users/confirmations/)__.
 
 ```lua
-core.users.sendPasswordReset(to_email, scope, options)
+core.users.sendConfirmationLink(user_id, options)
 ```
 
-See the __[Password Reset](/server/modules/users/passwordreset/)__ section for detailed information.
+!!! warning "Mailgun Account Required"
+    A valid __Mailgun__ account is required to use this method. See the __[Mailgun Config](/server/webmin/mailgun/)__ section for more information.
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|user_id|The users unique ID to send the confirmation link to.|_String_|__Y__|
+|options|A table with email confirmation options (see below).|_Table_|__Y__|
+
+__Confirmation Options Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|from_email|The senders email address. This is usually your address.|_String_|__Y__|
+|subject|The confirmation email subject line.|_String_|__Y__|
+|email_tpl|Identifier for a custom confirmation email template.|_String_|__N__|
+|tpl_keys|Additional template keys for the custom confirmation email template.|_Table_|__N__|
+
+
+__Returns__
+
+A __String__ indicating the sent state from Mailgun, can be "OK" or "Failed", or __nil__, error, and error code.
+
+_Note: If the user is not registered with an email address, this action will return an error._
+
+__Example__
+
+```lua
+local res, err, code = core.users.sendConfirmationLink("0091633d...", {
+  from_email = "code@develephant.com",
+  subject = "Email confirmation"
+})
+```
+
+See the __[Confirmations](/server/modules/users/confirmations/)__ section for more detailed information.
+
+### sendPasswordResetLink
+
+Send an email to a user with a special link to reset the users password. See also __[Password Reset](/server/modules/users/passwordreset/)__.
+
+```lua
+core.users.sendPasswordResetLink(to_email, scope, options)
+```
+
+!!! warning "Mailgun Account Required"
+    A valid __Mailgun__ account is required to use this method. See the __[Mailgun Config](/server/webmin/mailgun/)__ section for more information.
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|to_email|The users email address to send the reset link to.|_String_|__Y__|
+|scope|The application scope to be queried.|_String_|__Y__|
+|options|A table with email reset options (see below).|_Table_|__Y__|
+
+__Reset Options Keys__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|from_email|The senders email address. This is usually your address.|_String_|__Y__|
+|subject|The password reset email subject line.|_String_|__Y__|
+|tpl_name|Identifier for a custom password reset email template.|_String_|__N__|
+|tpl_keys|Additional template keys for the custom password reset email template.|_Table_|__N__|
+
+__Returns__
+
+A __boolean__ `true` value on success, or __nil__ and an error.
+
+__Example__
+
+```lua
+local res, err = core.users.sendPasswordResetLink("me@home.com", "Fun Run", 
+  {
+    from_email = "myapp@domain.com",
+    subject = "Password Reset Request",     
+  }
+)
+```
+
+See the __[Password Reset](/server/modules/users/passwordreset/)__ section for more detailed information.
+
+### hashPassword
+
+A utility method for hashing a plain text password. Generally used with __[getWithQuery](#getwithquery)__ or for rolling your own systems.
+
+__Important Note__
+
+All __User__ module methods that deal with passwords will automatically handle the password hashing. ___Do not double hash passwords or they will not work properly___. 
+
+The server-side methods __[register](#register)__ and __[update](#update)__ automatically do password hashing and do not require this method.
+
+```lua
+core.users.hashPassword(plain_text)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|plain_text|A plain text password that will be hashed into a Users module compatiable version.|_String_|__Y__|
+
+__Returns__
+
+The hashed password as a hexadecimal __String__.
+
+__Example__
+
+```lua
+local hashed_pw = core.users.hashPassword("tacos4Lunch!")
+
+--hashed_pw will contain something like: 8b4c621decfdbb6b72c2cf179b3c344d
+```

@@ -409,6 +409,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -724,6 +736,30 @@
   <li class="md-nav__item">
     <a href="../../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1312,6 +1348,7 @@
                   <h1>Confirmation</h1>
                 
                 <p>You can <em>optionally</em> require a user to confirm their registration via email by using the email confirmation feature of the <strong>Users</strong> module.</p>
+<p>When a confirmation email is sent, the user is put into a "pending" state. You can view <strong>Pending Users</strong> in the <strong>Users</strong> section of the <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Mailgun Account Required</p>
 <p>A valid <strong>Mailgun</strong> account and the proper configuration must be set up to use the email confirmation feature. See the <strong><a href="../../../../server/webmin/mailgun/">Mailgun Config</a></strong> section for more information.</p>
@@ -1391,7 +1428,7 @@
 <h2 id="default-template">Default Template</h2>
 <p>By default the following email template is sent to the users email. The only required template key is the <strong>{* confirm_link *}</strong> which is replaced automatically with the proper link to confirm the user.</p>
 <div class="admonition fail">
-<p class="admonition-title">Required Key</p>
+<p class="admonition-title">Required Template Key</p>
 <p>If you do not include the <strong>{* confirm_link *}</strong> template key in the email template, the user will have no way to confirm the registration.</p>
 </div>
 <p>You can edit the default template messaging if you wish, but to add additional template keys you must create a custom template, which is explained in the next section.</p>
@@ -1466,8 +1503,11 @@ Have a nice day.
 <p>Once the user clicks the confirmation link in the registration email, they will be taken to the confirmation landing page. </p>
 <p>When the user is confirmed they will be marked as <em>active</em> in the <strong>users</strong> database.</p>
 <p>To customize the landing page, you can edit the following resources.</p>
-<p>Template: <strong>/home/coronium/pages/_coronium/registration/confirmation.tpl</strong></p>
-<p>Lua Code: <strong>/home/coronium/pages/_coronium/registration/confirmation.lua</strong></p>
+<ul>
+<li>Template: <strong>/home/coronium/pages/_coronium/registration/confirmation.tpl</strong></li>
+<li>Lua Code: <strong>/home/coronium/pages/_coronium/registration/confirmation.lua</strong></li>
+</ul>
+<p>See the <strong><a href="../../../../server/modules/pages/usage/">Pages</a></strong> usage guide for information about how to work with these files. </p>
 <h2 id="resending-confirmation">Resending Confirmation</h2>
 <p>To resend a users confirmation email, you must first <strong><a href="../api/#login">login</a></strong> the user with their current username and password, and then call the <strong><a href="../api/#resendconfirmation">resendConfirmation</a></strong> method with the users unique identifier.</p>
                 
@@ -1525,7 +1565,7 @@ Have a nice day.
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

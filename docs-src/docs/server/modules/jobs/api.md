@@ -1,6 +1,6 @@
 A cron-like service allowing you to run code periodically for a variety of use cases. 
 
-See the __[Jobs Guide](/server/modules/jobs/guide/)__ section for implementation details.
+Jobs are created using the Coronium __[Webmin](/server/webmin/setup/)__. See the __[Jobs Guide](/server/modules/jobs/guide/)__ section for details.
 
 ## Job Objects
 

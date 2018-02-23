@@ -1,5 +1,7 @@
 You can _optionally_ require a user to confirm their registration via email by using the email confirmation feature of the __Users__ module.
 
+When a confirmation email is sent, the user is put into a "pending" state. You can view __Pending Users__ in the __Users__ section of the __[Webmin](/server/webmin/setup/)__.
+
 !!! warning "Mailgun Account Required"
     A valid __Mailgun__ account and the proper configuration must be set up to use the email confirmation feature. See the __[Mailgun Config](/server/webmin/mailgun/)__ section for more information.
 
@@ -58,7 +60,7 @@ The __confirmation__ key will contain the email sent state as a string with a va
 
 By default the following email template is sent to the users email. The only required template key is the __{\* confirm_link \*}__ which is replaced automatically with the proper link to confirm the user.
 
-!!! fail "Required Key"
+!!! fail "Required Template Key"
     If you do not include the __{\* confirm_link \*}__ template key in the email template, the user will have no way to confirm the registration.
 
 You can edit the default template messaging if you wish, but to add additional template keys you must create a custom template, which is explained in the next section.
@@ -149,9 +151,10 @@ When the user is confirmed they will be marked as _active_ in the __users__ data
 
 To customize the landing page, you can edit the following resources.
 
-Template: __/home/coronium/pages/_coronium/registration/confirmation.tpl__
+ - Template: __/home/coronium/pages/_coronium/registration/confirmation.tpl__
+ - Lua Code: __/home/coronium/pages/_coronium/registration/confirmation.lua__
 
-Lua Code: __/home/coronium/pages/_coronium/registration/confirmation.lua__
+See the __[Pages](/server/modules/pages/usage/)__ usage guide for information about how to work with these files. 
 
 ## Resending Confirmation
 

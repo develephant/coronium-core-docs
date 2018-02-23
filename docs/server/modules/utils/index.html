@@ -411,6 +411,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -732,6 +744,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -810,6 +846,13 @@
         <li class="md-nav__item">
   <a href="#uuid" title="uuid" class="md-nav__link">
     uuid
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#md5" title="md5" class="md-nav__link">
+    md5
   </a>
   
 </li>
@@ -1234,6 +1277,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#md5" title="md5" class="md-nav__link">
+    md5
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#sleep" title="sleep" class="md-nav__link">
     sleep
   </a>
@@ -1482,6 +1532,14 @@
 </pre></div>
 
 
+<h3 id="md5">md5</h3>
+<p>Generate a hexadecimal MD5 digest from a given string.</p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">md5</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">md5</span><span class="p">(</span><span class="s2">&quot;somestringtomd5&quot;</span><span class="p">)</span>
+
+<span class="c1">-- `md5` will contain something like &quot;9a5c03309269f0274506259626dc725c&quot;</span>
+</pre></div>
+
+
 <h3 id="sleep">sleep</h3>
 <p>Pause processing for a certain amount of seconds. Useful in looping situations.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">seconds</span><span class="p">)</span>
@@ -1583,7 +1641,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../users/oauthusers/" title="OAuth Users" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../users/passwordreset/" title="Password Reset" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1592,7 +1650,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                OAuth Users
+                Password Reset
               </span>
             </div>
           </a>
@@ -1620,7 +1678,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

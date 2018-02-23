@@ -2,7 +2,7 @@
 
 # __Coronium Core__ is an all-in-one Lua application server built for [Corona](https://coronalabs.com/) developers.
 
-<h5><i class="fas fa-upload"></i> <a href="https://develephant.github.io/coronium-core-docs/server/installation/digitalocean/">Click Here To Install Coronium Core 2.5.0 Now!</a></h5>
+<h5><i class="fas fa-upload"></i> <a href="https://develephant.github.io/coronium-core-docs/server/installation/digitalocean/">Click Here To Install Coronium Core 2.6.0 Now!</a></h5>
 
 ## Core Features
 

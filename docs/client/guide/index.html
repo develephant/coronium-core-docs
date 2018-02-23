@@ -409,6 +409,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -728,6 +740,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../server/modules/users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -860,6 +896,13 @@
           <li class="md-nav__item">
   <a href="#enabling-scopes" title="Enabling Scopes" class="md-nav__link">
     Enabling Scopes
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#scope-permissions" title="Scope Permissions" class="md-nav__link">
+    Scope Permissions
   </a>
   
 </li>
@@ -1245,6 +1288,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#scope-permissions" title="Scope Permissions" class="md-nav__link">
+    Scope Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#custom-api-init" title="Custom API Init" class="md-nav__link">
     Custom API Init
   </a>
@@ -1370,6 +1420,12 @@
 </thead>
 <tbody>
 <tr>
+<td>version</td>
+<td>The Coronium Plugin revision. Set to <strong>2</strong> to support server features in v2.6.0 or better. Set to <strong>1</strong> for older versions.</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
 <td>server</td>
 <td>The Coronium Core server address.</td>
 <td><em>String</em></td>
@@ -1377,7 +1433,7 @@
 </tr>
 <tr>
 <td>key</td>
-<td>The Coronium Core <a href="../../server/guide/key/">server key</a>.</td>
+<td>The Coronium Core <strong><a href="../../server/guide/key/">server key</a></strong>.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1389,7 +1445,7 @@
 </tr>
 <tr>
 <td>api</td>
-<td>The server-side API Project name to run custom api methods against.</td>
+<td>The server-side API Project name to run custom api methods against (see <strong><a href="../../server/modules/api/">Server-side API</a></strong>).</td>
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
@@ -1400,17 +1456,14 @@
 <p class="admonition-title">Screencast Available</p>
 <p>Learn about application scopes in a screencast format by <strong><a href="../../screencasts/#application-scopes">Clicking here</a></strong>.</p>
 </div>
-<p>Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.</p>
+<p>Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the <strong><a href="../../server/webmin/setup/">Webmin</a></strong>, and for other purposes.</p>
 <p><em>It is important to choose a short but descriptive application scope name that is unique from your other application scopes.</em> </p>
-<div class="admonition danger">
-<p class="admonition-title">Don't Change The Scope!</p>
-<p><strong>Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.</strong></p>
-</div>
-<p>You will provide this application scope name to the <code>scope</code> parameter of the initialzation.</p>
+<p>Provide the application scope name to the <code>scope</code> parameter of the <strong><a href="../../client/modules/core/">core.init</a></strong> initialzation method.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">version</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
   <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;03624656-ca90-11e7-b8d4-fb59abeb4c03&quot;</span><span class="p">,</span>
   <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Fun Run&quot;</span>
@@ -1418,18 +1471,27 @@
 </pre></div>
 
 
+<div class="admonition danger">
+<p class="admonition-title">Don't Change The Scope!</p>
+<p><strong>Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.</strong></p>
+</div>
 <h3 id="enabling-scopes">Enabling Scopes</h3>
-<p>You must run at least one <strong><a href="../../client/modules/users/api/">User</a></strong> or <strong><a href="../../client/modules/analytics/">Analytics</a></strong> method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the <strong>Update Scopes Cache</strong> option in the Webmin <strong>Config</strong> section.</p>
+<p>You must run at least one <strong><a href="../../client/modules/users/api/">User</a></strong> or <strong><a href="../../client/modules/analytics/">Analytics</a></strong> method for the scope to be available in the <strong><a href="../../server/webmin/setup/">Webmin</a></strong>. If the scope is not visible in the Webmin, use the <strong>Update Cache</strong> option in the Webmin <strong>Scopes</strong> section.</p>
+<h3 id="scope-permissions">Scope Permissions</h3>
+<p>As an added layer of security, you can set permissions for client-side methods using Scope permissions. </p>
+<p>To adjust permissions go to the <strong>Scopes</strong> section of the <strong><a href="../../server/webmin/setup/">Webmin</a></strong> and click on a scope name. Once you are on the scope detail page, there will be a <strong>Scope Permissions</strong> section. </p>
+<p>Permissions are divided by module. Make sure to save permissions changes for each module section by clicking the <strong>Save</strong> button at the bottom of each section.</p>
 <h3 id="custom-api-init">Custom API Init</h3>
 <p>To utilize custom server-side api methods, first make sure you have a <a href="../../server/modules/api/">server-side project</a> set up. Provide the API Project name to the <code>api</code> parameter in the initialization. See the server-side <strong><a href="../../server/modules/api/">API</a></strong> module for more information.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">core</span> <span class="o">=</span> <span class="nb">require</span><span class="p">(</span><span class="s2">&quot;plugin.coronium-core&quot;</span><span class="p">)</span>
 
 <span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">version</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://your.coronium.host&quot;</span><span class="p">,</span>
   <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;03624656-ca90-11e7-b8d4-fb59abeb4c03&quot;</span><span class="p">,</span>
   <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Fun Run&quot;</span><span class="p">,</span>
-  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;funrun&quot;</span><span class="p">,</span>
+  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;funrun&quot;</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -1622,7 +1684,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

@@ -411,6 +411,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -844,6 +856,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#disabling-mongodb" title="Disabling MongoDB" class="md-nav__link">
+    Disabling MongoDB
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1041,6 +1060,30 @@
   <li class="md-nav__item">
     <a href="../users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1681,6 +1724,13 @@
           <li class="md-nav__item">
   <a href="#password-update" title="Password Update" class="md-nav__link">
     Password Update
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#disabling-mongodb" title="Disabling MongoDB" class="md-nav__link">
+    Disabling MongoDB
   </a>
   
 </li>
@@ -2811,6 +2861,19 @@
 <p>To change your Mongo password log in your Coronium Core server and run:</p>
 <div class="codehilite"><pre><span></span>sudo mongo-updatepw
 </pre></div>
+
+
+<h3 id="disabling-mongodb">Disabling MongoDB</h3>
+<p>If you don't plan on using any of the Mongo based modules, like <strong><a href="../../../server/modules/data/">core.data</a></strong> or <strong><a href="../../../server/modules/mongo/">core.mongo</a></strong> you can reclaim some memory and resources for your system.</p>
+<p>To disable MongoDB, you will need to log in as the <strong>root</strong> user (<strong>ubuntu</strong> on EC2) and run the following on the command line:</p>
+<div class="codehilite"><pre><span></span>sudo mongo-enabled <span class="nb">false</span>
+</pre></div>
+
+
+<p>This will stop the MongoDB service from running. <strong><em>The server will automatically reboot after issuing this command</em></strong>.</p>
+<p>In the future, if you decide you need MongoDB, log in as the <strong>root</strong> user (<strong>ubuntu</strong> on EC2), and run:</p>
+<div class="codehilite"><pre><span></span>sudo mongo-enabled <span class="nb">true</span>
+</pre></div>
                 
                   
                 
@@ -2866,7 +2929,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

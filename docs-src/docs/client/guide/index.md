@@ -51,24 +51,22 @@ __Core Init Keys__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
+|version|The Coronium Plugin revision. Set to __2__ to support server features in v2.6.0 or better. Set to __1__ for older versions.|_Number_|__Y__|
 |server|The Coronium Core server address.|_String_|__Y__|
-|key|The Coronium Core [server key](/server/guide/key/).|_String_|__Y__|
+|key|The Coronium Core __[server key](/server/guide/key/)__.|_String_|__Y__|
 |scope|A unique application name for your Corona project. See __[Application Scope](#application-scope)__ below.|_String_|__Y__|
-|api|The server-side API Project name to run custom api methods against.|_String_|__N__|
+|api|The server-side API Project name to run custom api methods against (see __[Server-side API](/server/modules/api/)__).|_String_|__N__|
 
 ### Application Scope
 
 !!! note "Screencast Available"
     Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
 
-Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the Webmin, and for other purposes.
+Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the __[Webmin](/server/webmin/setup/)__, and for other purposes.
 
 _It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
 
-!!! danger "Don't Change The Scope!"
-    __Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.__
-
-You will provide this application scope name to the `scope` parameter of the initialzation.
+Provide the application scope name to the `scope` parameter of the __[core.init](/client/modules/core/)__ initialzation method.
 
 __Example__
 
@@ -76,16 +74,27 @@ __Example__
 local core = require("plugin.coronium-core")
 
 core.init({
+  version = 2,
   server = "https://your.coronium.host",
   key = "03624656-ca90-11e7-b8d4-fb59abeb4c03",
   scope = "Fun Run"
 })
-
 ```
+
+!!! danger "Don't Change The Scope!"
+    __Once the scope is set, do not change it for that particular application. If you do, you will lose user and metric associations.__
 
 ### Enabling Scopes
 
-You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method for the scope to be available in the Webmin. If the scope is not visible from the "Application Scope" dropdown menu, use the __Update Scopes Cache__ option in the Webmin __Config__ section.
+You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method for the scope to be available in the __[Webmin](/server/webmin/setup/)__. If the scope is not visible in the Webmin, use the __Update Cache__ option in the Webmin __Scopes__ section.
+
+### Scope Permissions
+
+As an added layer of security, you can set permissions for client-side methods using Scope permissions. 
+
+To adjust permissions go to the __Scopes__ section of the __[Webmin](/server/webmin/setup/)__ and click on a scope name. Once you are on the scope detail page, there will be a __Scope Permissions__ section. 
+
+Permissions are divided by module. Make sure to save permissions changes for each module section by clicking the __Save__ button at the bottom of each section.
 
 ### Custom API Init
 
@@ -97,10 +106,11 @@ __Example__
 local core = require("plugin.coronium-core")
 
 core.init({
+  version = 2,
   server = "https://your.coronium.host",
   key = "03624656-ca90-11e7-b8d4-fb59abeb4c03",
   scope = "Fun Run",
-  api = "funrun",
+  api = "funrun"
 })
 ```
 

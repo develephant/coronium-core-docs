@@ -1,22 +1,26 @@
 The API module allows you to create server-side api methods that can be called using the client-side [API](/client-module/api/) module.
 
-A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the [MySQL](/server/modules/mysql/) and [Mongo](/server/modules/mongo/) modules.
-
-!!! note "Screencasts Available"
-    Get an overview of using the Server API in a screencast format. __[Click here for Part I](/screencasts/#server-api-part-i)__. __[Click here for Part II](/screencasts/#server-api-part-ii)__. 
+A server-side api is useful for more complex application logic, and in fact, is the only way to access the full functionality of the [MySQL](/server/modules/mysql/) and [Mongo](/server/modules/mongo/) modules. Some modules are only available server-side.
 
 ## Projects
 
-Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API , which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the [useProject](/client/modules/core/#useproject) method in the client-side core module.
+Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API, which can then be shared amongst multiple client applications. 
 
 ## Creating Projects
 
-You create projects on the server using the Coronium command line tool, or through the __[Webmin](/server/webmin/setup/)__ project editor.
+The recommended way to create projects is using the Coronium __[Webmin](/server/webmin/setup/)__ __API Builder__.
+
+You can also create projects on the server using the Coronium command line tool.
 
 ### Add Project
 
-!!! tip "Coronium Webmin"
-    You can use the browser based __Coronium Webmin__ to create new projects through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
+__Webmin (recommended)__
+
+Log into your browser based __[Webmin](/server/webmin/setup/)__ and go to the __API Builder__ section. Click the __New Project__ button and following the instructions.
+
+After creating your project, you can use the __API Builder__ code editor to build your custom API code.
+
+__Command Line__
 
 You will first need to log into your server using the __coronium__ user. Once logged in, run the following to create a new project:
 
@@ -32,8 +36,11 @@ At this point, you should connect to the server using SFTP and download the new 
 
 ### Delete Project
 
-!!! tip "Coronium Webmin"
-    You can use the browser based __Coronium Webmin__ to delete projects through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
+__Webmin (recommended)__
+
+Log into your browser based __[Webmin](/server/webmin/setup/)__ and go to the __API Builder__ section. Click the __Delete__ button for the project you want to delete, and follow the instructions.
+
+__Command Line__
 
 To remove a project using the command line tool, run:
 
@@ -45,14 +52,14 @@ You can also delete a project by simply removing the project directory from the 
 
 ## Project Files
 
-Project code is stored in the newly created project directory. The required __main.lua__ file will be generated when using the command line tool or Webmin. (see __[Add Project](#add-project)__ above).
+The required __main.lua__ file will be generated when using the __[Webmin](/server/webmin/setup/)__ or command line. (see __[Add Project](#add-project)__ above).
 
 ### main.lua
 
-!!! tip "Coronium Webmin"
-    You can use the browser based __Coronium Webmin__ to edit the `main.lua` and other project files using a visual code editor. See __[Webmin](/server/webmin/setup/)__ for more information.
+!!! tip "Webmin Code Editor"
+    You can edit the `main.lua` and other project files using a visual code editor. Go to the __API Builder__ section in the __[Webmin](/server/webmin/setup/)__ and click the project file you would like to edit.
 
-The main.lua file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.
+The __main.lua__ file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.
 
 _main.lua example_
 
@@ -92,11 +99,11 @@ core.api.test({name="Jimmy"}, apiResponse)
 ### Adding Files
 
 !!! tip "Coronium Webmin"
-    You can use the browser based __Coronium Webmin__ to add additional files to a project through a simple visual user interface. See __[Webmin](/server/webmin/setup/)__ for more information.
+    You can add new files to a project using the __[Webmin](/server/webmin/setup/)__. Go to the __API Builder__ section of the Webmin and click the __Add File__ button for the project you would like to add a file to.
 
 There may be times when you would like to split up your API project code into seperate files. This can be done by simply adding a new .lua file module to the project directory and requiring it into the projects __main.lua__ file.
 
-The important thing to know about external file modules is that they cannot return output to the client directly. __Only the main.lua file can send output back down to the client.__
+The important thing to know about external file modules is that they cannot return output to the client directly. ___Only the main.lua file can send output back down to the client___.
 
 Because of this it is important that you set up your external file modules properly to return results back to the __main.lua__ file for sending results downstream.
 

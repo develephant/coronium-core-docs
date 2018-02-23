@@ -1,10 +1,8 @@
-A server key is generated  and stored in the __/home/coronium/config/keyfile__ file when you first install the server. You use this key when connecting with the client-side plugin.
-
-___Do not remove this file___. You should back up this file to your computer and store it some place safe.
+A server key is generated when you first install the server. You use this key when connecting with the client-side plugin. See the client-side __[Initialization](/client/guide/#initialization)__ section for more details.
 
 ## Viewing Your Key
 
-Using the __[Webmin](/server/webmin/setup/)__ you can find the server key in the __System__ section.
+Using the __[Webmin](/server/webmin/setup/)__ you can find the server key in the __Configuration__ section.
 
 !!! info "Post-Install"
     The server key is also displayed directly after installation in the console.

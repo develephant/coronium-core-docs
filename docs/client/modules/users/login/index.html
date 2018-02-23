@@ -409,6 +409,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -724,6 +736,30 @@
   <li class="md-nav__item">
     <a href="../../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../server/modules/users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1245,6 +1281,7 @@
                 
                 <p>Once a user has been registered in the system, you can log them in to your application by using the <strong><a href="../../../../client/modules/users/api/#login">login</a></strong> method. A "login" provides you with the users basic information and state, allowing you to work with the user. </p>
 <p>In addition, a successful login of an active user marks a special login event to help track your application logins per user, which can be viewed in the <strong><a href="../../../../server/webmin/setup/">Webmin user section</a></strong>.</p>
+<p>You can log a user in with either a <strong>username</strong> <em>or</em> <strong>email</strong> (if the user has provided one).</p>
 <h2 id="login-object">Login Object</h2>
 <p>On a successful log in, the <strong>result</strong> will hold a basic login object as a <strong>table</strong>, with the following keys:</p>
 <table>
@@ -1309,6 +1346,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
+<p><em>Username login</em></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserLogin</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
   <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
@@ -1319,6 +1357,22 @@
 
 <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
   <span class="n">username</span> <span class="o">=</span> <span class="s2">&quot;Donna&quot;</span><span class="p">,</span>
+  <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span>
+<span class="p">},</span> <span class="n">onUserLogin</span><span class="p">)</span>
+</pre></div>
+
+
+<p><em>Email login</em></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">onUserLogin</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">user_id</span><span class="p">)</span> <span class="c1">--result is a login object</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">login</span><span class="p">({</span>
+  <span class="n">email</span> <span class="o">=</span> <span class="s2">&quot;tina@home.com&quot;</span><span class="p">,</span>
   <span class="n">password</span> <span class="o">=</span> <span class="s2">&quot;1234&quot;</span>
 <span class="p">},</span> <span class="n">onUserLogin</span><span class="p">)</span>
 </pre></div>
@@ -1500,7 +1554,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

@@ -411,6 +411,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -881,6 +893,30 @@
   <li class="md-nav__item">
     <a href="../users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1388,20 +1424,17 @@
                   <h1>API</h1>
                 
                 <p>The API module allows you to create server-side api methods that can be called using the client-side <a href="../../../client-module/api/">API</a> module.</p>
-<p>A server-side api is useful for type checking, validation, and more complex data handling, and in fact, is the only way to access the full functionality of the <a href="../../../server/modules/mysql/">MySQL</a> and <a href="../../../server/modules/mongo/">Mongo</a> modules.</p>
-<div class="admonition note">
-<p class="admonition-title">Screencasts Available</p>
-<p>Get an overview of using the Server API in a screencast format. <strong><a href="../../../screencasts/#server-api-part-i">Click here for Part I</a></strong>. <strong><a href="../../../screencasts/#server-api-part-ii">Click here for Part II</a></strong>. </p>
-</div>
+<p>A server-side api is useful for more complex application logic, and in fact, is the only way to access the full functionality of the <a href="../../../server/modules/mysql/">MySQL</a> and <a href="../../../server/modules/mongo/">Mongo</a> modules. Some modules are only available server-side.</p>
 <h2 id="projects">Projects</h2>
-<p>Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API , which can then be shared amongst multiple client applications. To switch between projects on the client-side, see the <a href="../../../client/modules/core/#useproject">useProject</a> method in the client-side core module.</p>
+<p>Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API, which can then be shared amongst multiple client applications. </p>
 <h2 id="creating-projects">Creating Projects</h2>
-<p>You create projects on the server using the Coronium command line tool, or through the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> project editor.</p>
+<p>The recommended way to create projects is using the Coronium <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> <strong>API Builder</strong>.</p>
+<p>You can also create projects on the server using the Coronium command line tool.</p>
 <h3 id="add-project">Add Project</h3>
-<div class="admonition tip">
-<p class="admonition-title">Coronium Webmin</p>
-<p>You can use the browser based <strong>Coronium Webmin</strong> to create new projects through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
-</div>
+<p><strong>Webmin (recommended)</strong></p>
+<p>Log into your browser based <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> and go to the <strong>API Builder</strong> section. Click the <strong>New Project</strong> button and following the instructions.</p>
+<p>After creating your project, you can use the <strong>API Builder</strong> code editor to build your custom API code.</p>
+<p><strong>Command Line</strong></p>
 <p>You will first need to log into your server using the <strong>coronium</strong> user. Once logged in, run the following to create a new project:</p>
 <div class="codehilite"><pre><span></span>sudo coronium add &lt;project-name&gt;
 </pre></div>
@@ -1411,10 +1444,9 @@
 <p>The project is stored in the <strong>/home/coronium/projects/&lt;project-name></strong> directory.</p>
 <p>At this point, you should connect to the server using SFTP and download the new project directory so that you can create the code for your api.</p>
 <h3 id="delete-project">Delete Project</h3>
-<div class="admonition tip">
-<p class="admonition-title">Coronium Webmin</p>
-<p>You can use the browser based <strong>Coronium Webmin</strong> to delete projects through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
-</div>
+<p><strong>Webmin (recommended)</strong></p>
+<p>Log into your browser based <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> and go to the <strong>API Builder</strong> section. Click the <strong>Delete</strong> button for the project you want to delete, and follow the instructions.</p>
+<p><strong>Command Line</strong></p>
 <p>To remove a project using the command line tool, run:</p>
 <div class="codehilite"><pre><span></span>sudo coronium del &lt;project-name&gt;
 </pre></div>
@@ -1422,13 +1454,13 @@
 
 <p>You can also delete a project by simply removing the project directory from the server.</p>
 <h2 id="project-files">Project Files</h2>
-<p>Project code is stored in the newly created project directory. The required <strong>main.lua</strong> file will be generated when using the command line tool or Webmin. (see <strong><a href="#add-project">Add Project</a></strong> above).</p>
+<p>The required <strong>main.lua</strong> file will be generated when using the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> or command line. (see <strong><a href="#add-project">Add Project</a></strong> above).</p>
 <h3 id="mainlua">main.lua</h3>
 <div class="admonition tip">
-<p class="admonition-title">Coronium Webmin</p>
-<p>You can use the browser based <strong>Coronium Webmin</strong> to edit the <code>main.lua</code> and other project files using a visual code editor. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+<p class="admonition-title">Webmin Code Editor</p>
+<p>You can edit the <code>main.lua</code> and other project files using a visual code editor. Go to the <strong>API Builder</strong> section in the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> and click the project file you would like to edit.</p>
 </div>
-<p>The main.lua file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.</p>
+<p>The <strong>main.lua</strong> file will contain your custom server-side api methods for the project. By default a simple "echo" test method is generated.</p>
 <p><em>main.lua example</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">-- Coronium Core API</span>
 <span class="kd">local</span> <span class="n">api</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">api</span><span class="p">()</span>
@@ -1464,10 +1496,10 @@
 <h3 id="adding-files">Adding Files</h3>
 <div class="admonition tip">
 <p class="admonition-title">Coronium Webmin</p>
-<p>You can use the browser based <strong>Coronium Webmin</strong> to add additional files to a project through a simple visual user interface. See <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> for more information.</p>
+<p>You can add new files to a project using the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong>. Go to the <strong>API Builder</strong> section of the Webmin and click the <strong>Add File</strong> button for the project you would like to add a file to.</p>
 </div>
 <p>There may be times when you would like to split up your API project code into seperate files. This can be done by simply adding a new .lua file module to the project directory and requiring it into the projects <strong>main.lua</strong> file.</p>
-<p>The important thing to know about external file modules is that they cannot return output to the client directly. <strong>Only the main.lua file can send output back down to the client.</strong></p>
+<p>The important thing to know about external file modules is that they cannot return output to the client directly. <strong><em>Only the main.lua file can send output back down to the client</em></strong>.</p>
 <p>Because of this it is important that you set up your external file modules properly to return results back to the <strong>main.lua</strong> file for sending results downstream.</p>
 <p><em>Example File Module</em></p>
 <div class="codehilite"><pre><span></span><span class="c1">--project/db.lua</span>
@@ -1808,7 +1840,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../guide/lifecycle/" title="Lifecycle/Context" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1817,7 +1849,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Lifecycle/Context
+                Disabling MongoDB
               </span>
             </div>
           </a>
@@ -1845,7 +1877,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

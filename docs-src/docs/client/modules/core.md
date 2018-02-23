@@ -12,19 +12,33 @@ __Config Table Keys__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
+|version|The Coronium Plugin revision. Set to __2__ to support server features in v2.6.0 or better. Set to __1__ for older versions.|_Number_|__Y__|
 |server|The Coronium Core server address.|_String_|__Y__|
-|key|The Coronium Core [server key](/server/guide/key/).|_String_|__Y__|
+|key|The Coronium Core __[server key](/server/guide/key/)__.|_String_|__Y__|
 |scope|A unique application name for your Corona project. See __[Application Scope](/client/guide/#application-scope)__ in the client guide.|_String_|__Y__|
-|api|The server-side API Project name to run api methods against.|_String_|__N__|
+|api|The server-side API Project name to run api methods against (see __[Server-side API](/server/modules/api/)__).|_String_|__N__|
 
 __Example__
 
+_Coronium Core 2.6.0 or better_
+
 ```lua
 core.init({
+  version = 2,
   server = "https://<coronium-host-address>",
   key = "<coronium-server-key>",
-  scope = "Space Race",
-  api = "default"
+  scope = "Space Race"
+})
+```
+
+_Coronium Core 2.5.0 or earlier_
+
+```lua
+core.init({
+  version = 1,
+  server = "https://<coronium-host-address>",
+  key = "<coronium-server-key>",
+  scope = "Space Race"
 })
 ```
 

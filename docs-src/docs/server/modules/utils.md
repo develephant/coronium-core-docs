@@ -168,6 +168,16 @@ local uuid = core.uuid()
 -- `uuid` will contain something like "1f0af2fa-8b06-4605-bace-e13a85aa36d5"
 ```
 
+### md5
+
+Generate a hexadecimal MD5 digest from a given string.
+
+```lua
+local md5 = core.md5("somestringtomd5")
+
+-- `md5` will contain something like "9a5c03309269f0274506259626dc725c"
+```
+
 ### sleep
 
 Pause processing for a certain amount of seconds. Useful in looping situations.

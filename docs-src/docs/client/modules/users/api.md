@@ -63,6 +63,8 @@ core.users.create({
 
 Retrieves the users basic data, and marks a _login event_ in the __users__ database. 
 
+You can log a user in with either a __username__ _or_ __email__ (if the user has provided one).
+
 - See also: __[Logging In](login/)__ users, and __[OAuth Login](/client/modules/users/login/#oauth-login)__.
 
 ```lua
@@ -76,11 +78,18 @@ __Parameters__
 |data_params|The data parameters for the call.|_Table_|__Y__|
 |listener|The api listener callback function.|_Function_|__Y__|
 
-__Data Params__
+__Data Params (Username Login)__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
 |username|The registered username.|_String_|__Y__|
+|password|The users password.|_String_|__Y__|
+
+__Data Params (Email Login)__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|email|The registered email.|_String_|__Y__|
 |password|The users password.|_String_|__Y__|
 
 !!! info "OAuth Login Parameters"
@@ -92,6 +101,8 @@ On success, the __result__ will hold a basic login object as a __table__. See th
 
 __Example__
 
+_Username login_
+
 ```lua
 local function onUserLogin( evt )
   if evt.error then
@@ -102,6 +113,20 @@ local function onUserLogin( evt )
 end
 
 core.users.login({username="tiny", password="abcd1234"}, onUserLogin)
+```
+
+_Email login_
+
+```lua
+local function onUserLogin( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.user_id) -- result holds the login object
+  end
+end
+
+core.users.login({email="tina@home.com", password="abcd1234"}, onUserLogin)
 ```
 
 ### get

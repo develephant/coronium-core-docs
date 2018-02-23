@@ -409,6 +409,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -724,6 +736,30 @@
   <li class="md-nav__item">
     <a href="../../../server/modules/users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/modules/users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../server/modules/users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1192,6 +1228,12 @@
 </thead>
 <tbody>
 <tr>
+<td>version</td>
+<td>The Coronium Plugin revision. Set to <strong>2</strong> to support server features in v2.6.0 or better. Set to <strong>1</strong> for older versions.</td>
+<td><em>Number</em></td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
 <td>server</td>
 <td>The Coronium Core server address.</td>
 <td><em>String</em></td>
@@ -1199,7 +1241,7 @@
 </tr>
 <tr>
 <td>key</td>
-<td>The Coronium Core <a href="../../../server/guide/key/">server key</a>.</td>
+<td>The Coronium Core <strong><a href="../../../server/guide/key/">server key</a></strong>.</td>
 <td><em>String</em></td>
 <td><strong>Y</strong></td>
 </tr>
@@ -1211,18 +1253,29 @@
 </tr>
 <tr>
 <td>api</td>
-<td>The server-side API Project name to run api methods against.</td>
+<td>The server-side API Project name to run api methods against (see <strong><a href="../../../server/modules/api/">Server-side API</a></strong>).</td>
 <td><em>String</em></td>
 <td><strong>N</strong></td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
+<p><em>Coronium Core 2.6.0 or better</em></p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">version</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
   <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
   <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;coronium-server-key&gt;&quot;</span><span class="p">,</span>
-  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Space Race&quot;</span><span class="p">,</span>
-  <span class="n">api</span> <span class="o">=</span> <span class="s2">&quot;default&quot;</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Space Race&quot;</span>
+<span class="p">})</span>
+</pre></div>
+
+
+<p><em>Coronium Core 2.5.0 or earlier</em></p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">init</span><span class="p">({</span>
+  <span class="n">version</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="n">server</span> <span class="o">=</span> <span class="s2">&quot;https://&lt;coronium-host-address&gt;&quot;</span><span class="p">,</span>
+  <span class="n">key</span> <span class="o">=</span> <span class="s2">&quot;&lt;coronium-server-key&gt;&quot;</span><span class="p">,</span>
+  <span class="n">scope</span> <span class="o">=</span> <span class="s2">&quot;Space Race&quot;</span>
 <span class="p">})</span>
 </pre></div>
 
@@ -1329,7 +1382,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by

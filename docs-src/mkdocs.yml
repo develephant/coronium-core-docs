@@ -17,6 +17,7 @@ pages:
       - 'General Usage': 'server/guide/usage.md'
       - 'HTTPS/SSL': 'server/guide/ssl.md'
       - 'Lifecycle/Context': 'server/guide/lifecycle.md'
+      - 'Disabling MongoDB': 'server/guide/mongo.md'
     - 'Modules':
       - 'API': 'server/modules/api.md' 
       - 'Data': 'server/modules/data.md'
@@ -40,6 +41,7 @@ pages:
         - 'Users API': 'server/modules/users/api.md'
         - 'OAuth API': 'server/modules/users/oauth.md'
         - 'OAuth Users': 'server/modules/users/oauthusers.md'
+        - 'Confirmations': 'server/modules/users/confirmations.md'
         - 'Password Reset': 'server/modules/users/passwordreset.md'
       - 'Utils': 'server/modules/utils.md'
     - 'Updates': 'server/updates.md'  
@@ -86,7 +88,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.5.0'
+  version: 'v2.6.0'
 markdown_extensions:
   - admonition
   - codehilite:

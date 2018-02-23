@@ -6,15 +6,15 @@ For the most part Jobs run as close to their intervals as possible, with a varia
 
 ## Management
 
-All Job management is done using the Coronium Core __[Webmin](/server/webmin/setup/)__ in the __Jobs__ section.
+All Job management is done using the Coronium Core __[Webmin](/server/webmin/setup/)__ in the __Jobs Service__ section.
 
 ### Viewing Jobs
 
-To view all current Jobs available to the Jobs Service, navigate to the __Jobs__ section. You will be presented with a list of Jobs, including information such as the current status, last run time, and other information.
+To view all current Jobs, navigate to the __Jobs Service__ section. You will be presented with a list of Jobs, including information such as the current status, last run time, and other information.
 
 ### Creating Jobs
 
-Jobs are created in the __Jobs__ section. To create a new Job, navigate to the __Jobs__ section and click the __New Job__ button. Enter the requested information in the Job creation form. There is ample help and validation feedback directly on the form.
+To create a new Job, navigate to the __Jobs Service__ section and click the __New Job__ button. Enter the requested information in the Job creation form. There is ample help and validation feedback directly on the form.
 
 When you are done inputing your Job information, click the __Create__ button. You will then be redirected to the Job code editor to create your Job code. See __[Writing Jobs](#writing-jobs)__.
 
@@ -24,7 +24,7 @@ When creating a Job, you have the option of setting it to __Run Once__. This mar
 
 ### Editing Jobs
 
-To edit an existing Job, navigate to the __Jobs__ section. On the Job listing, click any Job name to edit the Job using the form presented.
+To edit an existing Job, navigate to the __Jobs Service__ section. On the Job listing, click any Job name to edit the Job using the form presented.
 
 When you are done editing your Job, click the __Update__ button. See also __[Reloading Jobs](#reloading-jobs)__.
 
@@ -38,7 +38,7 @@ To remove a Job from the service, enter the Job editing mode (see __[Editing Job
 
 ### Reloading Jobs
 
-After adding or editing Job details, you will need to reload the Job service. In the __Jobs__ section, click the __Reload__ button to start the reload process.
+After adding or editing Job details, you will need to reload the Job service. In the __Jobs Service__ section, click the __Reload__ button to start the reload process.
 
 You may need to wait for up to 60 seconds for the Job service to reload. While you're waiting, the service status will change to "Reloading". Once the reload process is complete, the status will return to "Running".
 
@@ -46,7 +46,7 @@ Jobs that have aleady been running will not have their interval reset. For examp
 
 ### Job Status
 
-In the __Jobs__ section, you will see various status icons in the Job listing depending on how the Job was returned (see __[Job Returns](#job-returns)__ below).
+In the __Jobs Service__ section, you will see various status icons in the Job listing depending on how the Job was returned (see __[Job Returns](#job-returns)__ below).
 
 The following table describes the various status icons, and the return that initiates them. In the Jobs listing, you can hover your mouse over any icon to see more information.
 
@@ -65,7 +65,7 @@ If any critical errors occur, or the Job file cannot be found when a Job is run,
 
 ## Writing Jobs
 
-Once you've created a Job (see __[]()__) you will be taken to the Job code editor to add your Job code.
+Once you've created a Job (see __[Creating Jobs](#creating-jobs)__) you will be taken to the Job code editor to add your Job code.
 
 __All core modules are available for use in Job files.__ It is not possible to return responses to clients from Jobs (see __[Lifecycle/Context](/server/guide/lifecycle/)__).
 
@@ -127,7 +127,7 @@ Instead create a recurring Job that runs at least every 30 seconds to check for 
 
 ### Editing Job Code
 
-To edit existing Job code, navigate to the __Jobs__ section, and click any of the links in the __File Path__ column. This will take you to the Job code editor with the requested Job code loaded into the editor.
+To edit existing Job code, navigate to the __Jobs Service__ section, and click any of the links in the __File Path__ column. This will take you to the Job code editor with the requested Job code loaded into the editor.
 
 Once you've edited your code be sure to save it. While not required, you should issue a __[reload](#reloading-jobs)__ when finished.
 

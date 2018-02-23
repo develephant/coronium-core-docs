@@ -2,6 +2,8 @@ Once a user has been registered in the system, you can log them in to your appli
 
 In addition, a successful login of an active user marks a special login event to help track your application logins per user, which can be viewed in the __[Webmin user section](/server/webmin/setup/)__.
 
+You can log a user in with either a __username__ _or_ __email__ (if the user has provided one).
+
 ## Login Object
 
 On a successful log in, the __result__ will hold a basic login object as a __table__, with the following keys:
@@ -21,6 +23,8 @@ On a successful log in, the __result__ will hold a basic login object as a __tab
 
 __Example__
 
+_Username login_
+
 ```lua
 local function onUserLogin( evt )
   if evt.error then
@@ -32,6 +36,23 @@ end
 
 core.users.login({
   username = "Donna",
+  password = "1234"
+}, onUserLogin)
+```
+
+_Email login_
+
+```lua
+local function onUserLogin( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.user_id) --result is a login object
+  end
+end
+
+core.users.login({
+  email = "tina@home.com",
   password = "1234"
 }, onUserLogin)
 ```

@@ -411,6 +411,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
+      Disabling MongoDB
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -932,6 +944,30 @@
   <li class="md-nav__item">
     <a href="../../users/oauthusers/" title="OAuth Users" class="md-nav__link">
       OAuth Users
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/confirmations/" title="Confirmations" class="md-nav__link">
+      Confirmations
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../users/passwordreset/" title="Password Reset" class="md-nav__link">
+      Password Reset
     </a>
   </li>
 
@@ -1491,16 +1527,16 @@
 <p>By their nature, Jobs are imperfect due to the fact that the can only run when there are free cycles during the execution tasks the server is currently handling, like client requests.</p>
 <p>For the most part Jobs run as close to their intervals as possible, with a variance of about 10 seconds in the worst case scenarios.</p>
 <h2 id="management">Management</h2>
-<p>All Job management is done using the Coronium Core <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong> in the <strong>Jobs</strong> section.</p>
+<p>All Job management is done using the Coronium Core <strong><a href="../../../../server/webmin/setup/">Webmin</a></strong> in the <strong>Jobs Service</strong> section.</p>
 <h3 id="viewing-jobs">Viewing Jobs</h3>
-<p>To view all current Jobs available to the Jobs Service, navigate to the <strong>Jobs</strong> section. You will be presented with a list of Jobs, including information such as the current status, last run time, and other information.</p>
+<p>To view all current Jobs, navigate to the <strong>Jobs Service</strong> section. You will be presented with a list of Jobs, including information such as the current status, last run time, and other information.</p>
 <h3 id="creating-jobs">Creating Jobs</h3>
-<p>Jobs are created in the <strong>Jobs</strong> section. To create a new Job, navigate to the <strong>Jobs</strong> section and click the <strong>New Job</strong> button. Enter the requested information in the Job creation form. There is ample help and validation feedback directly on the form.</p>
+<p>To create a new Job, navigate to the <strong>Jobs Service</strong> section and click the <strong>New Job</strong> button. Enter the requested information in the Job creation form. There is ample help and validation feedback directly on the form.</p>
 <p>When you are done inputing your Job information, click the <strong>Create</strong> button. You will then be redirected to the Job code editor to create your Job code. See <strong><a href="#writing-jobs">Writing Jobs</a></strong>.</p>
 <h4 id="run-once">Run Once</h4>
 <p>When creating a Job, you have the option of setting it to <strong>Run Once</strong>. This marks the Job so that it will only run one time on the booting of the Coronium Core server (after its initial interval). These can be useful for Jobs that only need to run once during the lifetime of the Coronium Core service. They will not run again on a service <strong><a href="#reloading-jobs">reload</a></strong>.</p>
 <h3 id="editing-jobs">Editing Jobs</h3>
-<p>To edit an existing Job, navigate to the <strong>Jobs</strong> section. On the Job listing, click any Job name to edit the Job using the form presented.</p>
+<p>To edit an existing Job, navigate to the <strong>Jobs Service</strong> section. On the Job listing, click any Job name to edit the Job using the form presented.</p>
 <p>When you are done editing your Job, click the <strong>Update</strong> button. See also <strong><a href="#reloading-jobs">Reloading Jobs</a></strong>.</p>
 <p>To edit your Job code see <strong><a href="#editing-job-code">Editing Job Code</a></strong>.</p>
 <h3 id="removing-jobs">Removing Jobs</h3>
@@ -1508,11 +1544,11 @@
 <div style="color:Tomato; font-weight:bold"><i class="fas fa-bolt"></i> This is a destructive action, and cannot be undone.</div>
 
 <h3 id="reloading-jobs">Reloading Jobs</h3>
-<p>After adding or editing Job details, you will need to reload the Job service. In the <strong>Jobs</strong> section, click the <strong>Reload</strong> button to start the reload process.</p>
+<p>After adding or editing Job details, you will need to reload the Job service. In the <strong>Jobs Service</strong> section, click the <strong>Reload</strong> button to start the reload process.</p>
 <p>You may need to wait for up to 60 seconds for the Job service to reload. While you're waiting, the service status will change to "Reloading". Once the reload process is complete, the status will return to "Running".</p>
 <p>Jobs that have aleady been running will not have their interval reset. For example, let's assume a Job is set to run every 120 seconds, and a reload is issued at 60 seconds in. On reload, that Job will retain its remaining run time, in this case 60 seconds.</p>
 <h3 id="job-status">Job Status</h3>
-<p>In the <strong>Jobs</strong> section, you will see various status icons in the Job listing depending on how the Job was returned (see <strong><a href="#job-returns">Job Returns</a></strong> below).</p>
+<p>In the <strong>Jobs Service</strong> section, you will see various status icons in the Job listing depending on how the Job was returned (see <strong><a href="#job-returns">Job Returns</a></strong> below).</p>
 <p>The following table describes the various status icons, and the return that initiates them. In the Jobs listing, you can hover your mouse over any icon to see more information.</p>
 <table>
 <thead>
@@ -1558,7 +1594,7 @@
 <h3 id="job-errors">Job Errors</h3>
 <p>If any critical errors occur, or the Job file cannot be found when a Job is run, it will automatically be set to a deactivated state and will not run again until manually reactivated and a <strong><a href="#reloading-jobs">reload</a></strong> is issued.</p>
 <h2 id="writing-jobs">Writing Jobs</h2>
-<p>Once you've created a Job (see <strong><a href=""></a></strong>) you will be taken to the Job code editor to add your Job code.</p>
+<p>Once you've created a Job (see <strong><a href="#creating-jobs">Creating Jobs</a></strong>) you will be taken to the Job code editor to add your Job code.</p>
 <p><strong>All core modules are available for use in Job files.</strong> It is not possible to return responses to clients from Jobs (see <strong><a href="../../../../server/guide/lifecycle/">Lifecycle/Context</a></strong>).</p>
 <h3 id="creating-job-code">Creating Job Code</h3>
 <p>Once you have created your Job, you will be taken to the code editor and presented with a Job template.</p>
@@ -1604,7 +1640,7 @@
 <p>Because Job intervals are imperfect, some helper types work better with certain return types. For instance, you may have unpredictable results when using the <strong><a href="../../../../server/modules/jobs/api/#jobminute">job.minute</a></strong> or <strong><a href="../../../../server/modules/jobs/api/#jobhour">job.hour</a></strong> helper with the <strong><a href="../../../../server/modules/jobs/api/#jobsleep">job.SLEEP</a></strong> return.</p>
 <p>Instead create a recurring Job that runs at least every 30 seconds to check for <strong>minute</strong> resolutions, or a Job every 30 minutes to check an <strong>hour</strong> resolution. You would want to use the <strong><a href="../../../../server/modules/jobs/api/#jobok">job.OK</a></strong> return in these situations.</p>
 <h3 id="editing-job-code">Editing Job Code</h3>
-<p>To edit existing Job code, navigate to the <strong>Jobs</strong> section, and click any of the links in the <strong>File Path</strong> column. This will take you to the Job code editor with the requested Job code loaded into the editor.</p>
+<p>To edit existing Job code, navigate to the <strong>Jobs Service</strong> section, and click any of the links in the <strong>File Path</strong> column. This will take you to the Job code editor with the requested Job code loaded into the editor.</p>
 <p>Once you've edited your code be sure to save it. While not required, you should issue a <strong><a href="#reloading-jobs">reload</a></strong> when finished.</p>
 <h2 id="example-code">Example Code</h2>
 <p>After creating your Job (see <strong><a href="#creating-jobs">Creating Jobs</a></strong>) you can regulate them by the return status in your code.</p>
@@ -1784,7 +1820,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.5.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
           </div>
         
         powered by
