@@ -76,7 +76,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="search">
     <label class="md-overlay" data-md-component="overlay" for="drawer"></label>
     
-      <a href="#select-an-update" tabindex="1" class="md-skip">
+      <a href="#available-updates" tabindex="1" class="md-skip">
         Skip to content
       </a>
     
@@ -652,8 +652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../modules/pages/config/" title="Configuration" class="md-nav__link">
-      Configuration
+    <a href="../modules/pages/errors/" title="Error Pages" class="md-nav__link">
+      Error Pages
     </a>
   </li>
 
@@ -817,12 +817,19 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#select-an-update" title="Select an update" class="md-nav__link">
-    Select an update
+  <a href="#available-updates" title="Available Updates" class="md-nav__link">
+    Available Updates
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#260-to-261" title="2.6.0 to 2.6.1" class="md-nav__link">
+    2.6.0 to 2.6.1
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#250-to-260" title="2.5.0 to 2.6.0" class="md-nav__link">
@@ -844,6 +851,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depreciated" title="Depreciated" class="md-nav__link">
+    Depreciated
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#232-to-240" title="2.3.2 to 2.4.0" class="md-nav__link">
@@ -1259,12 +1279,19 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#select-an-update" title="Select an update" class="md-nav__link">
-    Select an update
+  <a href="#available-updates" title="Available Updates" class="md-nav__link">
+    Available Updates
   </a>
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#260-to-261" title="2.6.0 to 2.6.1" class="md-nav__link">
+    2.6.0 to 2.6.1
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#250-to-260" title="2.5.0 to 2.6.0" class="md-nav__link">
@@ -1286,6 +1313,19 @@
   </a>
   
 </li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#depreciated" title="Depreciated" class="md-nav__link">
+    Depreciated
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#232-to-240" title="2.3.2 to 2.4.0" class="md-nav__link">
@@ -1386,7 +1426,38 @@
                   <h1>Updates</h1>
                 
                 <p>It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.</p>
-<h2 id="select-an-update">Select an update</h2>
+<h2 id="available-updates">Available Updates</h2>
+<h3 id="260-to-261">2.6.0 to 2.6.1</h3>
+<p>The following will update your Coronium Core 2.6.0 server to version 2.6.1</p>
+<p><strong>Added</strong></p>
+<p>Customizable error pages for common HTTP error codes. See the <a href="../../server/modules/pages/errors/">Error Pages</a> section in the Pages documentation.</p>
+<p><strong>Fixed</strong></p>
+<p>An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the <em>pages.log</em>, filling the log file with useless entries.</p>
+<p><strong>Updated</strong></p>
+<p>Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like <a href="https://develephant.github.io/coronium-chatterbox-docs/">Coronium ChatterBox</a>.</p>
+<p><br/></p>
+<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Root User Required</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>DigitalOcean</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.1/do.sh &amp;&amp; sudo bash do.sh
+</pre></div>
+
+
+<hr />
+<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Ubuntu User Required</p>
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>Amazon EC2</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.1/ec2.sh &amp;&amp; sudo bash ec2.sh
+</pre></div>
+
+
+<p><br/></p>
 <h3 id="250-to-260">2.5.0 to 2.6.0</h3>
 <p>The following will update your Coronium Core 2.5.0 server to version 2.6.0</p>
 <div style="color:Tomato"><strong><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="#260-update">Critical Update Notes</a> before installing this update.</strong></div>
@@ -1472,6 +1543,7 @@
 </pre></div>
 
 
+<hr />
 <p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
 <div class="admonition danger">
 <p class="admonition-title">Ubuntu User Required</p>
@@ -1553,6 +1625,7 @@
 </pre></div>
 
 
+<hr />
 <p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
 <div class="admonition danger">
 <p class="admonition-title">Ubuntu User Required</p>
@@ -1605,8 +1678,12 @@
 </pre></div>
 
 
+<h2 id="depreciated">Depreciated</h2>
 <h3 id="232-to-240">2.3.2 to 2.4.0</h3>
-<p>The following will update your Coronium Core 2.3.2 server to version 2.4.0</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
+</div>
 <p><strong>Added</strong></p>
 <ul>
 <li>
@@ -1703,27 +1780,11 @@
 <p>Lots of updates and fixes both under and over the hood.</p>
 </li>
 </ul>
-<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Root User Required</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do.sh &amp;&amp; sudo bash do.sh
-</pre></div>
-
-
-<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Ubuntu User Required</p>
-<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2.sh &amp;&amp; sudo bash ec2.sh
-</pre></div>
-
-
 <h3 id="230-to-232">2.3.0 to 2.3.2</h3>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
+</div>
 <p>The following will update your Coronium Core 2.3.0 or 2.3.1 server to version 2.3.2</p>
 <p><strong>Fixed</strong></p>
 <ul>
@@ -1734,28 +1795,11 @@
 <ul>
 <li><strong>core.users</strong> <code>extra</code> storage increased significantly.</li>
 </ul>
-<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Root User Required</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail. A server reboot is recommended.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Ubuntu User Required</p>
-<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail. A server reboot is recommended.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
 <h3 id="220-to-230">2.2.0 to 2.3.0</h3>
-<p>The following will update your Coronium Core 2.2.0 server to version 2.3.0</p>
+<div class="admonition info">
+<p class="admonition-title">Availability Notice</p>
+<p>This version/update is no longer supported, but is available by request.</p>
+</div>
 <p><strong>Added</strong></p>
 <ul>
 <li>
@@ -1789,26 +1833,6 @@
 <ul>
 <li>The <strong>insertMany</strong> MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if <em>any</em> of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side <strong><a href="../../client/modules/mysql/#insertmany">insertMany</a></strong> or server-side <strong><a href="../../server/modules/mysql/#insertmany">insertMany</a></strong> documentation for more details.</li>
 </ul>
-<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Root User Required</p>
-<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the DigitalOcean update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
-<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
-<div class="admonition danger">
-<p class="admonition-title">Ubuntu User Required</p>
-<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail. <strong>This update requires a server reboot</strong>.</p>
-</div>
-<p>Paste the following one-liner into your terminal to start the Amazon EC2 update:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh &amp;&amp; sudo bash ./update.sh
-</pre></div>
-
-
 <h3 id="211-to-220">2.1.1 to 2.2.0</h3>
 <div class="admonition info">
 <p class="admonition-title">Availability Notice</p>
@@ -1967,7 +1991,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.0
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.1
           </div>
         
         powered by

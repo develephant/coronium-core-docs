@@ -1,6 +1,50 @@
 It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.
 
-## Select an update
+## Available Updates
+
+### 2.6.0 to 2.6.1
+
+The following will update your Coronium Core 2.6.0 server to version 2.6.1
+
+__Added__
+
+Customizable error pages for common HTTP error codes. See the [Error Pages](/server/modules/pages/errors/) section in the Pages documentation.
+
+__Fixed__
+
+An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the _pages.log_, filling the log file with useless entries.
+
+__Updated__
+
+Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like [Coronium ChatterBox](https://develephant.github.io/coronium-chatterbox-docs/).
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.1/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.1/ec2.sh && sudo bash ec2.sh
+```
+
+<br/>
 
 ### 2.5.0 to 2.6.0
 
@@ -71,6 +115,8 @@ Paste the following one-liner into your terminal to start the __DigitalOcean__ u
 wget https://s3.amazonaws.com/coronium-core-update/v2.6.0/do.sh && sudo bash do.sh
 ```
 
+---
+
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
@@ -139,6 +185,8 @@ Paste the following one-liner into your terminal to start the __DigitalOcean__ u
 wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/do.sh && sudo bash do.sh
 ```
 
+---
+
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
@@ -197,9 +245,12 @@ Paste the following one-liner into your terminal to start the __Amazon EC2__ upd
 wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
 ```
 
+## Depreciated
+
 ### 2.3.2 to 2.4.0
 
-The following will update your Coronium Core 2.3.2 server to version 2.4.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -265,29 +316,10 @@ __Webmin Update 1.2__
 
   - Lots of updates and fixes both under and over the hood.
 
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/do.sh && sudo bash do.sh
-```
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.0/ec2.sh && sudo bash ec2.sh
-```
-
 ### 2.3.0 to 2.3.2
+
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 The following will update your Coronium Core 2.3.0 or 2.3.1 server to version 2.3.2
 
@@ -300,31 +332,10 @@ __Updated__
 
   - __core.users__ `extra` storage increased significantly.
 
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail. A server reboot is recommended.
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/do/update.sh && sudo bash ./update.sh
-```
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. A server reboot is recommended.
-
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.2/ec2/update.sh && sudo bash ./update.sh
-```
-
 ### 2.2.0 to 2.3.0
 
-The following will update your Coronium Core 2.2.0 server to version 2.3.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -352,28 +363,6 @@ __Updated__
 __API Changes__
 
   - The __insertMany__ MySQL module response has been changed. Previously the response returned the number of records inserted. Now the response contains an array of tables with either the inserted id or error. Previously this method would error out if _any_ of the inserts failed. Now all inserts are attempted and the error, if any, for the insert is returned in the response array. See the client-side __[insertMany](/client/modules/mysql/#insertmany)__ or server-side __[insertMany](/server/modules/mysql/#insertmany)__ documentation for more details.
-
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the DigitalOcean update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/do/update.sh && sudo bash ./update.sh
-```
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
-
-Paste the following one-liner into your terminal to start the Amazon EC2 update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.3.0/ec2/update.sh && sudo bash ./update.sh
-```
 
 ### 2.1.1 to 2.2.0
 

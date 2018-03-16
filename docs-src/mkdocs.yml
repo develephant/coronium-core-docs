@@ -34,7 +34,7 @@ pages:
         - 'Usage': 'server/modules/pages/usage.md'
         - 'Templates': 'server/modules/pages/templates.md'
         - 'Using AJAX': 'server/modules/pages/ajax.md'
-        - 'Configuration': 'server/modules/pages/config.md'
+        - 'Error Pages': 'server/modules/pages/errors.md'
       - 'Template': 'server/modules/template.md'
       - 'Timer': 'server/modules/timer.md'
       - 'Users': 
@@ -88,7 +88,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.6.0'
+  version: 'v2.6.1'
 markdown_extensions:
   - admonition
   - codehilite:
