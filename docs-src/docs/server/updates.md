@@ -2,21 +2,57 @@ It's a good idea to keep your Coronium Core server up to date with the latest re
 
 ## Available Updates
 
+### 2.6.1 to 2.6.2
+
+The following will update your Coronium Core 2.6.1 server to version 2.6.2
+
+__Added__
+
+ - Ability to host __[Corona HTML5](https://forums.coronalabs.com/forum/637-html5/)__ apps and games on your __Coronium Core__ server, and utilize the __CoroniumJS__ plugin to access custom [server-side APIs](/server/modules/api/). See the __[HTML5 Builds](/server/modules/pages/html5/)__ section in the _Pages_ documentation for more details.
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.2/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.2/ec2.sh && sudo bash ec2.sh
+```
+
+<br/>
+
 ### 2.6.0 to 2.6.1
 
 The following will update your Coronium Core 2.6.0 server to version 2.6.1
 
 __Added__
 
-Customizable error pages for common HTTP error codes. See the [Error Pages](/server/modules/pages/errors/) section in the Pages documentation.
+ - Customizable error pages for common HTTP error codes. See the [Error Pages](/server/modules/pages/errors/) section in the Pages documentation.
 
 __Fixed__
 
-An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the _pages.log_, filling the log file with useless entries.
+ - An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the _pages.log_, filling the log file with useless entries.
 
 __Updated__
 
-Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like [Coronium ChatterBox](https://develephant.github.io/coronium-chatterbox-docs/).
+ - Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like [Coronium ChatterBox](https://develephant.github.io/coronium-chatterbox-docs/).
 
 <br/>
 
