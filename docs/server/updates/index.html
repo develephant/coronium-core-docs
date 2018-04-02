@@ -652,6 +652,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../modules/pages/html5/" title="HTML5 Builds" class="md-nav__link">
+      HTML5 Builds
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../modules/pages/errors/" title="Error Pages" class="md-nav__link">
       Error Pages
     </a>
@@ -823,6 +835,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#261-to-262" title="2.6.1 to 2.6.2" class="md-nav__link">
+    2.6.1 to 2.6.2
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#260-to-261" title="2.6.0 to 2.6.1" class="md-nav__link">
@@ -1287,6 +1306,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#261-to-262" title="2.6.1 to 2.6.2" class="md-nav__link">
+    2.6.1 to 2.6.2
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#260-to-261" title="2.6.0 to 2.6.1" class="md-nav__link">
     2.6.0 to 2.6.1
   </a>
@@ -1427,14 +1453,49 @@
                 
                 <p>It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.</p>
 <h2 id="available-updates">Available Updates</h2>
+<h3 id="261-to-262">2.6.1 to 2.6.2</h3>
+<p>The following will update your Coronium Core 2.6.1 server to version 2.6.2</p>
+<p><strong>Added</strong></p>
+<ul>
+<li>Ability to host <strong><a href="https://forums.coronalabs.com/forum/637-html5/">Corona HTML5</a></strong> apps and games on your <strong>Coronium Core</strong> server, and utilize the <strong>CoroniumJS</strong> plugin to access custom <a href="../../server/modules/api/">server-side APIs</a>. See the <strong><a href="../../server/modules/pages/html5/">HTML5 Builds</a></strong> section in the <em>Pages</em> documentation for more details.</li>
+</ul>
+<p><br/></p>
+<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Root User Required</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>DigitalOcean</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.2/do.sh &amp;&amp; sudo bash do.sh
+</pre></div>
+
+
+<hr />
+<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Ubuntu User Required</p>
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>Amazon EC2</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.2/ec2.sh &amp;&amp; sudo bash ec2.sh
+</pre></div>
+
+
+<p><br/></p>
 <h3 id="260-to-261">2.6.0 to 2.6.1</h3>
 <p>The following will update your Coronium Core 2.6.0 server to version 2.6.1</p>
 <p><strong>Added</strong></p>
-<p>Customizable error pages for common HTTP error codes. See the <a href="../../server/modules/pages/errors/">Error Pages</a> section in the Pages documentation.</p>
+<ul>
+<li>Customizable error pages for common HTTP error codes. See the <a href="../../server/modules/pages/errors/">Error Pages</a> section in the Pages documentation.</li>
+</ul>
 <p><strong>Fixed</strong></p>
-<p>An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the <em>pages.log</em>, filling the log file with useless entries.</p>
+<ul>
+<li>An issue with the Pages module where an incoming request to an unsupported endpoint would write an error message to the <em>pages.log</em>, filling the log file with useless entries.</li>
+</ul>
 <p><strong>Updated</strong></p>
-<p>Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like <a href="https://develephant.github.io/coronium-chatterbox-docs/">Coronium ChatterBox</a>.</p>
+<ul>
+<li>Monit control files to be compatible with latest version. This allows running some other Coronium solutions on the Coronium Core server as well, like <a href="https://develephant.github.io/coronium-chatterbox-docs/">Coronium ChatterBox</a>.</li>
+</ul>
 <p><br/></p>
 <p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
 <div class="admonition danger">
@@ -1991,7 +2052,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.1
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.2
           </div>
         
         powered by
