@@ -4,7 +4,7 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ## Quick Start / Installation
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/egoSVe4qAn4" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/egoSVe4qAn4?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## HTTPS / SSL
 
@@ -19,11 +19,11 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ## Application Scopes
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/BOZAcOD94AE" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/BOZAcOD94AE?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## API Code Editor
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/viDCqRreBmg" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/viDCqRreBmg?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Server API - Part I
 
@@ -35,7 +35,7 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ## Email Module
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8lYV4tc2grQ?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Pages API - Part I
 
@@ -44,6 +44,10 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 ## Pages API - Part II
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/lU2gjw0dxdU?rel=0" frameborder="0" allowfullscreen></iframe>
+
+## HTML5 Builds + CoroniumJS
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/sKF5ZVGJhbA?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Database Administation
 
@@ -55,4 +59,4 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ## Internals
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KuSa72ksqGk" frameborder="0" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KuSa72ksqGk?rel=0" frameborder="0" allowfullscreen></iframe>

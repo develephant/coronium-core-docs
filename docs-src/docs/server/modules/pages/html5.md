@@ -2,6 +2,8 @@ You can host your __[Corona HTML5](https://forums.coronalabs.com/forum/637-html5
 
 This also allows you to access your custom built [server-side APIs](/server/modules/api/) using the __[CoroniumJS](/server/modules/pages/html5/#using-coroniumjs)__ plugin.
 
+<i class="fas fa-play-circle"></i> [Click here to watch a screencast.](/screencasts/#html5-builds-coroniumjs)
+
 ## Hosting HTML5 Builds
 
 To host your HTML5 game or app, create a directory in the __/home/coronium/pages__ directory and upload your Corona HTML5 output.
