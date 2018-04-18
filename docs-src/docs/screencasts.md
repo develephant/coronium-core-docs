@@ -47,6 +47,8 @@ __Important Note:__ Starting with Coronium Core 2.1.x an "application scope" mus
 
 ## HTML5 Builds + CoroniumJS
 
+<i class="fa fa-exclamation-triangle fa-fw"></i> _CoroniumJS plugin information is out of date in this screencase. See the __[CoroniumJS docs](/server/modules/pages/html5/#coroniumjs-api)__ for updated usage._
+
 <iframe width="560" height="315" src="https://www.youtube.com/embed/sKF5ZVGJhbA?rel=0" frameborder="0" allowfullscreen></iframe>
 
 ## Database Administation
