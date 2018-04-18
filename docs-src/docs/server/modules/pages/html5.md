@@ -92,40 +92,47 @@ The __CoroniumJS__ plugin will only work with HTML5 projects hosted on a __Coron
 
 ### api
 
-Call a custom server-side API method.
+Call a custom server-side API method. Works like the standard client __[core.api](/client/modules/api/)__ method.
 
 ```lua
-corejs.api(method_name, params_tbl, event_id)
+corejs.api.<method-name>([input_params,] listener)
 ```
 
 __Parameters__
 
 |Name|Description|Type|Required|
 |----|-----------|----|--------|
-|method_name|The method to call on the custom server-side API.|_String_|__Y__|
-|params_tbl|A key/value table of parameters for the method.|_Table_|__Y__|
-|event_id|An event identifier for the event listener (see below).|_String_|__Y__|
-
-__Event Listener__
-
-```lua
-corejs.addEventListener(event_id, listener_func)
-```
-
-An event listener is required when calling the `api` method. The event listener parameters are the `event_id` identifier, and the actual event listener function itself.
+|input_params|A key/value table of parameters for the method.|_Table_|__Y__|
+|listener|The response listener callback function.|_Function_|__Y__|
 
 __Example__
 
-_Assuming a `setData` method on a custom [server-side API](/server/modules/api/):_
+```lua
+local function apiResponse( evt )
+  if evt.error then
+    print(evt.error)
+  else
+    print(evt.result.name) -- Jimmy
+  end
+end
+
+corejs.api.test({name="Jimmy"}, apiResponse)
+```
+
+### debug
+
+Pretty print the response event to the console. Useful for debugging.
 
 ```lua
-corejs.addEventListener('onSetData', function(event)
-  if event.error then
-    print(event.error)
-  else
-    print(event.result.<key>)
-  end
-end)
+corejs.debug(response_event)
+```
 
-corejs.api('setData', {name="Jenny"}, 'onSetData')
+__Example__
+
+```lua
+local function apiResponse( evt )
+  corejs.debug( evt )
+
+  ...
+end
 ```

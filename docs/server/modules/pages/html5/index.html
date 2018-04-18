@@ -741,6 +741,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debug" title="debug" class="md-nav__link">
+    debug
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1295,6 +1302,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#debug" title="debug" class="md-nav__link">
+    debug
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1423,8 +1437,8 @@
 <p>The <strong>CoroniumJS</strong> plugin will only work with HTML5 projects hosted on a <strong>Coronium Core</strong> server.</p>
 <hr />
 <h3 id="api">api</h3>
-<p>Call a custom server-side API method.</p>
-<div class="codehilite"><pre><span></span><span class="n">corejs</span><span class="p">.</span><span class="n">api</span><span class="p">(</span><span class="n">method_name</span><span class="p">,</span> <span class="n">params_tbl</span><span class="p">,</span> <span class="n">event_id</span><span class="p">)</span>
+<p>Call a custom server-side API method. Works like the standard client <strong><a href="../../../../client/modules/api/">core.api</a></strong> method.</p>
+<div class="codehilite"><pre><span></span><span class="n">corejs</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="o">&lt;</span><span class="n">method</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="p">([</span><span class="n">input_params</span><span class="p">,]</span> <span class="n">listener</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1440,42 +1454,44 @@
 </thead>
 <tbody>
 <tr>
-<td>method_name</td>
-<td>The method to call on the custom server-side API.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-<tr>
-<td>params_tbl</td>
+<td>input_params</td>
 <td>A key/value table of parameters for the method.</td>
 <td><em>Table</em></td>
 <td><strong>Y</strong></td>
 </tr>
 <tr>
-<td>event_id</td>
-<td>An event identifier for the event listener (see below).</td>
-<td><em>String</em></td>
+<td>listener</td>
+<td>The response listener callback function.</td>
+<td><em>Function</em></td>
 <td><strong>Y</strong></td>
 </tr>
 </tbody>
 </table>
-<p><strong>Event Listener</strong></p>
-<div class="codehilite"><pre><span></span><span class="n">corejs</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="n">event_id</span><span class="p">,</span> <span class="n">listener_func</span><span class="p">)</span>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="kr">if</span> <span class="n">evt</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
+  <span class="kr">else</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">evt</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="n">name</span><span class="p">)</span> <span class="c1">-- Jimmy</span>
+  <span class="kr">end</span>
+<span class="kr">end</span>
+
+<span class="n">corejs</span><span class="p">.</span><span class="n">api</span><span class="p">.</span><span class="n">test</span><span class="p">({</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jimmy&quot;</span><span class="p">},</span> <span class="n">apiResponse</span><span class="p">)</span>
 </pre></div>
 
 
-<p>An event listener is required when calling the <code>api</code> method. The event listener parameters are the <code>event_id</code> identifier, and the actual event listener function itself.</p>
-<p><strong>Example</strong></p>
-<p><em>Assuming a <code>setData</code> method on a custom <a href="../../../../server/modules/api/">server-side API</a>:</em></p>
-<div class="codehilite"><pre><span></span><span class="n">corejs</span><span class="p">.</span><span class="n">addEventListener</span><span class="p">(</span><span class="s1">&#39;onSetData&#39;</span><span class="p">,</span> <span class="kr">function</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
-  <span class="kr">if</span> <span class="n">event</span><span class="p">.</span><span class="n">error</span> <span class="kr">then</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">error</span><span class="p">)</span>
-  <span class="kr">else</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">event</span><span class="p">.</span><span class="n">result</span><span class="p">.</span><span class="o">&lt;</span><span class="n">key</span><span class="o">&gt;</span><span class="p">)</span>
-  <span class="kr">end</span>
-<span class="kr">end</span><span class="p">)</span>
+<h3 id="debug">debug</h3>
+<p>Pretty print the response event to the console. Useful for debugging.</p>
+<div class="codehilite"><pre><span></span><span class="n">corejs</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span><span class="n">response_event</span><span class="p">)</span>
+</pre></div>
 
-<span class="n">corejs</span><span class="p">.</span><span class="n">api</span><span class="p">(</span><span class="s1">&#39;setData&#39;</span><span class="p">,</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;Jenny&quot;</span><span class="p">},</span> <span class="s1">&#39;onSetData&#39;</span><span class="p">)</span>
+
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="kr">function</span> <span class="nf">apiResponse</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+  <span class="n">corejs</span><span class="p">.</span><span class="n">debug</span><span class="p">(</span> <span class="n">evt</span> <span class="p">)</span>
+
+  <span class="p">...</span>
+<span class="kr">end</span>
 </pre></div>
                 
                   
