@@ -2,6 +2,42 @@ It's a good idea to keep your Coronium Core server up to date with the latest re
 
 ## Available Updates
 
+### 2.6.2 to 2.6.3
+
+The following will update your Coronium Core 2.6.2 server to version 2.6.3
+
+__Fixed__
+
+ - Coronium Core system logs not rotating properly.
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.3/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.3/ec2.sh && sudo bash ec2.sh
+```
+
+<br/>
+
 ### 2.6.1 to 2.6.2
 
 The following will update your Coronium Core 2.6.1 server to version 2.6.2
