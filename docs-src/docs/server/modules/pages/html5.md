@@ -24,7 +24,7 @@ http[s]://your.coronium.server/<html5-app-directory>/index-debug.html
 
 Using the __CoroniumJS__ plugin in your Corona HTML5 project gives you access to your custom [server-side APIs](/server/modules/api/). The plugin will be enhanced over time to allow for more functionality.
 
-<i class="fa fa-exclamation-triangle fa-fw"></i> __Requires Corona [daily build](https://developer.coronalabs.com/downloads/daily-builds/) 2018.3268 or higher.__
+<i class="fa fa-exclamation-triangle fa-fw"></i> __Requires Corona [daily build](https://developer.coronalabs.com/downloads/daily-builds/) 2018.3276 or higher.__
 
 ### Download
 
