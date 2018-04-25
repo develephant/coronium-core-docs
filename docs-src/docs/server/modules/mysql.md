@@ -1090,24 +1090,6 @@ __Returns__
 
 Local timestamp based on provided UNIX time. Otherwise, returns current local timestamp.
 
-### parseTimestamp
-
-A utility method to convert a MySQL timestamp to Unix time.
-
-```lua
-core.mysql.parseTimestamp( mysql_ts )
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|mysql_ts|A MySQL timestamp in the form of `XXXX-XX-XX XX:XX:XX`.|_String_|__Y__|
-
-__Returns__
-
-Unix timestamp based on provided MySQL timestamp.
-
 ### date
 
 MySQL compatible UTC based date.
