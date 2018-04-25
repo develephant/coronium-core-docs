@@ -6,6 +6,8 @@ The __mysql__ module allows you to run queries against the local MySQL server in
 !!! info "Client-Side MySQL"
     Most data handling can be handled directly on the client-side, without the need to create a server-side api. See the client-side __[MySQL](/client/modules/mysql/)__ module.
 
+## Query String
+
 ### query | q
 
 ```lua
@@ -91,170 +93,6 @@ end
 
 core.log("inserted id is: ", result)
 ```
-
-### escape
-
-Escape a string value to be sql safe.
-
-```lua
-core.mysql.escape(unescaped_str)
-```
-
-__Parameters__
-
-|Name|Description|Requried|
-|----|-----------|--------|
-|unescaped_str|The __string__ value to escape.|__Y__|
-
-__Returns__
-
-A sql safe escaped __string__.
-
-__Example__
-
-```lua
-local str = core.mysql.escape("Eat at Joe's")
-```
-
-!!! warning "Escaping Values"
-    The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query. __Many EZ Query methods automatically use mysql.escape on values, be sure to check the documentation for each method.__
-
-### escapeAll
-
-Escape all string values in a table array to be sql safe.
-
-```lua
-core.mysql.escapeAll(tbl_values)
-```
-
-__Parameters__
-
-|Name|Description|Requried|
-|----|-----------|--------|
-|tbl_values|A __table__ array of mixed value types. String values will be escaped.|__Y__|
-
-__Returns__
-
-Returns a __table__ array of the escaped string values.
-
-__Example__
-
-```lua
-local values = {
-  'A special "thing" here.',
-  24,
-  "Joe's Place"
-}
-
-values = core.mysql.escapeAll( values )
-```
-
-### timestamp
-
-MySQL compatible UTC based timestamp.
-
-```lua
-core.mysql.timestamp([seconds])
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|seconds|UNIX timestamp.|_Number_|__N__|
-
-__Returns__
-
-UTC timestamp based on provided UNIX time. Otherwise, returns current UTC timestamp.
-
-### date
-
-MySQL compatible UTC based date.
-
-```lua
-core.mysql.date([seconds])
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|seconds|UNIX timestamp.|_Number_|__N__|
-
-__Returns__
-
-UTC date based on provided UNIX time. Otherwise, returns current UTC date.
-
-### localTimestamp
-
-MySQL compatible timestamp based on the local server time.
-
-```lua
-core.mysql.localTimestamp([seconds])
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|seconds|UNIX timestamp.|_Number_|__N__|
-
-__Returns__
-
-Local timestamp based on provided UNIX time. Otherwise, returns current local timestamp.
-
-### localDate
-
-MySQL compatible date based on the local server date.
-
-```lua
-core.mysql.localDate([seconds])
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|seconds|UNIX timestamp.|_Number_|__N__|
-
-__Returns__
-
-Local date based on provided UNIX time. Otherwise, returns current local date.
-
-### logQueries
-
-A special method that will enable the logging of the query strings output by MySQL methods (or other methods that use a database) until it is toggled off.
-
-```lua
-core.mysql.logQueries(state)
-```
-
-__Parameters__
-
-|Name|Description|Type|Required|
-|---|-----------|----|--------|
-|state|Set the query logging on or off. Default is `true`.|_Boolean_|__N__|
-
-!!! warning
-    This should only be used for debugging purposes or you'll end up with a lot of log entries.
-
-__Example__
-
-```lua
-core.mysql.logQueries() --start logging queries
-
-local res, err, code = core.mysql.select("products", {
-  tbl = "toys",
-  where { id = 20 }
-})
-
--- The following output will be added to the Coronium log file
--- SELECT * FROM `toys` WHERE `id`=20;
-
-core.mysql.logQueries(false) --stop logging queries
---Any MySQL methods run after will not be written to the log.
-```
-
 
 ## EZ Query Methods
 
@@ -1155,6 +993,171 @@ else
     end
   end
 end
+```
+
+## Utilities
+
+### escape
+
+Escape a string value to be sql safe.
+
+```lua
+core.mysql.escape(unescaped_str)
+```
+
+__Parameters__
+
+|Name|Description|Requried|
+|----|-----------|--------|
+|unescaped_str|The __string__ value to escape.|__Y__|
+
+__Returns__
+
+A sql safe escaped __string__.
+
+__Example__
+
+```lua
+local str = core.mysql.escape("Eat at Joe's")
+```
+
+!!! warning "Escaping Values"
+    The returned value is enclosed in single quotes. Do not wrap the value with additional quotes or it may cause problems with your query. __Many EZ Query methods automatically use mysql.escape on values, be sure to check the documentation for each method.__
+
+### escapeAll
+
+Escape all string values in a table array to be sql safe.
+
+```lua
+core.mysql.escapeAll(tbl_values)
+```
+
+__Parameters__
+
+|Name|Description|Requried|
+|----|-----------|--------|
+|tbl_values|A __table__ array of mixed value types. String values will be escaped.|__Y__|
+
+__Returns__
+
+Returns a __table__ array of the escaped string values.
+
+__Example__
+
+```lua
+local values = {
+  'A special "thing" here.',
+  24,
+  "Joe's Place"
+}
+
+values = core.mysql.escapeAll( values )
+```
+
+### timestamp
+
+MySQL compatible UTC based timestamp.
+
+```lua
+core.mysql.timestamp([seconds])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+UTC timestamp based on provided UNIX time. Otherwise, returns current UTC timestamp.
+
+### localTimestamp
+
+MySQL compatible timestamp based on the local server time.
+
+```lua
+core.mysql.localTimestamp([seconds])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+Local timestamp based on provided UNIX time. Otherwise, returns current local timestamp.
+
+### date
+
+MySQL compatible UTC based date.
+
+```lua
+core.mysql.date([seconds])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+UTC date based on provided UNIX time. Otherwise, returns current UTC date.
+
+### localDate
+
+MySQL compatible date based on the local server date.
+
+```lua
+core.mysql.localDate([seconds])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|seconds|UNIX timestamp.|_Number_|__N__|
+
+__Returns__
+
+Local date based on provided UNIX time. Otherwise, returns current local date.
+
+### logQueries
+
+A special method that will enable the logging of the query strings output by MySQL methods (or other methods that use a database) until it is toggled off.
+
+```lua
+core.mysql.logQueries(state)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|state|Set the query logging on or off. Default is `true`.|_Boolean_|__N__|
+
+!!! warning
+    This should only be used for debugging purposes or you'll end up with a lot of log entries.
+
+__Example__
+
+```lua
+core.mysql.logQueries() --start logging queries
+
+local res, err, code = core.mysql.select("products", {
+  tbl = "toys",
+  where { id = 20 }
+})
+
+-- The following output will be added to the Coronium log file
+-- SELECT * FROM `toys` WHERE `id`=20;
+
+core.mysql.logQueries(false) --stop logging queries
+--Any MySQL methods run after will not be written to the log.
 ```
 
 ## MySQL NULL Type

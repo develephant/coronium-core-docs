@@ -89,7 +89,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.6.2'
+  version: 'v2.6.3'
 markdown_extensions:
   - admonition
   - codehilite:
