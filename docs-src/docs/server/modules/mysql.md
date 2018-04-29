@@ -1333,7 +1333,7 @@ __Parameters__
 __Example__
 
 ```lua
-local result, err = core.mysql.dbQuery(db_conn, "SELECT * FROM products;")
+local result, err = core.mysql.dbQuery(db_conn, "SELECT * FROM `products`;")
 ```
 
 ### dbClose
@@ -1367,7 +1367,7 @@ For large queries you may need to adjust the timeout for the call. You can do th
 ### Example
 
 ```lua
-local query = core.sf("SELECT * FROM orders LIMIT %d", 100)
+local query = core.sf("SELECT * FROM `orders` LIMIT %d", 100)
 
 local conn_tbl = {
   database = "clients",
