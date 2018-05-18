@@ -837,6 +837,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#263-to-264" title="2.6.3 to 2.6.4" class="md-nav__link">
+    2.6.3 to 2.6.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#262-to-263" title="2.6.2 to 2.6.3" class="md-nav__link">
     2.6.2 to 2.6.3
   </a>
@@ -1313,6 +1320,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#263-to-264" title="2.6.3 to 2.6.4" class="md-nav__link">
+    2.6.3 to 2.6.4
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#262-to-263" title="2.6.2 to 2.6.3" class="md-nav__link">
     2.6.2 to 2.6.3
   </a>
@@ -1467,6 +1481,40 @@
                 
                 <p>It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.</p>
 <h2 id="available-updates">Available Updates</h2>
+<h3 id="263-to-264">2.6.3 to 2.6.4</h3>
+<p>The following will update your Coronium Core 2.6.3 server to version 2.6.4</p>
+<p><strong>Added</strong></p>
+<ul>
+<li>
+<p>Remote access tools for MySQL and MongoDB for enhanced database security. See <strong><a href="../../server/modules/mysql/#remote-access">MySQL Remote Access</a></strong> and <strong><a href="../../server/modules/mongo/#remote-access">MongoDB Remote Access</a></strong> for more details.</p>
+</li>
+<li>
+<p>MySQL module <strong><a href="../../server/modules/mysql/#parsetimestamp">parseTimestamp</a></strong> method to convert MySQL timestamp to Unix timestamp.</p>
+</li>
+</ul>
+<p><br/></p>
+<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Root User Required</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>DigitalOcean</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.4/do.sh &amp;&amp; sudo bash do.sh
+</pre></div>
+
+
+<hr />
+<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Ubuntu User Required</p>
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>Amazon EC2</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.4/ec2.sh &amp;&amp; sudo bash ec2.sh
+</pre></div>
+
+
+<p><br/></p>
 <h3 id="262-to-263">2.6.2 to 2.6.3</h3>
 <p>The following will update your Coronium Core 2.6.2 server to version 2.6.3</p>
 <p><strong>Fixed</strong></p>
@@ -2095,7 +2143,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.3
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.4
           </div>
         
         powered by

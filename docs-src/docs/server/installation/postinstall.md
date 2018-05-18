@@ -27,4 +27,6 @@ To secure your Coronium Core server with HTTPS, see the __[HTTPS/SSL](/server/gu
 
 To access the Coronium Core Webmin, see the __[Webmin Guide](/server/webmin/setup/)__.
 
+## Database Security
 
+To keep your databases more secure see __[MySQL Remote Access](/server/modules/mysql/#remote-access)__ and __[MongoDB Remote Access](/server/modules/mongo/#remote-access)__.

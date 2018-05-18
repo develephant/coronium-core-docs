@@ -1420,6 +1420,28 @@ You can and should manage your MySQL databases using a standalone tool. Below ar
 
 To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.
 
+### Remote Access
+
+By default, a fresh Coronium Core installation allows remote access to the MySQL database with a password so that you can use client side tools to edit your databases.
+
+While this is convenient to the developer, it is not particularly the _most_ secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. You can do this by using the __mysql-remote__ tool available on the server.
+
+To activate/deactivate remote MySQL access, log in with the __coronium__ user and enter one of the following on the command line:
+
+__Activate remote access__
+
+```
+sudo mysql-remote on
+```
+
+__Deactivate remote access__
+
+```
+sudo mysql-remote off
+```
+
+If you are having issues connecting with your MySQL client, make sure that you have remote access in an active state.
+
 ### Configuration File
 
 You can adjust the various MySQL server configuration settings in the _coronium_mysql.cnf_ file. The file is located at:

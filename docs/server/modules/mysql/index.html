@@ -753,6 +753,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#parsetimestamp" title="parseTimestamp" class="md-nav__link">
+    parseTimestamp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#date" title="date" class="md-nav__link">
     date
   </a>
@@ -880,6 +887,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-access" title="Remote Access" class="md-nav__link">
+    Remote Access
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#configuration-file" title="Configuration File" class="md-nav__link">
@@ -1652,6 +1666,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#parsetimestamp" title="parseTimestamp" class="md-nav__link">
+    parseTimestamp
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#date" title="date" class="md-nav__link">
     date
   </a>
@@ -1779,6 +1800,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#remote-access" title="Remote Access" class="md-nav__link">
+    Remote Access
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#configuration-file" title="Configuration File" class="md-nav__link">
@@ -3327,6 +3355,33 @@
 </table>
 <p><strong>Returns</strong></p>
 <p>Local timestamp based on provided UNIX time. Otherwise, returns current local timestamp.</p>
+<h3 id="parsetimestamp">parseTimestamp</h3>
+<p>A utility method to convert a MySQL timestamp to Unix time.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">parseTimestamp</span><span class="p">(</span> <span class="n">mysql_ts</span> <span class="p">)</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>mysql_ts</td>
+<td>A MySQL timestamp in the form of <code>XXXX-XX-XX XX:XX:XX</code>.</td>
+<td><em>String</em></td>
+<td><strong>Y</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>Unix timestamp based on provided MySQL timestamp.</p>
 <h3 id="date">date</h3>
 <p>MySQL compatible UTC based date.</p>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">date</span><span class="p">([</span><span class="n">seconds</span><span class="p">])</span>
@@ -3581,7 +3636,7 @@
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbQuery</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="s2">&quot;SELECT * FROM products;&quot;</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">result</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">dbQuery</span><span class="p">(</span><span class="n">db_conn</span><span class="p">,</span> <span class="s2">&quot;SELECT * FROM `products`;&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -3620,7 +3675,7 @@
 <h2 id="mysql-timeout">MySQL Timeout</h2>
 <p>For large queries you may need to adjust the timeout for the call. You can do this by passing a connection table in place of the database name and include the <code>timeout</code> parameter in milliseconds. The default is 2000 (2 seconds).</p>
 <h3 id="example">Example</h3>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM orders LIMIT %d&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM `orders` LIMIT %d&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
 
 <span class="kd">local</span> <span class="n">conn_tbl</span> <span class="o">=</span> <span class="p">{</span>
   <span class="n">database</span> <span class="o">=</span> <span class="s2">&quot;clients&quot;</span><span class="p">,</span>
@@ -3709,6 +3764,21 @@
 <li><a href="https://www.heidisql.com/download.php">HeidiSQL</a> (Windows)</li>
 </ul>
 <p>To connect to the MySQL database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
+<h3 id="remote-access">Remote Access</h3>
+<p>By default, a fresh Coronium Core installation allows remote access to the MySQL database with a password so that you can use client side tools to edit your databases.</p>
+<p>While this is convenient to the developer, it is not particularly the <em>most</em> secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. You can do this by using the <strong>mysql-remote</strong> tool available on the server.</p>
+<p>To activate/deactivate remote MySQL access, log in with the <strong>coronium</strong> user and enter one of the following on the command line:</p>
+<p><strong>Activate remote access</strong></p>
+<div class="codehilite"><pre><span></span>sudo mysql-remote on
+</pre></div>
+
+
+<p><strong>Deactivate remote access</strong></p>
+<div class="codehilite"><pre><span></span>sudo mysql-remote off
+</pre></div>
+
+
+<p>If you are having issues connecting with your MySQL client, make sure that you have remote access in an active state.</p>
 <h3 id="configuration-file">Configuration File</h3>
 <p>You can adjust the various MySQL server configuration settings in the <em>coronium_mysql.cnf</em> file. The file is located at:</p>
 <div class="codehilite"><pre><span></span>/etc/mysql/coronium.conf.d/coronium_mysql.cnf
@@ -3801,7 +3871,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.3
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.4
           </div>
         
         powered by

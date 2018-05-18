@@ -865,6 +865,28 @@ You can and should manage your Mongo databases using a standalone tool. Below ar
 
 To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.
 
+### Remote Access
+
+By default, a fresh Coronium Core installation allows remote access to the Mongo database with a password so that you can use client side tools to edit your databases.
+
+While this is convenient to the developer, it is not particularly the _most_ secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. You can do this by using the __mongo-remote__ tool available on the server.
+
+To activate/deactivate remote Mongo access, log in with the __coronium__ user and enter one of the following on the command line:
+
+__Activate remote access__
+
+```
+sudo mongo-remote on
+```
+
+__Deactivate remote access__
+
+```
+sudo mongo-remote off
+```
+
+If you are having issues connecting with your MongoDB client, make sure that you have remote access in an active state.
+
 ### Password Update
 
 To change your Mongo password log in your Coronium Core server and run:
