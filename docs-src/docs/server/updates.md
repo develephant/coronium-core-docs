@@ -8,7 +8,7 @@ The following will update your Coronium Core 2.6.3 server to version 2.6.4
 
 __Added__
 
- - Remote access tools for MySQL and MongoDB for enhanced database security. See __[MySQL Remote Access](/server/modules/mysql/#remote-access)__ and __[MongoDB Remote Access](/server/modules/mongo/#remote-access)__ for more details.
+ - Remote access tools and information for MySQL and MongoDB enhanced database security. See __[MySQL Remote Access](/server/modules/mysql/#remote-access)__ and __[MongoDB Remote Access](/server/modules/mongo/#remote-access)__ for more details.
 
  - MySQL module __[parseTimestamp](/server/modules/mysql/#parsetimestamp)__ method to convert MySQL timestamp to Unix timestamp.
 

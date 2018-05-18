@@ -854,6 +854,26 @@
     Remote Access
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean" title=" DigitalOcean" class="md-nav__link">
+     DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2" title=" Amazon EC2" class="md-nav__link">
+     Amazon EC2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1744,6 +1764,26 @@
   <a href="#remote-access" title="Remote Access" class="md-nav__link">
     Remote Access
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#digitalocean" title=" DigitalOcean" class="md-nav__link">
+     DigitalOcean
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#amazon-ec2" title=" Amazon EC2" class="md-nav__link">
+     Amazon EC2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2885,8 +2925,9 @@
 <p>To connect to the Mongo database, use the host address of the server, and the password that was set when installing Coronium Core.</p>
 <h3 id="remote-access">Remote Access</h3>
 <p>By default, a fresh Coronium Core installation allows remote access to the Mongo database with a password so that you can use client side tools to edit your databases.</p>
-<p>While this is convenient to the developer, it is not particularly the <em>most</em> secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. You can do this by using the <strong>mongo-remote</strong> tool available on the server.</p>
-<p>To activate/deactivate remote Mongo access, log in with the <strong>coronium</strong> user and enter one of the following on the command line:</p>
+<p>While this is convenient to the developer, it is not particularly the <em>most</em> secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. </p>
+<h4 id="digitalocean"><i class="fab fa-digital-ocean"></i> DigitalOcean</h4>
+<p>To activate/deactivate remote MongoDB access use the <strong>mongo-remote</strong> tool by logging in with the <strong>coronium</strong> user and entering one of the following on the command line:</p>
 <p><strong>Activate remote access</strong></p>
 <div class="codehilite"><pre><span></span>sudo mongo-remote on
 </pre></div>
@@ -2898,6 +2939,8 @@
 
 
 <p>If you are having issues connecting with your MongoDB client, make sure that you have remote access in an active state.</p>
+<h4 id="amazon-ec2"><i class="fab fa-amazon"></i> Amazon EC2</h4>
+<p>Disable/enable port <strong>27017</strong> as needed in your instance security group. For more information on editing your security group <a href="https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#SG_Changing_Group_Membership">click here</a>.</p>
 <h3 id="password-update">Password Update</h3>
 <p>To change your Mongo password log in your Coronium Core server and run:</p>
 <div class="codehilite"><pre><span></span>sudo mongo-updatepw

@@ -869,9 +869,11 @@ To connect to the Mongo database, use the host address of the server, and the pa
 
 By default, a fresh Coronium Core installation allows remote access to the Mongo database with a password so that you can use client side tools to edit your databases.
 
-While this is convenient to the developer, it is not particularly the _most_ secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. You can do this by using the __mongo-remote__ tool available on the server.
+While this is convenient to the developer, it is not particularly the _most_ secure way to run the database. Instead you should only activate remote access while you work on the database, and then deactivate it when you are done. 
 
-To activate/deactivate remote Mongo access, log in with the __coronium__ user and enter one of the following on the command line:
+#### <i class="fab fa-digital-ocean"></i> DigitalOcean
+
+To activate/deactivate remote MongoDB access use the __mongo-remote__ tool by logging in with the __coronium__ user and entering one of the following on the command line:
 
 __Activate remote access__
 
@@ -886,6 +888,10 @@ sudo mongo-remote off
 ```
 
 If you are having issues connecting with your MongoDB client, make sure that you have remote access in an active state.
+
+#### <i class="fab fa-amazon"></i> Amazon EC2
+
+Disable/enable port __27017__ as needed in your instance security group. For more information on editing your security group [click here](https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html#SG_Changing_Group_Membership).
 
 ### Password Update
 
