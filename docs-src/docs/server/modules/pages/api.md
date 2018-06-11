@@ -239,6 +239,9 @@ __Parameters__
 |destPath|Path to store the file relative to the __files__ directory.|_String_|__Y__|
 |unique|Generate a unique file name for the file. Default: __false__|_Boolean_|__N__|
 
+!!! tip "Public Files"
+    If you plan on displaying uploaded images or allowing downloads of your files from the browser, make sure to save them to the _public_ directory.
+
 __Example__
 
 ```lua
