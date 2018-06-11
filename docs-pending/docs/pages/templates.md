@@ -39,8 +39,6 @@ __Browser Location__
 
 _Path: https://my.coronium.com/users/show_
 
-_See also:_ __[page.render](/server/modules/pages/api/#render)__
-
 !!! tip
     To keep your template code from accidentally being viewed raw in the browser, be sure to name all template files with the __.tpl__ extension.
 
@@ -108,7 +106,7 @@ __Example Template__
 </html>
 ```
 
-__Example Page Lua__
+__Example Lua__
 
 ```lua
 local page = core.pages.new()
@@ -123,7 +121,9 @@ local data =
   }
 }
 
-page.render('/users.tpl', data)
+local body = page.template('users.tpl', data)
+
+page.response(body)
 ```
 
 __Output__
@@ -148,68 +148,44 @@ __Output__
 
 To check for an asynchrous request, you can use the __isAjax__ property of the pages object instance, and output the data in the required format.
 
-__Example Page Lua__
+__Example Lua__
 
 ```lua
---cat.lua
+-- cats.lua
 local page = core.pages.new()
 
-local cat = {
-  name = 'Snookie'
+local cats =
+{
+  'Snookie','Fluffy','Yip'
 }
 
-local function renderPage()
-  if page.isAjax then
-    --return as JSON
-    page.renderJson( cat )
-  else
-    --or render template
-    page.render( '/cat.tpl', cat )
-  end
-end
-
---incoming
-if page.isGet then
-  renderPage()
+if page.isAjax then
+  --return JSON array
+  local json = core.json.encode(cats)
+  page.response(json, nil, page.JSON)
 else
-  page.status(501)
+  --pass it to a template instead
+  local body = page.template("cats.tpl", cats)
+  page.response(body)
 end
-```
-
-__Example Template__
-
-Endpoint: _http(s)://my.coronium.com/cat_
-
-```html
-<!-- cat.tpl -->
-Cat: {{ name }}
 ```
 
 __Example HTML__
 
-Endpoint: _http(s)://my.coronium.com/cat.html_
+_Using JQuery_
 
-Using JQuery
-
-```html
-<!-- cat.html -->
-<html>
-	<head>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
-	</head>
-	<body>
-    <div id="cat">cat name goes here</div>
-    <script>
-      $.getJSON("/cat", function(data) {
-        $('#cat').text("Cat: "+data.name);
-      });
-    </script>
-  </body>
-</html>
 ```
+...
 
-__Output__
+<body>
+  <div id='cats'>cats go here</div>
 
-```html
-Cat: Snookie
+  <script>
+    $.getJSON('https://my.coronium.com/cats', function(data) {
+      $('cats').innerHTML = data.request;
+    });
+  </script>
+</body>
+
+...
 ```

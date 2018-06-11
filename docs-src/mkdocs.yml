@@ -30,9 +30,10 @@ pages:
       - 'MySQL': 'server/modules/mysql.md'
       - 'Network': 'server/modules/network.md'
       - 'Pages':
-        - 'Pages API': 'server/modules/pages/api.md'
         - 'Usage': 'server/modules/pages/usage.md'
+        - 'Pages API': 'server/modules/pages/api.md'
         - 'Templates': 'server/modules/pages/templates.md'
+        - 'File Uploads': 'server/modules/pages/uploads.md'
         - 'Using AJAX': 'server/modules/pages/ajax.md'
         - 'HTML5 Builds': 'server/modules/pages/html5.md'
         - 'Error Pages': 'server/modules/pages/errors.md'
@@ -89,7 +90,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.6.4'
+  version: 'v2.6.5'
 markdown_extensions:
   - admonition
   - codehilite:

@@ -608,18 +608,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../api/" title="Pages API" class="md-nav__link">
-      Pages API
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../usage/" title="Usage" class="md-nav__link">
       Usage
     </a>
@@ -632,8 +620,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../templates/" title="Templates" class="md-nav__link">
       Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../uploads/" title="File Uploads" class="md-nav__link">
+      File Uploads
     </a>
   </li>
 
@@ -671,19 +683,6 @@
     Page Response Module
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pageapilua" title="pageapi.lua" class="md-nav__link">
-    pageapi.lua
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -710,13 +709,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#example-files" title="Example Files" class="md-nav__link">
-    Example Files
-  </a>
   
 </li>
       
@@ -1223,19 +1215,6 @@
     Page Response Module
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#pageapilua" title="pageapi.lua" class="md-nav__link">
-    pageapi.lua
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
       
         <li class="md-nav__item">
@@ -1265,13 +1244,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#example-files" title="Example Files" class="md-nav__link">
-    Example Files
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -1294,60 +1266,38 @@
 <p>You will need to create a "response" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.</p>
 <p><strong>Directory Structure</strong></p>
 <div class="codehilite"><pre><span></span>pages/
-  mypage.html
-  pageapi.lua
+  ajax.html
+  ajax.lua
+  qwest.html
 </pre></div>
 
 
-<p>In the <code>pageapi.lua</code> we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the <code>page.form</code> object when using the POST method.</p>
+<p>In the <code>ajax.lua</code> we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the <code>page.form</code> object when using the POST method.</p>
 <div class="admonition note">
 <p class="admonition-title">POST Method</p>
 <p>For ease of use, you should always make your AJAX calls using the POST method.</p>
 </div>
-<h3 id="pageapilua">pageapi.lua</h3>
+<p><strong>ajax.lua</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">page</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">pages</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 
-<span class="c1">--=============================================================================</span>
-<span class="c1">--== Response Methods</span>
-<span class="c1">--=============================================================================</span>
-<span class="kd">local</span> <span class="kr">function</span> <span class="nf">getTimestamp</span><span class="p">(</span><span class="n">input</span><span class="p">)</span>
+<span class="kd">local</span> <span class="kr">function</span> <span class="nf">processPost</span><span class="p">()</span>
 
-  <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">input</span><span class="p">.</span><span class="n">time</span><span class="p">)</span>
+  <span class="kd">local</span> <span class="n">action</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">action</span>
 
-  <span class="kr">if</span> <span class="ow">not</span> <span class="n">res</span> <span class="kr">then</span>
-    <span class="c1">-- Something went wrong, send 500 error</span>
-    <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+  <span class="kr">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s2">&quot;get-timestamp&quot;</span> <span class="kr">then</span>
+    <span class="kd">local</span> <span class="n">res</span><span class="p">,</span> <span class="n">err</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">timestamp</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">time</span><span class="p">)</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">renderJson</span><span class="p">({</span><span class="n">timestamp</span> <span class="o">=</span> <span class="n">res</span><span class="p">})</span>
   <span class="kr">else</span>
-    <span class="c1">-- JSON encode result, and respond as JSON type</span>
-    <span class="kd">local</span> <span class="n">result</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">json</span><span class="p">.</span><span class="n">encode</span><span class="p">({</span> <span class="n">timestamp</span> <span class="o">=</span> <span class="n">res</span> <span class="p">})</span>
-    <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="n">page</span><span class="p">.</span><span class="n">JSON</span><span class="p">)</span>
+    <span class="n">page</span><span class="p">.</span><span class="n">renderJson</span><span class="p">({</span><span class="nb">error</span> <span class="o">=</span> <span class="s2">&quot;Action not found&quot;</span><span class="p">})</span>
   <span class="kr">end</span>
+
 <span class="kr">end</span>
 
-<span class="c1">--=============================================================================</span>
-<span class="c1">--== Handle incoming request</span>
-<span class="c1">--=============================================================================</span>
-
-<span class="kd">local</span> <span class="n">action</span>
-
-<span class="c1">--== Incoming values are in the `page.form` object</span>
-<span class="kr">if</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span> <span class="kr">then</span>
-  <span class="c1">-- The `action` is a value we pass from the AJAX call</span>
-  <span class="n">action</span> <span class="o">=</span> <span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">.</span><span class="n">action</span>
-<span class="kr">end</span>
-
-<span class="c1">--== Drive application logic based on `action`</span>
-<span class="kr">if</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;get-timestamp&#39;</span> <span class="kr">then</span>
-
-  <span class="c1">-- Call our response method created above</span>
-  <span class="c1">-- and pass the `page.form` object</span>
-  <span class="n">getTimestamp</span><span class="p">(</span><span class="n">page</span><span class="p">.</span><span class="n">form</span><span class="p">)</span>
-
-<span class="kr">elseif</span> <span class="n">action</span> <span class="o">==</span> <span class="s1">&#39;some-other-action&#39;</span> <span class="kr">then</span>
-  <span class="c1">--== You can add additional logic using `elseif`</span>
+<span class="c1">--# incoming</span>
+<span class="kr">if</span> <span class="n">page</span><span class="p">.</span><span class="n">isPost</span> <span class="kr">then</span>
+  <span class="n">processPost</span><span class="p">()</span>
 <span class="kr">else</span>
-  <span class="c1">-- No `action` or unknown</span>
-  <span class="n">page</span><span class="p">.</span><span class="n">response</span><span class="p">(</span><span class="s2">&quot;Bad Action&quot;</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="kc">nil</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>
+  <span class="n">page</span><span class="p">.</span><span class="n">status</span><span class="p">(</span><span class="mi">501</span><span class="p">)</span>
 <span class="kr">end</span>
 </pre></div>
 
@@ -1358,53 +1308,64 @@
 </div>
 <h2 id="examples">Examples</h2>
 <h3 id="xmlhttprequest">XMLHttpRequest</h3>
+<p><strong>ajax.html</strong></p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
-<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
-  <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>The XMLHttpRequest Object<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+  <span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>The XMLHttpRequest Object<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demo&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">div</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;demo&quot;</span><span class="p">&gt;</span>
 
-    <span class="c">&lt;!-- Post to `pageapi`, no .lua extension --&gt;</span>
-    <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
-    <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;loadDoc(&#39;pageapi&#39;, myFunction)&quot;</span><span class="p">&gt;</span>Get MySQL Timestamp
-    <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
+      <span class="c">&lt;!-- Post to `ajax`, no .lua extension --&gt;</span>
+      <span class="p">&lt;</span><span class="nt">button</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;button&quot;</span>
+      <span class="na">onclick</span><span class="o">=</span><span class="s">&quot;loadDoc(&#39;/ajax&#39;, myFunction)&quot;</span><span class="p">&gt;</span>Get MySQL Timestamp
+      <span class="p">&lt;/</span><span class="nt">button</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
+    <span class="p">&lt;/</span><span class="nt">div</span><span class="p">&gt;</span>
 
-  <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
-    <span class="kd">function</span> <span class="nx">loadDoc</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">cFunction</span><span class="p">)</span> <span class="p">{</span>
-      <span class="c1">//Get UNIX time</span>
-      <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+    <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+      <span class="kd">function</span> <span class="nx">loadDoc</span><span class="p">(</span><span class="nx">url</span><span class="p">,</span> <span class="nx">cFunction</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//Get UNIX time</span>
+        <span class="kd">var</span> <span class="nx">time</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
 
-      <span class="kd">var</span> <span class="nx">xhttp</span><span class="p">;</span>
+        <span class="kd">var</span> <span class="nx">xhttp</span><span class="p">;</span>
 
-      <span class="nx">xhttp</span><span class="o">=</span><span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
+        <span class="nx">xhttp</span><span class="o">=</span><span class="k">new</span> <span class="nx">XMLHttpRequest</span><span class="p">();</span>
 
-      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
-          <span class="nx">cFunction</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+        <span class="nx">xhttp</span><span class="p">.</span><span class="nx">onreadystatechange</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">readyState</span> <span class="o">==</span> <span class="mi">4</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">status</span> <span class="o">==</span> <span class="mi">200</span><span class="p">)</span> <span class="p">{</span>
+            <span class="nx">cFunction</span><span class="p">(</span><span class="k">this</span><span class="p">);</span>
+          <span class="p">}</span>
+        <span class="p">};</span>
+
+        <span class="nx">xhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
+        <span class="c1">//Set Content Type</span>
+        <span class="nx">xhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;Content-Type&quot;</span><span class="p">,</span> <span class="s2">&quot;application/json&quot;</span><span class="p">)</span>
+        <span class="c1">//Mark as AJAX request</span>
+        <span class="nx">xhttp</span><span class="p">.</span><span class="nx">setRequestHeader</span><span class="p">(</span><span class="s2">&quot;X-Requested-With&quot;</span><span class="p">,</span> <span class="s2">&quot;XMLHttpRequest&quot;</span><span class="p">)</span>
+
+        <span class="c1">//Set `action` and `time` parameters here</span>
+        <span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">{</span>
+          <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;get-timestamp&#39;</span><span class="p">,</span>
+          <span class="nx">time</span><span class="o">:</span> <span class="nx">time</span>
         <span class="p">}</span>
-      <span class="p">};</span>
+        <span class="nx">xhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">(</span><span class="nx">data</span><span class="p">));</span>
+      <span class="p">}</span>
 
-      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">open</span><span class="p">(</span><span class="s2">&quot;POST&quot;</span><span class="p">,</span> <span class="nx">url</span><span class="p">,</span> <span class="kc">true</span><span class="p">);</span>
-
-      <span class="c1">//Set `action` and `time` parameters here</span>
-      <span class="nx">xhttp</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">&quot;action=get-timestamp&amp;time=&quot;</span><span class="o">+</span><span class="nx">time</span><span class="p">);</span>
-    <span class="p">}</span>
-
-    <span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">)</span> <span class="p">{</span>
-      <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> 
-      <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">).</span><span class="nx">timestamp</span><span class="p">;</span>
-    <span class="p">}</span>
-  <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
-<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+      <span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">).</span><span class="nx">innerHTML</span> <span class="o">=</span> 
+        <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">xhttp</span><span class="p">.</span><span class="nx">responseText</span><span class="p">).</span><span class="nx">timestamp</span><span class="p">;</span>
+      <span class="p">}</span>
+    <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+  <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 
 
 <h3 id="qwest-library">Qwest Library</h3>
 <p>I personally prefer using the <strong><a href="https://github.com/pyrsmk/qwest">qwest</a></strong> library, as it uses JSON natively, making it easier to work with.</p>
+<p><strong>qwest.html</strong></p>
 <div class="codehilite"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
 <span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
 <span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
@@ -1420,8 +1381,8 @@
 
   <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="kd">function</span> <span class="nx">loadDoc</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">//Post to `pageapi`, no .lua extension</span>
-      <span class="nx">qwest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;pageapi&#39;</span><span class="p">,</span> <span class="p">{</span>
+      <span class="c1">//Post to `ajax`, no .lua extension</span>
+      <span class="nx">qwest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/ajax&#39;</span><span class="p">,</span> <span class="p">{</span>
         <span class="c1">//Set `action` and `time` values here</span>
         <span class="nx">action</span><span class="o">:</span> <span class="s1">&#39;get-timestamp&#39;</span><span class="p">,</span>
         <span class="nx">time</span><span class="o">:</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nb">Date</span><span class="p">.</span><span class="nx">now</span><span class="p">()</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
@@ -1438,10 +1399,6 @@
   <span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
 <span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
-
-
-<h2 id="example-files">Example Files</h2>
-<p>You can download these example files by <strong><a href="https://s3.amazonaws.com/coronium-core/examples/ajax-pages.zip">clicking here</a></strong>.</p>
                 
                   
                 
@@ -1460,7 +1417,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../templates/" title="Templates" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../uploads/" title="File Uploads" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1469,7 +1426,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Templates
+                File Uploads
               </span>
             </div>
           </a>
@@ -1497,7 +1454,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.4
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
           </div>
         
         powered by

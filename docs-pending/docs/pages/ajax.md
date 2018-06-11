@@ -1,61 +1,47 @@
-If you have pages that need to access data in an asynchronous manner via AJAX, you will need to set up a specific structure so that your pages can make calls to internal APIs.
+The following explains how to access data in an asynchronous manner via AJAX using the Pages module.
 
-## Server API Module
+## Page Response Module
 
-You will need to create a server-side API that you will call to handle any processing done by the core modules. You can name this directory whatever you'd like, or even create the API project using the webmin.
+You will need to create a "response" module that will placed in the same directory where your display page(s) reside. This module can talk to Coronium Core modules, and then you'll send back the responses.
 
-As a best practice, you should use an underscore in the project name to note that it's being called from a pages module.
-
-```text
-projects/
-  _webapi/
-    main.lua
-```
-
-In the `main.lua` we can create a simple method for testing:
-
-```lua
---== _webapi/main.lua
-local api = core.api()
-
-function api.whatsMyName(input)
-  return {name = input.name}
-end
-
-return api
-```
-
-## Pages API Module
-
-You will also need to create a "communication" module that you will place in the same directory where your display page(s) reside. This module will talk to your project API (in this case `_webapi`)
+__Directory Structure__
 
 ```text
 pages/
-  my_page.lua
+  mypage.html
   pageapi.lua
 ```
 
-In the `pageapi.lua` we set up our "cross-calls" by using the __[page.callApi](/server/modules/pages/api/#callapi)__ method. The passed in values from an AJAX call are in the `page.form` object when using the POST method.
+In the `pageapi.lua` we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the `page.form` object when using the POST method.
 
 !!! note "POST Method"
     For ease of use, you should always make your AJAX calls using the POST method.
 
+### pageapi.lua
+
 ```lua
 local page = core.pages.new()
 
---== Create a method for each `action`
-local function whatsMyName(input)
-  local res = page.callApi("_webapi", "whatsMyName", {name=input.name})
+--=============================================================================
+--== Response Methods
+--=============================================================================
+local function getTimestamp(input)
+
+  local res, err = core.mysql.timestamp(input.time)
 
   if not res then
+    -- Something went wrong, send 500 error
     page.response("Error", nil, nil, 500)
   else
-    -- JSON encode response, and respond as JSON type
-    page.response(core.json.encode(res), nil, page.JSON)
+    -- JSON encode result, and respond as JSON type
+    local result = core.json.encode({ timestamp = res })
+    page.response(result, nil, page.JSON)
   end
 end
 
---== Check incoming request ==--
+--=============================================================================
+--== Handle incoming request
+--=============================================================================
 
 local action
 
@@ -66,17 +52,27 @@ if page.form then
 end
 
 --== Drive application logic based on `action`
-if action == 'whats-my-name' then
-  -- Call our action method created above
+if action == 'get-timestamp' then
+
+  -- Call our response method created above
   -- and pass the `page.form` object
-  whatsMyName(page.form)
+  getTimestamp(page.form)
+
+elseif action == 'some-other-action' then
+  --== You can add additional logic using `elseif`
 else
   -- No `action` or unknown
   page.response("Bad Action", nil, nil, 500)
 end
+
 ```
 
-## Raw AJAX Example
+!!! info "Server-side Modules"
+    For more advanced use cases you can access your custom server-side API modules in the response methods using __[page.callApi](/server/modules/pages/api/#callapi)__.
+
+## Examples
+
+### XMLHttpRequest
 
 ```html
 <!DOCTYPE html>
@@ -86,6 +82,7 @@ end
 
   <div id="demo">
 
+    <!-- Post to `pageapi`, no .lua extension -->
     <button type="button"
     onclick="loadDoc('pageapi', myFunction)">Get MySQL Timestamp
     </button>
@@ -96,7 +93,7 @@ end
     function loadDoc(url, cFunction) {
       //Get UNIX time
       var time = Math.floor(Date.now() / 1000);
-      
+
       var xhttp;
       
       xhttp=new XMLHttpRequest();
@@ -122,9 +119,9 @@ end
 </html>
 ```
 
-## Qwest Lib Example
+### Qwest Library
 
-I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ library, as it uses JSON natively, which happens to be the data type Coronium Core transfers.
+I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ library, as it uses JSON natively, making it easier to work with.
 
 ```html
 <!DOCTYPE html>
@@ -134,7 +131,7 @@ I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ libra
 </head>
   <body>
 
-  <h1>Using Qwest</h1>
+  <h1>The Qwest Library</h1>
 
   <div id="demo">
     <button type="button" onclick="loadDoc()">Get MySQL Timestamp</button>
@@ -160,3 +157,7 @@ I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ libra
   </body>
 </html>
 ```
+
+## Example Files
+
+You can download these example files by __[clicking here](https://s3.amazonaws.com/coronium-core/examples/ajax-pages.zip)__.

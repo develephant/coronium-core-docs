@@ -604,18 +604,6 @@
 
 
   <li class="md-nav__item">
-    <a href="../modules/pages/api/" title="Pages API" class="md-nav__link">
-      Pages API
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
     <a href="../modules/pages/usage/" title="Usage" class="md-nav__link">
       Usage
     </a>
@@ -628,8 +616,32 @@
 
 
   <li class="md-nav__item">
+    <a href="../modules/pages/api/" title="Pages API" class="md-nav__link">
+      Pages API
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../modules/pages/templates/" title="Templates" class="md-nav__link">
       Templates
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../modules/pages/uploads/" title="File Uploads" class="md-nav__link">
+      File Uploads
     </a>
   </li>
 
@@ -835,6 +847,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#264-to-265" title="2.6.4 to 2.6.5" class="md-nav__link">
+    2.6.4 to 2.6.5
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#263-to-264" title="2.6.3 to 2.6.4" class="md-nav__link">
@@ -1320,6 +1339,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#264-to-265" title="2.6.4 to 2.6.5" class="md-nav__link">
+    2.6.4 to 2.6.5
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#263-to-264" title="2.6.3 to 2.6.4" class="md-nav__link">
     2.6.3 to 2.6.4
   </a>
@@ -1481,6 +1507,39 @@
                 
                 <p>It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.</p>
 <h2 id="available-updates">Available Updates</h2>
+<h3 id="264-to-265">2.6.4 to 2.6.5</h3>
+<p>The following will update your Coronium Core 2.6.4 server to version 2.6.5</p>
+<p><strong>Updated</strong></p>
+<ul>
+<li>Pages module version 2 which now supports form based uploads and cookies for user sessions, as well as a number of new methods for response output. See the updated documentation <strong><a href="../../server/modules/pages/usage/">here</a></strong> for more information.</li>
+</ul>
+<p><strong>Fixed</strong></p>
+<ul>
+<li>An issue with the Pages module where an incoming request to a Lua page that doesn't exist writes an error message to the <em>pages.log</em>. Missing Pages dynamic Lua files now respond with a proper 404.</li>
+</ul>
+<p><br/></p>
+<p><i class="fab fa-digital-ocean"></i> <strong>DigitalOcean Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Root User Required</p>
+<p>You must be logged in as the <strong>root</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>DigitalOcean</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.5/do.sh &amp;&amp; sudo bash do.sh
+</pre></div>
+
+
+<hr />
+<p><i class="fab fa-amazon"></i> <strong>Amazon EC2 Updater</strong></p>
+<div class="admonition danger">
+<p class="admonition-title">Ubuntu User Required</p>
+<p>You must be logged in as the <strong>ubuntu</strong> user to run the updater or it may fail.</p>
+</div>
+<p>Paste the following one-liner into your terminal to start the <strong>Amazon EC2</strong> update:</p>
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core-update/v2.6.5/ec2.sh &amp;&amp; sudo bash ec2.sh
+</pre></div>
+
+
+<p><br/></p>
 <h3 id="263-to-264">2.6.3 to 2.6.4</h3>
 <p>The following will update your Coronium Core 2.6.3 server to version 2.6.4</p>
 <p><strong>Added</strong></p>
@@ -2143,7 +2202,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.4
+            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
           </div>
         
         powered by

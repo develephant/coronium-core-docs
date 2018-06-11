@@ -2,6 +2,46 @@ It's a good idea to keep your Coronium Core server up to date with the latest re
 
 ## Available Updates
 
+### 2.6.4 to 2.6.5
+
+The following will update your Coronium Core 2.6.4 server to version 2.6.5
+
+__Updated__
+
+  - Pages module version 2 which now supports form based uploads and cookies for user sessions, as well as a number of new methods for response output. See the updated documentation __[here](/server/modules/pages/usage/)__ for more information.
+
+__Fixed__
+
+ - An issue with the Pages module where an incoming request to a Lua page that doesn't exist writes an error message to the _pages.log_. Missing Pages dynamic Lua files now respond with a proper 404.
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.5/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.6.5/ec2.sh && sudo bash ec2.sh
+```
+
+<br/>
+
 ### 2.6.3 to 2.6.4
 
 The following will update your Coronium Core 2.6.3 server to version 2.6.4

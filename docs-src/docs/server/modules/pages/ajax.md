@@ -8,63 +8,40 @@ __Directory Structure__
 
 ```text
 pages/
-  mypage.html
-  pageapi.lua
+  ajax.html
+  ajax.lua
+  qwest.html
 ```
 
-In the `pageapi.lua` we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the `page.form` object when using the POST method.
+In the `ajax.lua` we set up methods to respond to the AJAX page requests. The passed in values from an AJAX call are in the `page.form` object when using the POST method.
 
 !!! note "POST Method"
     For ease of use, you should always make your AJAX calls using the POST method.
 
-### pageapi.lua
+__ajax.lua__
 
 ```lua
 local page = core.pages.new()
 
---=============================================================================
---== Response Methods
---=============================================================================
-local function getTimestamp(input)
+local function processPost()
 
-  local res, err = core.mysql.timestamp(input.time)
+  local action = page.form.action
 
-  if not res then
-    -- Something went wrong, send 500 error
-    page.response("Error", nil, nil, 500)
+  if action == "get-timestamp" then
+    local res, err = core.mysql.timestamp(page.form.time)
+    page.renderJson({timestamp = res})
   else
-    -- JSON encode result, and respond as JSON type
-    local result = core.json.encode({ timestamp = res })
-    page.response(result, nil, page.JSON)
+    page.renderJson({error = "Action not found"})
   end
+
 end
 
---=============================================================================
---== Handle incoming request
---=============================================================================
-
-local action
-
---== Incoming values are in the `page.form` object
-if page.form then
-  -- The `action` is a value we pass from the AJAX call
-  action = page.form.action
-end
-
---== Drive application logic based on `action`
-if action == 'get-timestamp' then
-
-  -- Call our response method created above
-  -- and pass the `page.form` object
-  getTimestamp(page.form)
-
-elseif action == 'some-other-action' then
-  --== You can add additional logic using `elseif`
+--# incoming
+if page.isPost then
+  processPost()
 else
-  -- No `action` or unknown
-  page.response("Bad Action", nil, nil, 500)
+  page.status(501)
 end
-
 ```
 
 !!! info "Server-side Modules"
@@ -74,54 +51,67 @@ end
 
 ### XMLHttpRequest
 
+__ajax.html__
+
 ```html
 <!DOCTYPE html>
 <html>
-<body>
-  <h1>The XMLHttpRequest Object</h1>
+  <body>
+    <h1>The XMLHttpRequest Object</h1>
 
-  <div id="demo">
+    <div id="demo">
 
-    <!-- Post to `pageapi`, no .lua extension -->
-    <button type="button"
-    onclick="loadDoc('pageapi', myFunction)">Get MySQL Timestamp
-    </button>
+      <!-- Post to `ajax`, no .lua extension -->
+      <button type="button"
+      onclick="loadDoc('/ajax', myFunction)">Get MySQL Timestamp
+      </button>
 
-  </div>
+    </div>
 
-  <script>
-    function loadDoc(url, cFunction) {
-      //Get UNIX time
-      var time = Math.floor(Date.now() / 1000);
+    <script>
+      function loadDoc(url, cFunction) {
+        //Get UNIX time
+        var time = Math.floor(Date.now() / 1000);
 
-      var xhttp;
-      
-      xhttp=new XMLHttpRequest();
-      
-      xhttp.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          cFunction(this);
+        var xhttp;
+
+        xhttp=new XMLHttpRequest();
+
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            cFunction(this);
+          }
+        };
+
+        xhttp.open("POST", url, true);
+        //Set Content Type
+        xhttp.setRequestHeader("Content-Type", "application/json")
+        //Mark as AJAX request
+        xhttp.setRequestHeader("X-Requested-With", "XMLHttpRequest")
+
+        //Set `action` and `time` parameters here
+        var data = {
+          action: 'get-timestamp',
+          time: time
         }
-      };
+        xhttp.send(JSON.stringify(data));
+      }
 
-      xhttp.open("POST", url, true);
-
-      //Set `action` and `time` parameters here
-      xhttp.send("action=get-timestamp&time="+time);
-    }
-
-    function myFunction(xhttp) {
-      document.getElementById("demo").innerHTML = 
-      JSON.parse(xhttp.responseText).timestamp;
-    }
-  </script>
-</body>
+      function myFunction(xhttp) {
+        console.log(xhttp);
+        document.getElementById("demo").innerHTML = 
+        JSON.parse(xhttp.responseText).timestamp;
+      }
+    </script>
+  </body>
 </html>
 ```
 
 ### Qwest Library
 
 I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ library, as it uses JSON natively, making it easier to work with.
+
+__qwest.html__
 
 ```html
 <!DOCTYPE html>
@@ -139,8 +129,8 @@ I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ libra
 
   <script>
     function loadDoc() {
-      //Post to `pageapi`, no .lua extension
-      qwest.post('pageapi', {
+      //Post to `ajax`, no .lua extension
+      qwest.post('/ajax', {
         //Set `action` and `time` values here
         action: 'get-timestamp',
         time: Math.floor(Date.now() / 1000)
@@ -157,7 +147,3 @@ I personally prefer using the __[qwest](https://github.com/pyrsmk/qwest)__ libra
   </body>
 </html>
 ```
-
-## Example Files
-
-You can download these example files by __[clicking here](https://s3.amazonaws.com/coronium-core/examples/ajax-pages.zip)__.
