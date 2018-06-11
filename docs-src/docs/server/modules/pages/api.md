@@ -1,7 +1,7 @@
 Provides methods to handle web based requests, and issue responses. For full usage instructions see the __[Usage](/server/modules/pages/usage/)__ section.
 
 !!! tip "Screencasts Available"
-    Get an overview of using the Pages API in a screencast format. __[Click here for Part I](/screencasts/#pages-api-part-i)__. __[Click here for Part II](/screencasts/#pages-api-part-ii)__.
+    Get a basic overview of using the Pages API in a screencast format. __[Click here for Part I](/screencasts/#pages-api-part-i)__. __[Click here for Part II](/screencasts/#pages-api-part-ii)__.
 
 ### new
 
