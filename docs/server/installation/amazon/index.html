@@ -1273,7 +1273,7 @@
 </div>
 <h3 id="create-an-instance">Create An Instance</h3>
 <p>Once you log into the <strong><a href="https://aws.amazon.com/console/">AWS Console</a></strong>, navigate to the <strong>EC2</strong> service. Click the <strong>Launch Instance</strong> button.</p>
-<p>On the next screen, find the <strong>Ubuntu Server 16.04 LTS (HVM)</strong> AMI, and click the <strong>Select</strong> button on the right.</p>
+<p>On the next screen, find the <strong>Ubuntu Server 16.04 LTS</strong> AMI, and click the <strong>Select</strong> button on the right.</p>
 <p>Select your preferred instance type. A <strong>t2.micro</strong> is a good starting point. You can always increase the size later.</p>
 <p>Using the <strong>Add Rule</strong> button on the <strong>Configure Security Group</strong> screen, and add the following rules:</p>
 <table>
@@ -1338,7 +1338,7 @@
 
 <p><em>Replace <strong>&lt;your-instance-ip></strong> with the address that was assigned to your instance.</em></p>
 <p>Once you are connected to the droplet, copy and paste the following line into the terminal:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core/ec2.sh &amp;&amp; sudo bash ec2.sh
+<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core/v2.6.5/ec2.sh &amp;&amp; sudo bash ec2.sh
 </pre></div>
 
 
