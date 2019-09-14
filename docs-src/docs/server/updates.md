@@ -2,6 +2,44 @@ It's a good idea to keep your Coronium Core server up to date with the latest re
 
 ## Available Updates
 
+### 2.6.5 to 2.7.0
+
+The following will update your Coronium Core 2.6.5 server to version 2.7.0
+
+__Changes__
+
+
+__Added__
+
+
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+
+Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/ec2.sh && sudo bash ec2.sh
+```
+<br/>
+
 ### 2.6.4 to 2.6.5
 
 The following will update your Coronium Core 2.6.4 server to version 2.6.5
@@ -278,11 +316,12 @@ Paste the following one-liner into your terminal to start the __Amazon EC2__ upd
 wget https://s3.amazonaws.com/coronium-core-update/v2.6.0/ec2.sh && sudo bash ec2.sh
 ```
 
-<br/>
+## Depreciated
 
 ### 2.4.1 to 2.5.0
 
-The following will update your Coronium Core 2.4.1 server to version 2.5.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -322,37 +361,10 @@ __Webmin 1.4.0__
 
   - More clean up, tweaks, and fixes.
 
-<br/>
-
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/do.sh && sudo bash do.sh
-```
-
----
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/ec2.sh && sudo bash ec2.sh
-```
-
-<br/>
-
 ### 2.4.0 to 2.4.1
 
-The following will update your Coronium Core 2.4.0 server to version 2.4.1
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -372,30 +384,6 @@ __Webmin 1.3.0__
  - Unsaved code is automatically saved if the editor is left idle for more than 60 seconds.
  - You can now download a .zip archive of your current API projects in the __System__ section.
  - Various cosmetic changes and updates.
-
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
-```
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
-```
-
-## Depreciated
 
 ### 2.3.2 to 2.4.0
 

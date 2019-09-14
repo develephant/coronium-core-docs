@@ -48,6 +48,7 @@ pages:
       - 'Utils': 'server/modules/utils.md'
     - 'Updates': 'server/updates.md'  
     - 'Add-ons': 'server/addons.md'
+    - 'Extending': 'extending/index.md'
   - 'Core Client':
       - 'Usage': 'client/guide/index.md'
       - 'Modules':

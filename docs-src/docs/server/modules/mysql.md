@@ -8,7 +8,7 @@ The __mysql__ module allows you to run queries against the local MySQL server in
 
 ## Query String
 
-### query | q
+### query
 
 ```lua
 core.mysql.query( db_name, query_str )
@@ -50,7 +50,7 @@ A __number__ indicating the amount of deleted rows.
     Any other commands will be returned as __table__. It is recommended that you manage your databases using an external tool. See __[Administration](#administration)__ below.
 
 !!! tip
-    Use __[core.sf](/server/modules/utils/#sf-string-format)__ (string format) to make queries easier to build, and type safe.
+    Use the __[core.sf](/server/modules/utils/#sf-string-format)__ (string format) utility method to make queries easier to build, and type safe.
 
 __Select Example__
 

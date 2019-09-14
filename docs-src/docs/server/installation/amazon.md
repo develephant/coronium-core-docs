@@ -9,7 +9,7 @@ __Coronium Core__ server is eligible for the EC2 free tier using Amazon Web Serv
 
 Once you log into the __[AWS Console](https://aws.amazon.com/console/)__, navigate to the __EC2__ service. Click the __Launch Instance__ button.
 
-On the next screen, find the __Ubuntu Server 16.04 LTS__ AMI, and click the __Select__ button on the right.
+On the next screen, find the __Ubuntu Server 16.04 LTS (HVM)__ AMI, and click the __Select__ button on the right.
 
 Select your preferred instance type. A __t2.micro__ is a good starting point. You can always increase the size later.
 
@@ -43,7 +43,7 @@ _Replace __<your-instance-ip\>__ with the address that was assigned to your inst
 Once you are connected to the droplet, copy and paste the following line into the terminal:
 
 ```
-wget https://s3.amazonaws.com/coronium-core/v2.6.5/ec2.sh && sudo bash ec2.sh
+wget https://s3.amazonaws.com/coronium-core/ec2.sh && sudo bash ec2.sh
 ```
 
 ### Database Passwords
