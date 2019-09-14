@@ -63,7 +63,7 @@ To enable a plugin, add an entry to the __/usr/local/coronium/lualib/coronium.lu
 local plugins = 
 {
   --enable the echo plugin implementation
-  echo = require("coronium.plugins.echo")
+  echo = require("plugins.echo")
 }
 
 ...
