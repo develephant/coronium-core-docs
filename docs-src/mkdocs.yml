@@ -70,7 +70,7 @@ pages:
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
   - 'About': 'about.md'
-copyright: "&copy;2018 C. Byerley (develephant)"
+copyright: "&copy;2019 C. Byerley (develephant)"
 theme: 
   name: 'material'
   favicon: 'imgs/favicon.ico'
@@ -91,7 +91,7 @@ extra:
       link: 'https://twitter.com/develephant'
     - type: 'fas fa-globe'
       link: 'http://develephant.com'
-  version: 'v2.6.5'
+  version: 'v2.7.0'
 markdown_extensions:
   - admonition
   - codehilite:

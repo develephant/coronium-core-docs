@@ -66,11 +66,3 @@ end
 
 return api
 ```
-
-## <i class="fab fa-node"></i> NodeJS
-
-_Coming Soon_
-
-### Installation
-
-### Usage

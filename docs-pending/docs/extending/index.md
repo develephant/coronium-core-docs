@@ -2,18 +2,20 @@
 # Server Plugins
 
 !!! danger "Read Me"
-    What follows is an advanced subject. In almost all cases you should use the [standard project based api](server-api/overview/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin to share with the community.
+    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin to share with the community.
 
-Custom built plugins can be added to the server, which makes them available in the __core__ namespace for use in project api files.
+Custom built plugins can be used to extend the Coronium Core server. These plugins become available in the __core__ namespace for use in project API files.
 
-If the plugin is to be accessable directly from the Corona client, a public-facing api must be created in addition to the internal implementation.
+Because of this, you must be careful in choosing the name of your plugin. If a name conflict exists, Coronium Core will always choose the internal module. 
+
+If the plugin is to be accessable directly from the Corona client using the Coronium Core plugin, a public-facing API must be created _in addition_ to the internal implementation (see below).
 
 ## Internal implementation
 
 The internal implementation goes in the __/usr/local/coronium/lualib/coronium/plugins__ directory.
 
 !!! note
-    The implementation code has access to the __core__ namespace server modules.
+    The implementation plugin code has access to use the __core__ namespace server modules.
 
 __Example__
 
@@ -28,12 +30,14 @@ end
 return echo
 ```
 
-## Public facing api
+## Public-facing API
 
 !!! note
-    Creating a public facing api is optional.
+    Creating a public-facing API is optional.
 
-The public facing api goes in the __/usr/local/coronium/lualib/api__ directory. The api must extend the __core.api__.
+A public-facing API allows you to call your plugin from the Coronium Core client plugin in Corona.
+
+The public-facing API goes in the __/usr/local/coronium/lualib/api__ directory. The API must extend the __core.api__.
 
 __Example__
 
@@ -63,26 +67,28 @@ To enable a plugin, add an entry to the __/usr/local/coronium/lualib/coronium.lu
 local plugins = 
 {
   --enable the echo plugin implementation
-  echo = require("coronium.plugins.echo")
+  echo = require("plugins.echo")
 }
 
 ...
 ```
 
-The plugin is now available in the __core__ namespace for use in project api files.
+Restart the Coronium service with `sudo coronium restart`.
 
-__Example__
+The plugin is now available in the __core__ namespace for use in project API files.
+
+__Server Example__
 
 ```lua
 local echo = core.echo
 ```
 
-# Corona client usage
+## Corona Client Usage
 
 !!! note
-    You must provide a public facing api (see above) to access the plugin directly from the Corona client.
+    You must provide a public-facing API (see above) to access the plugin directly from the Corona client.
 
-To call the public facing methods of the plugin using the Coronium Core client for Corona, use the __core__ namespace of the client.
+To call the public-facing methods of the plugin using the Coronium Core client for Corona, simply use the __core__ namespace of the client.
 
 __Example__
 

@@ -1,4 +1,4 @@
-Send email messages using the __[Mailgun](https://mailgun.com)__ messaging service.
+Send email messages using the __[Mailgun](https://mailgun.com)__ messaging service. Supports both __US__ and __EU__ API endpoints.
 
 !!! warning "Mailgun Account Required"
     A valid __Mailgun__ account and the proper configuration must be set up to use the __email__ module. See the __[Configuration](#configuration)__ section below. The __Mailgun__ messaging service allows you to send up to 10,000 free email messages a month.
@@ -11,22 +11,19 @@ Send email messages using the __[Mailgun](https://mailgun.com)__ messaging servi
 Create a new email message object.
 
 ```lua
-core.email.new([key][, domain])
+core.email.new()
 ```
 
 __Parameters__
 
-|Name|Description|Type|Required|
-|----|-----------|----|--------|
-|key|Your Mailgun API key.|String|__N__|
-|domain|Your verified Mailgun domain.|String|__N__|
+_This method does not require any parameters._
 
-!!! info "Default Credentials"
-    If you have already set your __Mailgun__ credentials using the __[Webmin](/server/webmin/setup/)__ then these will be used by default, and you do not need to include the `key` and `domain` arguments.
+!!! info ""
+    If you need to make a call to a different __Mailgun__ domain other than your default see [Overriding Defaults](#overriding-defaults).
 
 __Returns__
 
-A new email message object based on the __Mailgun__ credentials.
+A new email message object based on the default __Mailgun__ credentials.
 
 __Example__
 
@@ -334,8 +331,34 @@ local resp, err = msg:send()
 
 To use the __Email__ module you will need a valid __[Mailgun](https://mailgun.com)__ account.
 
-Once you have your account set-up you will need to provide your _Sending Domain_ and _Secret API Key_ from Mailgun to your Coronium Core system.
+Once you have your account set-up you will need to provide your _Sending Domain_, _Secret API Key_, and _API Region_ from __Mailgun__ to your Coronium Core system.
 
-Using the __[Webmin](/server/webmin/setup/)__, navigate to the __Config__ section and enter the requested information in the __Mailgun Settings__ area. Click the __update__ button to add your credentials.
+Using the __[Webmin](/server/webmin/setup/)__, navigate to the __Config__ section and enter the requested information in the __Mailgun Settings__ area. Click the __update__ button to enable your credentials.
 
 You can now use the __Email__ module for sending email.
+
+## Overriding Defaults
+
+You can also pass your __Mailgun__ options directly in the `new` method. This can be useful when you need to send from another __Mailgun__ domain besides your default.
+
+```lua
+core.email.new(key, domain[, region])
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|----|-----------|----|--------|
+|key|A Mailgun API key.|String|__Y__|
+|domain|A verified Mailgun domain.|String|__Y__|
+|region|A Mailgun API region. __US__ (default) or __EU__.|String|__If EU__|
+
+__Returns__
+
+A new email message object based on the __Mailgun__ credentials.
+
+__Example__
+
+```lua
+local msg = core.email.new(<mailgun-key>, <mailgun-host>, <"US"|"EU">)
+```
