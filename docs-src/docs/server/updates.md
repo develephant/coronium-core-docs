@@ -1,24 +1,36 @@
-It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.
+It's a good idea to keep your __Coronium Core__ server up to date with the latest release. To update your server, simply follow the directions below.
 
 ## Available Updates
 
 ### 2.6.5 to 2.7.0
 
-The following will update your Coronium Core 2.6.5 server to version 2.7.0
+The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
 
 __Changes__
 
+  - Internals (nginx, luaJIT, etc.) updated to the latest versions, providing security fixes, better stability, and other enhancements.
+  
+  - New enhancments include __Global Guard__ which will print a warning in the _api.log_ if any global variables are found in your code. Because of the nature of a network server, Lua globals can cause critical race conditions to occur on client requests.
 
 __Added__
 
+  - [Server plugins](/extending/) to allow a developer to extend the `core` namespace.
 
+__Updated__
+
+  - [Email module](/server/modules/email/) (Mailgun) to support the __EU__ region API endpoint, which can be set in the [Webmin](/server/webmin/setup/).
+
+__Fixed__
+
+  - A few modules that contained global variables due to lack of sleep.
 
 <br/>
 
 <i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
 
 !!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
 
 Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
 
@@ -31,7 +43,8 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/do.sh && sudo bash do.
 <i class="fab fa-amazon"></i> __Amazon EC2 Updater__
 
 !!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
 
 Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
 

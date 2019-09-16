@@ -2,9 +2,9 @@
 # Server Plugins
 
 !!! danger "Read Me"
-    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin to share with the community.
+    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin that is internal to your company, or to share with the community.
 
-Custom built plugins can be used to extend the __Coronium Core__ server. These plugins become available in the __core__ namespace for use in server-side project API files.
+Custom built plugins can be used to extend the __Coronium Core__ server. These plugins become available in the server-side `core` namespace for use in server-side project API files.
 
 Because of this, you must be careful in choosing the name of your plugin. If a name conflict exists, __Coronium__ will always choose the internal module. 
 
@@ -42,9 +42,9 @@ plugins/
     echo.lua
 ```
 
-In the example above the `echo` plugin is placed inside the `example` directory.
+In the example above the __echo__ plugin is placed inside the __plugins/example__ directory.
 
-You can use a developer nickname, company, etc. as the directory name. You can store multiple plugins you create in this folder for use, providing each plugin has a unique name.
+You can use a developer nickname, company, etc. as the directory name. You can store multiple plugins you create in this folder for use; providing each plugin has a unique name.
 
 __Example__
 
@@ -79,7 +79,7 @@ Restart the __Coronium__ service with `sudo coronium restart`.
 
 ### Accessing
 
-The plugin is now available in the __core__ namespace as the key specified in the __plugins.lua__ file for use in server-side project API files.
+The plugin is now available in the `core` server-side namespace as the key specified in the __plugins.lua__ file for use in server-side project API files.
 
 __Server API Example__
 
