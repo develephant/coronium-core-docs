@@ -8,20 +8,21 @@ The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
 
 __Changes__
 
-  - Internals (nginx, luaJIT, etc.) updated to the latest versions, providing security fixes, better stability, and other enhancements.
+  - Internals (nginx, luaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
   
-  - New enhancments include __Global Guard__ which will print a warning in the _api.log_ if any global variables are found in your code. Because of the nature of a network server, Lua globals can cause critical race conditions to occur on client requests.
+  - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings.
 
 __Added__
 
-  - [Server plugins](/extending/) to allow a developer to extend the `core` namespace.
+  - [Server plugins](/extending/) to allow a developer to extend the server-side `core` namespace.
 
 __Updated__
 
-  - [Email module](/server/modules/email/) (Mailgun) to support the __EU__ region API endpoint, which can be set in the [Webmin](/server/webmin/setup/).
+  - [Email module](/server/modules/email/) (Mailgun) to support the __EU__ region API endpoint, which can be set in the Webmin [Mailgun config section](/server/webmin/mailgun/).
 
 __Fixed__
 
+  - An issue with downloads that limited a downloadable file size to 1 MB.
   - A few modules that contained global variables due to lack of sleep.
 
 <br/>
