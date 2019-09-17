@@ -2,7 +2,7 @@
 # Server Plugins
 
 !!! danger "Read Me"
-    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin that is internal to your company, or to share with the community.
+    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, create a plugin that is internal to your company, or share with the community.
 
 Custom built plugins can be used to extend the __Coronium Core__ server. These plugins become available in the server-side `core` namespace for use in server-side project API files.
 
@@ -10,21 +10,23 @@ Because of this, you must be careful in choosing the name of your plugin. If a n
 
 ## Creating Plugins
 
-!!! note
-    Custom plugins have access to the __core__ namespace [server modules](/server/modules/api/).
-
-A custom plugin is simply a Lua module you place in a certain directory structure on your __Coronium Core__ server. 
+A custom plugin is simply a Lua module you place in a certain directory structure on your __Coronium Core__ server.
 
 Your custom plugins live in the __/home/coronium/plugins__ directory.
 
+Make sure to use the __coronium__ user when uploading your plugins via SFTP.
+
 __Example Plugin__
+
+!!! note ""
+    Custom plugins have access to the __core__ namespace [server modules](/server/modules/api/) as well.
 
 ```lua
 --Basic plugin
 local echo = {}
 
-function echo.test( input )
-  return input
+function echo.hello( name )
+  return "Hello " .. name
 end
 
 return echo
@@ -60,7 +62,7 @@ plugins/
 To enable a plugin, add an entry to the __/home/coronium/plugins/plugins.lua__ file. Choose the __key__ the plugin will use, and then literally `require` it.
 
 !!! warning
-    Be very careful when editing the __plugins.lua__ file. If the syntax is incorrect the service will not be able to start correctly.
+    Be very careful when editing the __plugins.lua__ file. If the syntax is incorrect the service will not be able to start correctly. Make sure to use the __coronium__ user when working with the __plugins.lua__ via SFTP.
 
 __Example__
 
@@ -79,7 +81,7 @@ Restart the __Coronium__ service with `sudo coronium restart`.
 
 ### Accessing
 
-The plugin is now available in the `core` server-side namespace as the key specified in the __plugins.lua__ file for use in server-side project API files.
+Your plugin is available in the `core` server-side namespace as the key specified in the __plugins.lua__ file for use in server-side project API files.
 
 __Server API Example__
 
@@ -88,10 +90,12 @@ local api = core.api()
 
 function api.test( input )
   -- Using the custom `echo` plugin
-  local resp = core.echo.test( input.username )
+  local resp = core.echo.hello( "Coronium" )
 
   return resp
 end
 
 return api
 ```
+
+The response should be "Hello Coronium" when received by the client.

@@ -8,7 +8,7 @@ The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
 
 __Changes__
 
-  - Internals (nginx, luaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
+  - Internals (Nginx, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
   
   - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings.
 
