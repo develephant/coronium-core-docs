@@ -6,11 +6,15 @@ It's a good idea to keep your __Coronium Core__ server up to date with the lates
 
 The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
 
+__Important Notes__
+
+  - The underlying updating mechanism has changed. If you have edited core files (found in _/usr/local/coronium_) then you run the risk of losing whatever changes you may have made. Backup these files first if needed. ___You should never change files in the core directory___.
+
 __Changes__
 
   - Internals (Nginx, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
   
-  - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings.
+  - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings and update your code as needed.
 
 __Added__
 
