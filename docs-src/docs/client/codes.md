@@ -23,6 +23,7 @@ end
 |----|-----------|
 |600|User already exists.|
 |601|User could not be created.|
+|603|Password for user was invalid.|
 |604|Registered User could not be found.|
 |605|User requires server-side login.|
 |614|Pending User could not be found.|

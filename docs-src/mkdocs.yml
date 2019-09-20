@@ -18,6 +18,7 @@ pages:
       - 'HTTPS/SSL': 'server/guide/ssl.md'
       - 'Lifecycle/Context': 'server/guide/lifecycle.md'
       - 'Disabling MongoDB': 'server/guide/mongo.md'
+      - 'CLI Tools': 'server/guide/tools.md'
     - 'Modules':
       - 'API': 'server/modules/api.md' 
       - 'Data': 'server/modules/data.md'
