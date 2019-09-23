@@ -1,11 +1,11 @@
 ![logo-sm](imgs/logo128.png)
 
 <h3>Coronium Core</h3>
-Code and documentation ©2017-2018 C. Byerley ( [develephant](http://develephant.com) )
+Code and documentation ©2017-2019 C. Byerley ( [develephant](http://develephant.com) )
 
 ## Support
 
-For questions, assistance, and discussions, visit the __[Coronium forum](https://forums.coronalabs.com/forum/643-coronium/)__.
+For questions, assistance, and discussions, please see [Support](/support/).
 
 ## License
 
@@ -52,6 +52,6 @@ __Coronium Core__ wouldn't be possible without these great projects.
 - Chef
 - mkdocs
 
-_And most importantly; my Wife, Daughter, Izzy, the Corona community, and coffee._
+_And most importantly; my Wife, Daughter, Luna, Softie, the Corona community, and coffee._
 
 ![dev](imgs/sm-dev.png)

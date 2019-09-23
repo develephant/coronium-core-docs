@@ -71,6 +71,9 @@ pages:
       - 'Status Codes': 'client/codes.md'
   - 'Demo Project': 'demo.md'
   - 'Screencasts': 'screencasts.md'
+  - 'Updates': 'server/updates.md'
+  - 'Support': 'support.md'
+  - 'Install': 'server/installation/digitalocean.md'
   - 'About': 'about.md'
 copyright: "&copy;2019 C. Byerley (develephant)"
 theme: 
