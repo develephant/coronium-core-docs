@@ -237,6 +237,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../../installation/amazon_ls/" title="Amazon Lightsail" class="md-nav__link">
+      Amazon Lightsail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../../installation/amazon/" title="Amazon EC2" class="md-nav__link">
       Amazon EC2
     </a>
@@ -419,6 +431,18 @@
   <li class="md-nav__item">
     <a href="../../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
       Disabling MongoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../guide/tools/" title="CLI Tools" class="md-nav__link">
+      CLI Tools
     </a>
   </li>
 
@@ -832,13 +856,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#hashpassword" title="hashPassword" class="md-nav__link">
-    hashPassword
-  </a>
-  
-</li>
-      
       
       
     </ul>
@@ -938,6 +955,18 @@
   <li class="md-nav__item">
     <a href="../../../addons/" title="Add-ons" class="md-nav__link">
       Add-ons
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../../extending/" title="Extending" class="md-nav__link">
+      Extending
     </a>
   </li>
 
@@ -1319,13 +1348,6 @@
         <li class="md-nav__item">
   <a href="#sendpasswordresetlink" title="sendPasswordResetLink" class="md-nav__link">
     sendPasswordResetLink
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#hashpassword" title="hashPassword" class="md-nav__link">
-    hashPassword
   </a>
   
 </li>
@@ -1863,12 +1885,6 @@
 <td><strong>N</strong></td>
 </tr>
 <tr>
-<td>password</td>
-<td>A hashed password (see also <a href="#hashpassword">hashPassword</a>).</td>
-<td><em>String</em></td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
 <td>orderby</td>
 <td>The sorting attributes. See <strong>Orderby</strong> below.</td>
 <td><em>Table</em></td>
@@ -2132,41 +2148,6 @@
 
 
 <p>See the <strong><a href="../../../../server/modules/users/passwordreset/">Password Reset</a></strong> section for more detailed information.</p>
-<h3 id="hashpassword">hashPassword</h3>
-<p>A utility method for hashing a plain text password. Generally used with <strong><a href="#getwithquery">getWithQuery</a></strong> or for rolling your own systems.</p>
-<p><strong>Important Note</strong></p>
-<p>All <strong>User</strong> module methods that deal with passwords will automatically handle the password hashing. <strong><em>Do not double hash passwords or they will not work properly</em></strong>. </p>
-<p>The server-side methods <strong><a href="#register">register</a></strong> and <strong><a href="#update">update</a></strong> automatically do password hashing and do not require this method.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">hashPassword</span><span class="p">(</span><span class="n">plain_text</span><span class="p">)</span>
-</pre></div>
-
-
-<p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>plain_text</td>
-<td>A plain text password that will be hashed into a Users module compatiable version.</td>
-<td><em>String</em></td>
-<td><strong>Y</strong></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Returns</strong></p>
-<p>The hashed password as a hexadecimal <strong>String</strong>.</p>
-<p><strong>Example</strong></p>
-<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">hashed_pw</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">users</span><span class="p">.</span><span class="n">hashPassword</span><span class="p">(</span><span class="s2">&quot;tacos4Lunch!&quot;</span><span class="p">)</span>
-
-<span class="c1">--hashed_pw will contain something like: 8b4c621decfdbb6b72c2cf179b3c344d</span>
-</pre></div>
                 
                   
                 
@@ -2222,7 +2203,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
+            &copy;2019 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.7.0
           </div>
         
         powered by

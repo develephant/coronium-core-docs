@@ -1,6 +1,66 @@
-It's a good idea to keep your Coronium Core server up to date with the latest release. To update your server, simply follow the directions below.
+It's a good idea to keep your __Coronium Core__ server up to date with the latest release. To update your server, simply follow the directions below.
 
 ## Available Updates
+
+### 2.6.5 to 2.7.0
+
+The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
+
+<div style="color:Tomato"><strong><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="#270-update">Critical Update Notes</a> before installing this update.</strong></div>
+
+__Important Notes__
+
+  - The underlying updating mechanism has changed. If you have edited core files (found in _/usr/local/coronium_) then you run the risk of losing whatever changes you may have made. Backup these files first if needed. ___You should never change files in the core directory___.
+
+__Changes__
+
+  - Internals (nginx, ngx_lua, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
+  
+  - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings and update your code as needed.
+
+  - Users module password algorithm refactored to be on par with current standards. See [Notes](#270-update) below.
+
+__Added__
+
+  - [Server plugins](/extending/) to allow a developer to extend the server-side `core` namespace.
+
+__Updated__
+
+  - [Email module](/server/modules/email/) (Mailgun) to support the __EU__ region API endpoint, which can be set in the Webmin [Mailgun config section](/server/webmin/mailgun/).
+
+__Fixed__
+
+  - An issue with downloads that limited a downloadable file size to 1 MB.
+  - A few modules that contained global variables due to lack of sleep.
+
+<br/>
+
+<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
+
+!!! danger "Root User Required"
+    You must be logged in as the __root__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+
+Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/do.sh && sudo bash do.sh
+```
+
+---
+
+<i class="fab fa-amazon"></i> __Amazon Lightsail/EC2 Updater__
+
+!!! danger "Ubuntu User Required"
+    You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
+
+
+Paste the following one-liner into your terminal to start the __Amazon Lightsail/EC2__ update:
+
+```
+wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/ec2.sh && sudo bash ec2.sh
+```
+<br/>
 
 ### 2.6.4 to 2.6.5
 
@@ -278,11 +338,12 @@ Paste the following one-liner into your terminal to start the __Amazon EC2__ upd
 wget https://s3.amazonaws.com/coronium-core-update/v2.6.0/ec2.sh && sudo bash ec2.sh
 ```
 
-<br/>
+## Depreciated
 
 ### 2.4.1 to 2.5.0
 
-The following will update your Coronium Core 2.4.1 server to version 2.5.0
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -322,37 +383,10 @@ __Webmin 1.4.0__
 
   - More clean up, tweaks, and fixes.
 
-<br/>
-
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/do.sh && sudo bash do.sh
-```
-
----
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.5.0/ec2.sh && sudo bash ec2.sh
-```
-
-<br/>
-
 ### 2.4.0 to 2.4.1
 
-The following will update your Coronium Core 2.4.0 server to version 2.4.1
+!!! info "Availability Notice"
+    This version/update is no longer supported, but is available by request.
 
 __Added__
 
@@ -372,30 +406,6 @@ __Webmin 1.3.0__
  - Unsaved code is automatically saved if the editor is left idle for more than 60 seconds.
  - You can now download a .zip archive of your current API projects in the __System__ section.
  - Various cosmetic changes and updates.
-
-<i class="fab fa-digital-ocean"></i> __DigitalOcean Updater__
-
-!!! danger "Root User Required"
-    You must be logged in as the __root__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __DigitalOcean__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/do.sh && sudo bash do.sh
-```
-
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
-
-!!! danger "Ubuntu User Required"
-    You must be logged in as the __ubuntu__ user to run the updater or it may fail.
-
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
-
-```
-wget https://s3.amazonaws.com/coronium-core-update/v2.4.1/ec2.sh && sudo bash ec2.sh
-```
-
-## Depreciated
 
 ### 2.3.2 to 2.4.0
 
@@ -640,3 +650,54 @@ core.init({
   scope = "Space Race"
 })
 ```
+
+### 2.7.0 Update
+
+__User ID Migration__
+
+_Automatic Migration_
+
+The IDs used for the built-in Users system have been updated to current standards. This requires a migration of current IDs to the stronger versions.
+
+The common way this works is that as a user logs in with the Users module -- and if an older ID version is detected -- it will __automatically__ be migrated to the new ID type.
+
+_Manual Migration_
+
+If you want to manually update all the current user IDs to the new type all in one round, you will need to set up a server-side API script, and then call this endpoint from a local Coronium app.
+
+  - Create a new server-side project called "migration".
+  - In the `main.lua` project file add the following api function:
+
+```lua
+function api.compat( input )
+  local compat = require("coronium.compat")
+  local res, err = compat.ensureUserPasswords()
+  if not res then
+    return core.error(err)
+  end
+  
+  return res
+end
+```
+
+ - Once this is set up, call the endpoint from a simple Corona project:
+
+```lua
+local function onResponse(evt)
+  core.debug(evt)
+end
+
+core.api.compat(onResponse)
+```
+
+  - If there are no major errors, you should receive the count of updated users.
+
+All user IDs are updated, and more secure. Any future users will automatically start with the newer ID type, so there is little need to ever rerun the manual migration. Feel free to delete the "migration" project.
+
+__Global Guard__
+
+The addition of the global guard can have some side effects, mostly related to other external Lua modules -- such as LFS, etc. that still use some global values. You may see warnings regarding this, and at this time you will need to ignore them until LFS, and others, update thier respective modules.
+
+Because a global could be crippling to your application, it has been mandated by the developers of the `ngx_lua` module that ___global guard cannot be disabled___ (though it is currently being debated).
+
+_Over the next few versions, Coronium Core is going to try and phase out any use of LFS. Unless they update it (not likely) first._

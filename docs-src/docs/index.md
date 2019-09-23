@@ -36,26 +36,6 @@
 </tr>
 </table>
 
-## Supported Clients
-
-<table>
-<tr>
-<td><i class="fab fa-apple"></i> Apple iOS</td>
-<td><i class="fab fa-android"></i> Android</td>
-<td><i class="fab fa-amazon"></i> Fire OS</td>
-<td><i class="fab fa-windows"></i> Windows</td>
-</tr>
-</table>
-
-## Supported Hosts
-
-<table>
-<tr>
-<td><i class="fab fa-digital-ocean"></i> DigitalOcean</td>
-<td><i class="fab fa-aws"></i> Amazon AWS (EC2)</td>
-</tr>
-</table>
-
 ## MySQL Example
 
 __Client-Side Only__
@@ -126,11 +106,11 @@ core.api.getCars({name="red car"}, onResponse)
 
 ## Overview
 
-Extend your applications into the cloud with Mongo and MySQL databases, user management, analytics, recurring jobs, secure file transfers and storage, dynamic public facing web pages, email, and more; all scripted using a ridiculously simple Lua based api.
+Extend your applications into the cloud with Mongo and MySQL databases, user management, analytics, recurring jobs, secure file transfers and storage, dynamic public facing web pages, email, and more; all scripted using a ridiculously simple Lua based API.
 
-__Coronium Core__ includes a fully visual browser based "Webmin" to view statistics, app analytics, work with users, manage API projects, monitor your system, edit code with a robust code editor, and more.
+__Coronium Core__ includes a fully visual browser based "Webmin" to view statistics, app analytics, work with users, manage API projects, create recurring jobs, monitor your system, edit code with a robust code editor, and more.
 
-Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugin/coronium-core)__ for most tasks without ever writing a line of code on the server. When you need to take it to the next level, create custom server-side apis with Lua for complex data driven applications.
+Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugin/coronium-core)__ for most tasks without ever writing a line of code on the server. When you need to take it to the next level, create custom server-side APIs with Lua for complex data driven applications.
 
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for [Corona](https://coronalabs.com) developers.
 

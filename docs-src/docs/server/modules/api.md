@@ -6,53 +6,21 @@ A server-side api is useful for more complex application logic, and in fact, is 
 
 Server-side api methods are housed in "API Projects" that are stored on the server. Projects allow you to create specific functionality for an API, which can then be shared amongst multiple client applications. 
 
-## Creating Projects
+## Managing Projects
 
-The recommended way to create projects is using the Coronium __[Webmin](/server/webmin/setup/)__ __API Builder__.
-
-You can also create projects on the server using the Coronium command line tool.
+You manage projects by using the Coronium __[Webmin](/server/webmin/setup/)__ __API Builder__.
 
 ### Add Project
 
-__Webmin (recommended)__
-
-Log into your browser based __[Webmin](/server/webmin/setup/)__ and go to the __API Builder__ section. Click the __New Project__ button and following the instructions.
+Log into your browser based __[Webmin](/server/webmin/setup/)__ and go to the __API Builder__ section. Click the __New Project__ button and follow the instructions.
 
 After creating your project, you can use the __API Builder__ code editor to build your custom API code.
 
-__Command Line__
-
-You will first need to log into your server using the __coronium__ user. Once logged in, run the following to create a new project:
-
-```
-sudo coronium add <project-name>
-```
-
-Replace the <project-name\> above with your desired project name. The name should be alpha-numeric and contain no spaces. This will generate a project template.
-
-The project is stored in the __/home/coronium/projects/<project-name\>__ directory.
-
-At this point, you should connect to the server using SFTP and download the new project directory so that you can create the code for your api.
-
 ### Delete Project
-
-__Webmin (recommended)__
 
 Log into your browser based __[Webmin](/server/webmin/setup/)__ and go to the __API Builder__ section. Click the __Delete__ button for the project you want to delete, and follow the instructions.
 
-__Command Line__
-
-To remove a project using the command line tool, run:
-
-```
-sudo coronium del <project-name>
-```
-
-You can also delete a project by simply removing the project directory from the server.
-
 ## Project Files
-
-The required __main.lua__ file will be generated when using the __[Webmin](/server/webmin/setup/)__ or command line. (see __[Add Project](#add-project)__ above).
 
 ### main.lua
 
@@ -98,10 +66,9 @@ core.api.test({name="Jimmy"}, apiResponse)
 
 ### Adding Files
 
-!!! tip "Coronium Webmin"
-    You can add new files to a project using the __[Webmin](/server/webmin/setup/)__. Go to the __API Builder__ section of the Webmin and click the __Add File__ button for the project you would like to add a file to.
+There may be times when you would like to split up your API project code into seperate files. You can add new files to a project using the __[Webmin](/server/webmin/setup/)__. 
 
-There may be times when you would like to split up your API project code into seperate files. This can be done by simply adding a new .lua file module to the project directory and requiring it into the projects __main.lua__ file.
+Go to the __API Builder__ section of the Webmin and click the __Add File__ button for the project you would like to add a file to and requiring it into the projects __main.lua__ file.
 
 The important thing to know about external file modules is that they cannot return output to the client directly. ___Only the main.lua file can send output back down to the client___.
 
@@ -110,7 +77,7 @@ Because of this it is important that you set up your external file modules prope
 _Example File Module_
 
 ```lua
---project/db.lua
+--project/default/db.lua
 local db = {}
 
 function db.getSomeData(params)
@@ -131,7 +98,7 @@ return
 _Example Main Lua File_
 
 ```lua
---project/main.lua
+--project/default/main.lua
 local db = require("project.db")
 
 local api = core.api()
@@ -175,12 +142,12 @@ return api
 
 ### Input
 
-Custom API methods are passed three parameters, which is a table of __input__ values sent up from the client-side [core.api](/client/modules/api/#api) method, the __scope__ of the current client call (see [Application Scope](/client/guide/#application-scope)). Some methods may not need input, in which case the input parameter will be __nil__.
+Custom API methods are passed two parameters, which are a table of __input__ values sent up from the client-side [core.api](/client/modules/api/#api) method, and the __scope__ of the current client call (see [Application Scope](/client/guide/#application-scope)). 
 
-Most often you will only use the __input__ parameter.
+Some methods may not send input, in which case the input parameter will be __nil__. Most often you will only use the __input__ parameter.
 
 !!! note
-    The __input__ parameter is supplied from the client-side call (see [client-side API](/client/modules/api/)). The __scope__ is determined internally.
+    The __input__ parameter is supplied from the client-side call (see [client-side API](/client/modules/api/)). The __scope__ is determined internally. You _do not_ send the scope value in the client-side API call.
 
 _Example_
 

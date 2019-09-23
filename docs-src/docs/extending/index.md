@@ -2,99 +2,100 @@
 # Server Plugins
 
 !!! danger "Read Me"
-    What follows is an advanced subject. In almost all cases you should use the [standard project based api](server-api/overview/). A server plugin is useful if you need to access specific functionality within multiple api projects, or for creating a plugin to share with the community.
+    What follows is an advanced subject. In almost all cases you should use the [standard project based API](/server/modules/api/). A server plugin is useful if you need to access specific functionality within multiple api projects, create a plugin that is internal to your company, or share with the community.
 
-Custom built plugins can be added to the server, which makes them available in the __core__ namespace for use in project api files.
+Custom built plugins can be used to extend the __Coronium Core__ server. These plugins become available in the server-side `core` namespace for use in server-side project API files.
 
-If the plugin is to be accessable directly from the Corona client, a public-facing api must be created in addition to the internal implementation.
+Because of this, you must be careful in choosing the name of your plugin. If a name conflict exists, __Coronium__ will always choose the internal module. 
 
-## Internal implementation
+## Creating Plugins
 
-The internal implementation goes in the __/usr/local/coronium/lualib/coronium/plugins__ directory.
+A custom plugin is simply a Lua module you place in a certain directory structure on your __Coronium Core__ server.
 
-!!! note
-    The implementation code has access to the __core__ namespace server modules.
+Your custom plugins live in the __/home/coronium/plugins__ directory.
 
-__Example__
+Make sure to use the __coronium__ user when uploading your plugins via SFTP.
+
+__Example Plugin__
+
+!!! note ""
+    Custom plugins have access to the __core__ namespace [server modules](/server/modules/api/) as well.
 
 ```lua
---/usr/local/coronium/lualib/coronium/plugins/echo.lua
+--Basic plugin
 local echo = {}
 
-function echo.test( input )
-  return input
+function echo.hello( name )
+  return "Hello " .. name
 end
 
 return echo
 ```
 
-## Public facing api
+### Namespaces
 
-!!! note
-    Creating a public facing api is optional.
+Your plugin should be placed in a unique directory to avoid conflicts with other developer plugins.
 
-The public facing api goes in the __/usr/local/coronium/lualib/api__ directory. The api must extend the __core.api__.
+__Example__
+
+```
+plugins/
+  example/
+    echo.lua
+```
+
+In the example above the __echo__ plugin is placed inside the __plugins/example__ directory.
+
+You can use a developer nickname, company, etc. as the directory name. You can store multiple plugins you create in this folder for use; providing each plugin has a unique name.
+
+__Example__
+
+```
+plugins/
+  develephant/
+    echo.lua
+    otherplugin.lua
+```
+
+## Enabling plugins
+
+To enable a plugin, add an entry to the __/home/coronium/plugins/plugins.lua__ file. Choose the __key__ the plugin will use, and then literally `require` it.
+
+!!! warning
+    Be very careful when editing the __plugins.lua__ file. If the syntax is incorrect the service will not be able to start correctly. Make sure to use the __coronium__ user when working with the __plugins.lua__ via SFTP.
 
 __Example__
 
 ```lua
---/usr/local/coronium/lualib/api/echo.lua
+--/home/coronium/plugins/plugins.lua
+local plugins = 
+{
+  --enable the echo plugin implementation
+  echo = require("develephant.echo")
+}
+
+return plugins
+```
+
+Restart the __Coronium__ service with `sudo coronium restart`.
+
+### Accessing
+
+Your plugin is available in the `core` server-side namespace as the key specified in the __plugins.lua__ file for use in server-side project API files.
+
+__Server API Example__
+
+```lua
 local api = core.api()
 
-function api.test(input)
-  --calling the implementation
-  return core.echo.test(input)
+function api.test( input )
+  -- Using the custom `echo` plugin
+  local resp = core.echo.hello( "Coronium" )
+
+  return resp
 end
 
 return api
 ```
 
-## Enabling plugins
-
-To enable a plugin, add an entry to the __/usr/local/coronium/lualib/coronium.lua__ file.
-
-!!! warning
-    Be very careful when editing the __coronium.lua__ file. If the syntax is incorrect the service will not be able to start correctly.
-
-```lua
---/usr/local/coronium/lualib/coronium.lua
-...
-
-local plugins = 
-{
-  --enable the echo plugin implementation
-  echo = require("coronium.plugins.echo")
-}
-
-...
-```
-
-The plugin is now available in the __core__ namespace for use in project api files.
-
-__Example__
-
-```lua
-local echo = core.echo
-```
-
-# Corona client usage
-
-!!! note
-    You must provide a public facing api (see above) to access the plugin directly from the Corona client.
-
-To call the public facing methods of the plugin using the Coronium Core client for Corona, use the __core__ namespace of the client.
-
-__Example__
-
-```lua
-...
-
-local function onResponse( evt )
-  if not evt.error then
-    print(evt.result.name) -- Timbo
-  end
-end
-
-core.echo.test({name="Timbo"}, onResponse)
-
-```
+The response should be "Hello Coronium" when received by the client.

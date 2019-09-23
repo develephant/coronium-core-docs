@@ -63,7 +63,7 @@ _Replace __<your-instance-ip\>__ with the address that was assigned to your drop
 Once you are connected to the droplet, copy and paste the following line into the terminal:
 
 ```
-wget https://s3.amazonaws.com/coronium-core/v2.6.5/do.sh && sudo bash do.sh
+wget https://s3.amazonaws.com/coronium-core/do.sh && sudo bash do.sh
 ```
 
 ### Database Passwords

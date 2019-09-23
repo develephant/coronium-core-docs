@@ -403,6 +403,7 @@ __Query Table Keys__
 |email|The users email address.|_String_|__N__|
 |group|The group name to search within.|_String_|__N__|
 |username|The users username.|_String_|__N__|
+|password|A hashed password (see also [hashPassword](#hashpassword)).|_String_|__N__|
 |orderby|The sorting attributes. See __Orderby__ below.|_Table_|__N__|
 |limit|Limit the records returned. See __Limit__ below.|_Number_ or _Table_|__N__|
 
@@ -567,3 +568,35 @@ local res, err = core.users.sendPasswordResetLink("me@home.com", "Fun Run",
 ```
 
 See the __[Password Reset](/server/modules/users/passwordreset/)__ section for more detailed information.
+
+### hashPassword
+
+A utility method for hashing a plain text password. Generally used with __[getWithQuery](#getwithquery)__ or for rolling your own systems.
+
+__Important Note__
+
+All __User__ module methods that deal with passwords will automatically handle the password hashing. ___Do not double hash passwords or they will not work properly___. 
+
+The server-side methods __[register](#register)__ and __[update](#update)__ automatically do password hashing and do not require this method.
+
+```lua
+core.users.hashPassword(plain_text)
+```
+
+__Parameters__
+
+|Name|Description|Type|Required|
+|---|-----------|----|--------|
+|plain_text|A plain text password that will be hashed into a Users module compatiable version.|_String_|__Y__|
+
+__Returns__
+
+The hashed password as a hexadecimal __String__.
+
+__Example__
+
+```lua
+local hashed_pw = core.users.hashPassword("tacos4Lunch!")
+
+--hashed_pw will contain something like: 8b4c621decfdbb6b72c2cf179b3c344d
+```

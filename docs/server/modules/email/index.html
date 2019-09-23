@@ -237,6 +237,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../installation/amazon_ls/" title="Amazon Lightsail" class="md-nav__link">
+      Amazon Lightsail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../installation/amazon/" title="Amazon EC2" class="md-nav__link">
       Amazon EC2
     </a>
@@ -419,6 +431,18 @@
   <li class="md-nav__item">
     <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
       Disabling MongoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tools/" title="CLI Tools" class="md-nav__link">
+      CLI Tools
     </a>
   </li>
 
@@ -615,6 +639,13 @@
         <li class="md-nav__item">
   <a href="#configuration" title="Configuration" class="md-nav__link">
     Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#overriding-defaults" title="Overriding Defaults" class="md-nav__link">
+    Overriding Defaults
   </a>
   
 </li>
@@ -977,6 +1008,18 @@
   <li class="md-nav__item">
     <a href="../../addons/" title="Add-ons" class="md-nav__link">
       Add-ons
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../extending/" title="Extending" class="md-nav__link">
+      Extending
     </a>
   </li>
 
@@ -1410,6 +1453,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#overriding-defaults" title="Overriding Defaults" class="md-nav__link">
+    Overriding Defaults
+  </a>
+  
+</li>
+      
       
       
     </ul>
@@ -1427,7 +1477,7 @@
                 
                   <h1>Email</h1>
                 
-                <p>Send email messages using the <strong><a href="https://mailgun.com">Mailgun</a></strong> messaging service.</p>
+                <p>Send email messages using the <strong><a href="https://mailgun.com">Mailgun</a></strong> messaging service. Supports both <strong>US</strong> and <strong>EU</strong> API endpoints.</p>
 <div class="admonition warning">
 <p class="admonition-title">Mailgun Account Required</p>
 <p>A valid <strong>Mailgun</strong> account and the proper configuration must be set up to use the <strong>email</strong> module. See the <strong><a href="#configuration">Configuration</a></strong> section below. The <strong>Mailgun</strong> messaging service allows you to send up to 10,000 free email messages a month.</p>
@@ -1438,41 +1488,17 @@
 </div>
 <h3 id="new">new</h3>
 <p>Create a new email message object.</p>
-<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">([</span><span class="n">key</span><span class="p">][,</span> <span class="n">domain</span><span class="p">])</span>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 </pre></div>
 
 
 <p><strong>Parameters</strong></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-<th>Type</th>
-<th>Required</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>key</td>
-<td>Your Mailgun API key.</td>
-<td>String</td>
-<td><strong>N</strong></td>
-</tr>
-<tr>
-<td>domain</td>
-<td>Your verified Mailgun domain.</td>
-<td>String</td>
-<td><strong>N</strong></td>
-</tr>
-</tbody>
-</table>
+<p><em>This method does not require any parameters.</em></p>
 <div class="admonition info">
-<p class="admonition-title">Default Credentials</p>
-<p>If you have already set your <strong>Mailgun</strong> credentials using the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong> then these will be used by default, and you do not need to include the <code>key</code> and <code>domain</code> arguments.</p>
+<p>If you need to make a call to a different <strong>Mailgun</strong> domain other than your default see <a href="#overriding-defaults">Overriding Defaults</a>.</p>
 </div>
 <p><strong>Returns</strong></p>
-<p>A new email message object based on the <strong>Mailgun</strong> credentials.</p>
+<p>A new email message object based on the default <strong>Mailgun</strong> credentials.</p>
 <p><strong>Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">()</span>
 </pre></div>
@@ -1860,9 +1886,51 @@
 
 <h2 id="configuration">Configuration</h2>
 <p>To use the <strong>Email</strong> module you will need a valid <strong><a href="https://mailgun.com">Mailgun</a></strong> account.</p>
-<p>Once you have your account set-up you will need to provide your <em>Sending Domain</em> and <em>Secret API Key</em> from Mailgun to your Coronium Core system.</p>
-<p>Using the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong>, navigate to the <strong>Config</strong> section and enter the requested information in the <strong>Mailgun Settings</strong> area. Click the <strong>update</strong> button to add your credentials.</p>
+<p>Once you have your account set-up you will need to provide your <em>Sending Domain</em>, <em>Secret API Key</em>, and <em>API Region</em> from <strong>Mailgun</strong> to your Coronium Core system.</p>
+<p>Using the <strong><a href="../../../server/webmin/setup/">Webmin</a></strong>, navigate to the <strong>Config</strong> section and enter the requested information in the <strong>Mailgun Settings</strong> area. Click the <strong>update</strong> button to enable your credentials.</p>
 <p>You can now use the <strong>Email</strong> module for sending email.</p>
+<h2 id="overriding-defaults">Overriding Defaults</h2>
+<p>You can also pass your <strong>Mailgun</strong> options directly in the <code>new</code> method. This can be useful when you need to send from another <strong>Mailgun</strong> domain besides your default.</p>
+<div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">domain</span><span class="p">[,</span> <span class="n">region</span><span class="p">])</span>
+</pre></div>
+
+
+<p><strong>Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+<th>Type</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>key</td>
+<td>A Mailgun API key.</td>
+<td>String</td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>domain</td>
+<td>A verified Mailgun domain.</td>
+<td>String</td>
+<td><strong>Y</strong></td>
+</tr>
+<tr>
+<td>region</td>
+<td>A Mailgun API region. <strong>US</strong> (default) or <strong>EU</strong>.</td>
+<td>String</td>
+<td><strong>If EU</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Returns</strong></p>
+<p>A new email message object based on the <strong>Mailgun</strong> credentials.</p>
+<p><strong>Example</strong></p>
+<div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">msg</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">email</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="o">&lt;</span><span class="n">mailgun</span><span class="o">-</span><span class="n">key</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="n">mailgun</span><span class="o">-</span><span class="n">host</span><span class="o">&gt;</span><span class="p">,</span> <span class="o">&lt;</span><span class="s2">&quot;US&quot;</span><span class="o">|</span><span class="s2">&quot;EU&quot;</span><span class="o">&gt;</span><span class="p">)</span>
+</pre></div>
                 
                   
                 
@@ -1918,7 +1986,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
+            &copy;2019 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.7.0
           </div>
         
         powered by
