@@ -115,3 +115,12 @@ Use the __[Coronium Core Corona plugin](https://marketplace.coronalabs.com/plugi
 With the __Coronium Core__ all-in-one server, you own and control your data, with an easy to use custom built solution for [Corona](https://coronalabs.com) developers.
 
 <h3><i class="fas fa-cloud-upload-alt"></i> <a href="https://develephant.github.io/coronium-core-docs/server/installation/digitalocean/">Click Here to Get Started Installing Coronium Core!</a></h3>
+
+## Updates
+
+Looking for updates for your __Coronium Core__ server? [Click Here](/server/updates/).
+
+## Support
+
+ - [Corona Forum Support](https://forums.coronalabs.com/forum/643-coronium/)
+ - [Live Support (varies)](https://discord.gg/gKjAJ7g)
