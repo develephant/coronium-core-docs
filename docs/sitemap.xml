@@ -95,6 +95,30 @@
 
     
     <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server/updates/</loc>
+     <lastmod>2019-09-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/support/</loc>
+     <lastmod>2019-09-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
+     <loc>https://develephant.github.io/coronium-core-docs/server/installation/digitalocean/</loc>
+     <lastmod>2019-09-23</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    
+
+    
+    <url>
      <loc>https://develephant.github.io/coronium-core-docs/about/</loc>
      <lastmod>2019-09-23</lastmod>
      <changefreq>daily</changefreq>

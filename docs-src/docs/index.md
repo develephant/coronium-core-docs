@@ -117,12 +117,3 @@ With the __Coronium Core__ all-in-one server, you own and control your data, wit
 ## Install
 
 <h3><i class="fas fa-cloud-upload-alt"></i> <a href="https://develephant.github.io/coronium-core-docs/server/installation/digitalocean/">Click Here to Get Started Installing Coronium Core!</a></h3>
-
-## Updates
-
-Looking for updates for your __Coronium Core__ server? [Click Here](/server/updates/).
-
-## Support
-
- - [Corona Forum Support](https://forums.coronalabs.com/forum/643-coronium/)
- - [Live Support (varies)](https://discord.gg/gKjAJ7g)
