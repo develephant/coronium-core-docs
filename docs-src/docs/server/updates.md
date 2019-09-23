@@ -14,7 +14,7 @@ __Changes__
   
   - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings and update your code as needed.
 
-  - Users module password algorithm refactored to be on par with current standards. See [Notes](#270-update) below.
+  - Users module password algorithm refactored to be on par with current standards. See [Notes](#270-update) below (thanks @Benzeliden).
 
 __Added__
 
