@@ -8,10 +8,6 @@ The following will update your __Coronium Core__ 2.6.5 server to version 2.7.0
 
 <div style="color:Tomato"><strong><i class="fas fa-exclamation-circle"></i> Be sure to read the <a href="#270-update">Critical Update Notes</a> before installing this update.</strong></div>
 
-__Important Notes__
-
-  - The underlying updating mechanism has changed. If you have edited core files (found in _/usr/local/coronium_) then you run the risk of losing whatever changes you may have made. Backup these files first if needed. ___You should never change files in the core directory___.
-
 __Changes__
 
   - Internals (nginx, ngx_lua, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
@@ -652,6 +648,10 @@ core.init({
 ```
 
 ### 2.7.0 Update
+
+__Updater Notes__
+
+The underlying updating mechanism has changed. If you have edited core files (found in _/usr/local/coronium_) then you run the risk of losing whatever changes you may have made. Backup these files first if needed. ___You should never change files in the core directory___.
 
 __User ID Migration__
 
