@@ -4,6 +4,7 @@ pages:
   - 'Core Server':
     - 'Installation':
       - 'DigitalOcean': 'server/installation/digitalocean.md'
+      - 'Amazon Lightsail': 'server/installation/amazon_ls.md'
       - 'Amazon EC2': 'server/installation/amazon.md'
       - 'Post Install': 'server/installation/postinstall.md'
     - 'Webmin':

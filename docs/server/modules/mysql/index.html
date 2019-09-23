@@ -237,6 +237,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../installation/amazon_ls/" title="Amazon Lightsail" class="md-nav__link">
+      Amazon Lightsail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
     <a href="../../installation/amazon/" title="Amazon EC2" class="md-nav__link">
       Amazon EC2
     </a>
@@ -423,6 +435,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tools/" title="CLI Tools" class="md-nav__link">
+      CLI Tools
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -594,8 +618,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#query-q" title="query | q" class="md-nav__link">
-    query | q
+  <a href="#query" title="query" class="md-nav__link">
+    query
   </a>
   
 </li>
@@ -1219,6 +1243,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../extending/" title="Extending" class="md-nav__link">
+      Extending
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1539,8 +1575,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#query-q" title="query | q" class="md-nav__link">
-    query | q
+  <a href="#query" title="query" class="md-nav__link">
+    query
   </a>
   
 </li>
@@ -1913,7 +1949,7 @@
 <p>Most data handling can be handled directly on the client-side, without the need to create a server-side api. See the client-side <strong><a href="../../../client/modules/mysql/">MySQL</a></strong> module.</p>
 </div>
 <h2 id="query-string">Query String</h2>
-<h3 id="query-q">query | q</h3>
+<h3 id="query">query</h3>
 <div class="codehilite"><pre><span></span><span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">query</span><span class="p">(</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
 <span class="c1">--OR</span>
 <span class="n">core</span><span class="p">.</span><span class="n">mysql</span><span class="p">.</span><span class="n">q</span><span class="p">(</span> <span class="n">db_name</span><span class="p">,</span> <span class="n">query_str</span> <span class="p">)</span>
@@ -1965,7 +2001,7 @@
 </div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
-<p>Use <strong><a href="../../../server/modules/utils/#sf-string-format">core.sf</a></strong> (string format) to make queries easier to build, and type safe.</p>
+<p>Use the <strong><a href="../../../server/modules/utils/#sf-string-format">core.sf</a></strong> (string format) utility method to make queries easier to build, and type safe.</p>
 </div>
 <p><strong>Select Example</strong></p>
 <div class="codehilite"><pre><span></span><span class="kd">local</span> <span class="n">query</span> <span class="o">=</span> <span class="n">core</span><span class="p">.</span><span class="n">sf</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM orders LIMIT %d&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
@@ -3926,7 +3962,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
+            &copy;2019 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.7.0
           </div>
         
         powered by

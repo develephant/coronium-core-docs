@@ -237,6 +237,18 @@
           
           
 
+
+  <li class="md-nav__item">
+    <a href="../amazon_ls/" title="Amazon Lightsail" class="md-nav__link">
+      Amazon Lightsail
+    </a>
+  </li>
+
+        
+          
+          
+          
+
   
 
 
@@ -247,64 +259,9 @@
       
     
     
-      <label class="md-nav__link md-nav__link--active" for="toc">
-        Amazon EC2
-      </label>
-    
     <a href="./" title="Amazon EC2" class="md-nav__link md-nav__link--active">
       Amazon EC2
     </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-instance" title="Create An Instance" class="md-nav__link">
-    Create An Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-coronium-core" title="Install Coronium Core" class="md-nav__link">
-    Install Coronium Core
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
-    Database Passwords
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#server-key" title="Server Key" class="md-nav__link">
-    Server Key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" title="Next Steps" class="md-nav__link">
-    Next Steps
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
-</nav>
     
   </li>
 
@@ -485,6 +442,18 @@
   <li class="md-nav__item">
     <a href="../../guide/mongo/" title="Disabling MongoDB" class="md-nav__link">
       Disabling MongoDB
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../guide/tools/" title="CLI Tools" class="md-nav__link">
+      CLI Tools
     </a>
   </li>
 
@@ -902,6 +871,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../extending/" title="Extending" class="md-nav__link">
+      Extending
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1212,48 +1193,6 @@
     
   
   
-    <label class="md-nav__title" for="toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#create-an-instance" title="Create An Instance" class="md-nav__link">
-    Create An Instance
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#install-coronium-core" title="Install Coronium Core" class="md-nav__link">
-    Install Coronium Core
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#database-passwords" title="Database Passwords" class="md-nav__link">
-    Database Passwords
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#server-key" title="Server Key" class="md-nav__link">
-    Server Key
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#next-steps" title="Next Steps" class="md-nav__link">
-    Next Steps
-  </a>
-  
-</li>
-      
-      
-      
-    </ul>
-  
 </nav>
                   </div>
                 </div>
@@ -1266,92 +1205,8 @@
                 
                 
                 <h1 id="amazon-ec2"><i class="fab fa-amazon"></i> Amazon EC2</h1>
-<p><strong>Coronium Core</strong> server is eligible for the EC2 free tier using Amazon Web Services.</p>
-<div class="admonition warning">
-<p class="admonition-title">AWS Experience Required</p>
-<p>This guide assumes that you have an active AWS account, and are familiar with managing EC2 instances.</p>
-</div>
-<h3 id="create-an-instance">Create An Instance</h3>
-<p>Once you log into the <strong><a href="https://aws.amazon.com/console/">AWS Console</a></strong>, navigate to the <strong>EC2</strong> service. Click the <strong>Launch Instance</strong> button.</p>
-<p>On the next screen, find the <strong>Ubuntu Server 16.04 LTS</strong> AMI, and click the <strong>Select</strong> button on the right.</p>
-<p>Select your preferred instance type. A <strong>t2.micro</strong> is a good starting point. You can always increase the size later.</p>
-<p>Using the <strong>Add Rule</strong> button on the <strong>Configure Security Group</strong> screen, and add the following rules:</p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Protocol</th>
-<th>Port Range</th>
-<th>Source</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Custom TCP</td>
-<td>TCP</td>
-<td>80</td>
-<td>Anywhere</td>
-<td><em>HTTP support</em></td>
-</tr>
-<tr>
-<td>Custom TCP</td>
-<td>TCP</td>
-<td>443</td>
-<td>Anywhere</td>
-<td><em>HTTPS support</em></td>
-</tr>
-<tr>
-<td>Custom TCP</td>
-<td>TCP</td>
-<td>10001</td>
-<td>Anywhere</td>
-<td><em>Coronium Core access</em></td>
-</tr>
-<tr>
-<td>Custom TCP</td>
-<td>TCP</td>
-<td>3306</td>
-<td>Anywhere or IP</td>
-<td><em>MySQL server admin</em></td>
-</tr>
-<tr>
-<td>Custom TCP</td>
-<td>TCP</td>
-<td>27017</td>
-<td>Anywhere or IP</td>
-<td><em>Mongo server admin</em></td>
-</tr>
-</tbody>
-</table>
-<p>Adjust any additional settings, and then <strong>Launch</strong> the AMI.</p>
-<h3 id="install-coronium-core">Install Coronium Core</h3>
-<p>Once your instance is in a <strong>running</strong> state, note the <strong>IPv4 Public IP</strong> address.</p>
-<p>Using a terminal/shell of your choice, SSH into the instance.</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>You can use the built in terminal on OSX. For Windows, check out <strong><a href="https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html">PuTTY</a></strong>.</p>
-</div>
-<div class="codehilite"><pre><span></span>ssh -i &lt;path/to/.pem&gt; ubuntu@&lt;your-instance-ip&gt;
-</pre></div>
-
-
-<p><em>Replace <strong>&lt;your-instance-ip></strong> with the address that was assigned to your instance.</em></p>
-<p>Once you are connected to the droplet, copy and paste the following line into the terminal:</p>
-<div class="codehilite"><pre><span></span>wget https://s3.amazonaws.com/coronium-core/v2.6.5/ec2.sh &amp;&amp; sudo bash ec2.sh
-</pre></div>
-
-
-<h3 id="database-passwords">Database Passwords</h3>
-<p>Once the installation is complete, you will be prompted for your choice of database passwords. Make sure they are secure, and don't lose them. You will use these passwords to connect to your databases both internally and externally.</p>
-<div class="admonition tldr">
-<p class="admonition-title">Changing Passwords</p>
-<p>If you need to change the passwords later see <strong><a href="../../../server/guide/usage/#database-passwords">Database Passswords</a></strong> in the server guide.</p>
-</div>
-<h3 id="server-key">Server Key</h3>
-<p>The server key is used by the Coronium Core client-side <em><a href="../../../client/guide/#initialization">initialization</a></em> method. This key is presented at the end of the installation. Copy the key to use now so you won't have to re-log into the server. To retrieve the key later, use the coronium tool on the server (see <strong><a href="../../../server/guide/key/">Server Key</a></strong>).</p>
-<h3 id="next-steps">Next Steps</h3>
-<p>Once the installation is complete, take a look at the <strong><a href="../../../server/installation/postinstall/">Post Install</a></strong> section.</p>
+<p><strong>Coronium Core</strong> server is now installed using <strong>Amazon Lightsail</strong>, which is a simplified interface for working with EC2 instances.</p>
+<p><a href="../../../server/installation/amazon_ls/">Click here for <strong>Coronium Core</strong> installation instructions using <strong>Amazon Lightsail</strong>.</a></p>
                 
                   
                 
@@ -1370,7 +1225,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../digitalocean/" title="DigitalOcean" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../amazon_ls/" title="Amazon Lightsail" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1379,7 +1234,7 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                DigitalOcean
+                Amazon Lightsail
               </span>
             </div>
           </a>
@@ -1407,7 +1262,7 @@
       <div class="md-footer-copyright">
         
           <div class="md-footer-copyright__highlight">
-            &copy;2018 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.6.5
+            &copy;2019 C. Byerley (develephant) | <i class="fas fa-flask fa-sm"></i> v2.7.0
           </div>
         
         powered by

@@ -14,11 +14,11 @@ __Important Notes__
 
 __Changes__
 
-  - Internals (Nginx, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
+  - Internals (nginx, ngx_lua, LuaJIT, etc.) updated to the latest versions; providing security fixes, better stability, and other enhancements.
   
   - Enhancements include __Global Guard__ which will print a warning in the ___api.log___ if any global variables are found in your server-side code. Lua globals can cause critical race conditions to occur on client requests, so it is wise to keep a look out for these warnings and update your code as needed.
 
-  - Users module password algorithm refactored to be on par with current standards. See [Notes]() below.
+  - Users module password algorithm refactored to be on par with current standards. See [Notes](#270-update) below.
 
 __Added__
 
@@ -49,13 +49,13 @@ wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/do.sh && sudo bash do.
 
 ---
 
-<i class="fab fa-amazon"></i> __Amazon EC2 Updater__
+<i class="fab fa-amazon"></i> __Amazon Lightsail/EC2 Updater__
 
 !!! danger "Ubuntu User Required"
     You must be logged in as the __ubuntu__ user to run the updater or it may fail. __This update requires a server reboot__.
 
 
-Paste the following one-liner into your terminal to start the __Amazon EC2__ update:
+Paste the following one-liner into your terminal to start the __Amazon Lightsail/EC2__ update:
 
 ```
 wget https://s3.amazonaws.com/coronium-core-update/v2.7.0/ec2.sh && sudo bash ec2.sh
@@ -653,7 +653,20 @@ core.init({
 
 ### 2.7.0 Update
 
-Hi
+__User ID Migration__
+
+_Automatic Migration_
+
+The IDs used for the built-in Users system have been updated to current standards. This requires a migration of current IDs to the stronger versions.
+
+The common way this works is that as a user logs in with the Users module -- and if an older ID version is detected -- it will __automatically__ be migrated to the new ID type.
+
+_Manual Migration_
+
+If you want to manually update all the current user IDs to the new type all in one round, you will need to set up a server-side API script, and then call this endpoint from a local Coronium app.
+
+  - Create a new server-side project called "migration".
+  - In the `main.lua` project file add the following api function:
 
 ```lua
 function api.compat( input )
@@ -666,3 +679,25 @@ function api.compat( input )
   return res
 end
 ```
+
+ - Once this is set up, call the endpoint from a simple Corona project:
+
+```lua
+local function onResponse(evt)
+  core.debug(evt)
+end
+
+core.api.compat(onResponse)
+```
+
+  - If there are no major errors, you should receive the count of updated users.
+
+All user IDs are updated, and more secure. Any future users will automatically start with the newer ID type, so there is little need to ever rerun the manual migration. Feel free to delete the "migration" project.
+
+__Global Guard__
+
+The addition of the global guard can have some side effects, mostly related to other external Lua modules -- such as LFS, etc. that still use some global values. You may see warnings regarding this, and at this time you will need to ignore them until LFS, and others, update thier respective modules.
+
+Because a global could be crippling to your application, it has been mandated by the developers of the `ngx_lua` module that ___global guard cannot be disabled___ (though it is currently being debated).
+
+_Over the next few versions, Coronium Core is going to try and phase out any use of LFS. Unless they update it (not likely) first._
