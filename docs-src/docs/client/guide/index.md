@@ -86,7 +86,7 @@ core.init({
 
 ### Enabling Scopes
 
-You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method for the scope to be available in the __[Webmin](/server/webmin/setup/)__. If the scope is not visible in the Webmin, use the __Update Cache__ option in the Webmin __Scopes__ section.
+You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method to register the scope in the __[Webmin](/server/webmin/setup/)__.
 
 ### Scope Permissions
 
