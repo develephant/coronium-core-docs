@@ -81,9 +81,9 @@ core.init({
 
 ### Enabling Scopes
 
-_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
-
 To add a new scope, select the __Scopes__ section in the __[Webmin](/server/webmin/setup/)__ and then click __New Scope__ and enter the requested information.
+
+_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
 
 Scopes are only relavant to the __[User](/client/modules/users/api/)__ and __[Analytics](/client/modules/analytics/)__ modules.
 
