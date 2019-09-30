@@ -59,14 +59,9 @@ __Core Init Keys__
 
 ### Application Scope
 
-!!! note "Screencast Available"
-    Learn about application scopes in a screencast format by __[Clicking here](/screencasts/#application-scopes)__.
-
 Every Corona project must provide a unique "application scope" to the Coronium Core initialization. This scope allows you to group users and metrics to each application so that you can visualize them individually via the __[Webmin](/server/webmin/setup/)__, and for other purposes.
 
-_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
-
-Provide the application scope name to the `scope` parameter of the __[core.init](/client/modules/core/)__ initialzation method.
+Provide the application scope name to the `scope` parameter of the __[core.init](/client/modules/core/)__ initialzation method. Learn how to [set up scopes](#enabling-scopes) in the next section.
 
 __Example__
 
@@ -77,7 +72,7 @@ core.init({
   version = 2,
   server = "https://your.coronium.host",
   key = "03624656-ca90-11e7-b8d4-fb59abeb4c03",
-  scope = "Fun Run"
+  scope = "<app-scope>" --Adding the scope parameter
 })
 ```
 
@@ -86,7 +81,11 @@ core.init({
 
 ### Enabling Scopes
 
-You must run at least one __[User](/client/modules/users/api/)__ or __[Analytics](/client/modules/analytics/)__ method to register the scope in the __[Webmin](/server/webmin/setup/)__.
+_It is important to choose a short but descriptive application scope name that is unique from your other application scopes._ 
+
+To add a new scope, select the __Scopes__ section in the __[Webmin](/server/webmin/setup/)__ and then click __New Scope__ and enter the requested information.
+
+Scopes are only relavant to the __[User](/client/modules/users/api/)__ and __[Analytics](/client/modules/analytics/)__ modules.
 
 ### Scope Permissions
 
